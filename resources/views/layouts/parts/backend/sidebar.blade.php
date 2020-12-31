@@ -85,6 +85,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{ route('menus.index') }}">
+                    <span data-feather="users"></span>
+                    Manage Menu
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('roles.index') }}">
                     <span data-feather="tag"></span>
                     Roles

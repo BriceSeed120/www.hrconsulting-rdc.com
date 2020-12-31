@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Dashboard;
-
+use App\Models\Menu;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MenuController extends Controller
 {
@@ -14,7 +15,9 @@ class MenuController extends Controller
      */
     public function index()
     {
-        return view('dashboard.menu.index')->withTitle('Menus');
+       // return view('dashboard.menu.index')->withTitle('Menus');
+       $menus = Menu::paginate(15);
+       return view('dashboard.menu.index', compact('menus'))->withTitle('Menus');
     }
 
     /**
@@ -34,8 +37,21 @@ class MenuController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    { 
+        $validatedData = $request->validate([
+        'name' => 'required',
+        'description' => 'required'
+        ], [
+            'name.required' => 'Name is required',
+            'name.required' => 'Description is required',
+        ]);
+        $validatedData['user_id'] = Auth::user()->id; 
+        $validatedData['meta_title'] =  $request->meta_title;
+        $validatedData['meta_keywords'] =  $request->meta_keywords;
+        $validatedData['meta_description'] =  $request->meta_description;
+        $menus = Menu::create($validatedData);
+        return back()->with('success', 'User created successfully.');
+
     }
 
     /**

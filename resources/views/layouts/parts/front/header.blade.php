@@ -105,31 +105,20 @@
     <div class="menu-list">
 
         <ul class="callout animation-element test2 one in-view">
-
-            <li><a href="#">Home</a></li>
-            {{ $test}}
-
-            <li><a href="{{url('/')}}">Rooms &amp; Suites</a></li>
-
-            <li><a href="{{url('/')}}">Restaurants &amp; Bar</a></li>
-
-            <li><a href="{{url('/')}}">Meetings &amp; Events</a></li>
-
-            <li><a href="{{url('/')}}">Wellness</a></li>
+           <?php $count = 0; ?>
+            @foreach ($globalMenu as $menu)
+                <?php if($count == 5) break; ?>
+                <li><a href="{{url('/')}}">{{ $menu->name}} </a></li>
+                <?php $count++; ?>
+            @endforeach
 
         </ul>
         <ul class="callout animation-element test2 four in-view">
-
-            <li><a href="{{url('/')}}">Recreation</a></li>
-
-            <li><a href="{{url('/')}}">Special Offers</a></li>
-
-            <li><a href="https://reservations.travelclick.com/112438?languageid=1" target="_blank">Booking</a></li>
-
-            <li><a href="{{url('/')}}">Gallery</a></li>
-
-            <li><a href="{{url('/')}}">Contact Us</a></li>
-
+            @for($i = 5; $i < 10; $i++)
+                @if(!empty($globalMenu[$i]))
+                 <li><a href="{{url('/')}}">{{ $globalMenu[$i]->name}} </a></li>
+                @endif           
+            @endfor
         </ul>
         <ul class="callout animation-element test2 four menucontact in-view">
 

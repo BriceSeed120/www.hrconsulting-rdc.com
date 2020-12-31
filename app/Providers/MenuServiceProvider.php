@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\DB;
+use App\Models\Menu;
+use App\Support\Collection;
 
 class MenuServiceProvider extends ServiceProvider
 {
@@ -24,8 +27,8 @@ class MenuServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('*', function($view){
-            $testName ='Sujan ';
-            return $view->with('test', $testName);
+            $globalMenu =  Menu::all();
+            return $view->with('globalMenu', $globalMenu);
         });
     }
 }
