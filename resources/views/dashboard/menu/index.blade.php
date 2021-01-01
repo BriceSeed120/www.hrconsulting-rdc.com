@@ -16,8 +16,9 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Menu Name</th>
-                    <th>Description</th>
+                    <th>Menu Name</th>                    
+                    <th>Banner Image</th>
+                    <th>Menu Order</th>
                     <th>Meta title</th>
                     <th>Meta Description</th>
                     <th><i class="fa fa-wrench fa-2x"></i></th>
@@ -28,16 +29,19 @@
                     <tr>
                         <td>{{$key + 1}}</td>
                         <td>{{ $menu->name }}</td>
-                        <td>{{ $menu->description }}</td>
+                        <td><img src="{{ asset($menu->thumbnail) }}"  /></td>
+                        <td>{{ $menu->menu_order }}</td>
                         <td>{{ $menu->meta_title }}</td>
                         <td>{{ $menu->meta_description }}</td>
                         <td></td>
                         <td>
+                            <a href="{{ route('menus.show', $menu->id) }}" style="float: left" class="mr-2 btn btn-primary">View</a>
                             <a href="{{ route('menus.edit', $menu->id) }}" style="float: left" class="mr-2 btn btn-secondary">Edit</a>
                             <form class="form-inline ml-2" method="POST" style="float: left;" action="{{ route('menus.destroy', $menu->id) }}">
                                 @method('delete')
                                 @csrf
-                                <button type="submit" class="btn form-inline btn-danger">Delete</button>
+                                <button  onclick="return deleteMenu();"  type="submit" class="btn form-inline btn-danger">Delete</button>
+                               
                             </form>
                         </td>
                     </tr>
@@ -61,3 +65,9 @@
 @section('foot')
 
 @endsection
+<script>
+    function deleteMenu() {
+        if(!confirm("Are You Sure to delete this"))
+        event.preventDefault();
+    }
+   </script>

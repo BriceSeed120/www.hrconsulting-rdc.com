@@ -27,7 +27,7 @@ class MenuServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('*', function($view){
-            $globalMenu =  Menu::all();
+            $globalMenu =  Menu::all()->sortBy('menu_order');
             return $view->with('globalMenu', $globalMenu);
         });
     }

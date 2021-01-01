@@ -4,6 +4,7 @@ use App\Http\Controllers\Dashboard\BannerController;
 use App\Http\Controllers\Dashboard\CouponController;
 use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\UserController;
+use App\Http\Controllers\CKEditorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,4 +45,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], functio
        ]);
     });
 });
+
+ Route::resource('editor', CKEditorController::class); 
+ Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload');
+ 
 require __DIR__.'/auth.php';

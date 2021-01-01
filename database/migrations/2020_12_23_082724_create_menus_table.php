@@ -24,6 +24,9 @@ class CreateMenusTable extends Migration
             $table->string('meta_title')->nullable();
             $table->text('meta_description')->nullable();
             $table->string('meta_keywords')->nullable();
+            $table->bigInteger('menu_order')->nullable();
+            $table->string('attachment')->nullable();
+            $table->string('thumbnail')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
