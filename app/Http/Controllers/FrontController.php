@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FrontController extends Controller
 {
@@ -11,6 +12,12 @@ class FrontController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function page($menu_id)
+    {
+        $pageInfo = DB::table('menus')->where('id', $menu_id)->first();
+       return view('front.page', compact('pageInfo'));
+    }
+
     public function index()
     {
         //

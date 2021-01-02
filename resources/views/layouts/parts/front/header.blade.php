@@ -108,7 +108,7 @@
            <?php $count = 0; ?>
             @foreach ($globalMenu as $menu)
                 <?php if($count == 5) break; ?>
-                <li><a href="{{url('/')}}">{{ $menu->name}} </a></li>
+                <li><a href="{{ route("frontpage", $menu->id) }}">{{ $menu->name}} </a></li>
                 <?php $count++; ?>
             @endforeach
 
@@ -116,7 +116,7 @@
         <ul class="callout animation-element test2 four in-view">
             @for($i = 5; $i < 10; $i++)
                 @if(!empty($globalMenu[$i]))
-                 <li><a href="{{url('/')}}">{{ $globalMenu[$i]->name}} </a></li>
+                 <li><a  href="{{ route("frontpage", $globalMenu[$i]->id) }}">{{ $globalMenu[$i]->name}} </a></li>
                 @endif           
             @endfor
         </ul>

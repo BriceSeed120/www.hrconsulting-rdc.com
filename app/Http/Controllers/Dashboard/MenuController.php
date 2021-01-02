@@ -38,6 +38,7 @@ class MenuController extends Controller
         $details = DB::table('menus')->where('id', $id)->first();
        return view('dashboard.menu.show', compact('details'))->withTitle('Menu View');
     }
+
     /**
      * Store a newly created resource in storage.
      *
