@@ -19,9 +19,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('front.index');
-});
+// Route::get('/', function () {
+//     return view('front.index');
+// });
+Route::get('/', [FrontController::class, 'index'])->name('index');
+Route::resource('editor', CKEditorController::class); 
+Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload');
+Route::get('/page/{id}', [FrontController::class, 'page'])->name('frontpage');
+
+
 Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], function() {
     Route::get('/', function () {
         return view('dashboard.home.index');
@@ -47,7 +53,5 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], functio
     });
 });
 
- Route::resource('editor', CKEditorController::class); 
- Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload');
- Route::get('/page/{id}', [FrontController::class, 'page'])->name('frontpage');
+
 require __DIR__.'/auth.php';

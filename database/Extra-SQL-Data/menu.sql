@@ -37,13 +37,13 @@ CREATE TABLE IF NOT EXISTS `menus` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table laravel.menus: ~13 rows (approximately)
+-- Dumping data for table laravel.menus: ~12 rows (approximately)
 /*!40000 ALTER TABLE `menus` DISABLE KEYS */;
 INSERT INTO `menus` (`id`, `user_id`, `name`, `description`, `menu_class`, `menu_icon`, `position`, `meta_title`, `meta_description`, `meta_keywords`, `menu_order`, `attachment`, `thumbnail`, `deleted_at`, `created_at`, `updated_at`) VALUES
 	(1, 1, 'Home', '<p>Homepage</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>update</p>\r\n\r\n<p>update</p>', NULL, NULL, 99, 'home update', 'home update', 'update', 1, '/uploads/banner/1609519431.jpg', '/uploads/banner/thumbnail/1609519431.jpg', NULL, NULL, '2021-01-01 17:01:12'),
 	(2, 1, 'Restaurants', '<p>Restaurants</p>', NULL, NULL, 99, NULL, NULL, NULL, 1, '/uploads/banner/1609519471.jpg', '/uploads/banner/thumbnail/1609519471.jpg', NULL, '2020-12-31 08:52:30', '2021-01-01 16:44:31'),
-	(3, 1, 'Rooms & Suites', 'Rooms & Suites', NULL, NULL, 99, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2020-12-31 08:53:04', '2020-12-31 08:53:04'),
-	(4, 1, 'Meetings & Events', 'Meetings & Events', NULL, NULL, 99, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2020-12-31 10:35:21', '2020-12-31 10:35:21'),
+	(3, 1, 'Rooms & Suites', '<p>Rooms &amp; Suites</p>', NULL, NULL, 99, NULL, NULL, NULL, 1, '/uploads/banner/1609581760.jpg', '/uploads/banner/thumbnail/1609581760.jpg', NULL, '2020-12-31 08:53:04', '2021-01-02 10:02:40'),
+	(4, 1, 'Meetings & Events', '<p>Meetings &amp; Events</p>', NULL, NULL, 99, NULL, NULL, NULL, 1, '/uploads/banner/1609586770.jpg', '/uploads/banner/thumbnail/1609586770.jpg', NULL, '2020-12-31 10:35:21', '2021-01-02 11:26:10'),
 	(5, 1, 'Wellness', 'Wellness', NULL, NULL, 99, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2020-12-31 10:35:52', '2020-12-31 10:35:52'),
 	(6, 1, 'Recreation', 'Recreation', NULL, NULL, 99, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2020-12-31 10:39:25', '2020-12-31 10:39:25'),
 	(7, 1, 'Special Offers', 'Special Offers', NULL, NULL, 99, NULL, NULL, NULL, 1, NULL, NULL, NULL, '2020-12-31 10:39:45', '2020-12-31 10:39:45'),

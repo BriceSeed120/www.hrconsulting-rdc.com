@@ -65,8 +65,6 @@
             </div>
         </div>
     </div>
-
-
     <div>
         <div class="room-list">
             <div class="row">
@@ -79,86 +77,20 @@
                             <div class="owl-stage-outer">
                                 <div class="owl-stage"
                                      style="transform: translate3d(-2710px, 0px, 0px); transition: all 0s ease 0s; width: 10298px;">
-                                    <div class="owl-item cloned" style="width: 532px; margin-right: 10px;">
-                                        <div class="item"><a
-                                                href="#executive-suite-sea.php">
-                                                <img src="{{ asset('assets/front/img/5203-ess.jpg')}}">
-                                                <div class="holder">
-                                                    <h4 class="callout animation-element test2">Executive Suite Sea</h4>
-                                                    <p>720 sft area in the Executive Suite gives the guests cherish feeling
-                                                        of living.</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item cloned" style="width: 532px; margin-right: 10px;">
-                                        <div class="item"><a
-                                                href="#executive-suite-hill.php">
-                                                <img src="{{ asset('assets/front/img/executive-suite-hill.jpg')}}">
-                                                <div class="holder">
-                                                    <h4 class="callout animation-element test2">Executive Suite Hill</h4>
-                                                    <p>720 sft area in the Executive Suite gives the guests cherish feeling
-                                                        of living.</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item cloned" style="width: 532px; margin-right: 10px;">
-                                        <div class="item"><a
-                                                href="#royal-family-suite.php">
-                                                <img src="{{ asset('assets/front/img/3317-rfs.jpg')}}">
-                                                <div class="holder">
-                                                    <h4 class="callout animation-element test2">Royal Family Suite</h4>
-                                                    <p>1050 sft. 2 bedrooms suites mirror the warmth of a home.</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item cloned" style="width: 532px; margin-right: 10px;">
-                                        <div class="item"><a
-                                                href="#royal-paradise-suite.php">
-                                                <img src="{{ asset('assets/front/img/royal-paradise-suite.jpg')}}">
-                                                <div class="holder">
-                                                    <h4 class="callout animation-element test2">Royal Paradise Suite</h4>
-                                                    <p>2020 sft. 2 bedrooms suites mirror the warmth of a home.</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item cloned" style="width: 532px; margin-right: 10px;">
-                                        <div class="item"><a
-                                                href="#presidential-suite.php">
-                                                <img src="{{ asset('assets/front/img/presidential-suite.jpg')}}">
-                                                <div class="holder">
-                                                    <h4 class="callout animation-element test2">Presidential Suite</h4>
-                                                    <p>2500 sft. 2 bedrooms suites mirror the warmth of a home.</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item active" style="width: 532px; margin-right: 10px;">
-                                        <div class="item"><a href="#superior-hill.php">
-                                                <img src="{{ asset('assets/front/img/superior-hill.jpg')}}">
-                                                <div class="holder">
-                                                    <h4 class="tagline callout animation-element test2">Superior Hill</h4>
-                                                    <p>Functionality and individuality are the essence of 400 sft wide
-                                                        Superior Hill View.</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item active" style="width: 532px; margin-right: 10px;">
+                                   
+                                    @foreach ($banners as $banner)
+                                    <div class="owl-item active 123455" style="width: 532px; margin-right: 10px;">
                                         <div class="item"><a href="#superior-sea.php">
-                                                <img src="{{ asset('assets/front/img/2409-sps.jpg')}}">
+                                                <img src="{{ asset($banner->attachment)}}" />
                                                 <div class="holder">
-                                                    <h4 class="tagline callout animation-element test2">Superior King-
-                                                        Garden View</h4>
-                                                    <p>Functionality and individuality are the essence of 400sft wide
-                                                        Superior King - Garden View</p>
+                                                    <h4 class="tagline callout animation-element test2"> {{ $banner->title }}</h4>
+                                                    <p>  {{ $banner->description }} </p>
                                                 </div>
                                             </a>
                                         </div>
                                     </div>
+                                    @endforeach
+    
                                     <div class="owl-item" style="width: 532px; margin-right: 10px;">
                                         <div class="item"><a href="#premier.php">
                                                 <img src="{{ asset('assets/front/img/3501-premier-new.jpg')}}">
@@ -216,63 +148,9 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="owl-item" style="width: 532px; margin-right: 10px;">
-                                        <div class="item"><a
-                                                href="#presidential-suite.php">
-                                                <img src="{{ asset('assets/front/img/presidential-suite.jpg')}}">
-                                                <div class="holder">
-                                                    <h4 class="callout animation-element test2">Presidential Suite</h4>
-                                                    <p>2500 sft. 2 bedrooms suites mirror the warmth of a home.</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item cloned" style="width: 532px; margin-right: 10px;">
-                                        <div class="item"><a href="#superior-hill.php">
-                                                <img src="{{ asset('assets/front/img/superior-hill.jpg')}}">
-                                                <div class="holder">
-                                                    <h4 class="tagline callout animation-element test2">Superior Hill</h4>
-                                                    <p>Functionality and individuality are the essence of 400 sft wide
-                                                        Superior Hill View.</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item cloned" style="width: 532px; margin-right: 10px;">
-                                        <div class="item"><a href="#superior-sea.php">
-                                                <img src="{{ asset('assets/front/img/2409-sps.jpg')}}">
-                                                <div class="holder">
-                                                    <h4 class="tagline callout animation-element test2">Superior King-
-                                                        Garden View</h4>
-                                                    <p>Functionality and individuality are the essence of 400sft wide
-                                                        Superior King - Garden View</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item cloned" style="width: 532px; margin-right: 10px;">
-                                        <div class="item"><a href="#premier.php">
-                                                <img src="{{ asset('assets/front/img/3501-premier-new.jpg')}}">
-                                                <div class="holder">
-                                                    <h4 class="callout animation-element test2">Premier (Sea View)</h4>
-                                                    <p>690 sft wide Premier room involves and offers most relaxation of the
-                                                        guests.</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item cloned" style="width: 532px; margin-right: 10px;">
-                                        <div class="item"><a
-                                                href="#executive-suite-sea.php">
-                                                <img src="{{ asset('assets/front/img/5203-ess.jpg')}}">
-                                                <div class="holder">
-                                                    <h4 class="callout animation-element test2">Executive Suite Sea</h4>
-                                                    <p>720 sft area in the Executive Suite gives the guests cherish feeling
-                                                        of living.</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
+ 
+                                    
+              
                                 </div>
                             </div>
                             <div class="owl-nav">

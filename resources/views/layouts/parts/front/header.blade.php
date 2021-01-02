@@ -105,6 +105,7 @@
     <div class="menu-list">
 
         <ul class="callout animation-element test2 one in-view">
+            <li><a href="/"> Home </a></li>
            <?php $count = 0; ?>
             @foreach ($globalMenu as $menu)
                 <?php if($count == 5) break; ?>

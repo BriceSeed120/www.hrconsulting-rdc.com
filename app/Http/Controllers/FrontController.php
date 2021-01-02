@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Banners;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Banner;
 
 class FrontController extends Controller
 {
@@ -20,7 +22,9 @@ class FrontController extends Controller
 
     public function index()
     {
-        //
+      //  $banners =  Banner::all();
+        $banners =  DB::table('banners')->get();
+        return view('front.index', compact('banners'));
     }
 
     /**
