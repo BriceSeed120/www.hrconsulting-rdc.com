@@ -84,9 +84,8 @@
             filebrowserUploadUrl: "{{ route('upload', ['_token' => csrf_token()]) }}",
             filebrowserUploadMethod: 'form'
         });
-
     </script>
-    </main>
+   </main>
 @endsection
 
 @section('head')

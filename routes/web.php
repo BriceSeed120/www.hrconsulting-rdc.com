@@ -8,26 +8,11 @@ use App\Http\Controllers\CKEditorController;
 use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
-// Route::get('/', function () {
-//     return view('front.index');
-// });
 Route::get('/', [FrontController::class, 'index'])->name('index');
-Route::resource('editor', CKEditorController::class); 
-Route::post('ckeditor/image_upload', 'CKEditorController@upload')->name('upload');
+Route::get('editor', [CKEditorController::class, 'index']);
+Route::post('ckeditor/upload', [CKEditorController::class, 'upload'])->name('upload');
 Route::get('/page/{id}', [FrontController::class, 'page'])->name('frontpage');
-
-
 Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], function() {
     Route::get('/', function () {
         return view('dashboard.home.index');
@@ -52,6 +37,5 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], functio
        ]);
     });
 });
-
 
 require __DIR__.'/auth.php';
