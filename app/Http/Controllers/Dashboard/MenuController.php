@@ -71,10 +71,8 @@ class MenuController extends Controller
             $validatedData['thumbnail'] = '/uploads/banner/thumbnail/' . $filename;
             $validatedData['user_id'] = Auth::user()->id;
         }
-
         $menus = Menu::create($validatedData);
-        return back()->with('success', 'Menu created successfully.');
-
+        return redirect()->route('menus.index')->with('success', 'Menu created successfully.');
     }
 
     /**
@@ -122,13 +120,10 @@ class MenuController extends Controller
                 $validatedData['thumbnail'] = '/uploads/banner/thumbnail/' . $filename;
                 $validatedData['user_id'] = Auth::user()->id;
             }
-           // $validatedData = Menu::find($id);
-           // $validatedData->save();
-            //Menu::update($validatedData, $id); 
-           // $menu = Menu::findOrFail($id);
-           // $menu->update($validatedData, $id);
             $affectedRows = Menu::where("id", $id)->update($validatedData);
             return back()->with('success', 'Menu update successfully.');
+            
+            
 
     }
 

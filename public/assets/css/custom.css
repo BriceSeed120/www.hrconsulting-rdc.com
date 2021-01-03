@@ -1,0 +1,15 @@
+.add-more-area{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    height: 40px;
+  }
+  .add-more-area input{
+      width: 95%;
+      outline: none;
+  }
+  .add-more-area a{
+    width: 60px;
+    margin-left: 10px;
+  }
