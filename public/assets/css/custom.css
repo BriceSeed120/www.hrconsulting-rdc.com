@@ -3,7 +3,8 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 5px;
-    height: 40px;
+    min-height: 40px;
+    max-height: auto;
   }
   .add-more-area input{
       width: 95%;

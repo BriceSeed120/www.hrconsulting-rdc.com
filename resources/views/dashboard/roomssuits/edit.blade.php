@@ -66,29 +66,22 @@
                                     <input type="file" name="gallery[]" value="" />
                                     <a href="javascript:void(0);" class="add_button" title="Add field"> Add </a>
                                 </div>
-                                {{-- @if ($roomssuits->gallery)
+                                 @if ($roomssuits->gallery)
                                 <?php $list = explode(',', $roomssuits->gallery); ?>
                                 @for ($i = 0; $i < sizeof($list); $i++)
-                                    @if ($i == 0)
-                                        <div class="add-more-area">
-                                            <input type="text" class="form-control" name="property_list[]"
-                                                placeholder="Property list" value="{{ $list[$i] }}" />
-                                            <a href="javascript:void(0);" class="add_property_button"
-                                                title="Add field">Add </a>
-                                        </div>
-                                    @else
-                                        <div class="add-more-area"><input class="form-control" type="text"
-                                                placeholder="Property list" name="property_list[]"
-                                                value="{{ $list[$i] }}" /><a href="javascript:void(0);"
-                                                class="remove_button">Remove</a></div>
-                                    @endif
+                                    <div class="add-more-area">
+                                            <img height="60" width="100" src={{asset($list[$i])}} alt=""/>
+                                            <a href="javascript:void(0);"
+                                            class="remove_button">Remove</a>
+                                    </div>
+                                    
                                 @endfor
                             @else
                             <div class="add-more-area">
                                 <input type="file" name="gallery[]" value="" />
                                 <a href="javascript:void(0);" class="add_button" title="Add field"> Add </a>
                             </div>
-                            @endif --}}
+                            @endif
                             </div>
                         </div>
 
