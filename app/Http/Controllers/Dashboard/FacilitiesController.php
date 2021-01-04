@@ -1,14 +1,13 @@
 <?php
 
 namespace App\Http\Controllers\Dashboard;
-
-use App\Models\Roomssuits;
+use App\Models\Facilities;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 
-class RoomsSuitsController extends Controller
+class FacilitiesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,8 @@ class RoomsSuitsController extends Controller
      */
     public function index()
     {
-        $roomssuits = Roomssuits::paginate(15);
-        return view('dashboard.roomssuits.index', compact('roomssuits'))->withTitle('Rooms & Suites');
+        $facilities = Facilities::paginate(15);
+        return view('dashboard.facilities.index', compact('facilities'))->withTitle('Facilities');
     }
 
     /**
@@ -28,7 +27,7 @@ class RoomsSuitsController extends Controller
      */
     public function create()
     {
-        return view('dashboard.roomssuits.create')->withTitle('Add new Rooms & Suites');
+        return view('dashboard.facilities.create')->withTitle('Add new facilities');
     }
 
     /**
@@ -39,6 +38,7 @@ class RoomsSuitsController extends Controller
      */
     public function store(Request $request)
     {
+        
         $validatedData = $request->validate([
             'name' => 'required',
             'description' => 'required',
@@ -80,8 +80,8 @@ class RoomsSuitsController extends Controller
             $validatedData['gallery'] = "";
         }
 
-        $roomssuits = Roomssuits::create($validatedData);
-        return redirect()->route('roomssuits.index')->with('success', 'Rooms & suites created successfully.');
+        $facilities = Facilities::create($validatedData);
+        return redirect()->route('facilities.index')->with('success', 'Facilities created successfully.');
     }
 
     /**
@@ -92,8 +92,8 @@ class RoomsSuitsController extends Controller
      */
     public function show($id)
     {
-        $roomssuits = Roomssuits::findOrFail($id);
-        return view('dashboard.roomssuits.view', compact('roomssuits'))->withTitle('View Rooms & Suites');
+        $facilities = Facilities::findOrFail($id);
+        return view('dashboard.facilities.view', compact('facilities'))->withTitle('View Facilities');
     }
 
     /**
@@ -104,8 +104,8 @@ class RoomsSuitsController extends Controller
      */
     public function edit($id)
     {
-        $roomssuits = Roomssuits::findOrFail($id);
-        return view('dashboard.roomssuits.edit', compact('roomssuits'))->withTitle('Edit Rooms & Suites');
+        $facilities = Facilities::findOrFail($id);
+        return view('dashboard.facilities.edit', compact('facilities'))->withTitle('Edit Facilities');
     }
 
     /**
@@ -116,7 +116,7 @@ class RoomsSuitsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {        
         $validatedData = $request->validate([
             'name' => 'required',
             'description' => 'required',
@@ -155,9 +155,9 @@ class RoomsSuitsController extends Controller
             }
             $validatedData['gallery'] = rtrim($files, ',');
         }
-
-        $roomssuits = Roomssuits::where("id", $id)->update($validatedData);
-        return redirect()->route('roomssuits.index')->with('success', 'Rooms & suites update successfully.');
+        $facilities = Facilities::where("id", $id)->update($validatedData);
+        return redirect()->route('facilities.index')->with('success', 'Facilities update successfully.');
+  
     }
 
     /**
@@ -168,8 +168,8 @@ class RoomsSuitsController extends Controller
      */
     public function destroy($id)
     {
-        $rooms = Roomssuits::findOrFail($id);
-        $rooms->delete();
-        return back()->with('success', 'Room & Suites deleted successfully.');
+        $facilities = Facilities::findOrFail($id);
+        $facilities->delete();
+        return back()->with('success', 'Facilities deleted successfully.');
     }
 }

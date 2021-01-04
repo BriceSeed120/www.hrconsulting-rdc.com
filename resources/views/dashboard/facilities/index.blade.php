@@ -5,9 +5,9 @@
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">{{ $title }}</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
-                <a href="{{ route('roomssuits.create') }}" type="button" class="btn btn-sm btn-outline-secondary">
+                <a href="{{ route('facilities.create') }}" type="button" class="btn btn-sm btn-outline-secondary">
                     <span data-feather="plus"></span>
-                    Add new room
+                    Add new facilities
                 </a>
             </div>
         </div>
@@ -26,7 +26,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($roomssuits as $k => $room)
+                    @foreach ($facilities as $k => $room)
                         <tr>
                             <td>{{ $k + 1 }}</td>
                             <td>{{ $room->name }}</td>
@@ -36,11 +36,11 @@
                             <td>{{ $room->rate_in_usd }}</td>
                             <td>
                                 <a class="btn btn-primary" style="float: left"
-                                    href="{{ route('roomssuits.show', $room->id) }}">View</a>
+                                    href="{{ route('facilities.show', $room->id) }}">View</a>
                                 <a class="btn btn-secondary" style="float: left"
-                                    href="{{ route('roomssuits.edit', $room->id) }}">Edit</a>
+                                    href="{{ route('facilities.edit', $room->id) }}">Edit</a>
                                 <form class="form-inline ml-2" method="POST" style="float: left;"
-                                    action="{{ route('roomssuits.destroy', $room->id) }}">
+                                    action="{{ route('facilities.destroy', $room->id) }}">
                                     @method('delete')
                                     @csrf
                                     <button onclick="return deleteRoom();" type="submit"
@@ -50,14 +50,14 @@
                             </td>
                         </tr>
                     @endforeach
-                    @if (!$roomssuits->count())
+                    @if (!$facilities->count())
                         <tr>
                             <td colspan="6"> Nothing found</td>
                         </tr>
                     @endif
                 </tbody>
             </table>
-            {!! $roomssuits->links() !!}
+            {!! $facilities->links() !!}
         </div>
     </main>
 @endsection

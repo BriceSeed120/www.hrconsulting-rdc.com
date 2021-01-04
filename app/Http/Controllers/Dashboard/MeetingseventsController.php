@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Models\Roomssuits;
+use App\Models\Meetingsevents;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 
-class RoomsSuitsController extends Controller
+class MeetingseventsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class RoomsSuitsController extends Controller
      */
     public function index()
     {
-        $roomssuits = Roomssuits::paginate(15);
-        return view('dashboard.roomssuits.index', compact('roomssuits'))->withTitle('Rooms & Suites');
+        $meetings_events = Meetingsevents::paginate(15);
+        return view('dashboard.meetings_events.index', compact('meetings_events'))->withTitle('Meetings and events');
     }
 
     /**
@@ -28,7 +28,7 @@ class RoomsSuitsController extends Controller
      */
     public function create()
     {
-        return view('dashboard.roomssuits.create')->withTitle('Add new Rooms & Suites');
+        return view('dashboard.meetings_events.create')->withTitle('Add new Meetings and events');
     }
 
     /**
@@ -80,8 +80,8 @@ class RoomsSuitsController extends Controller
             $validatedData['gallery'] = "";
         }
 
-        $roomssuits = Roomssuits::create($validatedData);
-        return redirect()->route('roomssuits.index')->with('success', 'Rooms & suites created successfully.');
+        $meetings_events = Meetingsevents::create($validatedData);
+        return redirect()->route('meetings_events.index')->with('success', 'Meetings & events created successfully.');
     }
 
     /**
@@ -92,8 +92,8 @@ class RoomsSuitsController extends Controller
      */
     public function show($id)
     {
-        $roomssuits = Roomssuits::findOrFail($id);
-        return view('dashboard.roomssuits.view', compact('roomssuits'))->withTitle('View Rooms & Suites');
+        $meetings_events = Meetingsevents::findOrFail($id);
+        return view('dashboard.meetings_events.view', compact('meetings_events'))->withTitle('View Meetings & Events');
     }
 
     /**
@@ -104,8 +104,8 @@ class RoomsSuitsController extends Controller
      */
     public function edit($id)
     {
-        $roomssuits = Roomssuits::findOrFail($id);
-        return view('dashboard.roomssuits.edit', compact('roomssuits'))->withTitle('Edit Rooms & Suites');
+        $meetings_events = Meetingsevents::findOrFail($id);
+        return view('dashboard.meetings_events.edit', compact('meetings_events'))->withTitle('Edit Meetings & Events');
     }
 
     /**
@@ -156,8 +156,8 @@ class RoomsSuitsController extends Controller
             $validatedData['gallery'] = rtrim($files, ',');
         }
 
-        $roomssuits = Roomssuits::where("id", $id)->update($validatedData);
-        return redirect()->route('roomssuits.index')->with('success', 'Rooms & suites update successfully.');
+        $meetings_events = Meetingsevents::where("id", $id)->update($validatedData);
+        return redirect()->route('meetings_events.index')->with('success', 'Meetings & Events update successfully.');
     }
 
     /**
@@ -168,8 +168,8 @@ class RoomsSuitsController extends Controller
      */
     public function destroy($id)
     {
-        $rooms = Roomssuits::findOrFail($id);
-        $rooms->delete();
-        return back()->with('success', 'Room & Suites deleted successfully.');
+        $meetings_events = Meetingsevents::findOrFail($id);
+        $meetings_events->delete();
+        return back()->with('success', 'Meetings & Events deleted successfully.');
     }
 }

@@ -15,19 +15,19 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('facilities.index', ['type' => 'facility']) }}">
+                <a class="nav-link" href="{{ route('facilities.index') }}">
                     <span data-feather="award"></span>
                     Facilities
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('facilities.index', ['type' => 'restaurant']) }}">
+                <a class="nav-link" href="{{ route('resturants.index') }}">
                     <span data-feather="award"></span>
                     Restaurants
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('facilities.index', ['type' => 'meeting-event']) }}">
+                <a class="nav-link" href="{{ route('meetings_events.index') }}">
                     <span data-feather="award"></span>
                     Meetings &amp; Events
                 </a>

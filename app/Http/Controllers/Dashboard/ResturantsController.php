@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Models\Roomssuits;
+
+use App\Models\Resturants;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
 
-class RoomsSuitsController extends Controller
+class ResturantsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +18,8 @@ class RoomsSuitsController extends Controller
      */
     public function index()
     {
-        $roomssuits = Roomssuits::paginate(15);
-        return view('dashboard.roomssuits.index', compact('roomssuits'))->withTitle('Rooms & Suites');
+        $resturants = Resturants::paginate(15);
+        return view('dashboard.resturants.index', compact('resturants'))->withTitle('Restaurants');
     }
 
     /**
@@ -28,7 +29,7 @@ class RoomsSuitsController extends Controller
      */
     public function create()
     {
-        return view('dashboard.roomssuits.create')->withTitle('Add new Rooms & Suites');
+        return view('dashboard.resturants.create')->withTitle('Add new Restaurant');
     }
 
     /**
@@ -39,6 +40,7 @@ class RoomsSuitsController extends Controller
      */
     public function store(Request $request)
     {
+        
         $validatedData = $request->validate([
             'name' => 'required',
             'description' => 'required',
@@ -80,8 +82,9 @@ class RoomsSuitsController extends Controller
             $validatedData['gallery'] = "";
         }
 
-        $roomssuits = Roomssuits::create($validatedData);
-        return redirect()->route('roomssuits.index')->with('success', 'Rooms & suites created successfully.');
+        $resturants = Resturants::create($validatedData);
+        return redirect()->route('resturants.index')->with('success', 'Restaurants created successfully.');
+    
     }
 
     /**
@@ -92,8 +95,8 @@ class RoomsSuitsController extends Controller
      */
     public function show($id)
     {
-        $roomssuits = Roomssuits::findOrFail($id);
-        return view('dashboard.roomssuits.view', compact('roomssuits'))->withTitle('View Rooms & Suites');
+        $resturants = Resturants::findOrFail($id);
+        return view('dashboard.resturants.view', compact('resturants'))->withTitle('View Restaurants');
     }
 
     /**
@@ -104,8 +107,8 @@ class RoomsSuitsController extends Controller
      */
     public function edit($id)
     {
-        $roomssuits = Roomssuits::findOrFail($id);
-        return view('dashboard.roomssuits.edit', compact('roomssuits'))->withTitle('Edit Rooms & Suites');
+        $resturants = Resturants::findOrFail($id);
+        return view('dashboard.resturants.edit', compact('resturants'))->withTitle('Edit Restaurants');
     }
 
     /**
@@ -117,6 +120,7 @@ class RoomsSuitsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         $validatedData = $request->validate([
             'name' => 'required',
             'description' => 'required',
@@ -156,8 +160,9 @@ class RoomsSuitsController extends Controller
             $validatedData['gallery'] = rtrim($files, ',');
         }
 
-        $roomssuits = Roomssuits::where("id", $id)->update($validatedData);
-        return redirect()->route('roomssuits.index')->with('success', 'Rooms & suites update successfully.');
+        $resturants = Resturants::where("id", $id)->update($validatedData);
+        return redirect()->route('resturants.index')->with('success', 'Restaurants update successfully.');
+    
     }
 
     /**
@@ -168,8 +173,8 @@ class RoomsSuitsController extends Controller
      */
     public function destroy($id)
     {
-        $rooms = Roomssuits::findOrFail($id);
-        $rooms->delete();
-        return back()->with('success', 'Room & Suites deleted successfully.');
+        $resturants = Resturants::findOrFail($id);
+        $resturants->delete();
+        return back()->with('success', 'Restaurants deleted successfully.');
     }
 }

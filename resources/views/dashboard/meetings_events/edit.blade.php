@@ -5,7 +5,7 @@
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">{{ $title }}</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
-                <a href="{{ route('roomssuits.index') }}" type="button" class="btn btn-sm btn-outline-secondary">
+                <a href="{{ route('meetings_events.index') }}" type="button" class="btn btn-sm btn-outline-secondary">
                     <span data-feather="arrow-left"></span>
                     Back
                 </a>
@@ -13,7 +13,7 @@
         </div>
 
         <div class="content">
-            <form method="POST" action="{{ route('roomssuits.update', $roomssuits->id) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('meetings_events.update', $meetings_events->id) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="row">
@@ -21,25 +21,25 @@
                         <div class="form-group mb-4">
                             <label for="title">Name * </label>
                             <input type="text" name="name" class="form-control" placeholder="Name"
-                                value="{{ old('name', $roomssuits->name) }}">
+                                value="{{ old('name', $meetings_events->name) }}">
                         </div>
                         <div class="form-group mb-4">
                             <label for="title">Property Label Name</label>
                             <input type="text" name="property_label" class="form-control" placeholder="Property Label Name"
-                                value="{{ old('property_label', $roomssuits->property_label) }}">
+                                value="{{ old('property_label', $meetings_events->property_label) }}">
                         </div>
 
                         <div class="form-group">
                             <label for="title">Feature Image</label>
                             <input type="file" name="feature_image" class="form-control form-control-file">
                             <div style="height: 120px; width: 200px; margin-top: 15px">
-                                <img height="120" width="200" src="{{ asset($roomssuits->feature_image) }}" />
+                                <img height="120" width="200" src="{{ asset($meetings_events->feature_image) }}" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="title">Description * </label>
                             <textarea type="text" name="description" rows="8" placeholder="Description"
-                                class="form-control">{{ old('description', $roomssuits->description) }}</textarea>
+                                class="form-control">{{ old('description', $meetings_events->description) }}</textarea>
                         </div>
                         <hr>
                         <div class="form-group">
@@ -50,12 +50,12 @@
                         <div class="form-group mb-4">
                             <label for="title">Rate in BTD(৳) * </label>
                             <input type="text" name="rate_in_bdt" class="form-control" placeholder="Rate in BDT(৳)"
-                                value="{{ old('rate_in_bdt', $roomssuits->rate_in_bdt) }}">
+                                value="{{ old('rate_in_bdt', $meetings_events->rate_in_bdt) }}">
                         </div>
                         <div class="form-group mb-4">
                             <label for="title">Rate in USD($)</label>
                             <input type="text" name="rate_in_usd" class="form-control" placeholder="Rate in USD($)"
-                                value="{{ old('rate_in_usd', $roomssuits->rate_in_usd) }}">
+                                value="{{ old('rate_in_usd', $meetings_events->rate_in_usd) }}">
                         </div>
 
 
@@ -66,8 +66,8 @@
                                     <input type="file" name="gallery[]" value="" />
                                     <a href="javascript:void(0);" class="add_button" title="Add field"> Add </a>
                                 </div>
-                                @if ($roomssuits->gallery)
-                                    <?php $list = explode(',', $roomssuits->gallery); ?>
+                                @if ($meetings_events->gallery)
+                                    <?php $list = explode(',', $meetings_events->gallery); ?>
                                     @for ($i = 0; $i < sizeof($list); $i++)
                                         <div class="add-more-area">
                                             <img height="60" width="100" src={{ asset($list[$i]) }} alt="" />
@@ -87,8 +87,8 @@
                         <div class="form-group mb-4">
                             <label for="title">Property List</label>
                             <div class="propperty_wrapper">
-                                @if ($roomssuits->property_list)
-                                    <?php $list = explode(',', $roomssuits->property_list); ?>
+                                @if ($meetings_events->property_list)
+                                    <?php $list = explode(',', $meetings_events->property_list); ?>
                                     @for ($i = 0; $i < sizeof($list); $i++)
                                         @if ($i == 0)
                                             <div class="add-more-area">

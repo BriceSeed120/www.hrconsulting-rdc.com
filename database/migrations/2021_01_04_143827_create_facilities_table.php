@@ -15,11 +15,15 @@ class CreateFacilitiesTable extends Migration
     {
         Schema::create('facilities', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('description');
-            $table->string('thumbnail');
-            $table->string('type');
-            $table->bigInteger('user_id');
+            $table->string('name');
+            $table->integer('user_id');
+            $table->longText('description')->nullable();
+            $table->string('property_label')->nullable();
+            $table->string('feature_image')->nullable();
+            $table->string('property_list')->nullable();
+            $table->longText('gallery')->nullable();
+            $table->string('rate_in_bdt')->nullable();
+            $table->string('rate_in_usd')->nullable();
             $table->timestamps();
         });
     }

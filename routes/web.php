@@ -23,10 +23,11 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], functio
         'banners' => BannerController::class,
         'bookings' => \App\Http\Controllers\Dashboard\BookingController::class,
         'customers' => \App\Http\Controllers\Dashboard\CustomerController::class,
-        'restaurants' => \App\Http\Controllers\Dashboard\RestaurantController::class,
+        'resturants' => \App\Http\Controllers\Dashboard\ResturantsController::class,
         'reports' => \App\Http\Controllers\Dashboard\ReportController::class,
         'coupons' => CouponController::class,
-        'facilities' => \App\Http\Controllers\Dashboard\FacilityController::class,
+        'facilities' => \App\Http\Controllers\Dashboard\FacilitiesController::class,
+        'meetings_events' => \App\Http\Controllers\Dashboard\MeetingseventsController::class,
         'roomssuits' => RoomsSuitsController::class,
     ]);
 
