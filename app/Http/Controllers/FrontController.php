@@ -14,15 +14,27 @@ class FrontController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function page($menu_id)
+    public function page($menu_id, $category = null )
     {
-        $pageInfo = DB::table('menus')->where('id', $menu_id)->first();
-       return view('front.page', compact('pageInfo'));
+        $pageInfo = DB::table('menus')->where('id', $menu_id)->first();        
+        $contentData = "";
+        if($category == 1){
+            $contentData = DB::table('roomssuits')->get();
+        }
+        elseif($category == 2){
+            $contentData = DB::table('facilities')->get();
+        }
+        elseif($category == 3){
+            $contentData = DB::table('resturants')->get();
+        }
+        elseif($category == 4){
+            $contentData = DB::table('meetingsevents')->get();
+        }
+       return view('front.page', compact('pageInfo','contentData'));
     }
 
     public function index()
     {
-      //  $banners =  Banner::all();
         $banners =  DB::table('banners')->get();
         return view('front.index', compact('banners'));
     }

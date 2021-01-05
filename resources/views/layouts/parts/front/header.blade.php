@@ -34,32 +34,25 @@
             <div class="col-md-4">
                 <nav role="navigation">
                     <div id="menuToggle" class="">
-
                         <input type="checkbox">
-
                         <span></span>
-
                         <span></span>
-
                         <span></span>
-
                     </div>
-
                 </nav>
                 <!-- Menu Ends -->
                 <div class="book-now"><a href="#">Reservation</a></div>
             </div>
             <div class="col-12 col-md-4">
-                <div class="logo">
-                    <a href="#">
-                        <div class="logotop">&nbsp;</div>
+                <div class="logo-sticky" id="logo-sticky" style="visibility: hidden">
+                    <a href="/">
+                        <img src={{ asset("/assets/images/logo.png")}} alt="" />
                     </a>
                 </div>
             </div>
             <div class="col-12 col-md-4 d-none d-sm-block">
 
                 <ul class="social-ul  ">
-
 
                     <li><a href="tel:" data-rel="external"><i  class="fa fa-phone"></i></a></li>
 
@@ -82,7 +75,22 @@
     </div>
 
 </div>
-
+<style>
+.page-logo-center{   
+    padding-top: 35px;
+    padding-bottom: 60px;
+    position: absolute;
+    z-index: 9 !important;
+    width: 124px;
+    top: 20px;
+    left: calc(50% - 62px);
+}
+</style>
+<div class="page-logo-center" id="page-center-logo">
+    <a href="/">
+        <img src={{ asset("/assets/images/logo.png")}} alt="" />
+    </a>
+</div>
 
 <!-- Menu Starts -->
 
@@ -104,20 +112,20 @@
 
     <div class="menu-list">
 
-        <ul class="callout animation-element test2 one in-view">
-            <li><a href="/"> Home </a></li>
+        <ul class="callout animation-element test2 two in-view">
+            <li style="width: 100%"><a href="/"> Home </a></li>
            <?php $count = 0; ?>
             @foreach ($globalMenu as $menu)
-                <?php if($count == 5) break; ?>
-                <li><a href="{{ route("frontpage", $menu->id) }}">{{ $menu->name}} </a></li>
+                <?php if($count == 4) break; ?>
+                <li style="width: 100%"><a href="{{ route("frontpage", [$menu->id, $menu->category]) }}">{{ $menu->name}}</a></li>
                 <?php $count++; ?>
             @endforeach
 
         </ul>
         <ul class="callout animation-element test2 four in-view">
-            @for($i = 5; $i < 10; $i++)
+            @for($i = 4; $i < 9; $i++)
                 @if(!empty($globalMenu[$i]))
-                 <li><a  href="{{ route("frontpage", $globalMenu[$i]->id) }}">{{ $globalMenu[$i]->name}} </a></li>
+                 <li style="width: 100%"><a  href="{{ route("frontpage", [$globalMenu[$i]->id, $globalMenu[$i]->category]) }}">{{ $globalMenu[$i]->name}}</a></li>
                 @endif           
             @endfor
         </ul>

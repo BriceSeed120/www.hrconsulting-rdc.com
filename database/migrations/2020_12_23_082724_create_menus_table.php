@@ -27,6 +27,7 @@ class CreateMenusTable extends Migration
             $table->bigInteger('menu_order')->nullable();
             $table->string('attachment')->nullable();
             $table->string('thumbnail')->nullable();
+            $table->string('category')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

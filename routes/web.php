@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontController::class, 'index'])->name('index');
 Route::get('editor', [CKEditorController::class, 'index']);
 Route::post('ckeditor/upload', [CKEditorController::class, 'upload'])->name('upload');
-Route::get('/page/{id}', [FrontController::class, 'page'])->name('frontpage');
+Route::get('/page/{id}/{category}', [FrontController::class, 'page'])->name('frontpage');
 Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], function() {
     Route::get('/', function () {
         return view('dashboard.home.index');

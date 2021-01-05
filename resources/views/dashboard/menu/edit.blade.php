@@ -44,6 +44,7 @@
                             <input type="text" name="meta_title" class="form-control" placeholder="Meta title"
                                 value="{{ old('meta_title', $menu->meta_title) }}">
                         </div>
+
                     </div>
                     <div class="col-6">
                         <div class="form-group mb-4">
@@ -60,6 +61,19 @@
                             <label for="title">Meta Description</label>
                             <input type="text" name="meta_description" class="form-control" placeholder="Meta description"
                                 value="{{ old('meta_description',  $menu->meta_description) }}">
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="title">Category</label>
+                            <select class="form-control category-seclection" name="category">
+                                <option value="0"> Select Category</option>                              
+                            <?php 
+                            $category = Config::get('constants.category');
+                                    foreach ($category as $key => $value) { ?>
+                                        <option value={{$key}} <?php if($menu->category == $key) echo "selected" ;?> > {{ $value}} </option>;
+                                    <?php 
+                                    }
+                            ?>
+                            </select>
                         </div>
                     </div>
 

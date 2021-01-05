@@ -11,7 +11,7 @@
             </div>
         @endif
 
-        <ma in class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
             <div
                 class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                 <h1 class="h2">Menus</h1>
@@ -40,6 +40,18 @@
                             <input type="text" name="meta_title" class="form-control" placeholder="Meta title"
                                 value="{{ old('meta_title') }}">
                         </div>
+                        <div class="form-group mb-4">
+                            <label for="title">Category</label>
+                            <select class="form-control category-seclection" name="category">
+                                <option value="0"> Select Category</option>                              
+                            <?php 
+                            $category = Config::get('constants.category');
+                                    foreach ($category as $key => $value) {
+                                        echo "<option value=$key> $value </option>";
+                                    }
+                            ?>
+                            </select>
+                        </div>
                     </div>
                     <div class="col-6">
                         <div class="form-group mb-4">
@@ -57,9 +69,11 @@
                             <input type="text" name="meta_description" class="form-control" placeholder="Meta description"
                                 value="{{ old('meta_description') }}">
                         </div>
-                    </div>
 
+                    </div>
+                    
                     <div class="col-12">
+
                         <div class="form-group">
                             <label for="title">Description *</label>
                             <textarea required type="text" id="summary-ckeditor" name="description" rows="8"
