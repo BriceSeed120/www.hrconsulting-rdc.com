@@ -36,7 +36,11 @@ class FrontController extends Controller
     public function index()
     {
         $banners =  DB::table('banners')->get();
-        return view('front.index', compact('banners'));
+        $roomssuites = DB::table('roomssuits')->get();
+        $facilities = DB::table('facilities')->get();
+        $restaurants = DB::table('resturants')->get();
+        $meetingsevents = DB::table('meetingsevents')->get();
+        return view('front.index', compact('banners','roomssuites','facilities','restaurants','meetingsevents'));
     }
 
     /**

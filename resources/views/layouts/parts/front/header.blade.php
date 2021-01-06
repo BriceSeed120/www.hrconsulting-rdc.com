@@ -23,6 +23,7 @@
     <!-- Mobile Responsive Style -->
     <link rel="stylesheet" href="{{ asset('assets/front/css/style-responsive.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/front/css/styles.css')}}" media="all">
+    <script type="text/javascript" src="../cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="{{ asset('assets/front/js/bootstrap.js') }}"></script>
     <style>
     </style>
@@ -112,18 +113,17 @@
 
     <div class="menu-list">
 
-        <ul class="callout animation-element test2 two in-view">
-            <li style="width: 100%"><a href="/"> Home </a></li>
+        <ul class="callout animation-element test2 two in-view">           
            <?php $count = 0; ?>
             @foreach ($globalMenu as $menu)
-                <?php if($count == 4) break; ?>
+                <?php if($count == 5) break; ?>
                 <li style="width: 100%"><a href="{{ route("frontpage", [$menu->id, $menu->category]) }}">{{ $menu->name}}</a></li>
                 <?php $count++; ?>
             @endforeach
 
         </ul>
         <ul class="callout animation-element test2 four in-view">
-            @for($i = 4; $i < 9; $i++)
+            @for($i = 5; $i < 10; $i++)
                 @if(!empty($globalMenu[$i]))
                  <li style="width: 100%"><a  href="{{ route("frontpage", [$globalMenu[$i]->id, $globalMenu[$i]->category]) }}">{{ $globalMenu[$i]->name}}</a></li>
                 @endif           

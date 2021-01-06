@@ -204,46 +204,54 @@
                     <div class="col-md-4">
                         <div class="type1">
                             <a href="#">
-                                <img src="{{ asset('assets/front/img/rt005.jpg')}}"
+                                @if($roomssuites)
+                                <img src="{{ $roomssuites[0]->feature_image}}"
                                      alt="Swimming Pool" style="height: 596px;">
                                 <div class="overlay callout animation-element test3 one">
-                                    <h2>Swimming Pool</h2>
-                                    <p>Two separate pools right next to the beach.</p>
+                                    <h2>{{ $roomssuites[0]->name}}</h2>
+                                    <p>{{ $roomssuites[0]->description}}</p>
                                 </div>
+                                @endif
                             </a>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="type1">
                             <a href="#">
-                                <img src="{{ asset('assets/front/img/rt006.jpg')}}"
+                                @if($facilities)
+                                <img src="{{ $facilities[0]->feature_image}}"
                                      alt="Convention Hall" style="height: 596px;">
                                 <div class="overlay callout animation-element test3 two">
-                                    <h2>Convention Hall</h2>
-                                    <p>The largest convention hall in Cox’s Bazar.</p>
+                                    <h2>{{ $facilities[0]->name}}</h2>
+                                    <p>{{ $facilities[0]->description}}</p>
                                 </div>
+                                @endif
                             </a>
                         </div>
                     </div>
                     <div class="col-md-4" id="third">
                         <div class="type2 gap">
                             <a href="#">
-                                <img src="{{ asset('assets/front/img/rt008.jpg')}}"
+                                @if($restaurants)
+                                <img  style="height: 273px;"  src="{{ $restaurants[0]->feature_image}}"
                                      id="dynamic_img" alt="Restaurants">
                                 <div class="overlay callout animation-element test3 two">
-                                    <h2>Restaurants</h2>
-                                    <p>A wide range of restaurants for gourmet dining.</p>
+                                    <h2>{{ $restaurants[0]->name}}</h2>
+                                    <p>{{ $restaurants[0]->description}}</p>
                                 </div>
+                                @endif
                             </a>
                         </div>
                         <div class="type2">
                             <a href="#">
-                                <img src="{{ asset('assets/front/img/rt007.jpg')}}"
+                                @if($meetingsevents)
+                                <img style="height: 283px;" src="{{ $meetingsevents[0]->feature_image ?  $meetingsevents[0]->feature_image: "room-meeting-facilities-restaurants"}}"
                                      id="dynamic_img">
                                 <div class="overlay callout animation-element test3 two">
-                                    <h2>Straight access to beach</h2>
-                                    <p>Exclusive and secure beach- easy and straight accessible for guest.</p>
+                                    <h2>{{ $meetingsevents[0]->name}}</h2>
+                                    <p>{{ $meetingsevents[0]->description}}</p>
                                 </div>
+                                @endif
                             </a>
                         </div>
                     </div>
@@ -254,6 +262,9 @@
     </div> <!-- End Facility Section -->
 
 
+
+
+    
     <div class="container">
         <div class="offer" style="padding-bottom:5px;">
             <div class="row">
