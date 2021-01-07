@@ -23,7 +23,7 @@
     <!-- Mobile Responsive Style -->
     <link rel="stylesheet" href="{{ asset('assets/front/css/style-responsive.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/front/css/styles.css')}}" media="all">
-    <script type="text/javascript" src="../cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.9.1.js" integrity="sha256-e9gNBsAcA0DBuRWbm0oZfbiCyhjLrI6bmqAl5o+ZjUA=" crossorigin="anonymous"></script>
     <script src="{{ asset('assets/front/js/bootstrap.js') }}"></script>
     <style>
     </style>

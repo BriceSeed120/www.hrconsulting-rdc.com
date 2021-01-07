@@ -293,12 +293,12 @@
 <script>
     $('#room-list').owlCarousel({
         loop: true,
-        margin: 10,
+        margin: 0,
         nav: true,
-        navText: [
-            "<i class='fa fa-angle-left'></i>",
-            "<i class='fa fa-angle-right'></i>"
-        ],
+        // navText: [
+        //     "<i class='fa fa-angle-left'></i>",
+        //     "<i class='fa fa-angle-right'></i>"
+        // ],
         autoplay: false,
         autoplayHoverPause: true,
         responsive: {

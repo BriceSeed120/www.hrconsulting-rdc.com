@@ -13,7 +13,9 @@
                 </div>
                 <div class="col-md-6">
                     <p class="general tagline callout animation-element test2">
-                        Imagine a charming and picturesque Heritage village in the north part of the countryside, surrounded by the spectacular natural beauty. Experience a relaxing, exciting, comfortable stay in Momo Inn with its glamorous hospitality and its unique atmosphere.</p>
+                        Imagine a charming and picturesque Heritage village in the north part of the countryside, surrounded
+                        by the spectacular natural beauty. Experience a relaxing, exciting, comfortable stay in Momo Inn
+                        with its glamorous hospitality and its unique atmosphere.</p>
                     <div class="gap-30"></div>
                     <p class="general tagline callout animation-element test2">Apart
                         from luxurious rooms &amp; suites and two swimming pools (one
@@ -30,12 +32,11 @@
     <div class="row">
         <div class="col-md-12">
             <div class="video-holder">
-                <img src="{{ asset('assets/front/img/rt004.jpg')}}">
+                <img src="{{ asset('assets/front/img/rt004.jpg') }}">
             </div>
             <div class="overlay">
-                <a id="play-video" class="video-play-button popup-xs popup-vt"
-                   href="#vtours/swimming-pool-mixed/index.html"
-                   data-xs-href="vtours-xs/index.html?panorama=images/swimming-pool-mixed.jpg&amp;iframe=true">
+                <a id="play-video" class="video-play-button popup-xs popup-vt" href="#vtours/swimming-pool-mixed/index.html"
+                    data-xs-href="vtours-xs/index.html?panorama=images/swimming-pool-mixed.jpg&amp;iframe=true">
                     <span></span>
                 </a>
             </div>
@@ -56,101 +57,46 @@
                 </div>
                 <div class="offset-md-1 col-md-5">
                     <p class="general tagline callout animation-element test2">
-                        MOMOINN offers 356 luxuriously appointed rooms suites with comfort of kitchenette, branded amenities, and
+                        MOMOINN offers 356 luxuriously appointed rooms suites with comfort of kitchenette, branded
+                        amenities, and
                         balconies with panoramic view of sea and hill.</p>
                     <button class="btn-1">
-                        <span class="btn-1"><a href="#rooms-suites.php"class="btn-1">Discover More</a></span>
+                        <span class="btn-1"><a href="#rooms-suites.php" class="btn-1">Discover More</a></span>
                     </button>
                 </div>
             </div>
         </div>
     </div>
+
+   
     <div>
         <div class="room-list">
             <div class="row">
                 <div class="col-md-12">
 
                     <div class="carousel-wrap">
-                        <div class="owl-carousel owl-loaded owl-drag" id="room-list">
+                        <div class="owl-carousel owl-loaded owl-drag" id="room-list-slider">
 
 
                             <div class="owl-stage-outer">
                                 <div class="owl-stage"
-                                     style="transform: translate3d(-2710px, 0px, 0px); transition: all 0s ease 0s; width: 10298px;">
-                                   
-                                    @foreach ($banners as $banner)
-                                    <div class="owl-item active 123455" style="width: 532px; margin-right: 10px;">
-                                        <div class="item"><a href="#superior-sea.php">
-                                                <img src="{{ asset($banner->attachment)}}" />
-                                                <div class="holder">
-                                                    <h4 class="tagline callout animation-element test2"> {{ $banner->title }}</h4>
-                                                    <p>  {{ $banner->description }} </p>
-                                                </div>
-                                            </a>
+                                    style="transform: translate3d(-2710px, 0px, 0px); transition: all 0s ease 0s; width: 10298px;"
+                                    >
+
+                                    @foreach ($roomssuites as $slider)
+                                        <div class="owl-item active 123455" style="width: 532px; margin-right: 10px;">
+                                            <div class="item"><a href="#superior-sea.php">
+                                                    <img src="{{ asset($slider->feature_image) }}"  height="400"/>
+                                                    <div class="holder">
+                                                        <h4 class="tagline callout animation-element test2">
+                                                            {{ $slider->name }}</h4>
+                                                        <p> {{ $slider->description }} </p>
+                                                    </div>
+                                                </a>
+                                            </div>
                                         </div>
-                                    </div>
                                     @endforeach
-    
-                                    <div class="owl-item" style="width: 532px; margin-right: 10px;">
-                                        <div class="item"><a href="#premier.php">
-                                                <img src="{{ asset('assets/front/img/3501-premier-new.jpg')}}">
-                                                <div class="holder">
-                                                    <h4 class="callout animation-element test2">Premier (Sea View)</h4>
-                                                    <p>690 sft wide Premier room involves and offers most relaxation of the
-                                                        guests.</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item" style="width: 532px; margin-right: 10px;">
-                                        <div class="item"><a
-                                                href="#executive-suite-sea.php">
-                                                <img src="{{ asset('assets/front/img/5203-ess.jpg')}}">
-                                                <div class="holder">
-                                                    <h4 class="callout animation-element test2">Executive Suite Sea</h4>
-                                                    <p>720 sft area in the Executive Suite gives the guests cherish feeling
-                                                        of living.</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item" style="width: 532px; margin-right: 10px;">
-                                        <div class="item"><a
-                                                href="#executive-suite-hill.php">
-                                                <img src="{{ asset('assets/front/img/executive-suite-hill.jpg')}}">
-                                                <div class="holder">
-                                                    <h4 class="callout animation-element test2">Executive Suite Hill</h4>
-                                                    <p>720 sft area in the Executive Suite gives the guests cherish feeling
-                                                        of living.</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item" style="width: 532px; margin-right: 10px;">
-                                        <div class="item"><a
-                                                href="#royal-family-suite.php">
-                                                <img src="{{ asset('assets/front/img/3317-rfs.jpg')}}">
-                                                <div class="holder">
-                                                    <h4 class="callout animation-element test2">Royal Family Suite</h4>
-                                                    <p>1050 sft. 2 bedrooms suites mirror the warmth of a home.</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="owl-item" style="width: 532px; margin-right: 10px;">
-                                        <div class="item"><a
-                                                href="#royal-paradise-suite.php">
-                                                <img src="{{ asset('assets/front/img/royal-paradise-suite.jpg')}}">
-                                                <div class="holder">
-                                                    <h4 class="callout animation-element test2">Royal Paradise Suite</h4>
-                                                    <p>2020 sft. 2 bedrooms suites mirror the warmth of a home.</p>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
- 
-                                    
-              
+
                                 </div>
                             </div>
                             <div class="owl-nav">
@@ -177,7 +123,8 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="text">
-                                <h2 class="tagline callout animation-element test2">INTERNATIONAL STANDARD WITH LOCAL FLAVOURS</h2>
+                                <h2 class="tagline callout animation-element test2">INTERNATIONAL STANDARD WITH LOCAL
+                                    FLAVOURS</h2>
                             </div>
                         </div>
                         <div class="offset-md-1 col-md-5">
@@ -204,13 +151,13 @@
                     <div class="col-md-4">
                         <div class="type1">
                             <a href="#">
-                                @if($roomssuites)
-                                <img src="{{ $roomssuites[0]->feature_image}}"
-                                     alt="Swimming Pool" style="height: 596px;">
-                                <div class="overlay callout animation-element test3 one">
-                                    <h2>{{ $roomssuites[0]->name}}</h2>
-                                    <p>{{ $roomssuites[0]->description}}</p>
-                                </div>
+                                @if ($roomssuites)
+                                    <img style="height: 596px;"
+                                        src="{{ !empty($roomssuites[0]->feature_image) ? $roomssuites[0]->feature_image : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
+                                    <div class="overlay callout animation-element test3 one">
+                                        <h2>{{ $roomssuites[0]->name }}</h2>
+                                        <p>{{ $roomssuites[0]->description }}</p>
+                                    </div>
                                 @endif
                             </a>
                         </div>
@@ -218,13 +165,14 @@
                     <div class="col-md-4">
                         <div class="type1">
                             <a href="#">
-                                @if($facilities)
-                                <img src="{{ $facilities[0]->feature_image}}"
-                                     alt="Convention Hall" style="height: 596px;">
-                                <div class="overlay callout animation-element test3 two">
-                                    <h2>{{ $facilities[0]->name}}</h2>
-                                    <p>{{ $facilities[0]->description}}</p>
-                                </div>
+                                @if ($facilities)
+                                    <img style="height: 596px;"
+                                        src="{{ !empty($facilities[0]->feature_image) ? $facilities[0]->feature_image : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
+
+                                    <div class="overlay callout animation-element test3 two">
+                                        <h2>{{ $facilities[0]->name }}</h2>
+                                        <p>{{ $facilities[0]->description }}</p>
+                                    </div>
                                 @endif
                             </a>
                         </div>
@@ -232,31 +180,32 @@
                     <div class="col-md-4" id="third">
                         <div class="type2 gap">
                             <a href="#">
-                                @if($restaurants)
-                                <img  style="height: 273px;"  src="{{ $restaurants[0]->feature_image}}"
-                                     id="dynamic_img" alt="Restaurants">
-                                <div class="overlay callout animation-element test3 two">
-                                    <h2>{{ $restaurants[0]->name}}</h2>
-                                    <p>{{ $restaurants[0]->description}}</p>
-                                </div>
+                                @if ($restaurants)
+                                    <img style="height: 273px;"
+                                        src="{{ !empty($restaurants[0]->feature_image) ? $restaurants[0]->feature_image : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
+                                    <div class="overlay callout animation-element test3 two">
+                                        <h2>{{ $restaurants[0]->name }}</h2>
+                                        <p>{{ $restaurants[0]->description }}</p>
+                                    </div>
                                 @endif
                             </a>
                         </div>
                         <div class="type2">
                             <a href="#">
-                                @if($meetingsevents)
-                                <img style="height: 283px;" src="{{ $meetingsevents[0]->feature_image ?  $meetingsevents[0]->feature_image: "room-meeting-facilities-restaurants"}}"
-                                     id="dynamic_img">
-                                <div class="overlay callout animation-element test3 two">
-                                    <h2>{{ $meetingsevents[0]->name}}</h2>
-                                    <p>{{ $meetingsevents[0]->description}}</p>
-                                </div>
+                                @if ($meetingsevents)
+                                    <img style="height: 283px;"
+                                        src="{{ !empty($meetingsevents[0]->feature_image) ? $meetingsevents[0]->feature_image : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}"
+                                        id="dynamic_img">
+                                    <div class="overlay callout animation-element test3 two">
+                                        <h2>{{ $meetingsevents[0]->name }}</h2>
+                                        <p>{{ $meetingsevents[0]->description }}</p>
+                                    </div>
                                 @endif
                             </a>
                         </div>
                     </div>
                 </div>
-            </div>  <!-- END Facility Secondery -->
+            </div> <!-- END Facility Secondery -->
         </div> <!-- End Intro -->
 
     </div> <!-- End Facility Section -->
@@ -264,7 +213,7 @@
 
 
 
-    
+
     <div class="container">
         <div class="offer" style="padding-bottom:5px;">
             <div class="row">
