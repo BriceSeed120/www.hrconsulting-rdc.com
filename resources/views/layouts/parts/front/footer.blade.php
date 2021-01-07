@@ -291,14 +291,15 @@
 </script>
 <script type="text/javascript" src="{{ asset('assets/front/js/owl.js')}}"></script>
 <script>
-    $('#room-list').owlCarousel({
+    jQuery( document ).ready(function( $ ) {
+        $('#room-list').owlCarousel({
         loop: true,
         margin: 0,
         nav: true,
-        // navText: [
-        //     "<i class='fa fa-angle-left'></i>",
-        //     "<i class='fa fa-angle-right'></i>"
-        // ],
+        navText: [
+            "<i class='fa fa-angle-left'></i>",
+            "<i class='fa fa-angle-right'></i>"
+        ],
         autoplay: false,
         autoplayHoverPause: true,
         responsive: {
@@ -313,7 +314,8 @@
             }
         }
     })
-</script>
+});
+</script> --}}
 <!-- Room Slider Home Page Owl Carousel Ends -->
 
 <!-- Facility Slider Home Page Owl Carousel Starts -->
@@ -418,6 +420,21 @@
         };
         filterVT.init();
     });
+</script>
+<script src="{{ asset('assets/front/js/slick.js')}}" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+  $(document).on('ready', function() {     
+    $(".regular").slick({
+      dots: true,
+      infinite: true,
+      slidesToShow: 3,
+      slidesToScroll: 3
+    });
+    $(".lazy").slick({
+      lazyLoad: 'ondemand', // ondemand progressive anticipated
+      infinite: true
+    });
+  });
 </script>
 </body>
 </html>

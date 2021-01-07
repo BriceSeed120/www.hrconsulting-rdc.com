@@ -23,7 +23,10 @@
     <!-- Mobile Responsive Style -->
     <link rel="stylesheet" href="{{ asset('assets/front/css/style-responsive.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/front/css/styles.css')}}" media="all">
-    <script src="https://code.jquery.com/jquery-1.9.1.js" integrity="sha256-e9gNBsAcA0DBuRWbm0oZfbiCyhjLrI6bmqAl5o+ZjUA=" crossorigin="anonymous"></script>
+    {{-- <script src="https://code.jquery.com/jquery-1.9.1.js" integrity="sha256-e9gNBsAcA0DBuRWbm0oZfbiCyhjLrI6bmqAl5o+ZjUA=" crossorigin="anonymous"></script> --}}
+    {{-- <script type="text/javascript"
+    src="{{ asset('assets/front/js/jquery.js')}}"></script> --}}
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
     <script src="{{ asset('assets/front/js/bootstrap.js') }}"></script>
     <style>
     </style>

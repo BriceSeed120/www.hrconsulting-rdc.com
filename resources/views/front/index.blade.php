@@ -68,54 +68,63 @@
         </div>
     </div>
 
-   
-    <div>
-        <div class="room-list">
-            <div class="row">
-                <div class="col-md-12">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/front/css/slick.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/front/css/slick-theme.css') }}">
+    <style type="text/css">
+        * {
+            box-sizing: border-box;
+        }
 
-                    <div class="carousel-wrap">
-                        <div class="owl-carousel owl-loaded owl-drag" id="room-list-slider">
+        .slider {
+            width: 85%;
+            margin: 100px auto;
+        }
+
+        .slick-slide {
+            margin: 0px 20px;
+        }
+
+        .slick-slide img {
+            width: 100%;
+        }
+
+        .slick-prev:before,
+        .slick-next:before {
+            color: black;
+        }
 
 
-                            <div class="owl-stage-outer">
-                                <div class="owl-stage"
-                                    style="transform: translate3d(-2710px, 0px, 0px); transition: all 0s ease 0s; width: 10298px;"
-                                    >
+        .slick-slide {
+            transition: all ease-in-out .3s;
+            opacity: .2;
+        }
 
-                                    @foreach ($roomssuites as $slider)
-                                        <div class="owl-item active 123455" style="width: 532px; margin-right: 10px;">
-                                            <div class="item"><a href="#superior-sea.php">
-                                                    <img src="{{ asset($slider->feature_image) }}"  height="400"/>
-                                                    <div class="holder">
-                                                        <h4 class="tagline callout animation-element test2">
-                                                            {{ $slider->name }}</h4>
-                                                        <p> {{ $slider->description }} </p>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    @endforeach
+        .slick-active {
+            opacity: .5;
+        }
 
-                                </div>
-                            </div>
-                            <div class="owl-nav">
-                                <div class="owl-prev"><i class="fa fa-angle-left"></i></div>
-                                <div class="owl-next"><i class="fa fa-angle-right"></i></div>
-                            </div>
-                            <div class="owl-dots">
-                                <div class="owl-dot active"><span></span></div>
-                                <div class="owl-dot"><span></span></div>
-                                <div class="owl-dot"><span></span></div>
-                            </div>
+        .slick-current {
+            opacity: 1;
+        }
+
+    </style>
+
+    <section class="regular slider room-list">
+        @foreach ($roomssuites as $slider)
+            <div class="owl-item active" style="width: 532px; margin-right: 10px;">
+                <div class="item"><a href="#superior-sea.php">
+                        <img src="{{ asset($slider->feature_image) }}" height="363" />
+                        <div class="holder">
+                            <h4 class="tagline callout animation-element test2">
+                                {{ $slider->name }}
+                            </h4>
+                            <p> {{ $slider->description }} </p>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
-        </div>
-    </div>
-
-
+        @endforeach
+    </section>
     <div class="facility">
         <div class="intro introbot">
             <div class="container">
@@ -151,7 +160,7 @@
                     <div class="col-md-4">
                         <div class="type1">
                             <a href="#">
-                                @if ($roomssuites)
+                                @if ($roomssuites && !empty($roomssuites[0]))
                                     <img style="height: 596px;"
                                         src="{{ !empty($roomssuites[0]->feature_image) ? $roomssuites[0]->feature_image : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
                                     <div class="overlay callout animation-element test3 one">
@@ -165,7 +174,7 @@
                     <div class="col-md-4">
                         <div class="type1">
                             <a href="#">
-                                @if ($facilities)
+                                @if ($facilities && !empty($facilities[0]))
                                     <img style="height: 596px;"
                                         src="{{ !empty($facilities[0]->feature_image) ? $facilities[0]->feature_image : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
 
@@ -180,7 +189,7 @@
                     <div class="col-md-4" id="third">
                         <div class="type2 gap">
                             <a href="#">
-                                @if ($restaurants)
+                                @if ($restaurants && !empty($restaurants[0]))
                                     <img style="height: 273px;"
                                         src="{{ !empty($restaurants[0]->feature_image) ? $restaurants[0]->feature_image : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
                                     <div class="overlay callout animation-element test3 two">
@@ -192,7 +201,7 @@
                         </div>
                         <div class="type2">
                             <a href="#">
-                                @if ($meetingsevents)
+                                @if ($meetingsevents && !empty($meetingsevents[0]))
                                     <img style="height: 283px;"
                                         src="{{ !empty($meetingsevents[0]->feature_image) ? $meetingsevents[0]->feature_image : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}"
                                         id="dynamic_img">
@@ -209,10 +218,6 @@
         </div> <!-- End Intro -->
 
     </div> <!-- End Facility Section -->
-
-
-
-
 
     <div class="container">
         <div class="offer" style="padding-bottom:5px;">
