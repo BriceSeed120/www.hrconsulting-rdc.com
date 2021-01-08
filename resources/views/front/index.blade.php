@@ -162,7 +162,7 @@
                             <a href="#">
                                 @if ($roomssuites && !empty($roomssuites[0]))
                                     <img style="height: 596px;"
-                                        src="{{ !empty($roomssuites[0]->feature_image) ? $roomssuites[0]->feature_image : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
+                                        src="{{ !empty($roomssuites[0]->feature_image) ? asset($roomssuites[0]->feature_image) : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
                                     <div class="overlay callout animation-element test3 one">
                                         <h2>{{ $roomssuites[0]->name }}</h2>
                                         <p>{{ $roomssuites[0]->description }}</p>
@@ -176,7 +176,7 @@
                             <a href="#">
                                 @if ($facilities && !empty($facilities[0]))
                                     <img style="height: 596px;"
-                                        src="{{ !empty($facilities[0]->feature_image) ? $facilities[0]->feature_image : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
+                                        src="{{ !empty($facilities[0]->feature_image) ? asset($facilities[0]->feature_image) : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
 
                                     <div class="overlay callout animation-element test3 two">
                                         <h2>{{ $facilities[0]->name }}</h2>
@@ -191,7 +191,7 @@
                             <a href="#">
                                 @if ($restaurants && !empty($restaurants[0]))
                                     <img style="height: 273px;"
-                                        src="{{ !empty($restaurants[0]->feature_image) ? $restaurants[0]->feature_image : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
+                                        src="{{ !empty($restaurants[0]->feature_image) ? asset($restaurants[0]->feature_image) : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
                                     <div class="overlay callout animation-element test3 two">
                                         <h2>{{ $restaurants[0]->name }}</h2>
                                         <p>{{ $restaurants[0]->description }}</p>
@@ -203,7 +203,7 @@
                             <a href="#">
                                 @if ($meetingsevents && !empty($meetingsevents[0]))
                                     <img style="height: 283px;"
-                                        src="{{ !empty($meetingsevents[0]->feature_image) ? $meetingsevents[0]->feature_image : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}"
+                                        src="{{ !empty($meetingsevents[0]->feature_image) ? asset($meetingsevents[0]->feature_image) : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}"
                                         id="dynamic_img">
                                     <div class="overlay callout animation-element test3 two">
                                         <h2>{{ $meetingsevents[0]->name }}</h2>
