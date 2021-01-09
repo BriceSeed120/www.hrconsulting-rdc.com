@@ -841,15 +841,33 @@
                                         @endif
                                     </ul>
                                     <ul class="tours">
-                                        <li class="pg"><a href="#gallery-1" class="ph-gallery">
-                                                <img src="{{ asset('/assets/images/camera.png') }}" />Photo Gallery</a></li>
+                                        <li class="pg">
+                                                @if($item->gallery)
+                                                <a href="#gallery-{{$key}}" class="ph-gallery"> <img
+                                                    src="{{ asset('/assets/images/camera.png') }}" />Photo Gallery </a>
+                                                @else
+                                                <a> 
+                                                    <img src="{{ asset('/assets/images/camera.png') }}" />Photo Gallery</a>
+                                                @endif
+                                            </li>
                                         <li class="vt"><a href="vtours/super-deluxe/index.html?iframe=true"
                                                 class="magnific-vt ph-gallery"
                                                 data-xs-href="vtours-xs/index.html?panorama=images/super-deluxe.jpg&amp;iframe=true"
                                                 data-rel="vtours">
                                                 <img src="{{ asset('/assets/images/360video.png') }}" />Virtual Tour</a>
                                         </li>
+                                        <!-- gallery image -->
+
+                                        <!-- gallery image ended-->
                                     </ul>
+                                    <div id="gallery-{{$key}}" class="hidden">                                            
+                                        @if ($item->gallery)
+                                        <?php $list = explode(',', $item->gallery); ?>
+                                        @for ($i = 0; $i < sizeof($list); $i++)
+                                            <a href="{{ asset($list[$i]) }}"></a>        
+                                        @endfor
+                                    @endif
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -886,14 +904,30 @@
                                         @endif
                                     </ul>
                                     <ul class="tours">
-                                        <li class="pg"><a href="#gallery-2" class="ph-gallery"> <img
-                                                    src="{{ asset('/assets/images/camera.png') }}" />Photo Gallery</a></li>
+                                        <li class="pg">
+                                            @if($item->gallery)
+                                            <a href="#gallery-{{$key}}" class="ph-gallery"> <img
+                                                src="{{ asset('/assets/images/camera.png') }}" />Photo Gallery </a>
+                                            @else
+                                            <a> 
+                                                <img src="{{ asset('/assets/images/camera.png') }}" />Photo Gallery</a>
+                                            @endif
+                                           
+                                            </li>
                                         <li class="vt"><a href="vtours/deluxe-couple/index.html?iframe=true"
                                                 class="magnific-vt ph-gallery"
                                                 data-xs-href="vtours-xs/index.html?panorama=images/deluxe-couple.jpg&amp;iframe=true"
                                                 data-rel="vtours"> <img
                                                     src="{{ asset('/assets/images/360video.png') }}" />Virtual Tour</a></li>
                                     </ul>
+                                    <div id="gallery-{{$key}}" class="hidden">                                            
+                                        @if ($item->gallery)
+                                        <?php $list = explode(',', $item->gallery); ?>
+                                        @for ($i = 0; $i < sizeof($list); $i++)
+                                            <a href="{{ asset($list[$i]) }}"></a>        
+                                        @endfor
+                                    @endif
+                                    </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6" id="desktop-ver">
                                     <div class="image-holder hoverflash">
@@ -907,33 +941,7 @@
                     @endif
                 @endforeach
             @endif
-            <!-- Room End -->
-
-            <div id="gallery-1" class="hidden">
-                <a href="{{ asset('/uploads/default/banner.jpg') }}"></a>
-                <a href="{{ asset('/uploads/default/banner.jpg') }}"></a>
-            </div>
-            <div id="gallery-2" class="hidden">
-                <a href="{{ asset('/uploads/default/banner.jpg') }}"></a>
-                <a href="{{ asset('/uploads/default/banner.jpg') }}"></a>
-            </div>
-            <div id="gallery-3" class="hidden">
-                <a href="{{ asset('/uploads/default/banner.jpg') }}"></a>
-                <a href="{{ asset('/uploads/default/banner.jpg') }}"></a>
-            </div>
-            <div id="gallery-4" class="hidden">
-                <a href="{{ asset('/uploads/default/banner.jpg') }}"></a>
-                <a href="{{ asset('/uploads/default/banner.jpg') }}"></a>
-            </div>
-            <div id="gallery-5" class="hidden">
-                <a href="{{ asset('/uploads/default/banner.jpg') }}"></a>
-                <a href="{{ asset('/uploads/default/banner.jpg') }}"></a>
-            </div>
-            <div id="gallery-6" class="hidden">
-                <a href="{{ asset('/uploads/default/banner.jpg') }}"></a>
-                <a href="{{ asset('/uploads/default/banner.jpg') }}"></a>
-            </div>
-
+            <!-- Room End -->         
 
         </div>
     </div>

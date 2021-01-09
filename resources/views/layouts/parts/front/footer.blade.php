@@ -151,6 +151,51 @@
     });
 </script>
 <!-- Animated Text Ends -->
+
+<!-- gallary new -->
+
+
+  <!-- Magnific Popup core JS file -->
+  <script src="{{asset('assets/front/js/jquery.magnific-popup.js') }}"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+  $('a.ph-gallery').on('click', function(event) {
+    event.preventDefault();
+    
+    var gallery = $(this).attr('href');
+    
+    $(gallery).magnificPopup({
+      delegate: 'a',
+      type:'image',
+      gallery: {
+        enabled: true
+      }
+    }).magnificPopup('open');
+  });
+  
+  });
+  </script>
+  <script type="text/javascript">
+    $('.magnific').magnificPopup({
+      type:'image',
+      removalDelay: 300,
+      mainClass: 'mfp-fade'
+    });
+      
+    $('.magnific-vt, .magnific-youtube').magnificPopup({
+      disableOn: 100,
+      type: 'iframe',
+      mainClass: 'mfp-fade',
+      removalDelay: 300,
+      preloader: true,
+      fixedContentPos: false
+    });
+  </script>
+
+<!-- gallery ended --->
+
+
 <script type="text/javascript"
         src="{{ asset('assets/front/js/jquery.js')}}"></script>
 

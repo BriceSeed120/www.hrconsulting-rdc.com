@@ -112,7 +112,8 @@
     <section class="regular slider room-list">
         @foreach ($roomssuites as $slider)
             <div class="owl-item active" style="width: 532px; margin-right: 10px;">
-                <div class="item"><a href="#superior-sea.php">
+                <div class="item">
+                    <a href="javascript:void(0)">
                         <img src="{{ asset($slider->feature_image) }}" height="363" />
                         <div class="holder">
                             <h4 class="tagline callout animation-element test2">

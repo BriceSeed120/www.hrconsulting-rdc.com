@@ -126,11 +126,12 @@
 
         </ul>
         <ul class="callout animation-element test2 four in-view">
-            @for($i = 5; $i < 10; $i++)
+            @for($i = 5; $i < 9; $i++)
                 @if(!empty($globalMenu[$i]))
                  <li style="width: 100%"><a  href="{{ route("frontpage", [$globalMenu[$i]->id, $globalMenu[$i]->category]) }}">{{ $globalMenu[$i]->name}}</a></li>
                 @endif           
             @endfor
+            <li style="width: 100%"><a href="{{ route("contact") }}">Contact Us</a></li>
         </ul>
         <ul class="callout animation-element test2 four menucontact in-view">
 

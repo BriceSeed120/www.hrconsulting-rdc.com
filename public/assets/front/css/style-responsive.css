@@ -214,7 +214,13 @@
 	.owl-carousel .owl-stage-outer { padding-bottom: 0px; }
 	.room-list .holder h4 { line-height: 30px; padding-left: 60px;}
 	.room-list .holder { bottom: -30px; padding-bottom: 20px; }
-	.room-list .holder p { width: 100%; font-size: 15px; padding-left: 0px; padding-bottom: 30px; }
+	.room-list .holder p {
+		 width: 100%; font-size: 15px; padding-left: 0px; padding-bottom: 30px; 
+		 display: -webkit-box;
+		 -webkit-line-clamp: 3;
+		 -webkit-box-orient: vertical;  
+		 overflow: hidden;
+		}
 	.facility { padding: 0px 0px 50px 0px; margin-top: 0px; }
 	.facility .type1 img { height: auto; width: 100%; }
 

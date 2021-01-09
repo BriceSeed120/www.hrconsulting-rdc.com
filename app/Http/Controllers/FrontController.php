@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Banners;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Banner;
+use App\Models\Contact;
 
 class FrontController extends Controller
 {
@@ -43,6 +42,25 @@ class FrontController extends Controller
         return view('front.index', compact('banners','roomssuites','facilities','restaurants','meetingsevents'));
     }
 
+    public function contact(){
+        return view('front.contact')->withTitle("Contact US");
+    }
+
+    public function contactstore (Request $request){
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'message' => 'required',
+            'email_or_phone' => 'required',
+        ], [
+            'name.required' => 'Name filed is required',
+            'message.required' => 'Description filed is required',
+            'email_or_phone.required' => 'Email or phone filed is required',
+        ]);
+
+        $Contact = Contact::create($validatedData);
+        return redirect()->route('contact')->with('success', 'Contact message sent successfully.');
+            
+    }
     /**
      * Show the form for creating a new resource.
      *

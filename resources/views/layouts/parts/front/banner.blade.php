@@ -6,7 +6,7 @@
                     @foreach ($banners as $key => $banner)
                         <li style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 1; display: block; z-index: 2;"
                             class="flex-active-slide">
-                            <img src="{{ asset($banner->attachment) }}" />
+                            <img src="{{ asset($banner->attachment) }}"
                             draggable="false">
                             <div class="meta">
                                 <h1 class="tagline callout animation-element test4 in-view">
