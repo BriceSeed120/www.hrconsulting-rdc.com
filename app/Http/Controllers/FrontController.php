@@ -45,7 +45,9 @@ class FrontController extends Controller
     public function contact(){
         return view('front.contact')->withTitle("Contact US");
     }
-
+    public function booking(){
+        return view('front.booking')->withTitle("Booking");
+    }
     public function contactstore (Request $request){
         $validatedData = $request->validate([
             'name' => 'required',

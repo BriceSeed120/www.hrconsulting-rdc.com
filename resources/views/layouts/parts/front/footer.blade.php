@@ -360,7 +360,7 @@
         }
     })
 });
-</script> --}}
+</script>
 <!-- Room Slider Home Page Owl Carousel Ends -->
 
 <!-- Facility Slider Home Page Owl Carousel Starts -->

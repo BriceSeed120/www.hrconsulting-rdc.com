@@ -16,6 +16,7 @@ Route::post('ckeditor/upload', [CKEditorController::class, 'upload'])->name('upl
 Route::get('/page/{id}/{category}', [FrontController::class, 'page'])->name('frontpage');
 Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 Route::post('/contactstore', [FrontController::class, 'contactstore'])->name('contactstore');
+Route::get('/booking', [FrontController::class, 'booking'])->name('booking');
 Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], function() {
     Route::get('/', function () {
         return view('dashboard.home.index');

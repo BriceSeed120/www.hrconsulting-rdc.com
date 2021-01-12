@@ -787,3 +787,195 @@ ul#link1 > li a { color: #fff; }
 .menu-button__bar.menu-button__bar--4 span.menu_title  { opacity: 1; font-weight: 300; letter-spacing: 2px; }
 .menu-button.active .menu-button__bar.menu-button__bar--4 { display: none; }
 .menu-button.stuck .menu-button__bar.menu-button__bar--4 { opacity: 0; }
+
+.booking-page{
+    min-height: 500px;
+  }
+  .booking-page .booking-menu{
+    height:  130px;
+    background: #1d3649!important;
+    margin-top: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .booking-page .booking-menu .menu-item{
+    font-size: .75rem;
+    color: white;
+    border-right: 1px solid white;
+    height: 100%;
+    padding: 10px 20px;
+    width: auto;
+    width: 20%;
+  }
+  .booking-page .booking-menu .menu-item:last-child{
+      border-right: 0;
+  }
+  .booking-page .booking-menu .menu-item:hover{
+    background: #437ca8!important;
+}
+  .arrow-1 {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  .selected-tittle, .all-room{
+    display: flex;
+    justify-content: center;
+  }
+  .down-1{
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  .arrow-2 {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  .down-2{
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  .menu-item .selected-value{
+      font-size: 22px;
+      display: flex;
+      justify-content: center;
+      padding-top: 10px;
+  }
+  .selected-arrow{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+ }
+
+ .room-title{
+     font-size: 20px;
+     padding-top: 20px;
+     padding-bottom: 20px;
+ }
+ .guest-room{     
+     width: 100%;
+     display: flex;
+     justify-content: left;
+     align-items:center;
+     height: 40px;
+ }
+ .guest-room .common-select{
+     width: 300px;
+     height: 30px;
+     outline: none;
+     border: 0;
+     border-bottom: 1px solid #ccc;
+ }
+ .add-a-room{
+    color: #f6d83e;
+    font-size: 18px;
+    padding-top: 15px;
+    cursor: pointer;
+ }
+
+ .input-wrapper{
+     padding: 60px 0px;
+ }
+ .right-side{
+     float: right;
+     width: 100%;
+     display: flex;
+     justify-content: right;
+     padding-left: 50px;
+ }
+ .right-side{
+    width: 100%;
+    display: flex;
+    justify-content: right;
+ }
+
+ .propperty_wrapper{
+     width: 100%;
+ }
+ .remove{
+     width: 100px;
+     cursor: pointer;
+ }
+ .remove span{
+    color: #f6d83e;
+    font-size: 16px;
+    padding-left: 15px;
+    margin-right: 6px;
+ }
+ .discount-section{
+     width: 500px;
+     margin: 30px auto;
+ }
+ .app-code{
+     width: 500px;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     height: 40px;
+     cursor: pointer;
+ }
+ .coupon{
+     border: 1px solid #ddd;
+     padding: 15px 20px;
+ }
+ .coupon select{
+    width: 100%;
+    height: 30px;
+    outline: none;
+    border: 1px solid #ccc;
+    padding: 2px 10px;
+ }
+ .coupon input{
+    width: 100%;
+    height: 30px;
+    outline: none;
+    border: 1px solid #ccc;
+    margin: 10px 0px;
+    padding: 2px 10px;
+ }
+
+ .coupon .coupon-button{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+ }
+ .coupon .coupon-button .cancel{
+     width: 45%;
+     height: 40px;
+     background-color: #eee;
+     color: #f6d83e;
+     border: 1px solid #f6d83e;
+     text-align: center;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     text-transform: uppercase;
+     font-weight: bold;
+ }
+ .coupon .coupon-button .add-btn{
+    width: 45%;
+    height: 40px;
+    color: white;
+    background-color: #f6d83e;
+    border: 1px solid #f6d83e;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.submit-coupon{
+    background-color: #f6d83e;
+    height: 60px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: white;
+    margin: 30px auto;
+}
