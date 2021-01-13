@@ -1553,6 +1553,14 @@
                 </div>
             </div>
 
+            <div class="date-calender"> 
+                <div class="calender-title"> Select Date </div>
+                <div class="input-picker">
+                    <input type="text" name="daterangepicker" value="01/01/2018 - 01/15/2018" />   
+                </div>
+                           
+            </div>
+
 
             <div class="room-list-view container">
                 <div class="selected-room-list">
@@ -1615,135 +1623,144 @@
                         </div>
                     </div>
                 </div>
-
-                
             </div>
-
         </div>
+
+       
+
+
 
         <div class="payment-page">
             <div class="container">
-            <div class="payment-area">
-                <div class="first-part"> 
-                    <div class="title"> Your Reservation </div>
-                    <div class="sale">
-                       <span style="color:red"> Sale: </span> Online Special <br/>Free Buffet Breakfast </br/>Royal Family Suite Sea View - 1 room
-                    </div>
-                    <div class="total-price">
-                        BDT <br/> 13,000.
-                    </div>
-                    <div class="people-room">
-                        <span> <i class="fa fa-calender"> </i> 2 night </span>
-                        <span> <i class="fa fa-user"> </i> 2 adult </span>
-                        <span> <i class="fa fa-user"> </i> 2 child </span>
-                    </div>
-                    <div class="newline">
-                        <p> 13, Jan 2021 </p>
-                        <p> BDT 13,4000 </p>
-                    </div>
-                    <div class="newline">
-                        <p> Subtotal <del>BDT 600 </del> </p>
-                        <p> BDT 13,4000 </p>
-                    </div>
-                    <div class="border-room-top"> </div>
-    
-                    <div class="newline">
-                        <p> Tax </p>
-                        <p> BDT 1300 </p>
-                    </div>
-                    <div class="newline">
-                        <p> Service charges </p>
-                        <p> BDT 600</p>
-                    </div>
-                    <div class="newline">
-                        <p> Total</p>
-                        <p> <b> BDT16000.00 </b> </p>
-                    </div>
-                    <div class="border-room-top"> </div>
-    
-                    <div class="special-request">
-                        <p> Specail request </p>
-                        <p>Note: These are not guraunteed </p>
-                        <div class="payment-form-group">
-                            <p> Arrival time: </p>
-                            <input type="text" name="specail-request" class="payment-input" />
+                <div class="payment-area">
+                    <div class="first-part">
+                        <div class="title"> Your Reservation </div>
+                        <div class="sale">
+                            <span style="color:red"> Sale: </span> Online Special <br />Free Buffet Breakfast </br />Royal
+                            Family Suite Sea View - 1 room
                         </div>
-                        <div class="payment-form-group">
-                            <p> Additional Comments:  </p>
-                            <input type="text" name="specail-request" class="payment-input" />
+                        <div class="total-price">
+                            BDT <br /> 13,000.
+                        </div>
+                        <div class="people-room">
+                            <span> <i class="fa fa-calender"> </i> 2 night </span>
+                            <span> <i class="fa fa-user"> </i> 2 adult </span>
+                            <span> <i class="fa fa-user"> </i> 2 child </span>
+                        </div>
+                        <div class="newline">
+                            <p> 13, Jan 2021 </p>
+                            <p> BDT 13,4000 </p>
+                        </div>
+                        <div class="newline">
+                            <p> Subtotal <del>BDT 600 </del> </p>
+                            <p> BDT 13,4000 </p>
+                        </div>
+                        <div class="border-room-top"> </div>
+
+                        <div class="newline">
+                            <p> Tax </p>
+                            <p> BDT 1300 </p>
+                        </div>
+                        <div class="newline">
+                            <p> Service charges </p>
+                            <p> BDT 600</p>
+                        </div>
+                        <div class="newline">
+                            <p> Total</p>
+                            <p> <b> BDT16000.00 </b> </p>
+                        </div>
+                        <div class="border-room-top"> </div>
+
+                        <div class="special-request">
+                            <p> Specail request </p>
+                            <p>Note: These are not guraunteed </p>
+                            <div class="payment-form-group">
+                                <p> Arrival time: </p>
+                                <input type="text" name="specail-request" class="payment-input" />
+                            </div>
+                            <div class="payment-form-group">
+                                <p> Additional Comments: </p>
+                                <input type="text" name="specail-request" class="payment-input" />
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="second-part"> 
-                    <div class="title"> Guest information </div>
-                    <a href="#" style="color:#f6d83e"> Been here before ? click here </a>
-    
-                    <div class="pay-input-common top-guest-gap">
-                        <input type="text" name="first-name" placeholder="First name"  required/>
-                        <span> * </span>
+                    <div class="second-part">
+                        <div class="title"> Guest information </div>
+                        <a href="#" style="color:#f6d83e"> Been here before ? click here </a>
+
+                        <div class="pay-input-common top-guest-gap">
+                            <input type="text" name="first-name" placeholder="First name" required />
+                            <span> * </span>
+                        </div>
+                        <div class="pay-input-common">
+                            <input type="text" name="last-name" placeholder="Last name" required />
+                            <span> * </span>
+                        </div>
+                        <div class="pay-input-common">
+                            <input type="email" name="email" placeholder="Email address" required />
+                            <span> * </span>
+                        </div>
+                        <div class="pay-input-common">
+                            <input type="text" name="phone" placeholder="Phone number" required />
+                        </div>
+                        <div class="pay-input-common">
+                            <input type="text" name="address" placeholder="Address" required />
+                        </div>
+                        <div class="pay-input-common">
+                            <input type="text" name="city" placeholder="City" required />
+                        </div>
+                        <div class="pay-input-common">
+                            <select name="country">
+                                <option value="1"> Bangladesh</option>
+                            </select>
+                        </div>
+                        <div class="pay-input-common">
+                            <input type="text" name="post" placeholder="Postal Code" required />
+                        </div>
+
                     </div>
-                    <div class="pay-input-common">
-                        <input type="text" name="last-name" placeholder="Last name"  required/>
-                        <span> * </span>
+                    <div class="third-part">
+                        <div class="title"> Payment Method</div>
+                        <div class="payment-card-image">
+                            <img src={{asset("/uploads/default/amex.jpg")}} alt=""/>
+                            <img src={{asset("/uploads/default/mastercard.jpg")}} alt=""/>
+                            <img src={{asset("/uploads/default/visa.jpg")}} alt=""/>
+                        </div>
+                        <div class="pay-input-common top-guest-gap">
+                            <input type="text" name="card-holder-name" placeholder="Card on name" required />
+                            <span> * </span>
+                        </div>
+                        <div class="pay-input-common top-guest-gap">
+                            <input type="text" name="card-number" placeholder="Card number" required />
+                            <span> * </span>
+                        </div>
+                        <div class="pay-input-common top-guest-gap">
+                            <input type="text" name="expire-date" placeholder="MM/YY" required />
+                            <span> * </span>
+                        </div>
+                        <div class="agreement">
+                            <p> <input type="checkbox" name="contact-check"> Use the same address as contact information
+                            </p>
+                            <p> <input type="checkbox" name="contact-check"> Notify me for special offer</p>
+                            <p> <input type="checkbox" name="contact-check"> I have read agree to the <a href=""
+                                    style="color:#f6d83e">rerms of condition </a> and <a href="" style="color:#f6d83e">
+                                    privacy policy </a></p>
+                        </div>
+                        <div class="book-now-button">
+                            Book Now
+                        </div>
                     </div>
-                    <div class="pay-input-common">
-                        <input type="email" name="email" placeholder="Email address"  required/>
-                        <span> * </span>
-                    </div>
-                    <div class="pay-input-common">
-                        <input type="text" name="phone" placeholder="Phone number"  required/>
-                    </div>
-                    <div class="pay-input-common">
-                        <input type="text" name="address" placeholder="Address"  required/>
-                    </div>
-                    <div class="pay-input-common">
-                        <input type="text" name="city" placeholder="City"  required/>
-                    </div>
-                    <div class="pay-input-common">
-                        <select name="country">
-                            <option value="1"> Bangladesh</option>
-                        </select>
-                    </div>
-                    <div class="pay-input-common">
-                        <input type="text" name="post" placeholder="Postal Code"  required/>
-                    </div>
-    
-                </div>
-                <div class="third-part"> 
-                    <div class="title"> Payment Method</div>
-    
-                    <div class="pay-input-common top-guest-gap">
-                        <input type="text" name="card-holder-name" placeholder="Card on name"  required/>
-                        <span> * </span>
-                    </div>
-                    <div class="pay-input-common top-guest-gap">
-                        <input type="text" name="card-number" placeholder="Card number"  required/>
-                        <span> * </span>
-                    </div>
-                    <div class="pay-input-common top-guest-gap">
-                        <input type="text" name="expire-date" placeholder="MM/YY"  required/>
-                        <span> * </span>
-                    </div>
-                    <div class="agreement">
-                        <p> <input type="checkbox" name="contact-check"> Use the same address as contact information </p>
-                        <p> <input type="checkbox" name="contact-check"> Notify me for special offer</p>
-                        <p> <input type="checkbox" name="contact-check"> I have read agree to the <a href="" style="color:#f6d83e" >rerms of condition  </a> and <a href="" style="color:#f6d83e" > privacy policy </a></p>
-                    </div>
-                    <div class="book-now-button">
-                        Book Now
-                    </div>
+
                 </div>
 
-                </div>   
-    
-            
-            </div>   
+
+            </div>
 
         </div>
-        </div>
+    </div>
 
 
-        </div>
+    </div>
     </div>
 
 
