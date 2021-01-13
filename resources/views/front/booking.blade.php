@@ -1509,16 +1509,16 @@
                 <div class="col-2"></div>
                 <div class="col-8">
                     <div class="room-title"> Guest & Rooms </div>
-                    <div class="propperty_wrapper">              
+                    <div class="propperty_wrapper">
                         <div class="guest-room">
-                            <div class="remove">  </div>
+                            <div class="remove"> </div>
                             <select name="guest" class="common-select">
                                 <option value="1"> 1 Adult</option>
                                 <option value="2"> 2 Adults</option>
                                 <option value="3"> 3 Adults</option>
                                 <option value="4"> 4 Adults</option>
                             </select>
-                            <select name="guest"  class="common-select">
+                            <select name="guest" class="common-select">
                                 <option value="0"> 0 Children
                                 </option>
                                 <option value="1"> 1 Child</option>
@@ -1532,8 +1532,8 @@
 
 
                     <div class="discount-section">
-                        <div class="app-code" >
-                            <div class="app-text"> App </div>   <span class="arrow-2 down-2"></span> 
+                        <div class="app-code">
+                            <div class="app-text"> App </div> <span class="arrow-2 down-2"></span>
                         </div>
                         <div class="coupon">
                             <select name="discount-option">
@@ -1542,36 +1542,221 @@
                                 <option value=""> Discount Code </option>
                                 <option value=""> Discount Code </option>
                             </select>
-                            <input type="text" name=""/>
+                            <input type="text" name="" />
                             <div class="coupon-button">
                                 <div class="cancel"> Cancel </div>
                                 <div class="add-btn"> Add </div>
                             </div>
-                        </div>                                             
+                        </div>
                     </div>
-                      <div class="submit-coupon"> Update guests & rooms </div>
+                    <div class="submit-coupon"> Update guests & rooms </div>
                 </div>
             </div>
-          
-           </div>
 
 
+            <div class="room-list-view container">
+                <div class="selected-room-list">
+                    <div class="list-part">
+                        <div class="photo-view">
+                            <img src="{{ asset('/uploads/default/room-meeting-facilities-restaurants.jpg') }}"
+                                height="363" />
+                        </div>
+                        <div class="room-description">
+                            <div class="room-title">
+                                Studio king & Select room
+                            </div>
+                            <div class="room-item">
+                                <div class="people">
+                                    <div class="icon-user"> <i class="fa fa-user"> </i> </div>
+                                    <div class="user-in-room"> 4 People </div>
+                                </div>
+                                <div class="bed-room">
+                                    <div class="icon-user"> <i class="fa fa-car"> </i> </div>
+                                    <div class="user-in-room"> 2 room </div>
+                                </div>
+                                <div class="people">
+                                    <div class="icon-user"> <i class="fa fa-list"> </i> </div>
+                                    <div class="user-in-room"> 4 sofa bed </div>
+                                </div>
+                            </div>
 
+                            <div class="room-info">
+                                Beachfront Studio with superb room features and amenities, the Studio Sea View rooms becomes
+                                the top priority for every guests. Key features includes- one king bed for two, sitting area
+                                with modern sofa sets, reading table, kitche...
+                            </div>
+                            <div class="room-link">
+                                <a href="#"> View room details & enhancement</a>
+                            </div>
+                        </div>
+
+                        <div class="sales-price-section">
+                            <div class="sales-section">
+                                <div class="sales-name"> <input type="radio" selected value="online" /> Sales: Online
+                                    special
+                                    </br>
+                                    <p> Free buffer breakfast </p>
+                                </div>
+                            </div>
+                            <div class="price-section">
+                                <div class="discount-price"> 20,300 </div>
+                                <div class="current-price"> 30,000 bdt</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="book-part">
+                        <div class="price-button">
+                            <del>Bdt 12000 </del>
+                            <br />
+                            <p> BDT 16,20000 </p>
+                        </div>
+                        <div class="book-submit-button">
+                            Book
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+
+        </div>
+
+        <div class="payment-page">
+            <div class="container">
+            <div class="payment-area">
+                <div class="first-part"> 
+                    <div class="title"> Your Reservation </div>
+                    <div class="sale">
+                       <span style="color:red"> Sale: </span> Online Special <br/>Free Buffet Breakfast </br/>Royal Family Suite Sea View - 1 room
+                    </div>
+                    <div class="total-price">
+                        BDT <br/> 13,000.
+                    </div>
+                    <div class="people-room">
+                        <span> <i class="fa fa-calender"> </i> 2 night </span>
+                        <span> <i class="fa fa-user"> </i> 2 adult </span>
+                        <span> <i class="fa fa-user"> </i> 2 child </span>
+                    </div>
+                    <div class="newline">
+                        <p> 13, Jan 2021 </p>
+                        <p> BDT 13,4000 </p>
+                    </div>
+                    <div class="newline">
+                        <p> Subtotal <del>BDT 600 </del> </p>
+                        <p> BDT 13,4000 </p>
+                    </div>
+                    <div class="border-room-top"> </div>
+    
+                    <div class="newline">
+                        <p> Tax </p>
+                        <p> BDT 1300 </p>
+                    </div>
+                    <div class="newline">
+                        <p> Service charges </p>
+                        <p> BDT 600</p>
+                    </div>
+                    <div class="newline">
+                        <p> Total</p>
+                        <p> <b> BDT16000.00 </b> </p>
+                    </div>
+                    <div class="border-room-top"> </div>
+    
+                    <div class="special-request">
+                        <p> Specail request </p>
+                        <p>Note: These are not guraunteed </p>
+                        <div class="payment-form-group">
+                            <p> Arrival time: </p>
+                            <input type="text" name="specail-request" class="payment-input" />
+                        </div>
+                        <div class="payment-form-group">
+                            <p> Additional Comments:  </p>
+                            <input type="text" name="specail-request" class="payment-input" />
+                        </div>
+                    </div>
+                </div>
+                <div class="second-part"> 
+                    <div class="title"> Guest information </div>
+                    <a href="#" style="color:#f6d83e"> Been here before ? click here </a>
+    
+                    <div class="pay-input-common top-guest-gap">
+                        <input type="text" name="first-name" placeholder="First name"  required/>
+                        <span> * </span>
+                    </div>
+                    <div class="pay-input-common">
+                        <input type="text" name="last-name" placeholder="Last name"  required/>
+                        <span> * </span>
+                    </div>
+                    <div class="pay-input-common">
+                        <input type="email" name="email" placeholder="Email address"  required/>
+                        <span> * </span>
+                    </div>
+                    <div class="pay-input-common">
+                        <input type="text" name="phone" placeholder="Phone number"  required/>
+                    </div>
+                    <div class="pay-input-common">
+                        <input type="text" name="address" placeholder="Address"  required/>
+                    </div>
+                    <div class="pay-input-common">
+                        <input type="text" name="city" placeholder="City"  required/>
+                    </div>
+                    <div class="pay-input-common">
+                        <select name="country">
+                            <option value="1"> Bangladesh</option>
+                        </select>
+                    </div>
+                    <div class="pay-input-common">
+                        <input type="text" name="post" placeholder="Postal Code"  required/>
+                    </div>
+    
+                </div>
+                <div class="third-part"> 
+                    <div class="title"> Payment Method</div>
+    
+                    <div class="pay-input-common top-guest-gap">
+                        <input type="text" name="card-holder-name" placeholder="Card on name"  required/>
+                        <span> * </span>
+                    </div>
+                    <div class="pay-input-common top-guest-gap">
+                        <input type="text" name="card-number" placeholder="Card number"  required/>
+                        <span> * </span>
+                    </div>
+                    <div class="pay-input-common top-guest-gap">
+                        <input type="text" name="expire-date" placeholder="MM/YY"  required/>
+                        <span> * </span>
+                    </div>
+                    <div class="agreement">
+                        <p> <input type="checkbox" name="contact-check"> Use the same address as contact information </p>
+                        <p> <input type="checkbox" name="contact-check"> Notify me for special offer</p>
+                        <p> <input type="checkbox" name="contact-check"> I have read agree to the <a href="" style="color:#f6d83e" >rerms of condition  </a> and <a href="" style="color:#f6d83e" > privacy policy </a></p>
+                    </div>
+                    <div class="book-now-button">
+                        Book Now
+                    </div>
+                </div>
+
+                </div>   
+    
+            
+            </div>   
+
+        </div>
+        </div>
+
+
+        </div>
     </div>
 
 
-        <script type="text/javascript">
-     
+    <script type="text/javascript">
         $(document).ready(function() {
             var x = 1;
             var maxField = 20;
             var addButton = $('.add_property_button');
             var wrapper = $('.propperty_wrapper');
-            
-           
             $(addButton).click(function() {
                 if (x < maxField) {
-                    var fieldHTML = '<div class="guest-room"><div class="remove"> <span> X </span>Remove </div><select name="guest" class="common-select"><option value="1"> 1 Adult</option><option value="2"> 2 Adults</option><option value="3"> 3 Adults</option><option value="4"> 4 Adults</option></select><select name="guest"  class="common-select"><option value="0"> 0 Children</option><option value="1"> 1 Child</option><option value="2"> 2 Child</option></select></div>'; 
+                    var fieldHTML =
+                        '<div class="guest-room"><div class="remove"> <span> X </span>Remove </div><select name="guest" class="common-select"><option value="1"> 1 Adult</option><option value="2"> 2 Adults</option><option value="3"> 3 Adults</option><option value="4"> 4 Adults</option></select><select name="guest"  class="common-select"><option value="0"> 0 Children</option><option value="1"> 1 Child</option><option value="2"> 2 Child</option></select></div>';
                     x++;
                     $(wrapper).append(fieldHTML);
                 }
