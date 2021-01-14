@@ -1567,15 +1567,16 @@
 
 
             <div class="room-list-view container" id="form3">
+			@foreach($roomssuites as $room)
                 <div class="selected-room-list">
                     <div class="list-part">
                         <div class="photo-view">
-                            <img src="{{ asset('/uploads/default/room-meeting-facilities-restaurants.jpg') }}"
-                                height="363" />
+								<img height="363"
+                                        src="{{ !empty($room->feature_image) ? asset($room->feature_image) : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
                         </div>
                         <div class="room-description">
                             <div class="room-title">
-                                Studio king & Select room
+							{{ $room->name }}
                             </div>
                             <div class="room-item">
                                 <div class="people">
@@ -1593,9 +1594,7 @@
                             </div>
 
                             <div class="room-info">
-                                Beachfront Studio with superb room features and amenities, the Studio Sea View rooms becomes
-                                the top priority for every guests. Key features includes- one king bed for two, sitting area
-                                with modern sofa sets, reading table, kitche...
+							{{$room->description }}
                             </div>
                             <div class="room-link">
                                 <a href="#"> View room details & enhancement</a>
@@ -1611,22 +1610,23 @@
                                 </div>
                             </div>
                             <div class="price-section">
-                                <div class="discount-price"> 20,300 </div>
-                                <div class="current-price"> 30,000 bdt</div>
+                                <div class="discount-price"> {{$room->rate_in_usd }} USD</div>
+                                <div class="current-price"> BDT {{$room->rate_in_bdt }} </div>
                             </div>
                         </div>
                     </div>
                     <div class="book-part">
                         <div class="price-button">
-                            <del>Bdt 12000 </del>
+                            <del>Bdt 300 </del>
                             <br />
-                            <p> BDT 16,20000 </p>
+                            <p> BDT {{$room->rate_in_bdt }}  </p>
                         </div>
                         <div class="book-submit-button" onclick="nextForPayment()">
                             Book
                         </div>
                     </div>
                 </div>
+				@endforeach
             </div>
         </div>
 
