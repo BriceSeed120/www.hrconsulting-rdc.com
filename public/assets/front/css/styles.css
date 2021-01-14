@@ -914,6 +914,7 @@ ul#link1>li a {
     border-width: 0 3px 3px 0;
     display: inline-block;
     padding: 3px;
+    display: none;
 }
 
 .selected-tittle,
@@ -1218,6 +1219,7 @@ ul#link1>li a {
     width: calc(33% - 30px);
     border-right: 2px dotted #ccc;
     padding-right: 30px;
+    padding-left: 30px;
 }
 
 .payment-area .second-part {

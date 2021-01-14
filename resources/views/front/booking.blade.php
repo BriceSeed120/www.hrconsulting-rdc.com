@@ -1472,40 +1472,41 @@
 @section('content')
 
     <div class="booking-page">
+        <input type="text" value="" id="currentmenu" hidden/>
         <div class="booking-menu">
-            <div class="menu-item">
+            <div class="menu-item" onclick="selectArrowMenu(1)">
                 <div class="selected-tittle"> Adults & Childer </div>
                 <div class="selected-value"> 2/0 </div>
                 <div class="selected-arrow">
-                    <span class="arrow-1 down-1"></span>
+                    <span class="arrow-1 down-1" id="arrow1" ></span>
                 </div>
             </div>
-            <div class="menu-item">
+            <div class="menu-item" onclick="selectArrowMenu(2)">
                 <div class="selected-tittle"> Dates of stay </div>
                 <div class="selected-value"> SELECT </div>
-                <div class="selected-arrow">
-                    <span class="arrow-1 down-1"></span>
+                <div class="selected-arrow" >
+                    <span class="arrow-1 down-1" id="arrow2"></span>
                 </div>
             </div>
-            <div class="menu-item">
+            <div class="menu-item" onclick="selectArrowMenu(3)">
                 <div class="selected-tittle"> Accomadations </div>
                 <div class="selected-value"> SELECT </div>
-                <div class="selected-arrow">
-                    <span class="arrow-1 down-1"></span>
+                <div class="selected-arrow" >
+                    <span class="arrow-1 down-1" id="arrow3"></span>
                 </div>
             </div>
-            <div class="menu-item">
+            <div class="menu-item" onclick="selectArrowMenu(4)">
                 <div class="selected-tittle"> Total </div>
                 <div class="selected-value"> BDT 000 </div>
                 <div class="all-room"> ALL ROOMS BDT </div>
-                <div class="selected-arrow">
-                    <span class="arrow-1 down-1"></span>
+                <div class="selected-arrow" >
+                    <span class="arrow-1 down-1" id="arrow4"></span>
                 </div>
             </div>
         </div>
 
         <div class="container input-wrapper">
-            <div class="row">
+            <div class="row" id="form1">
                 <div class="col-2"></div>
                 <div class="col-8">
                     <div class="room-title"> Guest & Rooms </div>
@@ -1549,20 +1550,20 @@
                             </div>
                         </div>
                     </div>
-                    <div class="submit-coupon"> Update guests & rooms </div>
+                    <div class="submit-coupon" onClick="updateRoom()"> Update guests & rooms </div>
                 </div>
             </div>
 
-            <div class="date-calender"> 
+            <div class="date-calender" id="form2"> 
                 <div class="calender-title"> Select Date </div>
                 <div class="input-picker">
                     <input type="text" name="daterangepicker" value="01/01/2018 - 01/15/2018" />   
                 </div>
-                           
+                <div class="submit-coupon" onClick="nextFormRoom()"> Next </div>      
             </div>
 
 
-            <div class="room-list-view container">
+            <div class="room-list-view container" id="form3">
                 <div class="selected-room-list">
                     <div class="list-part">
                         <div class="photo-view">
@@ -1618,7 +1619,7 @@
                             <br />
                             <p> BDT 16,20000 </p>
                         </div>
-                        <div class="book-submit-button">
+                        <div class="book-submit-button" onclick="nextForPayment()">
                             Book
                         </div>
                     </div>
@@ -1630,7 +1631,7 @@
 
 
 
-        <div class="payment-page">
+        <div class="payment-page" id="form4">
             <div class="container">
                 <div class="payment-area">
                     <div class="first-part">
@@ -1766,6 +1767,9 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
+            $("#form2").hide();
+            $("#form3").hide();
+            $("#form4").hide();
             var x = 1;
             var maxField = 20;
             var addButton = $('.add_property_button');
@@ -1783,8 +1787,44 @@
                 $(this).parent('div').remove();
                 x--;
             });
+
+            $("#arrow1").show();
+
         });
 
+        function selectArrowMenu(id){
+        $(document).ready(function(){
+            $("#arrow1").hide();
+            $("#arrow2").hide();
+            $("#arrow3").hide();
+            $("#arrow4").hide();
+            $("#arrow"+id).show();
+            $("#currentmenu").val(id);
+        });
+    }
+
+    function formPage(id){
+        $(document).ready(function(){
+            $("#form1").hide();
+            $("#form2").hide();
+            $("#form3").hide();
+            $("#form4").hide();
+            $("#form"+id).show();
+        });
+    }
+
+    function updateRoom(){
+        formPage(2);
+        selectArrowMenu(2);
+    }
+    function nextFormRoom(){
+        formPage(3);
+        selectArrowMenu(3);
+    }
+    function nextForPayment(){
+        formPage(4);
+        selectArrowMenu(4);
+    }
     </script>
 
 
