@@ -1005,7 +1005,7 @@ ul#link1>li a {
 }
 
 .remove {
-    width: 100px;
+    width: 120px;
     cursor: pointer;
 }
 
@@ -1028,6 +1028,7 @@ ul#link1>li a {
     align-items: center;
     height: 40px;
     cursor: pointer;
+	border-bottom: 1px solid #ccc;
 }
 
 .coupon {
@@ -1070,6 +1071,7 @@ ul#link1>li a {
     align-items: center;
     text-transform: uppercase;
     font-weight: bold;
+	cursor:pointer;
 }
 
 .coupon .coupon-button .add-btn {
@@ -1084,6 +1086,7 @@ ul#link1>li a {
     align-items: center;
     text-transform: uppercase;
     font-weight: bold;
+	cursor:pointer;
 }
 
 .submit-coupon {
@@ -1096,6 +1099,7 @@ ul#link1>li a {
     text-transform: uppercase;
     color: white;
     margin: 30px auto;
+	cursor:pointer;
 }
 
 .room-list-view {}

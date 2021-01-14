@@ -1513,13 +1513,13 @@
                     <div class="propperty_wrapper">
                         <div class="guest-room">
                             <div class="remove"> </div>
-                            <select name="guest" class="common-select">
+                            <select name="guest" id="selectedroom1" class="common-select">
                                 <option value="1"> 1 Adult</option>
                                 <option value="2"> 2 Adults</option>
                                 <option value="3"> 3 Adults</option>
                                 <option value="4"> 4 Adults</option>
                             </select>
-                            <select name="guest" class="common-select">
+                            <select name="guest" id="selectedpeople1" class="common-select">
                                 <option value="0"> 0 Children
                                 </option>
                                 <option value="1"> 1 Child</option>
@@ -1533,19 +1533,19 @@
 
 
                     <div class="discount-section">
-                        <div class="app-code">
+                        <div class="app-code" onclick="couponBoxOpen()">
                             <div class="app-text"> App </div> <span class="arrow-2 down-2"></span>
                         </div>
-                        <div class="coupon">
-                            <select name="discount-option">
+                        <div class="coupon" id="couponInputBox">
+                            <select name="discount-option" id="discountOption">
                                 <option value=""> Discount Code </option>
                                 <option value=""> Discount Code </option>
                                 <option value=""> Discount Code </option>
                                 <option value=""> Discount Code </option>
                             </select>
-                            <input type="text" name="" />
+                            <input type="text" name=""  id="discountCode"/>
                             <div class="coupon-button">
-                                <div class="cancel"> Cancel </div>
+                                <div onclick="couponBoxOpen()" class="cancel"> Cancel </div>
                                 <div class="add-btn"> Add </div>
                             </div>
                         </div>
@@ -1559,6 +1559,9 @@
                 <div class="input-picker">
                     <input type="text" name="daterangepicker" value="01/01/2018 - 01/15/2018" />   
                 </div>
+				
+				<input type="text" hidden id="selectedStartDate" value=""/>
+				<input type="text" hidden id="selectedEndDate" value=""/>
                 <div class="submit-coupon" onClick="nextFormRoom()"> Next </div>      
             </div>
 
@@ -1766,6 +1769,8 @@
 
 
     <script type="text/javascript">
+    var numberOfRoom = 1;
+    var isOpenCouponBox = 0;
         $(document).ready(function() {
             $("#form2").hide();
             $("#form3").hide();
@@ -1776,9 +1781,11 @@
             var wrapper = $('.propperty_wrapper');
             $(addButton).click(function() {
                 if (x < maxField) {
-                    var fieldHTML =
-                        '<div class="guest-room"><div class="remove"> <span> X </span>Remove </div><select name="guest" class="common-select"><option value="1"> 1 Adult</option><option value="2"> 2 Adults</option><option value="3"> 3 Adults</option><option value="4"> 4 Adults</option></select><select name="guest"  class="common-select"><option value="0"> 0 Children</option><option value="1"> 1 Child</option><option value="2"> 2 Child</option></select></div>';
                     x++;
+                    numberOfRoom = x;
+                    var fieldHTML =
+                        '<div class="guest-room"><div class="remove"> <span> X </span>Remove </div><select name="guest" id="selectedroom'+ numberOfRoom +'" class="common-select"><option value="1"> 1 Adult</option><option value="2"> 2 Adults</option><option value="3"> 3 Adults</option><option value="4"> 4 Adults</option></select><select id="selectedpeople'+ numberOfRoom +'" name="guest"  class="common-select people-select"><option value="0"> 0 Children</option><option value="1"> 1 Child</option><option value="2"> 2 Child</option></select></div>';
+        
                     $(wrapper).append(fieldHTML);
                 }
             });
@@ -1789,6 +1796,9 @@
             });
 
             $("#arrow1").show();
+            $("#couponInputBox").hide();
+            /* guest & room value */
+
 
         });
 
@@ -1812,11 +1822,31 @@
             $("#form"+id).show();
         });
     }
+function couponBoxOpen(){
+	if(isOpenCouponBox){
+		$("#couponInputBox").hide();
+		isOpenCouponBox = 0;
+	}else{
+		$("#couponInputBox").show();
+		isOpenCouponBox = 1;
+	}
 
+}
     function updateRoom(){
-        formPage(2);
-        selectArrowMenu(2);
+ 
+     for(i = 1; i <= numberOfRoom ; i++){
+         var room = $("#selectedroom"+i).val();
+         var people = $("#selectedpeople"+i).val();
+        console.log(room,people);
+     }
+     var discountOption = $("#discountOption").val();
+     var discountCode = $("#discountCode").val();
+
+       formPage(2);
+       selectArrowMenu(2);
     }
+
+
     function nextFormRoom(){
         formPage(3);
         selectArrowMenu(3);
