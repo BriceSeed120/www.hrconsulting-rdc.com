@@ -1346,6 +1346,7 @@ ul#link1>li a {
 .payment-card-image{
     display: flex;
     justify-content: space-between;
+    padding-bottom: 20px;
 }
 .payment-card-image img{
     width: 30%;

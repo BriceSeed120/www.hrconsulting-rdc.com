@@ -1468,10 +1468,33 @@
     }
 
 </style>
+
+ <!-- Bootstrap core CSS -->
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+ integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<style>
+.bd-placeholder-img {
+   font-size: 1.125rem;
+   text-anchor: middle;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+@media (min-width: 768px) {
+   .bd-placeholder-img-lg {
+       font-size: 3.5rem;
+   }
+}
+</style>
+
 @extends('layouts.front')
 @section('content')
 
     <div class="booking-page">
+        <form method="POST">
         <input type="text" value="" id="currentmenu" hidden/>
         <div class="booking-menu">
             <div class="menu-item" onclick="selectArrowMenu(1)">
@@ -1680,11 +1703,11 @@
                             <p>Note: These are not guraunteed </p>
                             <div class="payment-form-group">
                                 <p> Arrival time: </p>
-                                <input type="text" name="specail-request" class="payment-input" />
+                                <input type="text" id="arrivalTime" name="arrivalTime" class="payment-input" />
                             </div>
                             <div class="payment-form-group">
                                 <p> Additional Comments: </p>
-                                <input type="text" name="specail-request" class="payment-input" />
+                                <input type="text" id="additionalComment" name="additionalComment" class="payment-input" />
                             </div>
                         </div>
                     </div>
@@ -1693,13 +1716,10 @@
                         <a href="#" style="color:#f6d83e"> Been here before ? click here </a>
 
                         <div class="pay-input-common top-guest-gap">
-                            <input type="text" id="firstName" name="firstName" placeholder="First name" required />
+                            <input type="text" id="name" name="name" placeholder="Full name" required />
                             <span> * </span>
                         </div>
-                        <div class="pay-input-common">
-                            <input type="text" id="lastName" name="lastName" placeholder="Last name" required />
-                            <span> * </span>
-                        </div>
+ 
                         <div class="pay-input-common">
                             <input type="email" id="email" name="email" placeholder="Email address" required />
                             <span> * </span>
@@ -1711,11 +1731,11 @@
                             <input type="text" id="address" name="address" placeholder="Address" required />
                         </div>
                         <div class="pay-input-common">
-                            <input type="text" id="address" name="city" placeholder="City" required />
+                            <input type="text" id="city" name="city" placeholder="City" required />
                         </div>
                         <div class="pay-input-common">
                             <select name="country">
-                                <option value="1"> Bangladesh</option>
+                                <option value="Bangladesh"> Bangladesh</option>
                             </select>
                         </div>
                         <div class="pay-input-common">
@@ -1730,27 +1750,25 @@
                             <img src={{asset("/uploads/default/mastercard.jpg")}} alt=""/>
                             <img src={{asset("/uploads/default/visa.jpg")}} alt=""/>
                         </div>
-                        <div class="pay-input-common top-guest-gap">
-                            <input type="text" id="cardHolderName" name="cardHolderName" placeholder="Card on name" required />
-                            <span> * </span>
+                        <div class="payment-card-image">                        
+                            <img src={{asset("/uploads/default/bkash_logo_0.jpg")}} alt=""/>
+                            <img src={{asset("/uploads/default/rocket.png")}} alt=""/>
+                            <img src={{asset("/uploads/default/nagad.png")}} alt=""/>
                         </div>
-                        <div class="pay-input-common top-guest-gap">
-                            <input type="text"  id="cardNumber" name="cardNumber" placeholder="Card number" required />
-                            <span> * </span>
-                        </div>
-                        <div class="pay-input-common top-guest-gap">
-                            <input type="text" id="expireDate" name="expireDate" placeholder="MM/YY" required />
-                            <span> * </span>
-                        </div>
-                        <div class="agreement">
-                            <p> <input type="checkbox" id="checkSameAddress" name="checkSameAddress"> Use the same address as contact information
-                            </p>
-                            <p> <input type="checkbox" id="checkNotification" name="checkNotification"> Notify me for special offer</p>
+     
+                        <div class="agreement">                           
                             <p> <input type="checkbox" id="checkAgree" name="checkAgree"> I have read agree to the <a href=""
                                     style="color:#f6d83e">rerms of condition </a> and <a href="" style="color:#f6d83e">
                                     privacy policy </a></p>
                         </div>
-                        <div class="book-now-button" onclick="paymentProcess()">
+                        <div class="book-now-button" 
+                        id="sslczPayBtn"
+                        token=""
+                        postdata=""
+                        order="If you already have the transaction generated for current order"
+                        endpoint="{{ url('/pay-via-ajax') }}"                       
+                       >
+                       {{-- onclick="paymentProcess()" --}}
                             Book Now
                         </div>
                     </div>
@@ -1761,6 +1779,8 @@
             </div>
 
         </div>
+
+        </form>
     </div>
 
 
@@ -1857,23 +1877,9 @@ function couponBoxOpen(){
         formPage(4);
         selectArrowMenu(4);
     }
-    function paymentProcess(){
-        var firstName = $("#firstName").val();
-        var lastName = $("#lastName").val();
-        var email = $("#email").val();
-        var phone = $("#phone").val();
-        var address = $("#address").val();
-        var city = $("#city").val();
-        var postalCode = $("#postalCode").val();
-        var cardHolderName = $("#cardHolderName").val();
-        var cardNumber = $("#cardNumber").val();
-        var expireDate = $("#expireDate").val();
-        var checkSameAddress = $("#checkSameAddress").val();
-        var checkNotification = $("#checkNotification").val();
-        var checkAgree = $("#checkAgree").val();
-    }
-
     </script>
+
+<!-- If you want to use the popup integration, -->
 
 
 @endsection
@@ -1885,3 +1891,41 @@ function couponBoxOpen(){
 @section('foot')
 
 @endsection
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+
+<script>
+    var obj = {};
+    obj.name = $('#name').val();
+    obj.phone = $('#phone').val();
+    obj.email = $('#email').val();
+    obj.address = $('#address').val();
+    obj.city = $('#city').val();
+    obj.addi = $('#postalCode').val();
+    obj.arrivalTime = $('#arrivalTime').val();
+    obj.additionalComment = $('#additionalComment').val();
+
+    //obj.amount = $('#total_amount').val();
+
+    $('#sslczPayBtn').prop('postdata', obj);
+
+    (function (window, document) {
+        var loader = function () {
+            var script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];
+            // script.src = "https://seamless-epay.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(7); // USE THIS FOR LIVE
+            script.src = "https://sandbox.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(7); // USE THIS FOR SANDBOX
+            tag.parentNode.insertBefore(script, tag);
+        };
+
+        window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
+    })(window, document);
+</script>
