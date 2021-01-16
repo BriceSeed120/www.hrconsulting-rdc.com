@@ -1621,7 +1621,7 @@
                             <br />
                             <p> BDT {{$room->rate_in_bdt }}  </p>
                         </div>
-                        <div class="book-submit-button" onclick="nextForPayment()">
+                        <div class="book-submit-button" onclick="nextForPayment({{$room->id }},{{$room->rate_in_bdt}}, {{$room->rate_in_usd}})">
                             Book
                         </div>
                     </div>
@@ -1693,25 +1693,25 @@
                         <a href="#" style="color:#f6d83e"> Been here before ? click here </a>
 
                         <div class="pay-input-common top-guest-gap">
-                            <input type="text" name="first-name" placeholder="First name" required />
+                            <input type="text" id="firstName" name="firstName" placeholder="First name" required />
                             <span> * </span>
                         </div>
                         <div class="pay-input-common">
-                            <input type="text" name="last-name" placeholder="Last name" required />
+                            <input type="text" id="lastName" name="lastName" placeholder="Last name" required />
                             <span> * </span>
                         </div>
                         <div class="pay-input-common">
-                            <input type="email" name="email" placeholder="Email address" required />
+                            <input type="email" id="email" name="email" placeholder="Email address" required />
                             <span> * </span>
                         </div>
                         <div class="pay-input-common">
-                            <input type="text" name="phone" placeholder="Phone number" required />
+                            <input type="text" id="phone" name="phone" placeholder="Phone number" required />
                         </div>
                         <div class="pay-input-common">
-                            <input type="text" name="address" placeholder="Address" required />
+                            <input type="text" id="address" name="address" placeholder="Address" required />
                         </div>
                         <div class="pay-input-common">
-                            <input type="text" name="city" placeholder="City" required />
+                            <input type="text" id="address" name="city" placeholder="City" required />
                         </div>
                         <div class="pay-input-common">
                             <select name="country">
@@ -1719,7 +1719,7 @@
                             </select>
                         </div>
                         <div class="pay-input-common">
-                            <input type="text" name="post" placeholder="Postal Code" required />
+                            <input type="text"  name="postalCode" name="postalCode" placeholder="Postal Code" required />
                         </div>
 
                     </div>
@@ -1731,26 +1731,26 @@
                             <img src={{asset("/uploads/default/visa.jpg")}} alt=""/>
                         </div>
                         <div class="pay-input-common top-guest-gap">
-                            <input type="text" name="card-holder-name" placeholder="Card on name" required />
+                            <input type="text" id="cardHolderName" name="cardHolderName" placeholder="Card on name" required />
                             <span> * </span>
                         </div>
                         <div class="pay-input-common top-guest-gap">
-                            <input type="text" name="card-number" placeholder="Card number" required />
+                            <input type="text"  id="cardNumber" name="cardNumber" placeholder="Card number" required />
                             <span> * </span>
                         </div>
                         <div class="pay-input-common top-guest-gap">
-                            <input type="text" name="expire-date" placeholder="MM/YY" required />
+                            <input type="text" id="expireDate" name="expireDate" placeholder="MM/YY" required />
                             <span> * </span>
                         </div>
                         <div class="agreement">
-                            <p> <input type="checkbox" name="contact-check"> Use the same address as contact information
+                            <p> <input type="checkbox" id="checkSameAddress" name="checkSameAddress"> Use the same address as contact information
                             </p>
-                            <p> <input type="checkbox" name="contact-check"> Notify me for special offer</p>
-                            <p> <input type="checkbox" name="contact-check"> I have read agree to the <a href=""
+                            <p> <input type="checkbox" id="checkNotification" name="checkNotification"> Notify me for special offer</p>
+                            <p> <input type="checkbox" id="checkAgree" name="checkAgree"> I have read agree to the <a href=""
                                     style="color:#f6d83e">rerms of condition </a> and <a href="" style="color:#f6d83e">
                                     privacy policy </a></p>
                         </div>
-                        <div class="book-now-button">
+                        <div class="book-now-button" onclick="paymentProcess()">
                             Book Now
                         </div>
                     </div>
@@ -1851,10 +1851,28 @@ function couponBoxOpen(){
         formPage(3);
         selectArrowMenu(3);
     }
-    function nextForPayment(){
+    function nextForPayment(room_id, bdt, usd){
+        console.log("room_id ",room_id, " bdt ",bdt, " usd ",usd);
+
         formPage(4);
         selectArrowMenu(4);
     }
+    function paymentProcess(){
+        var firstName = $("#firstName").val();
+        var lastName = $("#lastName").val();
+        var email = $("#email").val();
+        var phone = $("#phone").val();
+        var address = $("#address").val();
+        var city = $("#city").val();
+        var postalCode = $("#postalCode").val();
+        var cardHolderName = $("#cardHolderName").val();
+        var cardNumber = $("#cardNumber").val();
+        var expireDate = $("#expireDate").val();
+        var checkSameAddress = $("#checkSameAddress").val();
+        var checkNotification = $("#checkNotification").val();
+        var checkAgree = $("#checkAgree").val();
+    }
+
     </script>
 
 

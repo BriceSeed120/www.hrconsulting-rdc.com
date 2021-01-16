@@ -8,7 +8,7 @@ use App\Http\Controllers\CKEditorController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\Dashboard\RoomsSuitsController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\SslCommerzPaymentController;
 
 Route::get('/', [FrontController::class, 'index'])->name('index');
 Route::get('editor', [CKEditorController::class, 'index']);
@@ -17,6 +17,24 @@ Route::get('/page/{id}/{category}', [FrontController::class, 'page'])->name('fro
 Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 Route::post('/contactstore', [FrontController::class, 'contactstore'])->name('contactstore');
 Route::get('/booking', [FrontController::class, 'booking'])->name('booking');
+
+
+
+// SSLCOMMERZ Start
+Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+
+
+
 Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], function() {
     Route::get('/', function () {
         return view('dashboard.home.index');
