@@ -1536,13 +1536,13 @@
                     <div class="propperty_wrapper">
                         <div class="guest-room">
                             <div class="remove"> </div>
-                            <select name="guest" id="selectedroom1" class="common-select">
+                            <select name="guest" id="selectedAdult1" class="common-select">
                                 <option value="1"> 1 Adult</option>
                                 <option value="2"> 2 Adults</option>
                                 <option value="3"> 3 Adults</option>
                                 <option value="4"> 4 Adults</option>
                             </select>
-                            <select name="guest" id="selectedpeople1" class="common-select">
+                            <select name="guest" id="selectedChild1" class="common-select">
                                 <option value="0"> 0 Children
                                 </option>
                                 <option value="1"> 1 Child</option>
@@ -1644,7 +1644,8 @@
                             <br />
                             <p> BDT {{$room->rate_in_bdt }}  </p>
                         </div>
-                        <div class="book-submit-button" onclick="nextForPayment({{$room->id }},{{$room->rate_in_bdt}}, {{$room->rate_in_usd}})">
+                        <div class="book-submit-button" 
+                        onclick='nextForPayment("{{$room->id}}" , "{{$room->name}}", "{{$room->rate_in_bdt}}", "{{$room->rate_in_usd}}")'>
                             Book
                         </div>
                     </div>
@@ -1761,25 +1762,28 @@
                                     style="color:#f6d83e">rerms of condition </a> and <a href="" style="color:#f6d83e">
                                     privacy policy </a></p>
                         </div>
-                        <div class="book-now-button" 
+                        {{-- <div class="book-now-button" 
                         id="sslczPayBtn"
-                        token=""
+                        token="sdfsd sdfs"
                         postdata=""
                         order="If you already have the transaction generated for current order"
                         endpoint="{{ url('/pay-via-ajax') }}"                       
                        >
-                       {{-- onclick="paymentProcess()" --}}
                             Book Now
-                        </div>
+                        </div> --}}
+
+                        <button class="btn btn-primary btn-lg btn-block" 
+                        id="sslczPayBtn"
+                        token="if you have any token validation"
+                        postdata="yhf ngfcd "
+                        order="If you already have the transaction generated for current order"
+                        endpoint="{{ url('/pay-via-ajax') }}"> Pay Now
+                </button>
+
                     </div>
-
                 </div>
-
-
             </div>
-
         </div>
-
         </form>
     </div>
 
@@ -1791,6 +1795,12 @@
     <script type="text/javascript">
     var numberOfRoom = 1;
     var isOpenCouponBox = 0;
+    var selectedAdult = [];
+    var selectedChild = [];
+    var selectedRoom=[];
+    var selectedRoomName = [];
+    var selectedBDT = [];
+    var selectedUSD = [];
         $(document).ready(function() {
             $("#form2").hide();
             $("#form3").hide();
@@ -1804,7 +1814,7 @@
                     x++;
                     numberOfRoom = x;
                     var fieldHTML =
-                        '<div class="guest-room"><div class="remove"> <span> X </span>Remove </div><select name="guest" id="selectedroom'+ numberOfRoom +'" class="common-select"><option value="1"> 1 Adult</option><option value="2"> 2 Adults</option><option value="3"> 3 Adults</option><option value="4"> 4 Adults</option></select><select id="selectedpeople'+ numberOfRoom +'" name="guest"  class="common-select people-select"><option value="0"> 0 Children</option><option value="1"> 1 Child</option><option value="2"> 2 Child</option></select></div>';
+                        '<div class="guest-room"><div class="remove"> <span> X </span>Remove </div><select name="guest" id="selectedAdult'+ numberOfRoom +'" class="common-select"><option value="1"> 1 Adult</option><option value="2"> 2 Adults</option><option value="3"> 3 Adults</option><option value="4"> 4 Adults</option></select><select id="selectedChild'+ numberOfRoom +'" name="guest"  class="common-select people-select"><option value="0"> 0 Children</option><option value="1"> 1 Child</option><option value="2"> 2 Child</option></select></div>';
         
                     $(wrapper).append(fieldHTML);
                 }
@@ -1855,9 +1865,10 @@ function couponBoxOpen(){
     function updateRoom(){
  
      for(i = 1; i <= numberOfRoom ; i++){
-         var room = $("#selectedroom"+i).val();
-         var people = $("#selectedpeople"+i).val();
-        console.log(room,people);
+         var adult = $("#selectedAdult"+i).val();
+         var child = $("#selectedChild"+i).val();
+        selectedAdult.push(adult);
+        selectedChild.push(child);
      }
      var discountOption = $("#discountOption").val();
      var discountCode = $("#discountCode").val();
@@ -1871,12 +1882,17 @@ function couponBoxOpen(){
         formPage(3);
         selectArrowMenu(3);
     }
-    function nextForPayment(room_id, bdt, usd){
+    function nextForPayment(room_id,room_name, bdt, usd){
         console.log("room_id ",room_id, " bdt ",bdt, " usd ",usd);
-
+        selectedRoomName.push(room_name);
+        selectedRoom.push(room_id);       
+        selectedBDT.push(bdt ? bdt : 0);
+        selectedUSD.push(usd ? usd :0);
         formPage(4);
         selectArrowMenu(4);
     }
+
+
     </script>
 
 <!-- If you want to use the popup integration, -->
@@ -1892,31 +1908,49 @@ function couponBoxOpen(){
 
 @endsection
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+<script src="http://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+<script src="http://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
         integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
         crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+<script src="http://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 
 
 <script>
-    var obj = {};
-    obj.name = $('#name').val();
-    obj.phone = $('#phone').val();
-    obj.email = $('#email').val();
-    obj.address = $('#address').val();
-    obj.city = $('#city').val();
-    obj.addi = $('#postalCode').val();
-    obj.arrivalTime = $('#arrivalTime').val();
-    obj.additionalComment = $('#additionalComment').val();
+$( document ).ready(function() { 
+    $("form :input").change(function() {
+        var obj = {};
+        obj.name = $('#name').val();
+        obj.phone = $('#phone').val();
+        obj.email = $('#email').val();
+        obj.address = $('#address').val();
+        obj.city = $('#city').val();
+        obj.arrivalTime = $('#arrivalTime').val();
+        obj.additionalComment = $('#additionalComment').val();
+        obj.postal_code = $('#postalCode').val();
+        obj.room = selectedRoom;
+        obj.adult = selectedAdult;
+        obj.child = selectedChild;
+        obj.discount = 100;
+        obj.startdate = $("#selectedStartDate").val();
+        obj.endDate = $("#selectedEndDate").val();
+        obj.quantity = '';
+        obj.total_ammount = '5000';
+        obj.tax = '';
+        obj.service_charge = '';
 
-    //obj.amount = $('#total_amount').val();
+        //obj.amount = $('#total_amount').val();
+        $('#sslczPayBtn').prop('postdata', obj);
 
-    $('#sslczPayBtn').prop('postdata', obj);
+    });
+
+    
+});
+
+  
 
     (function (window, document) {
         var loader = function () {

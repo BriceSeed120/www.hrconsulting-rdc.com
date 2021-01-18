@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Library\SslCommerz\SslCommerzNotification;
 
@@ -91,6 +91,33 @@ class SslCommerzPaymentController extends Controller
     public function payViaAjax(Request $request)
     {
 
+
+
+        // $update_product = DB::table('orders')
+        //     ->where('transaction_id', $post_data['tran_id'])
+        //     ->updateOrInsert([
+        //         'name' => $post_data['cus_name'],
+        //         'email' => $post_data['cus_email'],
+        //         'phone' => $post_data['cus_phone'],
+        //         'amount' => $post_data['total_amount'],
+        //         'status' => 'Pending',
+        //         'address' => $post_data['cus_add1'],
+        //         'transaction_id' => $post_data['tran_id'],
+        //         'currency' => $post_data['currency'],
+        //         'room' => $requestData['room'],
+        //         'adult' => $requestData['adult'],
+        //         'child' => $requestData['child'],
+        //         'discount' => $requestData['discount'],
+        //         'startdate' => $requestData['startdate'],
+        //         'endDate' => $requestData['endDate'],
+        //         'quantity' => $requestData['quantity'],
+        //         'total_ammount' => $requestData['total_ammount'],
+        //         'tax' => $requestData['tax'],
+        //         'service_charge' => $requestData['service_charge'],
+        //     ]);
+
+
+    
         # Here you have to receive all the order data to initate the payment.
         # Lets your oder trnsaction informations are saving in a table called "orders"
         # In orders table order uniq identity is "transaction_id","status" field contain status of the transaction, "amount" is the order amount to be paid and "currency" is for storing Site Currency which will be checked with paid currency.
@@ -145,7 +172,8 @@ class SslCommerzPaymentController extends Controller
                 'status' => 'Pending',
                 'address' => $post_data['cus_add1'],
                 'transaction_id' => $post_data['tran_id'],
-                'currency' => $post_data['currency']
+                'currency' => $post_data['currency'],
+                'created_at' => date('Y-m-d H:i:s'),
             ]);
 
         $sslc = new SslCommerzNotification();
