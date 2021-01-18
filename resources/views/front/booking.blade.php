@@ -1740,7 +1740,7 @@
                             </select>
                         </div>
                         <div class="pay-input-common">
-                            <input type="text"  name="postalCode" name="postalCode" placeholder="Postal Code" required />
+                            <input type="text"  id="postalCode" name="postalCode" placeholder="Postal Code" required />
                         </div>
 
                     </div>
@@ -1928,21 +1928,20 @@ $( document ).ready(function() {
         obj.email = $('#email').val();
         obj.address = $('#address').val();
         obj.city = $('#city').val();
-        obj.arrivalTime = $('#arrivalTime').val();
-        obj.additionalComment = $('#additionalComment').val();
+        obj.arrival_time = $('#arrivalTime').val();
+        obj.additional_comment = $('#additionalComment').val();
         obj.postal_code = $('#postalCode').val();
-        obj.room = selectedRoom;
-        obj.adult = selectedAdult;
-        obj.child = selectedChild;
+        obj.room = selectedRoom.join();
+        obj.adult = selectedAdult.join();
+        obj.child = selectedChild.join();
         obj.discount = 100;
         obj.startdate = $("#selectedStartDate").val();
         obj.endDate = $("#selectedEndDate").val();
         obj.quantity = '';
         obj.total_ammount = '5000';
-        obj.tax = '';
-        obj.service_charge = '';
-
-        //obj.amount = $('#total_amount').val();
+        obj.tax = 0;
+        obj.service_charge = 0;
+        console.log("obj ",obj);
         $('#sslczPayBtn').prop('postdata', obj);
 
     });
