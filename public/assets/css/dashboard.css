@@ -13,6 +13,7 @@ body {
  */
 
 .sidebar {
+    overflow: scroll;
     position: fixed;
     top: 0;
     /* rtl:raw:

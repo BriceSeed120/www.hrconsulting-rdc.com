@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Order;
 
-class BookingController extends Controller
+class OrdersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +15,19 @@ class BookingController extends Controller
      */
     public function index()
     {
-       return view('dashboard.booking.index')->withTitle('Manage bookings');
+        $orders = Order::where("orders.status","Processing")->paginate(15);
+        return view('dashboard.orders.index', compact('orders'))->withTitle('Completed orders');
+    }
+
+    public function failed()
+    {
        
     }
 
+    public function pending()
+    {
+       
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -25,8 +35,8 @@ class BookingController extends Controller
      */
     public function create()
     {
-        dd('kire');
-        return view('dashboard.booking.create')->withTitle('Add new booking');
+        $orders = Order::where("orders.status","Pending")->paginate(15);      
+        return view('dashboard.orders.index', compact('orders'))->withTitle('Completed orders');
     }
 
     /**
@@ -48,7 +58,7 @@ class BookingController extends Controller
      */
     public function show($id)
     {
-        return view('dashboard.booking.show')->withTitle('Booking details');
+        dd($id);
     }
 
     /**
@@ -57,9 +67,10 @@ class BookingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id = 1)
     {
-        return view('dashboard.booking.edit')->withTitle('Update booking');
+        $orders = Order::where("orders.status","Failed")->paginate(15);
+        return view('dashboard.orders.index', compact('orders'))->withTitle('Completed orders');
     }
 
     /**

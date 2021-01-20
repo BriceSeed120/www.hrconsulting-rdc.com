@@ -57,9 +57,11 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], functio
            'users' => UserController::class,
            'menus' => \App\Http\Controllers\Dashboard\MenuController::class,
            'roles' => \App\Http\Controllers\Dashboard\RoleController::class,
-           'settings' => SettingController::class
+           'settings' => SettingController::class,
+           'orders' => \App\Http\Controllers\Dashboard\OrdersController::class,
        ]);
     });
+    
 });
 
 require __DIR__.'/auth.php';
