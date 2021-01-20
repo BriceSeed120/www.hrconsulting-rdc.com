@@ -19,8 +19,7 @@
                     <th>Customer Name</th>                    
                     <th> Phone</th>
                     <th> Email</th>
-                    <th> Address</th>                   
-                    <th>Room</th>
+                    <th> Address</th> 
                     <th>Booking Date</th>
                     <th>Status</th>
                     <th>Order Date</th>
@@ -35,7 +34,6 @@
                         <td>{{ $customer->phone }}</td>
                         <td>{{ $customer->email }}</td>
                         <td>{{ $customer->address }}</td>
-                        <td>{{ $customer->room }}</td>
                         <td>{{ $customer->startdate }} - {{ $customer->endDate }}</td>
                         <td>{{ $customer->status }} </td>
                         <td>{{ $customer->created_at }} </td>

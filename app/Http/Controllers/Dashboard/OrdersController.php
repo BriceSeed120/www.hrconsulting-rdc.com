@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
+use Illuminate\Support\Facades\DB;
 
 class OrdersController extends Controller
 {
@@ -35,8 +36,9 @@ class OrdersController extends Controller
      */
     public function create()
     {
+        // Pending order list due to route issue
         $orders = Order::where("orders.status","Pending")->paginate(15);      
-        return view('dashboard.orders.index', compact('orders'))->withTitle('Completed orders');
+        return view('dashboard.orders.index', compact('orders'))->withTitle('Pending orders');
     }
 
     /**
@@ -58,7 +60,10 @@ class OrdersController extends Controller
      */
     public function show($id)
     {
-        dd($id);
+        $orders = Order::where("orders.id",$id)->first();     
+        $roomIds = explode(',', $orders->room);
+        $rooms = DB::table('roomssuits')->whereIn('id',$roomIds)->select('name','id')->get();
+        return view('dashboard.orders.view', compact('orders','rooms'))->withTitle('View orders');
     }
 
     /**
@@ -69,8 +74,9 @@ class OrdersController extends Controller
      */
     public function edit($id = 1)
     {
+        //failed order
         $orders = Order::where("orders.status","Failed")->paginate(15);
-        return view('dashboard.orders.index', compact('orders'))->withTitle('Completed orders');
+        return view('dashboard.orders.index', compact('orders'))->withTitle('Failed orders');
     }
 
     /**
