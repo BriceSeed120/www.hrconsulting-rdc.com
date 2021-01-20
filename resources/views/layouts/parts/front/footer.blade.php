@@ -498,9 +498,13 @@ $( document ).ready(function() {
     $('input[name="daterangepicker"]').daterangepicker({
     opens: 'left'
   }, function(start, end, label) {
-    console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
-	$("#selectedStartDate").val(start.format('YYYY-MM-DD'));
-	$("#selectedEndDate").val(end.format('YYYY-MM-DD'));
+    var today = new Date();
+    var myToday = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 0, 0, 0);
+    if( start >= new Date(myToday) && end > new Date()){
+        $("#selectedStartDate").val(start.format('YYYY-MM-DD'));
+	    $("#selectedEndDate").val(end.format('YYYY-MM-DD'));
+    }
+
   });
 });
 </script>

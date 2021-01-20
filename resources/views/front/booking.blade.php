@@ -1469,321 +1469,335 @@
 
 </style>
 
- <!-- Bootstrap core CSS -->
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
- integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- Bootstrap core CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <style>
-.bd-placeholder-img {
-   font-size: 1.125rem;
-   text-anchor: middle;
-   -webkit-user-select: none;
-   -moz-user-select: none;
-   -ms-user-select: none;
-   user-select: none;
-}
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
 
-@media (min-width: 768px) {
-   .bd-placeholder-img-lg {
-       font-size: 3.5rem;
-   }
-}
+    @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+        }
+    }
+
 </style>
 
 @extends('layouts.front')
 @section('content')
+    <div class="custom-modal-popup" id="viewRoomSelectModal">
+        <div class="close-modal" onclick="closeModal()"> Close X </div>
+        <div class="view-room"> Your selected room </div>
+        <div class="select-room-show-list" id="viewRoomData">
+
+        </div>
+        <div class="pay-goto-now" onclick="nextPaymentProcess()">
+            Payment
+        </div>
+    </div>
 
     <div class="booking-page">
+
         <form method="POST">
-        <input type="text" value="" id="currentmenu" hidden/>
-        <div class="booking-menu">
-            <div class="menu-item" onclick="selectArrowMenu(1)">
-                <div class="selected-tittle"> Adults & Childer </div>
-                <div class="selected-value"> 2/0 </div>
-                <div class="selected-arrow">
-                    <span class="arrow-1 down-1" id="arrow1" ></span>
-                </div>
-            </div>
-            <div class="menu-item" onclick="selectArrowMenu(2)">
-                <div class="selected-tittle"> Dates of stay </div>
-                <div class="selected-value"> SELECT </div>
-                <div class="selected-arrow" >
-                    <span class="arrow-1 down-1" id="arrow2"></span>
-                </div>
-            </div>
-            <div class="menu-item" onclick="selectArrowMenu(3)">
-                <div class="selected-tittle"> Accomadations </div>
-                <div class="selected-value"> SELECT </div>
-                <div class="selected-arrow" >
-                    <span class="arrow-1 down-1" id="arrow3"></span>
-                </div>
-            </div>
-            <div class="menu-item" onclick="selectArrowMenu(4)">
-                <div class="selected-tittle"> Total </div>
-                <div class="selected-value"> BDT 000 </div>
-                <div class="all-room"> ALL ROOMS BDT </div>
-                <div class="selected-arrow" >
-                    <span class="arrow-1 down-1" id="arrow4"></span>
-                </div>
-            </div>
-        </div>
+            <input type="text" value="" id="currentmenu" hidden />
+            <input type="text" value="" id="maxActiveFormNumber" hidden />
+            <div class="booking-menu">
+                <div class="menu-item" onclick="selectArrowMenu(1)">
+                    <div class="selected-tittle"> Adults & Children </div>
+                    <div class="selected-value" id="viewSelectedAdultChild"> SELECT
 
-        <div class="container input-wrapper">
-            <div class="row" id="form1">
-                <div class="col-2"></div>
-                <div class="col-8">
-                    <div class="room-title"> Guest & Rooms </div>
-                    <div class="propperty_wrapper">
-                        <div class="guest-room">
-                            <div class="remove"> </div>
-                            <select name="guest" id="selectedAdult1" class="common-select">
-                                <option value="1"> 1 Adult</option>
-                                <option value="2"> 2 Adults</option>
-                                <option value="3"> 3 Adults</option>
-                                <option value="4"> 4 Adults</option>
-                            </select>
-                            <select name="guest" id="selectedChild1" class="common-select">
-                                <option value="0"> 0 Children
-                                </option>
-                                <option value="1"> 1 Child</option>
-                                <option value="2"> 2 Child</option>
-                            </select>
-                        </div>
                     </div>
-                    <div class="col-8 add-a-room add_property_button">
-                        + Add a room
+                    <div class="selected-arrow">
+                        <span class="arrow-1 down-1" id="arrow1"></span>
                     </div>
+                </div>
+                <div class="menu-item" onclick="selectArrowMenu(2)">
+                    <div class="selected-tittle"> Dates of stay </div>
+                    <div class="selected-value" id="viewSelectedDate"> SELECT </div>
+                    <div class="selected-arrow">
+                        <span class="arrow-1 down-1" id="arrow2"></span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="selectArrowMenu(3)">
+                    <div class="selected-tittle"> Accomadations </div>
+                    <div class="selected-value"> SELECT </div>
+                    <div class="selected-arrow">
+                        <span class="arrow-1 down-1" id="arrow3"></span>
+                    </div>
+                </div>
+                <div class="menu-item" onclick="selectArrowMenu(4)">
+                    <div class="selected-tittle"> Total </div>
+                    <div class="selected-value"> BDT 000 </div>
+                    <div class="all-room"> ALL ROOMS BDT </div>
+                    <div class="selected-arrow">
+                        <span class="arrow-1 down-1" id="arrow4"></span>
+                    </div>
+                </div>
+            </div>
 
-
-                    <div class="discount-section">
-                        <div class="app-code" onclick="couponBoxOpen()">
-                            <div class="app-text"> App </div> <span class="arrow-2 down-2"></span>
-                        </div>
-                        <div class="coupon" id="couponInputBox">
-                            <select name="discount-option" id="discountOption">
-                                <option value=""> Discount Code </option>
-                                <option value=""> Discount Code </option>
-                                <option value=""> Discount Code </option>
-                                <option value=""> Discount Code </option>
-                            </select>
-                            <input type="text" name=""  id="discountCode"/>
-                            <div class="coupon-button">
-                                <div onclick="couponBoxOpen()" class="cancel"> Cancel </div>
-                                <div class="add-btn"> Add </div>
+            <div class="container input-wrapper">
+                <div class="row" id="form1">
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                        <div class="room-title"> Guest & Rooms </div>
+                        <div class="propperty_wrapper">
+                            <div class="guest-room">
+                                <div class="remove"> </div>
+                                <select name="guest" id="selectedAdult1" class="common-select">
+                                    <option value="1"> 1 Adult</option>
+                                    <option value="2"> 2 Adults</option>
+                                    <option value="3"> 3 Adults</option>
+                                    <option value="4"> 4 Adults</option>
+                                </select>
+                                <select name="guest" id="selectedChild1" class="common-select">
+                                    <option value="0"> 0 Children
+                                    </option>
+                                    <option value="1"> 1 Child</option>
+                                    <option value="2"> 2 Child</option>
+                                </select>
                             </div>
                         </div>
+                        <div class="col-8 add-a-room add_property_button">
+                            + Add a room
+                        </div>
+
+
+                        <div class="discount-section">
+                            <div class="app-code" onclick="couponBoxOpen()">
+                                <div class="app-text"> App </div> <span class="arrow-2 down-2"></span>
+                            </div>
+                            <div class="coupon" id="couponInputBox">
+                                <select name="discount-option" id="discountOption">
+                                    <option value=""> Discount Code </option>
+                                    <option value=""> Discount Code </option>
+                                    <option value=""> Discount Code </option>
+                                    <option value=""> Discount Code </option>
+                                </select>
+                                <input type="text" name="" id="discountCode" />
+                                <div class="coupon-button">
+                                    <div onclick="couponBoxOpen()" class="cancel"> Cancel </div>
+                                    <div class="add-btn"> Add </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="submit-coupon" onClick="updateRoom()"> Update guests & rooms </div>
                     </div>
-                    <div class="submit-coupon" onClick="updateRoom()"> Update guests & rooms </div>
                 </div>
-            </div>
 
-            <div class="date-calender" id="form2"> 
-                <div class="calender-title"> Select Date </div>
-                <div class="input-picker">
-                    <input type="text" name="daterangepicker" value="01/01/2018 - 01/15/2018" />   
+                <div class="date-calender" id="form2">
+                    <div class="calender-title"> Select Date </div>
+                    <div class="input-picker">
+                        <input type="text" name="daterangepicker" placeholder="select date " value="" />
+                    </div>
+
+                    <input type="text" hidden id="selectedStartDate" value="" />
+                    <input type="text" hidden id="selectedEndDate" value="" />
+                    <div class="submit-coupon" onClick="nextFormRoom()"> Next </div>
                 </div>
-				
-				<input type="text" hidden id="selectedStartDate" value=""/>
-				<input type="text" hidden id="selectedEndDate" value=""/>
-                <div class="submit-coupon" onClick="nextFormRoom()"> Next </div>      
-            </div>
 
 
-            <div class="room-list-view container" id="form3">
-			@foreach($roomssuites as $room)
-                <div class="selected-room-list">
-                    <div class="list-part">
-                        <div class="photo-view">
-								<img height="363"
+                <div class="room-list-view container" id="form3">
+                    @foreach ($roomssuites as $key => $room)
+                        <div class="selected-room-list">
+                            <div class="list-part">
+                                <div class="photo-view">
+                                    <img height="363"
                                         src="{{ !empty($room->feature_image) ? asset($room->feature_image) : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
-                        </div>
-                        <div class="room-description">
-                            <div class="room-title">
-							{{ $room->name }}
+                                </div>
+                                <div class="room-description">
+                                    <div class="room-title">
+                                        {{ $room->name }}
+                                    </div>
+                                    <div class="room-item">
+                                        <div class="people">
+                                            <div class="icon-user"> <i class="fa fa-user"> </i> </div>
+                                            <div class="user-in-room"> 4 People </div>
+                                        </div>
+                                        <div class="bed-room">
+                                            <div class="icon-user"> <i class="fa fa-car"> </i> </div>
+                                            <div class="user-in-room"> 2 room </div>
+                                        </div>
+                                        <div class="people">
+                                            <div class="icon-user"> <i class="fa fa-list"> </i> </div>
+                                            <div class="user-in-room"> 4 sofa bed </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="room-info">
+                                        {{ $room->description }}
+                                    </div>
+                                    <div class="room-link">
+                                        <a href="#"> View room details & enhancement</a>
+                                    </div>
+                                </div>
+
+                                <div class="sales-price-section">
+                                    <div class="sales-section">
+                                        <div class="sales-name"> <input type="radio" selected value="online" /> Sales:
+                                            Online
+                                            special
+                                            </br>
+                                            <p> Free buffer breakfast </p>
+                                        </div>
+                                    </div>
+                                    <div class="price-section">
+                                        <div class="discount-price"> {{ $room->rate_in_usd }} USD</div>
+                                        <div class="current-price"> BDT {{ $room->rate_in_bdt }} </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="room-item">
-                                <div class="people">
-                                    <div class="icon-user"> <i class="fa fa-user"> </i> </div>
-                                    <div class="user-in-room"> 4 People </div>
+                            <div class="book-part">
+                                <div class="price-button">
+                                    <del>Bdt 300 </del>
+                                    <br />
+                                    <p> BDT {{ $room->rate_in_bdt }} </p>
                                 </div>
-                                <div class="bed-room">
-                                    <div class="icon-user"> <i class="fa fa-car"> </i> </div>
-                                    <div class="user-in-room"> 2 room </div>
+                                <div class="book-submit-button" id="bookButton{{ $key }}"
+                                    onclick='nextForPayment("{{ $room->id }}" , "{{ $room->name }}", "{{ $room->rate_in_bdt }}", "{{ $room->rate_in_usd }}")'>
+                                    Book
                                 </div>
-                                <div class="people">
-                                    <div class="icon-user"> <i class="fa fa-list"> </i> </div>
-                                    <div class="user-in-room"> 4 sofa bed </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+
+
+
+
+
+            <div class="payment-page" id="form4">
+                <div class="container">
+                    <div class="payment-area">
+                        <div class="first-part">
+                            <div class="title"> Your Reservation </div>
+                            <div class="sale">
+                                <span style="color:red"> Sale: </span> Online Special <br />Free Buffet Breakfast
+                                </br />Royal
+                                Family Suite Sea View - 1 room
+                            </div>
+                            <div class="total-price">
+                                BDT <br /> 13,000.
+                            </div>
+                            <div class="people-room">
+                                <span> <i class="fa fa-calender"> </i> 2 night </span>
+                                <span> <i class="fa fa-user"> </i> 2 adult </span>
+                                <span> <i class="fa fa-user"> </i> 2 child </span>
+                            </div>
+                            <div class="newline">
+                                <p> 13, Jan 2021 </p>
+                                <p> BDT 13,4000 </p>
+                            </div>
+                            <div class="newline">
+                                <p> Subtotal <del>BDT 600 </del> </p>
+                                <p> BDT 13,4000 </p>
+                            </div>
+                            <div class="border-room-top"> </div>
+
+                            <div class="newline">
+                                <p> Tax </p>
+                                <p> BDT 1300 </p>
+                            </div>
+                            <div class="newline">
+                                <p> Service charges </p>
+                                <p> BDT 600</p>
+                            </div>
+                            <div class="newline">
+                                <p> Total</p>
+                                <p> <b> BDT16000.00 </b> </p>
+                            </div>
+                            <div class="border-room-top"> </div>
+
+                            <div class="special-request">
+                                <p> Specail request </p>
+                                <p>Note: These are not guraunteed </p>
+                                <div class="payment-form-group">
+                                    <p> Arrival time: </p>
+                                    <input type="text" id="arrivalTime" name="arrivalTime" class="payment-input" />
                                 </div>
+                                <div class="payment-form-group">
+                                    <p> Additional Comments: </p>
+                                    <input type="text" id="additionalComment" name="additionalComment"
+                                        class="payment-input" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="second-part">
+                            <div class="title"> Guest information </div>
+                            <a href="#" style="color:#f6d83e"> Been here before ? click here </a>
+
+                            <div class="pay-input-common top-guest-gap">
+                                <input type="text" id="name" name="name" placeholder="Full name" required />
+                                <span> * </span>
                             </div>
 
-                            <div class="room-info">
-							{{$room->description }}
+                            <div class="pay-input-common">
+                                <input type="email" id="email" name="email" placeholder="Email address" required />
+                                <span> * </span>
                             </div>
-                            <div class="room-link">
-                                <a href="#"> View room details & enhancement</a>
+                            <div class="pay-input-common">
+                                <input type="text" id="phone" name="phone" placeholder="Phone number" required />
                             </div>
-                        </div>
+                            <div class="pay-input-common">
+                                <input type="text" id="address" name="address" placeholder="Address" required />
+                            </div>
+                            <div class="pay-input-common">
+                                <input type="text" id="city" name="city" placeholder="City" required />
+                            </div>
+                            <div class="pay-input-common">
+                                <select name="country">
+                                    <option value="Bangladesh"> Bangladesh</option>
+                                </select>
+                            </div>
+                            <div class="pay-input-common">
+                                <input type="text" id="postalCode" name="postalCode" placeholder="Postal Code" required />
+                            </div>
 
-                        <div class="sales-price-section">
-                            <div class="sales-section">
-                                <div class="sales-name"> <input type="radio" selected value="online" /> Sales: Online
-                                    special
-                                    </br>
-                                    <p> Free buffer breakfast </p>
-                                </div>
-                            </div>
-                            <div class="price-section">
-                                <div class="discount-price"> {{$room->rate_in_usd }} USD</div>
-                                <div class="current-price"> BDT {{$room->rate_in_bdt }} </div>
-                            </div>
                         </div>
-                    </div>
-                    <div class="book-part">
-                        <div class="price-button">
-                            <del>Bdt 300 </del>
-                            <br />
-                            <p> BDT {{$room->rate_in_bdt }}  </p>
-                        </div>
-                        <div class="book-submit-button" 
-                        onclick='nextForPayment("{{$room->id}}" , "{{$room->name}}", "{{$room->rate_in_bdt}}", "{{$room->rate_in_usd}}")'>
-                            Book
+                        <div class="third-part">
+                            <div class="title"> Payment Method</div>
+                            <div class="payment-card-image">
+                                <img src={{ asset('/uploads/default/amex.jpg') }} alt="" />
+                                <img src={{ asset('/uploads/default/mastercard.jpg') }} alt="" />
+                                <img src={{ asset('/uploads/default/visa.jpg') }} alt="" />
+                            </div>
+                            <div class="payment-card-image">
+                                <img src={{ asset('/uploads/default/bkash_logo_0.jpg') }} alt="" />
+                                <img src={{ asset('/uploads/default/rocket.png') }} alt="" />
+                                <img src={{ asset('/uploads/default/nagad.png') }} alt="" />
+                            </div>
+
+                            <div class="agreement">
+                                <p> <input type="checkbox" id="checkAgree" name="checkAgree"> I have read agree to the <a
+                                        href="" style="color:#f6d83e">rerms of condition </a> and <a href=""
+                                        style="color:#f6d83e">
+                                        privacy policy </a></p>
+                            </div>
+                            {{-- <div class="book-now-button" id="sslczPayBtn"
+                                token="sdfsd sdfs" postdata=""
+                                order="If you already have the transaction generated for current order"
+                                endpoint="{{ url('/pay-via-ajax') }}">
+                                Book Now
+                            </div> --}}
+
+                            <button class="btn btn-primary btn-lg btn-block" id="sslczPayBtn"
+                                token="if you have any token validation" postdata="yhf ngfcd "
+                                order="If you already have the transaction generated for current order"
+                                endpoint="{{ url('/pay-via-ajax') }}"> Pay Now
+                            </button>
+
                         </div>
                     </div>
                 </div>
-				@endforeach
             </div>
-        </div>
-
-       
-
-
-
-        <div class="payment-page" id="form4">
-            <div class="container">
-                <div class="payment-area">
-                    <div class="first-part">
-                        <div class="title"> Your Reservation </div>
-                        <div class="sale">
-                            <span style="color:red"> Sale: </span> Online Special <br />Free Buffet Breakfast </br />Royal
-                            Family Suite Sea View - 1 room
-                        </div>
-                        <div class="total-price">
-                            BDT <br /> 13,000.
-                        </div>
-                        <div class="people-room">
-                            <span> <i class="fa fa-calender"> </i> 2 night </span>
-                            <span> <i class="fa fa-user"> </i> 2 adult </span>
-                            <span> <i class="fa fa-user"> </i> 2 child </span>
-                        </div>
-                        <div class="newline">
-                            <p> 13, Jan 2021 </p>
-                            <p> BDT 13,4000 </p>
-                        </div>
-                        <div class="newline">
-                            <p> Subtotal <del>BDT 600 </del> </p>
-                            <p> BDT 13,4000 </p>
-                        </div>
-                        <div class="border-room-top"> </div>
-
-                        <div class="newline">
-                            <p> Tax </p>
-                            <p> BDT 1300 </p>
-                        </div>
-                        <div class="newline">
-                            <p> Service charges </p>
-                            <p> BDT 600</p>
-                        </div>
-                        <div class="newline">
-                            <p> Total</p>
-                            <p> <b> BDT16000.00 </b> </p>
-                        </div>
-                        <div class="border-room-top"> </div>
-
-                        <div class="special-request">
-                            <p> Specail request </p>
-                            <p>Note: These are not guraunteed </p>
-                            <div class="payment-form-group">
-                                <p> Arrival time: </p>
-                                <input type="text" id="arrivalTime" name="arrivalTime" class="payment-input" />
-                            </div>
-                            <div class="payment-form-group">
-                                <p> Additional Comments: </p>
-                                <input type="text" id="additionalComment" name="additionalComment" class="payment-input" />
-                            </div>
-                        </div>
-                    </div>
-                    <div class="second-part">
-                        <div class="title"> Guest information </div>
-                        <a href="#" style="color:#f6d83e"> Been here before ? click here </a>
-
-                        <div class="pay-input-common top-guest-gap">
-                            <input type="text" id="name" name="name" placeholder="Full name" required />
-                            <span> * </span>
-                        </div>
- 
-                        <div class="pay-input-common">
-                            <input type="email" id="email" name="email" placeholder="Email address" required />
-                            <span> * </span>
-                        </div>
-                        <div class="pay-input-common">
-                            <input type="text" id="phone" name="phone" placeholder="Phone number" required />
-                        </div>
-                        <div class="pay-input-common">
-                            <input type="text" id="address" name="address" placeholder="Address" required />
-                        </div>
-                        <div class="pay-input-common">
-                            <input type="text" id="city" name="city" placeholder="City" required />
-                        </div>
-                        <div class="pay-input-common">
-                            <select name="country">
-                                <option value="Bangladesh"> Bangladesh</option>
-                            </select>
-                        </div>
-                        <div class="pay-input-common">
-                            <input type="text"  id="postalCode" name="postalCode" placeholder="Postal Code" required />
-                        </div>
-
-                    </div>
-                    <div class="third-part">
-                        <div class="title"> Payment Method</div>
-                        <div class="payment-card-image">
-                            <img src={{asset("/uploads/default/amex.jpg")}} alt=""/>
-                            <img src={{asset("/uploads/default/mastercard.jpg")}} alt=""/>
-                            <img src={{asset("/uploads/default/visa.jpg")}} alt=""/>
-                        </div>
-                        <div class="payment-card-image">                        
-                            <img src={{asset("/uploads/default/bkash_logo_0.jpg")}} alt=""/>
-                            <img src={{asset("/uploads/default/rocket.png")}} alt=""/>
-                            <img src={{asset("/uploads/default/nagad.png")}} alt=""/>
-                        </div>
-     
-                        <div class="agreement">                           
-                            <p> <input type="checkbox" id="checkAgree" name="checkAgree"> I have read agree to the <a href=""
-                                    style="color:#f6d83e">rerms of condition </a> and <a href="" style="color:#f6d83e">
-                                    privacy policy </a></p>
-                        </div>
-                        {{-- <div class="book-now-button" 
-                        id="sslczPayBtn"
-                        token="sdfsd sdfs"
-                        postdata=""
-                        order="If you already have the transaction generated for current order"
-                        endpoint="{{ url('/pay-via-ajax') }}"                       
-                       >
-                            Book Now
-                        </div> --}}
-
-                        <button class="btn btn-primary btn-lg btn-block" 
-                        id="sslczPayBtn"
-                        token="if you have any token validation"
-                        postdata="yhf ngfcd "
-                        order="If you already have the transaction generated for current order"
-                        endpoint="{{ url('/pay-via-ajax') }}"> Pay Now
-                </button>
-
-                    </div>
-                </div>
-            </div>
-        </div>
         </form>
     </div>
 
@@ -1792,15 +1806,17 @@
     </div>
 
 
+
+
     <script type="text/javascript">
-    var numberOfRoom = 1;
-    var isOpenCouponBox = 0;
-    var selectedAdult = [];
-    var selectedChild = [];
-    var selectedRoom=[];
-    var selectedRoomName = [];
-    var selectedBDT = [];
-    var selectedUSD = [];
+        var numberOfRoom = 1;
+        var isOpenCouponBox = 0;
+        var selectedAdult = [];
+        var selectedChild = [];
+        var selectedRoom = [];
+        var selectedRoomName = [];
+        var selectedBDT = [];
+        var selectedUSD = [];
         $(document).ready(function() {
             $("#form2").hide();
             $("#form3").hide();
@@ -1814,8 +1830,12 @@
                     x++;
                     numberOfRoom = x;
                     var fieldHTML =
-                        '<div class="guest-room"><div class="remove"> <span> X </span>Remove </div><select name="guest" id="selectedAdult'+ numberOfRoom +'" class="common-select"><option value="1"> 1 Adult</option><option value="2"> 2 Adults</option><option value="3"> 3 Adults</option><option value="4"> 4 Adults</option></select><select id="selectedChild'+ numberOfRoom +'" name="guest"  class="common-select people-select"><option value="0"> 0 Children</option><option value="1"> 1 Child</option><option value="2"> 2 Child</option></select></div>';
-        
+                        '<div class="guest-room"><div class="remove"> <span> X </span>Remove </div><select name="guest" id="selectedAdult' +
+                        numberOfRoom +
+                        '" class="common-select"><option value="1"> 1 Adult</option><option value="2"> 2 Adults</option><option value="3"> 3 Adults</option><option value="4"> 4 Adults</option></select><select id="selectedChild' +
+                        numberOfRoom +
+                        '" name="guest"  class="common-select people-select"><option value="0"> 0 Children</option><option value="1"> 1 Child</option><option value="2"> 2 Child</option></select></div>';
+
                     $(wrapper).append(fieldHTML);
                 }
             });
@@ -1832,70 +1852,115 @@
 
         });
 
-        function selectArrowMenu(id){
-        $(document).ready(function(){
-            $("#arrow1").hide();
-            $("#arrow2").hide();
-            $("#arrow3").hide();
-            $("#arrow4").hide();
-            $("#arrow"+id).show();
-            $("#currentmenu").val(id);
-        });
-    }
+        function selectArrowMenu(id) {
+            $(document).ready(function() {
+                $("#arrow1").hide();
+                $("#arrow2").hide();
+                $("#arrow3").hide();
+                $("#arrow4").hide();
+                $("#arrow" + id).show();
+                $("#currentmenu").val(id);
+                if ($("#maxActiveFormNumber").val() >= id) {
+                    formPage(id);
+                }
+            });
+        }
 
-    function formPage(id){
-        $(document).ready(function(){
-            $("#form1").hide();
-            $("#form2").hide();
-            $("#form3").hide();
-            $("#form4").hide();
-            $("#form"+id).show();
-        });
-    }
-function couponBoxOpen(){
-	if(isOpenCouponBox){
-		$("#couponInputBox").hide();
-		isOpenCouponBox = 0;
-	}else{
-		$("#couponInputBox").show();
-		isOpenCouponBox = 1;
-	}
+        function formPage(id) {
+            $(document).ready(function() {
+                $("#form1").hide();
+                $("#form2").hide();
+                $("#form3").hide();
+                $("#form4").hide();
+                $("#form" + id).show();
+                if (id > $("#maxActiveFormNumber").val()) {
+                    $("#maxActiveFormNumber").val(id);
+                }
+            });
+        }
 
-}
-    function updateRoom(){
- 
-     for(i = 1; i <= numberOfRoom ; i++){
-         var adult = $("#selectedAdult"+i).val();
-         var child = $("#selectedChild"+i).val();
-        selectedAdult.push(adult);
-        selectedChild.push(child);
-     }
-     var discountOption = $("#discountOption").val();
-     var discountCode = $("#discountCode").val();
+        function couponBoxOpen() {
+            if (isOpenCouponBox) {
+                $("#couponInputBox").hide();
+                isOpenCouponBox = 0;
+            } else {
+                $("#couponInputBox").show();
+                isOpenCouponBox = 1;
+            }
 
-       formPage(2);
-       selectArrowMenu(2);
-    }
+        }
+
+        function updateRoom() {
+            var viewAdultChild = "";
+            for (i = 1; i <= numberOfRoom; i++) {
+                var adult = $("#selectedAdult" + i).val();
+                var child = $("#selectedChild" + i).val();
+                selectedAdult.push(adult);
+                selectedChild.push(child);
+                if (i >= numberOfRoom) {
+                    viewAdultChild = viewAdultChild + adult + "/" + child + "";
+                } else {
+                    viewAdultChild = viewAdultChild + adult + "/" + child + " ,";
+                }
+            }
+            $("#viewSelectedAdultChild").html(viewAdultChild);
+            var discountOption = $("#discountOption").val();
+            var discountCode = $("#discountCode").val();
+            if (viewAdultChild.length) {
+                formPage(2);
+                selectArrowMenu(2);
+            }
+        }
 
 
-    function nextFormRoom(){
-        formPage(3);
-        selectArrowMenu(3);
-    }
-    function nextForPayment(room_id,room_name, bdt, usd){
-        console.log("room_id ",room_id, " bdt ",bdt, " usd ",usd);
-        selectedRoomName.push(room_name);
-        selectedRoom.push(room_id);       
-        selectedBDT.push(bdt ? bdt : 0);
-        selectedUSD.push(usd ? usd :0);
-        formPage(4);
-        selectArrowMenu(4);
-    }
+        function nextFormRoom() {
+            var startDate = $("#selectedStartDate").val();
+            var endDate = $("#selectedEndDate").val();
+            if (startDate && endDate) {
+                $("#viewSelectedDate").html(startDate + " &nbsp; to " + endDate);
+                formPage(3);
+                selectArrowMenu(3);
+            }
 
+        }
+
+        function nextForPayment(room_id, room_name, bdt, usd) {
+            $("#viewRoomSelectModal").show();
+            if (!selectedRoom.includes(room_id)) {
+                selectedRoomName.push(room_name);
+                selectedRoom.push(room_id);
+                selectedBDT.push(bdt ? bdt : 0);
+                selectedUSD.push(usd ? usd : 0);
+                var indexPos = selectedRoom.findIndex(id => id == room_id);
+                $("#bookButton" + indexPos).addClass("already-booked");
+            } else {
+                var indexPos = selectedRoom.findIndex(id => id == room_id);
+                $("#bookButton" + indexPos).removeClass("already-booked");
+                selectedRoom.splice(indexPos, 1);
+                selectedRoomName.splice(indexPos, 1);
+                selectedBDT.splice(indexPos, 1);
+                selectedUSD.splice(indexPos, 1);
+            }
+            $("#viewRoomData").empty();
+            for (i = 0; i < selectedRoom.length; i++) {
+                $("#viewRoomData").append("<div class='room-name-price'><span>" + (parseInt(i + 1)) + "</span> <b> " +
+                    selectedRoomName[i] + " </B> &nbsp;  " + selectedBDT[i] + " ৳  </div>")
+            }
+        }
+
+        function nextPaymentProcess() {
+            formPage(4);
+            selectArrowMenu(4);
+            $("#viewRoomSelectModal").hide();
+        }
+
+        function closeModal() {
+            $("#viewRoomSelectModal").hide();
+        }
 
     </script>
 
-<!-- If you want to use the popup integration, -->
+    <!-- If you want to use the popup integration, -->
 
 
 @endsection
@@ -1909,56 +1974,59 @@ function couponBoxOpen(){
 @endsection
 
 <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+</script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+</script>
 <script src="http://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+</script>
 
 
 <script>
-$( document ).ready(function() { 
-    $("form :input").change(function() {
-        var obj = {};
-        obj.name = $('#name').val();
-        obj.phone = $('#phone').val();
-        obj.email = $('#email').val();
-        obj.address = $('#address').val();
-        obj.city = $('#city').val();
-        obj.arrival_time = $('#arrivalTime').val();
-        obj.additional_comment = $('#additionalComment').val();
-        obj.postal_code = $('#postalCode').val();
-        obj.room = selectedRoom.join();
-        obj.adult = selectedAdult.join();
-        obj.child = selectedChild.join();
-        obj.discount = 100;
-        obj.startdate = $("#selectedStartDate").val();
-        obj.endDate = $("#selectedEndDate").val();
-        obj.quantity = '';
-        obj.total_ammount = '5000';
-        obj.tax = 0;
-        obj.service_charge = 0;
-        console.log("obj ",obj);
-        $('#sslczPayBtn').prop('postdata', obj);
+    $(document).ready(function() {
+        $("form :input").change(function() {
+            var obj = {};
+            obj.name = $('#name').val();
+            obj.phone = $('#phone').val();
+            obj.email = $('#email').val();
+            obj.address = $('#address').val();
+            obj.city = $('#city').val();
+            obj.arrival_time = $('#arrivalTime').val();
+            obj.additional_comment = $('#additionalComment').val();
+            obj.postal_code = $('#postalCode').val();
+            obj.room = selectedRoom.join();
+            obj.adult = selectedAdult.join();
+            obj.child = selectedChild.join();
+            obj.discount = 100;
+            obj.startdate = $("#selectedStartDate").val();
+            obj.endDate = $("#selectedEndDate").val();
+            obj.quantity = '';
+            obj.total_ammount = '5000';
+            obj.tax = 0;
+            obj.service_charge = 0;
+            $('#sslczPayBtn').prop('postdata', obj);
+
+        });
+
 
     });
 
-    
-});
 
-  
 
-    (function (window, document) {
-        var loader = function () {
-            var script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];
+    (function(window, document) {
+        var loader = function() {
+            var script = document.createElement("script"),
+                tag = document.getElementsByTagName("script")[0];
             // script.src = "https://seamless-epay.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(7); // USE THIS FOR LIVE
-            script.src = "https://sandbox.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(7); // USE THIS FOR SANDBOX
+            script.src = "https://sandbox.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(
+                7); // USE THIS FOR SANDBOX
             tag.parentNode.insertBefore(script, tag);
         };
 
-        window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
+        window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload",
+            loader);
     })(window, document);
+
 </script>
