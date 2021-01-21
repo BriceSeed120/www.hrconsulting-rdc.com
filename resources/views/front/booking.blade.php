@@ -1528,7 +1528,7 @@
                 </div>
                 <div class="menu-item" onclick="selectArrowMenu(3)">
                     <div class="selected-tittle"> Accomadations </div>
-                    <div class="selected-value"> SELECT </div>
+                    <div class="selected-value" id="viewSelectedRoom"> SELECT </div>
                     <div class="selected-arrow">
                         <span class="arrow-1 down-1" id="arrow3"></span>
                     </div>
@@ -1551,13 +1551,13 @@
                         <div class="propperty_wrapper">
                             <div class="guest-room">
                                 <div class="remove"> </div>
-                                <select name="guest" id="selectedAdult1" class="common-select">
+                                <select name="adult" id="selectedAdult1" class="common-select">
                                     <option value="1"> 1 Adult</option>
                                     <option value="2"> 2 Adults</option>
                                     <option value="3"> 3 Adults</option>
                                     <option value="4"> 4 Adults</option>
                                 </select>
-                                <select name="guest" id="selectedChild1" class="common-select">
+                                <select name="child" id="selectedChild1" class="common-select">
                                     <option value="0"> 0 Children
                                     </option>
                                     <option value="1"> 1 Child</option>
@@ -1588,7 +1588,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="submit-coupon" onClick="updateRoom()"> Update guests & rooms </div>
+                        <div class="submit-coupon" onClick="updateRoom(false)"> Update guests & rooms </div>
                     </div>
                 </div>
 
@@ -1830,26 +1830,30 @@
                     x++;
                     numberOfRoom = x;
                     var fieldHTML =
-                        '<div class="guest-room"><div class="remove"> <span> X </span>Remove </div><select name="guest" id="selectedAdult' +
+                        '<div class="guest-room"><div class="remove"> <span> X </span>Remove </div><select name="adult" id="selectedAdult' +
                         numberOfRoom +
-                        '" class="common-select"><option value="1"> 1 Adult</option><option value="2"> 2 Adults</option><option value="3"> 3 Adults</option><option value="4"> 4 Adults</option></select><select id="selectedChild' +
+                        '" class="common-select" onchange="updateRoom(true);"><option value="1"> 1 Adult</option><option value="2"> 2 Adults</option><option value="3"> 3 Adults</option><option value="4"> 4 Adults</option></select><select id="selectedChild' +
                         numberOfRoom +
-                        '" name="guest"  class="common-select people-select"><option value="0"> 0 Children</option><option value="1"> 1 Child</option><option value="2"> 2 Child</option></select></div>';
+                        '" name="child"  class="common-select"  onchange="updateRoom(true);"><option value="0"> 0 Children</option><option value="1"> 1 Child</option><option value="2"> 2 Child</option></select></div>';
 
                     $(wrapper).append(fieldHTML);
+                    updateRoom(true);
                 }
             });
             $(wrapper).on('click', '.remove', function(e) {
                 e.preventDefault();
                 $(this).parent('div').remove();
                 x--;
+                numberOfRoom = x;
+                updateRoom(true);
             });
 
             $("#arrow1").show();
             $("#couponInputBox").hide();
             /* guest & room value */
-
-
+            $('select').on('change', function() {
+                updateRoom(true);
+            })
         });
 
         function selectArrowMenu(id) {
@@ -1890,26 +1894,33 @@
 
         }
 
-        function updateRoom() {
+        function updateRoom(isOnlyArrow) {
             var viewAdultChild = "";
-            for (i = 1; i <= numberOfRoom; i++) {
-                var adult = $("#selectedAdult" + i).val();
-                var child = $("#selectedChild" + i).val();
-                selectedAdult.push(adult);
-                selectedChild.push(child);
-                if (i >= numberOfRoom) {
-                    viewAdultChild = viewAdultChild + adult + "/" + child + "";
-                } else {
-                    viewAdultChild = viewAdultChild + adult + "/" + child + " ,";
+            var adults = $('[name=adult]').map(function() { 
+                    return parseInt(this.value);
+            }).get();
+            var childs = $('[name=child]').map(function() { 
+                    return parseInt(this.value);
+            }).get();
+            for(i = 0; i < adults.length; i++){
+                var isLastChild = " , ";
+                if( parseInt(i + 1)  == adults.length){
+                    isLastChild = "";
                 }
+                viewAdultChild = viewAdultChild + adults[i] + "/" + childs[i] + isLastChild;
             }
+            selectedAdult = adults;
+            selectedChild = childs;
             $("#viewSelectedAdultChild").html(viewAdultChild);
             var discountOption = $("#discountOption").val();
             var discountCode = $("#discountCode").val();
             if (viewAdultChild.length) {
-                formPage(2);
-                selectArrowMenu(2);
+                if(!isOnlyArrow){
+                    formPage(2);
+                    selectArrowMenu(2);
+                }                
             }
+            
         }
 
 
@@ -1917,7 +1928,7 @@
             var startDate = $("#selectedStartDate").val();
             var endDate = $("#selectedEndDate").val();
             if (startDate && endDate) {
-                $("#viewSelectedDate").html(startDate + " &nbsp; to " + endDate);
+                //$("#viewSelectedDate").html(startDate + " &nbsp; to " + endDate);
                 formPage(3);
                 selectArrowMenu(3);
             }
@@ -1949,6 +1960,8 @@
         }
 
         function nextPaymentProcess() {
+            $("#viewSelectedRoom").html(selectedRoomName.join(","));
+
             formPage(4);
             selectArrowMenu(4);
             $("#viewRoomSelectModal").hide();
