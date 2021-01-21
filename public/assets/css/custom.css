@@ -14,4 +14,11 @@
     width: 60px;
     margin-left: 10px;
   }
+  .room-title-cart{
+    font-size: 18px;
+    color: black;
+    font-weight: bold !important;
+    margin-bottom: 10px;
+  }
+
 

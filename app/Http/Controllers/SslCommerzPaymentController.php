@@ -90,40 +90,13 @@ class SslCommerzPaymentController extends Controller
 
     public function payViaAjax(Request $request)
     {
-
-
-
-        // $update_product = DB::table('orders')
-        //     ->where('transaction_id', $post_data['tran_id'])
-            // ->updateOrInsert([
-            //     'name' => $post_data['cus_name'],
-            //     'email' => $post_data['cus_email'],
-            //     'phone' => $post_data['cus_phone'],
-            //     'amount' => $post_data['total_amount'],
-            //     'status' => 'Pending',
-            //     'address' => $post_data['cus_add1'],
-            //     'transaction_id' => $post_data['tran_id'],
-            //     'currency' => $post_data['currency'],
-            //     'room' => $requestData['room'],
-            //     'adult' => $requestData['adult'],
-            //     'child' => $requestData['child'],
-            //     'discount' => $requestData['discount'],
-            //     'startdate' => $requestData['startdate'],
-            //     'endDate' => $requestData['endDate'],
-            //     'quantity' => $requestData['quantity'],
-            //     'total_ammount' => $requestData['total_ammount'],
-            //     'tax' => $requestData['tax'],
-            //     'service_charge' => $requestData['service_charge'],
-            // ]);
-
-
     
         # Here you have to receive all the order data to initate the payment.
         # Lets your oder trnsaction informations are saving in a table called "orders"
         # In orders table order uniq identity is "transaction_id","status" field contain status of the transaction, "amount" is the order amount to be paid and "currency" is for storing Site Currency which will be checked with paid currency.
         $requestData = (array) json_decode($request->cart_json);
         $post_data = array();
-        $post_data['total_amount'] = $requestData['total_ammount'];
+        $post_data['total_amount'] = $requestData['total_amount'];
         $post_data['currency'] = "BDT";
         $post_data['tran_id'] = uniqid(); // tran_id must be unique
 
@@ -180,7 +153,7 @@ class SslCommerzPaymentController extends Controller
                 'startdate' => $requestData['startdate'],
                 'endDate' => $requestData['endDate'],
                 'quantity' => $requestData['quantity'],
-                'total_ammount' => $requestData['total_ammount'],
+                'total_ammount' => $requestData['total_amount'],
                 'city' => $requestData['city'],
                 'arrival_time' => $requestData['arrival_time'],
                 'tax' => $requestData['tax'],
@@ -203,8 +176,7 @@ class SslCommerzPaymentController extends Controller
     public function success(Request $request)
     {
         echo "Transaction is Successful";
-
-        $tran_id = $request->input('tran_id');
+          $tran_id = $request->input('tran_id');
         $amount = $request->input('amount');
         $currency = $request->input('currency');
 
@@ -229,6 +201,7 @@ class SslCommerzPaymentController extends Controller
                     ->update(['status' => 'Processing']);
 
                 echo "<br >Transaction is successfully Completed";
+                return redirect()->route('booking')->with('success', 'Transaction is successfully Completed');
             } else {
                 /*
                 That means IPN did not work or IPN URL was not set in your merchant panel and Transation validation failed.
@@ -238,17 +211,21 @@ class SslCommerzPaymentController extends Controller
                     ->where('transaction_id', $tran_id)
                     ->update(['status' => 'Failed']);
                 echo "validation Fail";
+                return redirect()->route('booking')->with('failed', 'Transaction is  failed');
             }
         } else if ($order_detials->status == 'Processing' || $order_detials->status == 'Complete') {
             /*
              That means through IPN Order status already updated. Now you can just show the customer that transaction is completed. No need to udate database.
              */
             echo "Transaction is successfully Completed";
+            return redirect()->route('booking')->with('success', 'Transaction is successfully Completed.');
         } else {
             #That means something wrong happened. You can redirect customer to your product page.
             echo "Invalid Transaction";
+            return redirect()->route('booking')->with('failed', 'Invalid Transaction.');
         }
 
+       
 
     }
 
@@ -265,10 +242,13 @@ class SslCommerzPaymentController extends Controller
                 ->where('transaction_id', $tran_id)
                 ->update(['status' => 'Failed']);
             echo "Transaction is Falied";
+            return redirect()->route('booking')->with('failed', 'Transaction is  failed');
         } else if ($order_detials->status == 'Processing' || $order_detials->status == 'Complete') {
             echo "Transaction is already Successful";
+            return redirect()->route('booking')->with('failed', 'Transaction is already Successful');
         } else {
             echo "Transaction is Invalid";
+            return redirect()->route('booking')->with('failed', 'Transaction is  Invalid');
         }
 
     }

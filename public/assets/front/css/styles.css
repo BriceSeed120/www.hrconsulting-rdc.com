@@ -1473,3 +1473,11 @@ ul#link1>li a {
     background: #f6d83e;
     padding: 0px 5px;
 }
+
+.customer-selected-room{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px dashed #333;
+    margin-bottom: 5px;
+}

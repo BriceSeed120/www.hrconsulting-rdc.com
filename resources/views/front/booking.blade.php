@@ -1493,6 +1493,26 @@
 
 @extends('layouts.front')
 @section('content')
+
+    @if(session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session()->get('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
+    @if(session()->has('failed'))
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ session()->get('failed') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+
+
     <div class="custom-modal-popup" id="viewRoomSelectModal">
         <div class="close-modal" onclick="closeModal()"> Close X </div>
         <div class="view-room"> Your selected room </div>
@@ -1618,17 +1638,9 @@
                                     </div>
                                     <div class="room-item">
                                         <div class="people">
-                                            <div class="icon-user"> <i class="fa fa-user"> </i> </div>
-                                            <div class="user-in-room"> 4 People </div>
+                                            <div class="icon-user"> <strong> Property : </strong> <span> {{ $room->property_list}} </span> </div>
                                         </div>
-                                        <div class="bed-room">
-                                            <div class="icon-user"> <i class="fa fa-car"> </i> </div>
-                                            <div class="user-in-room"> 2 room </div>
-                                        </div>
-                                        <div class="people">
-                                            <div class="icon-user"> <i class="fa fa-list"> </i> </div>
-                                            <div class="user-in-room"> 4 sofa bed </div>
-                                        </div>
+                          
                                     </div>
 
                                     <div class="room-info">
@@ -1645,7 +1657,6 @@
                                             Online
                                             special
                                             </br>
-                                            <p> Free buffer breakfast </p>
                                         </div>
                                     </div>
                                     <div class="price-section">
@@ -1680,39 +1691,38 @@
                         <div class="first-part">
                             <div class="title"> Your Reservation </div>
                             <div class="sale">
-                                <span style="color:red"> Sale: </span> Online Special <br />Free Buffet Breakfast
-                                </br />Royal
-                                Family Suite Sea View - 1 room
+                                <span style="color:red"> Sale: </span> Online Special <br />
+                                </br />
                             </div>
-                            <div class="total-price">
-                                BDT <br /> 13,000.
-                            </div>
-                            <div class="people-room">
-                                <span> <i class="fa fa-calender"> </i> 2 night </span>
-                                <span> <i class="fa fa-user"> </i> 2 adult </span>
-                                <span> <i class="fa fa-user"> </i> 2 child </span>
-                            </div>
-                            <div class="newline">
-                                <p> 13, Jan 2021 </p>
-                                <p> BDT 13,4000 </p>
-                            </div>
-                            <div class="newline">
-                                <p> Subtotal <del>BDT 600 </del> </p>
-                                <p> BDT 13,4000 </p>
-                            </div>
+                            <div class="room-title-cart">Selected room </div>
+                            <div id="roomAndPrice">  </div>
+                            {{-- <div class="customer-selected-room">
+                               <div class="room-name"> Single room</div>
+                               <div class="room-name"> 
+                                   <select name='room-quantity'>
+                                        <option value="1"> 1 </option>
+                                        <option value="2"> 2 </option>
+                                        <option value="3"> 3 </option>
+                                        <option value="4"> 4 </option>
+                                        <option value="5"> 5 </option>
+                                   </select> 
+                                </div>
+                                <div class="room-price"> 100 ৳</div>
+                            </div> --}}
+
                             <div class="border-room-top"> </div>
 
                             <div class="newline">
                                 <p> Tax </p>
-                                <p> BDT 1300 </p>
+                                <p> BDT 0 </p>
                             </div>
                             <div class="newline">
                                 <p> Service charges </p>
-                                <p> BDT 600</p>
+                                <p> BDT 0</p>
                             </div>
                             <div class="newline">
                                 <p> Total</p>
-                                <p> <b> BDT16000.00 </b> </p>
+                                <p id="finalTotal"> BDT 00.00  </p>
                             </div>
                             <div class="border-room-top"> </div>
 
@@ -1814,9 +1824,11 @@
         var selectedAdult = [];
         var selectedChild = [];
         var selectedRoom = [];
+        var selectedRoomQuantity = [];
         var selectedRoomName = [];
         var selectedBDT = [];
         var selectedUSD = [];
+        var totalAmountFinal = 0;
         $(document).ready(function() {
             $("#form2").hide();
             $("#form3").hide();
@@ -1940,7 +1952,7 @@
             if (!selectedRoom.includes(room_id)) {
                 selectedRoomName.push(room_name);
                 selectedRoom.push(room_id);
-                selectedBDT.push(bdt ? bdt : 0);
+                selectedBDT.push(bdt ? parseInt(bdt) : 0);
                 selectedUSD.push(usd ? usd : 0);
                 var indexPos = selectedRoom.findIndex(id => id == room_id);
                 $("#bookButton" + indexPos).addClass("already-booked");
@@ -1957,18 +1969,43 @@
                 $("#viewRoomData").append("<div class='room-name-price'><span>" + (parseInt(i + 1)) + "</span> <b> " +
                     selectedRoomName[i] + " </B> &nbsp;  " + selectedBDT[i] + " ৳  </div>")
             }
+
+            $("#viewSelectedRoom").html(selectedRoomName.join(","));
         }
 
         function nextPaymentProcess() {
-            $("#viewSelectedRoom").html(selectedRoomName.join(","));
-
             formPage(4);
             selectArrowMenu(4);
             $("#viewRoomSelectModal").hide();
+            for(i = 0; i < selectedRoom.length ; i++){
+                $("#roomAndPrice").append('<div class="customer-selected-room"><div class="room-name"> ' + selectedRoomName[i] +'</div><div class="room-name"><select name="roomQuantity" onchange="selectQuantity()"><option value="1"> 1 </option><option value="2"> 2 </option><option value="3"> 3 </option><option value="4"> 4 </option><option value="5"> 5 </option></select></div><div class="room-price">  x &nbsp; '+ selectedBDT[i] +' ৳</div></div>');
+            }
+            var finalTotal = 0;
+            for(i = 0; i <selectedBDT.length ; i++){
+                finalTotal = finalTotal + parseInt(selectedBDT[i]);
+            }
+            totalAmountFinal = finalTotal;
+            $("#finalTotal").html('BDT ' + finalTotal);
         }
 
         function closeModal() {
             $("#viewRoomSelectModal").hide();
+        }
+
+
+        function selectQuantity(){
+            var roomQuantity = $('[name=roomQuantity]').map(function() { 
+                    return parseInt(this.value);
+            }).get();
+            selectedRoomQuantity = roomQuantity;
+            var finalTotal = 0;
+            for(i = 0; i <selectedBDT.length ; i++){
+                finalTotal = finalTotal + parseInt(selectedBDT[i]) * parseInt(selectedRoomQuantity[i]);
+            }
+            $("#finalTotal").html('BDT ' + finalTotal);
+
+            totalAmountFinal = finalTotal;
+
         }
 
     </script>
@@ -2012,11 +2049,11 @@
             obj.room = selectedRoom.join();
             obj.adult = selectedAdult.join();
             obj.child = selectedChild.join();
-            obj.discount = 100;
+            obj.discount = 0;
             obj.startdate = $("#selectedStartDate").val();
             obj.endDate = $("#selectedEndDate").val();
             obj.quantity = '';
-            obj.total_ammount = '5000';
+            obj.total_amount = totalAmountFinal;
             obj.tax = 0;
             obj.service_charge = 0;
             $('#sslczPayBtn').prop('postdata', obj);
