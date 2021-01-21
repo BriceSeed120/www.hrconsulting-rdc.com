@@ -941,10 +941,11 @@ ul#link1>li a {
 }
 
 .menu-item .selected-value {
-    font-size: 22px;
+    font-size: 20px;
     display: flex;
     justify-content: center;
     padding-top: 10px;
+    text-align: center;
 }
 
 .selected-arrow {
@@ -1435,7 +1436,7 @@ ul#link1>li a {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    padding: 5px 30px;
+    padding: 10px 40px;
     border-radius: 28px;
 }
 

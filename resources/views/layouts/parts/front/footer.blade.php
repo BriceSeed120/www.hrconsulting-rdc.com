@@ -502,7 +502,7 @@ $( document ).ready(function() {
     var myToday = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 0, 0, 0);
     
     if( start >= new Date(myToday) && end > new Date()){
-        $("#viewSelectedDate").html(start.format('YYYY-MM-DD') + " &nbsp; to " + end.format('YYYY-MM-DD'));
+        $("#viewSelectedDate").html(start.format('YYYY-MM-DD') + " <br/> to </br/>" + end.format('YYYY-MM-DD'));
         $("#selectedStartDate").val(start.format('YYYY-MM-DD'));
 	    $("#selectedEndDate").val(end.format('YYYY-MM-DD'));
     }

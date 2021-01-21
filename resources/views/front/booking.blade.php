@@ -1555,7 +1555,7 @@
                 </div>
                 <div class="menu-item" onclick="selectArrowMenu(4)">
                     <div class="selected-tittle"> Total </div>
-                    <div class="selected-value"> BDT 000 </div>
+                    <div class="selected-value" id="viewTotalAmount"> BDT 000 </div>
                     <div class="all-room"> ALL ROOMS BDT </div>
                     <div class="selected-arrow">
                         <span class="arrow-1 down-1" id="arrow4"></span>
@@ -1667,7 +1667,7 @@
                             </div>
                             <div class="book-part">
                                 <div class="price-button">
-                                    <del>Bdt 300 </del>
+                                    <del>Bdt 0 </del>
                                     <br />
                                     <p> BDT {{ $room->rate_in_bdt }} </p>
                                 </div>
@@ -1750,11 +1750,12 @@
                             </div>
 
                             <div class="pay-input-common">
-                                <input type="email" id="email" name="email" placeholder="Email address" required />
-                                <span> * </span>
+                                <input type="email" id="email" name="email" placeholder="Email address"  />
+                                <span>  </span>
                             </div>
                             <div class="pay-input-common">
                                 <input type="text" id="phone" name="phone" placeholder="Phone number" required />
+                                <span> * </span>
                             </div>
                             <div class="pay-input-common">
                                 <input type="text" id="address" name="address" placeholder="Address" required />
@@ -1798,10 +1799,10 @@
                                 Book Now
                             </div> --}}
 
-                            <button class="btn btn-primary btn-lg btn-block" id="sslczPayBtn"
-                                token="if you have any token validation" postdata="yhf ngfcd "
-                                order="If you already have the transaction generated for current order"
-                                endpoint="{{ url('/pay-via-ajax') }}"> Pay Now
+                            <button class="btn btn-primary btn-lg btn-block book-now-button" id="sslczPayBtn"
+                                token="" postdata=""
+                                order="order"
+                                endpoint="{{ url('/pay-via-ajax') }}" type="submit"> Pay Now
                             </button>
 
                         </div>
@@ -1866,6 +1867,8 @@
             $('select').on('change', function() {
                 updateRoom(true);
             })
+
+            $("#sslczPayBtn").hide();
         });
 
         function selectArrowMenu(id) {
@@ -1955,7 +1958,7 @@
                 selectedBDT.push(bdt ? parseInt(bdt) : 0);
                 selectedUSD.push(usd ? usd : 0);
                 var indexPos = selectedRoom.findIndex(id => id == room_id);
-                $("#bookButton" + indexPos).addClass("already-booked");
+               $("#bookButton" + indexPos).addClass("already-booked");
             } else {
                 var indexPos = selectedRoom.findIndex(id => id == room_id);
                 $("#bookButton" + indexPos).removeClass("already-booked");
@@ -1967,16 +1970,22 @@
             $("#viewRoomData").empty();
             for (i = 0; i < selectedRoom.length; i++) {
                 $("#viewRoomData").append("<div class='room-name-price'><span>" + (parseInt(i + 1)) + "</span> <b> " +
-                    selectedRoomName[i] + " </B> &nbsp;  " + selectedBDT[i] + " ৳  </div>")
+                    selectedRoomName[i] + " </B> &nbsp;  " + selectedBDT[i] + " ৳  </div>");
+
+                    var indexPos = selectedRoom.findIndex(id => id == room_id);
+                    $("#bookButton" + indexPos).addClass("already-booked");
+
             }
 
             $("#viewSelectedRoom").html(selectedRoomName.join(","));
         }
 
         function nextPaymentProcess() {
+            if(selectedRoom.length){
             formPage(4);
             selectArrowMenu(4);
             $("#viewRoomSelectModal").hide();
+            $("#roomAndPrice").empty();
             for(i = 0; i < selectedRoom.length ; i++){
                 $("#roomAndPrice").append('<div class="customer-selected-room"><div class="room-name"> ' + selectedRoomName[i] +'</div><div class="room-name"><select name="roomQuantity" onchange="selectQuantity()"><option value="1"> 1 </option><option value="2"> 2 </option><option value="3"> 3 </option><option value="4"> 4 </option><option value="5"> 5 </option></select></div><div class="room-price">  x &nbsp; '+ selectedBDT[i] +' ৳</div></div>');
             }
@@ -1986,6 +1995,11 @@
             }
             totalAmountFinal = finalTotal;
             $("#finalTotal").html('BDT ' + finalTotal);
+            $("#viewTotalAmount").html('BDT ' + finalTotal);
+            }
+            else{
+                alert("Select at least one room");
+            }
         }
 
         function closeModal() {
@@ -2003,6 +2017,7 @@
                 finalTotal = finalTotal + parseInt(selectedBDT[i]) * parseInt(selectedRoomQuantity[i]);
             }
             $("#finalTotal").html('BDT ' + finalTotal);
+            $("#viewTotalAmount").html('BDT ' + finalTotal);
 
             totalAmountFinal = finalTotal;
 
@@ -2056,10 +2071,14 @@
             obj.total_amount = totalAmountFinal;
             obj.tax = 0;
             obj.service_charge = 0;
-            $('#sslczPayBtn').prop('postdata', obj);
-
+            if($('#name').val().length && $('#phone').val()){
+                $("#sslczPayBtn").show();
+            }
+            else{
+             $("#sslczPayBtn").hide();
+            }
+            $('#sslczPayBtn').prop('postdata', obj); 
         });
-
 
     });
 
