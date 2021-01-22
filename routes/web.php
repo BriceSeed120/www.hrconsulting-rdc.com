@@ -61,6 +61,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], functio
            'orders' => \App\Http\Controllers\Dashboard\OrdersController::class,
            'articles' => \App\Http\Controllers\Dashboard\ArticlesController::class,
        ]);
+       Route::get('/contactlist', [\App\Http\Controllers\Dashboard\CustomerController::class, 'contactlist'])->name('contactlist');
     });
     
 });

@@ -98,6 +98,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{ route('contactlist') }}">
+                    <span data-feather="file-text"></span>
+                    Contact List 
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('settings.index') }}">
                     <span data-feather="file-text"></span>
                     Settings

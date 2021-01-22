@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Contact;
+
 
 class CustomerController extends Controller
 {
@@ -17,6 +19,10 @@ class CustomerController extends Controller
         return view('dashboard.customer.index')->withTitle('Manage customers');
     }
 
+    public function contactlist(){
+        $contacts = Contact::orderBy('id','desc')->paginate(15);
+        return view('dashboard.contact.index', compact('contacts'))->withTitle('Contact List');
+    }
     /**
      * Show the form for creating a new resource.
      *

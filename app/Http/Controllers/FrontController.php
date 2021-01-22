@@ -58,11 +58,13 @@ class FrontController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'message' => 'required',
-            'email_or_phone' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
         ], [
             'name.required' => 'Name filed is required',
             'message.required' => 'Description filed is required',
-            'email_or_phone.required' => 'Email or phone filed is required',
+            'email.required' => 'Email filed is required',
+            'phone.required' => 'Phone filed is required',
         ]);
 
         $Contact = Contact::create($validatedData);
