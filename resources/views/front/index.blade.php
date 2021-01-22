@@ -8,22 +8,21 @@
                 <div class="col-md-6">
                     <div class="text">
                         <h1 class="tagline tagline callout animation-element test2"># Grant Welcome</h1>
-                        <h2 class="tagline callout animation-element test2">Welcome to Momo inn</h2>
+                        <h2 class="tagline callout animation-element test2">
+                            @if($welcomeArticle)
+                            {{ $welcomeArticle->title}} 
+                            @endif
+                        </h2>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <p class="general tagline callout animation-element test2">
-                        Imagine a charming and picturesque Heritage village in the north part of the countryside, surrounded
-                        by the spectacular natural beauty. Experience a relaxing, exciting, comfortable stay in Momo Inn
-                        with its glamorous hospitality and its unique atmosphere.</p>
+                        @if($welcomeArticle)
+                        {{ $welcomeArticle->description}} 
+                        @endif
+                     </p>
                     <div class="gap-30"></div>
-                    <p class="general tagline callout animation-element test2">Apart
-                        from luxurious rooms &amp; suites and two swimming pools (one
-                        exclusively for ladies) the resort boasts of a plethora of indoor &amp;
-                        outdoor activities for both adults and kids which include an
-                        internationally acclaimed water park, tennis &amp; badminton courts, 3D
-                        movie hall, billiards, amphitheater, a luxurious spa and a
-                        well-appointed gym.</p>
+                    
                 </div>
             </div>
         </div>
@@ -52,17 +51,22 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="text">
-                        <h2 class="tagline callout animation-element test2">STAY WITH LUXURY AT MOMOINN </h2>
+                        <h2 class="tagline callout animation-element test2">
+                             @if($roomArticle)
+                            {{ $roomArticle->title}} 
+                            @endif
+                        </h2>
                     </div>
                 </div>
                 <div class="offset-md-1 col-md-5">
                     <p class="general tagline callout animation-element test2">
-                        MOMOINN offers 356 luxuriously appointed rooms suites with comfort of kitchenette, branded
-                        amenities, and
-                        balconies with panoramic view of sea and hill.</p>
-                    <button class="btn-1">
+                        @if($roomArticle)
+                        {{ $roomArticle->description}} 
+                        @endif
+                        </p>
+                    {{-- <button class="btn-1">
                         <span class="btn-1"><a href="#rooms-suites.php" class="btn-1">Discover More</a></span>
-                    </button>
+                    </button> --}}
                 </div>
             </div>
         </div>
@@ -133,24 +137,20 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="text">
-                                <h2 class="tagline callout animation-element test2">INTERNATIONAL STANDARD WITH LOCAL
-                                    FLAVOURS</h2>
+                                <h2 class="tagline callout animation-element test2">
+                                    @if($mixArticle)
+                                    {{ $mixArticle->title}} 
+                                    @endif</h2>
                             </div>
                         </div>
                         <div class="offset-md-1 col-md-5">
-                            <p class="general tagline callout animation-element test2">The
-                                MOMOINN Cox’s Bazar provides two swimming pools, one exclusively for
-                                ladies. The resort boasts of a plethora of indoor &amp; outdoor
-                                activities for both adults and kids which include an internationally
-                                acclaimed water park, tennis &amp; badminton courts, 3D movie hall,
-                                billiards, amphitheater, a luxurious spa and a well-appointed gym. </p>
+                            <p class="general tagline callout animation-element test2">
+                                @if($mixArticle)
+                                {{ $mixArticle->description}} 
+                                @endif
+                            </p>
                             <div class="gap-30"></div>
-                            <p class="general tagline callout animation-element test2">The
-                                MOMOINN Cox’s Bazar also offers a stunning range of Banqueting &amp;
-                                Conferencing options for all your needs. Our selection of restaurants
-                                and bars will leave you spoilt for choice with 5 specialty restaurants, a
-                                multi-cuisine all day dining with indoor &amp; alfresco seating, 2
-                                well-stocked bars &amp; lounge, an ice cream parlor and a juice bar.</p>
+                            
                         </div>
                     </div>
                 </div>

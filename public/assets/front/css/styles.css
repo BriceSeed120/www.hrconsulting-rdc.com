@@ -1411,7 +1411,7 @@ ul#link1>li a {
 
 .close-modal {
     position: absolute;
-    right: 30px;
+    left: 30px;
     background: #f6d83e;
     color: white;
     display: flex;
@@ -1420,6 +1420,7 @@ ul#link1>li a {
     cursor: pointer;
     padding: 5px 15px;
     border-radius: 28px;
+    bottom: 30px;
 }
 
 .view-room {

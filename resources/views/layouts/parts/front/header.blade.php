@@ -56,7 +56,7 @@
             </div>
             <div class="col-12 col-md-4 d-none d-sm-block">
 
-                <ul class="social-ul  ">
+                {{-- <ul class="social-ul  ">
 
                     <li><a href="tel:" data-rel="external"><i  class="fa fa-phone"></i></a></li>
 
@@ -70,7 +70,7 @@
 
                     <li><a href=""><i class="fa fa-twitter"></i></a></li>
 
-                </ul>
+                </ul> --}}
 
             </div>
 

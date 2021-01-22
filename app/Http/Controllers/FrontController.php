@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Contact;
+use App\Models\Articles;
 
 class FrontController extends Controller
 {
@@ -39,7 +40,10 @@ class FrontController extends Controller
         $facilities = DB::table('facilities')->get();
         $restaurants = DB::table('resturants')->get();
         $meetingsevents = DB::table('meetingsevents')->get();
-        return view('front.index', compact('banners','roomssuites','facilities','restaurants','meetingsevents'));
+        $welcomeArticle = Articles::where("type",1)->first();
+        $roomArticle = Articles::where("type",2)->first();
+        $mixArticle = Articles::where("type",3)->first();
+        return view('front.index', compact('welcomeArticle','roomArticle','mixArticle','banners','roomssuites','facilities','restaurants','meetingsevents'));
     }
 
     public function contact(){

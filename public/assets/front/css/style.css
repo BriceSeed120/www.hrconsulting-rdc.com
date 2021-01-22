@@ -1379,3 +1379,10 @@ ul.social-ul.inner li a { color: #B3A341; }
   z-index: 8888 !important;
 }
 
+
+
+.footer-pos .social-ul { text-align: right; padding-right: 20px; padding-top:30px; }
+.footer-pos .social-ul li { display: inline-block; vertical-align: top; width: 40px; }
+.footer-pos  .social-ul li a { color: #fff; padding-right: 20px; }
+.footer-pos  .social-ul li a i { transition-duration: .8s; }
+.footer-pos  .social-ul li:hover a i { color: #baa256; font-size: 20px; transition-duration: .8s; }

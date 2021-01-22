@@ -92,9 +92,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('roles.index') }}">
+                <a class="nav-link" href="{{ route('articles.index') }}">
                     <span data-feather="tag"></span>
-                    Roles
+                    Manage Article
                 </a>
             </li>
             <li class="nav-item">

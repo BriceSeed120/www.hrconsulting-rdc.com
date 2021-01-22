@@ -29,53 +29,24 @@
                 <!-- <div class="footer-logo">
                     <img src="images/logo-footer.jpg')}}">
                 </div> -->
-                <ul class="footer-ul">
-                    <!-- <li><button class="btn-1"><span class="btn-1"><a href="./" class="btn-1">Home</a></span></button></li> -->
-                    <li>
-                        <button class="btn-1"><span class="btn-1"><a
-                                    href="{{url('/')}}" class="btn-1">Rooms &amp; Suites</a></span>
+                <ul class="footer-ul">                                      
+                    <?php $count = 0; ?>
+                     @foreach ($globalMenu as $menu)
+                        <?php if($count == 6) break; ?>
+                        <li><button class="btn-1"><span class="btn-1"><a
+                            href="{{ route("frontpage", [$menu->id, $menu->category]) }}" class="btn-1">{{ $menu->name}}</a></span>
                         </button>
+                        </li>                
+                        <?php $count++; ?>
+                    @endforeach
+                    <li><button class="btn-1"><span class="btn-1"><a
+                        href="{{ route("booking") }}" class="btn-1"> Booking</a></span>
+                    </button>
                     </li>
-                    <li>
-                        <button class="btn-1"><span class="btn-1"><a
-                                    href="{{url('/')}}" class="btn-1">Restaurants &amp; Bar</a></span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="btn-1"><span class="btn-1"><a
-                                    href="{{url('/')}}" class="btn-1">Meetings &amp; Events</a></span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="btn-1"><span class="btn-1"><a
-                                    href="{{url('/')}}"
-                                    class="btn-1">Wellness</a></span></button>
-                    </li>
-                    <li>
-                        <button class="btn-1"><span class="btn-1"><a
-                                    href="{{url('/')}}" class="btn-1">Recreation</a></span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="btn-1"><span class="btn-1"><a
-                                    href="{{url('/')}}" class="btn-1">Special Offers</a></span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="btn-1"><span class="btn-1"><a
-                                    href="https://reservations.travelclick.com/112438?languageid=1" target="_blank"
-                                    class="btn-1">Booking</a></span></button>
-                    </li>
-                    <li>
-                        <button class="btn-1"><span class="btn-1"><a
-                                    href="{{url('/')}}"
-                                    class="btn-1">Gallery</a></span></button>
-                    </li>
-                    <li>
-                        <button class="btn-1"><span class="btn-1"><a
-                                    href="{{url('/')}}"
-                                    class="btn-1">Contact Us</a></span></button>
-                    </li>
+                    <li><button class="btn-1"><span class="btn-1"><a
+                        href="{{ route("contact") }}" class="btn-1"> Contact Us</a></span>
+                    </button>
+                    </li>     
                 </ul>
                 <div class="row">
                     <div class="col-md-8">
@@ -87,16 +58,20 @@
                         <p class="copyright">©2020. Momo Inn.&nbsp;&nbsp;All right reserved.&nbsp;&nbsp;&nbsp;<span>Site by <a href="{{url('/')}}" target="_blank"> Momo Inn</a></span>
                         </p>
                     </div>
-                    <div class="col-md-4">
-                        <ul class="apps">
-                            <li class="g-play">
-                                <a href="{{url('/')}}"
-                                   target="_blank"><img src="{{ asset('assets/front/img/play.png')}}"></a>
-                            </li>
-                            <li>
-                                <a href="{{url('/')}}"
-                                   target="_blank"><img src="{{ asset('assets/front/img/iphone.png')}}"></a>
-                            </li>
+                    <div class="col-md-4 footer-pos">
+                        <ul class="social-ul">
+                            <li><a href="tel:" data-rel="external"><i  class="fa fa-phone"></i></a></li>
+        
+                            <li><a href="mailto:" data-rel="external"><i class="fa fa-envelope"></i></a></li>
+        
+                            <li><a href="" target="_blank"><i class="fa fa-facebook"></i></a></li>
+        
+                            <li><a href="" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+        
+                            <li><a href="" target="_blank"><i class="fa fa-youtube"></i></a></li>
+        
+                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
+        
                         </ul>
                     </div>                  
 

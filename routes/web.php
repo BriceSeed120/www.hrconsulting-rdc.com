@@ -59,6 +59,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], functio
            'roles' => \App\Http\Controllers\Dashboard\RoleController::class,
            'settings' => SettingController::class,
            'orders' => \App\Http\Controllers\Dashboard\OrdersController::class,
+           'articles' => \App\Http\Controllers\Dashboard\ArticlesController::class,
        ]);
     });
     
