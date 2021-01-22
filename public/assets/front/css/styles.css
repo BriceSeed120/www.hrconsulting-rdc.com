@@ -1483,3 +1483,26 @@ ul#link1>li a {
     border-bottom: 1px dashed #333;
     margin-bottom: 5px;
 }
+.startdate-endate{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    margin: auto;
+}
+.startdate-endate input{
+    width: 180px;
+    height: 40px;    
+}
+
+#selectedStartDate::placeholder,#selectedEndDate::placeholder {
+    color: #ccc !important;
+    opacity: 1 !important; /* Firefox */
+  }
+  
+  #selectedStartDate:-ms-input-placeholder,#selectedEndDate::placeholder { /* Internet Explorer 10-11 */
+   color: #ccc;
+  }
+  #selectedStartDate::-ms-input-placeholder,#selectedEndDate::placeholder { /* Microsoft Edge */
+   color: #ccc;
+  }

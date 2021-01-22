@@ -459,16 +459,13 @@
 
 
 
-{{-- <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script> --}}
-{{-- <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script> --}}
-<script src="{{ asset('assets/plugins/moment/moment.min.js') }}"></script>
+{{-- <script src="{{ asset('assets/plugins/moment/moment.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/daterangepicker/daterangepicker.js') }}"></script>
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/daterangepicker/daterangepicker.css') }}" /> --}}
 
-{{-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> --}}
-{{-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" /> --}}
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/daterangepicker/daterangepicker.css') }}" />
-
-<script>
+<link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
+<script src="{{ asset('assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+{{-- <script>
 $( document ).ready(function() {
     $('input[name="daterangepicker"]').daterangepicker({
     opens: 'left'
@@ -484,6 +481,30 @@ $( document ).ready(function() {
 
   });
 });
+</script> --}}
+
+<script>
+jQuery(function($) {
+            $('#selectedStartDate').datepicker({
+                format: 'yyyy-mm-dd',
+                todayHighlight:'TRUE',
+                autoclose: true,
+                startDate: "-0d",
+                endDate: "+360d"
+            }).on('changeDate', function (ev) {
+                $(this).datepicker('hide');
+                $("#viewSelectedDate").html($("#selectedStartDate").val() + " <br/> to </br/>" + $("#selectedEndDate").val());
+            });
+            $('#selectedEndDate').datepicker({
+                format: 'yyyy-mm-dd',
+                todayHighlight:'TRUE',
+                autoclose: true,
+                startDate: "-0d",
+                endDate: "+360d"
+            }).on('changeDate', function (ev) {
+                $("#viewSelectedDate").html($("#selectedStartDate").val() + " <br/> to </br/>" + $("#selectedEndDate").val());
+            });
+        });
 </script>
 
 
