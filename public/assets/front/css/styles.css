@@ -1213,6 +1213,7 @@ ul#link1>li a {
     height: auto;
     background: #f2f2f2;
     display: flex;
+    font-size:13px;
 }
 
 .payment-page {
@@ -1224,21 +1225,21 @@ ul#link1>li a {
 
 
 .payment-area .first-part {
-    width: calc(33% - 30px);
+    width: calc(40% - 30px);
     border-right: 2px dotted #ccc;
     padding-right: 30px;
     padding-left: 30px;
 }
 
 .payment-area .second-part {
-    width: calc(33%);
+    width: calc(30%);
     border-right: 2px dotted #ccc;
     padding-right: 30px;
     padding-left: 30px;
 }
 
 .payment-area .third-part {
-    width: calc(33%);
+    width: calc(30%);
     padding-right: 30px;
     padding-left: 30px;
 }
@@ -1505,4 +1506,24 @@ ul#link1>li a {
   }
   #selectedStartDate::-ms-input-placeholder,#selectedEndDate::placeholder { /* Microsoft Edge */
    color: #ccc;
+  }
+
+  .room-title-cart th{
+      background: black;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      font-size: 13px;
+      padding: 0px;
+      margin: 0;
+  }
+  .room-title-cart tr{
+      
+  }
+  .room-title-cart td{
+      border: 1px solid #ccc;
+      padding: 0px;
+      margin: 0;
+      font-size: 13px;
+      text-align: center;
   }

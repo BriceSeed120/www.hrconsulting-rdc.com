@@ -1565,8 +1565,8 @@
                         <input type="text" name="daterangepicker" placeholder="select date " value="" />
                     </div> --}}
                     <div class="startdate-endate">
-                        <input type="text"  placeholder="Start date" id="selectedStartDate" value="" />
-                        <input type="text"  placeholder="End date" id="selectedEndDate" value="" />
+                        <input type="text"  placeholder="Start date" id="selectedStartDate" value="2021-02-01" />
+                        <input type="text"  placeholder="End date" id="selectedEndDate" value="2021-02-02" />
                     </div>
                     <div class="submit-coupon" onClick="nextFormRoom()"> Next </div>
                 </div>
@@ -1642,38 +1642,29 @@
                                 <span style="color:red"> Sale: </span> Online Special <br />
                                 </br />
                             </div>
-                            <div class="room-title-cart">Selected room </div>
+
+                            <div class="room-title-cart"> 
+                                <table class="table table-border table-hovered">
+                                    <thead>
+                                    <tr>
+                                        <th> Particulars </th>
+                                        <th> No#Room </th>
+                                        <th> Unit Price</th>
+                                        <th> Total Price</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="cartBody">
+                                       
+                                    </tbody>
+                                    <tfoot id="cartFoot">
+                                      
+                                    </tfoot>
+                                </table>
+                            </div>
+                            
                             <div id="roomAndPrice">  </div>
-                            {{-- <div class="customer-selected-room">
-                               <div class="room-name"> Single room</div>
-                               <div class="room-name"> 
-                                   <select name='room-quantity'>
-                                        <option value="1"> 1 </option>
-                                        <option value="2"> 2 </option>
-                                        <option value="3"> 3 </option>
-                                        <option value="4"> 4 </option>
-                                        <option value="5"> 5 </option>
-                                   </select> 
-                                </div>
-                                <div class="room-price"> 100 ৳</div>
-                            </div> --}}
 
                             <div class="border-room-top"> </div>
-
-                            <div class="newline">
-                                <p> Tax </p>
-                                <p> BDT 0 </p>
-                            </div>
-                            <div class="newline">
-                                <p> Service charges </p>
-                                <p> BDT 0</p>
-                            </div>
-                            <div class="newline">
-                                <p> Total</p>
-                                <p id="finalTotal"> BDT 00.00  </p>
-                            </div>
-                            <div class="border-room-top"> </div>
-
                             <div class="special-request">
                                 <p> Specail request </p>
                                 <p>Note: These are not guraunteed </p>
@@ -1777,7 +1768,12 @@
         var selectedRoomName = [];
         var selectedBDT = [];
         var selectedUSD = [];
+        var selectedDiscount = 20;
+        var selectedTax = 5;
+        var selectedVat = 5;
+        var selectedCurrency = '(BDT)';
         var totalAmountFinal = 0;
+
         $(document).ready(function() {
             $("#form2").hide();
             $("#form3").hide();
@@ -1933,17 +1929,28 @@
             formPage(4);
             selectArrowMenu(4);
             $("#viewRoomSelectModal").hide();
-            $("#roomAndPrice").empty();
+            $("#cartBody").empty();
             for(i = 0; i < selectedRoom.length ; i++){
-                $("#roomAndPrice").append('<div class="customer-selected-room"><div class="room-name"> ' + selectedRoomName[i] +'</div><div class="room-name"><select name="roomQuantity" onchange="selectQuantity()"><option value="1"> 1 </option><option value="2"> 2 </option><option value="3"> 3 </option><option value="4"> 4 </option><option value="5"> 5 </option></select></div><div class="room-price">  x &nbsp; '+ selectedBDT[i] +' ৳</div></div>');
+                // $("#roomAndPrice").append('<div class="customer-selected-room"><div class="room-name"> ' + selectedRoomName[i] +'</div><div class="room-name"><select name="roomQuantity" onchange="selectQuantity()"><option value="1"> 1 </option><option value="2"> 2 </option><option value="3"> 3 </option><option value="4"> 4 </option><option value="5"> 5 </option></select></div><div class="room-price">  x &nbsp; '+ selectedBDT[i] +' ৳</div></div>');
+
+                $("#cartBody").append('<tr><td>'+ selectedRoomName[i] +' </td><td><div class="room-name"><select name="roomQuantity" onchange="selectQuantity()"><option value="1"> 1 </option><option value="2"> 2 </option><option value="3"> 3 </option><option value="4"> 4 </option><option value="5"> 5 </option></select></div> </td><td>' +  selectedBDT[i] +' </td><td id="quantityTotalPrice'+i+'">' + selectedBDT[i] + '</td></tr>')
+
             }
             var finalTotal = 0;
             for(i = 0; i <selectedBDT.length ; i++){
                 finalTotal = finalTotal + parseInt(selectedBDT[i]);
             }
             totalAmountFinal = finalTotal;
-            $("#finalTotal").html('BDT ' + finalTotal);
-            $("#viewTotalAmount").html('BDT ' + finalTotal);
+            var allTotalprice = finalTotal;
+            var totalDiscountAmount = Math.ceil((selectedDiscount * finalTotal) / 100);
+            var totalTax = Math.ceil((selectedTax * finalTotal) / 100);
+            var totalVat = Math.ceil((selectedTax * finalTotal) / 100);
+            allTotalprice = allTotalprice - totalDiscountAmount + totalTax + totalVat;
+
+            $("#finalTotal").html('BDT ' + allTotalprice);
+            $("#viewTotalAmount").html('BDT ' + allTotalprice);
+            $("#cartFoot").empty();
+            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> '+ finalTotal + '</td></tr><tr><td colspan="3"> Discount (%) </td><td> '+ selectedDiscount +' % </td></tr><tr><td colspan="3"> VAT(%) </td><td> '+ selectedVat +' %</td></tr><tr><td colspan="3"> TAX(%) </td><td> '+ selectedTax +' % </td></tr><tr><td colspan="3"><b> Total '+ selectedCurrency +'</b> </td><td id="allTotalPrice"> ' + allTotalprice +'</td></tr>');
             }
             else{
                 alert("Select at least one room");
@@ -1960,6 +1967,9 @@
                     return parseInt(this.value);
             }).get();
             selectedRoomQuantity = roomQuantity;
+            for(quantity = 0; quantity < roomQuantity.length ; quantity++){
+                $("#quantityTotalPrice"+quantity).html(parseInt(selectedBDT[quantity]) * parseInt(roomQuantity[quantity]));
+            }
             var finalTotal = 0;
             for(i = 0; i <selectedBDT.length ; i++){
                 finalTotal = finalTotal + parseInt(selectedBDT[i]) * parseInt(selectedRoomQuantity[i]);
@@ -1968,6 +1978,16 @@
             $("#viewTotalAmount").html('BDT ' + finalTotal);
 
             totalAmountFinal = finalTotal;
+            var allTotalprice = finalTotal;
+            var totalDiscountAmount = Math.ceil((selectedDiscount * finalTotal) / 100);
+            var totalTax = Math.ceil((selectedTax * finalTotal) / 100);
+            var totalVat = Math.ceil((selectedTax * finalTotal) / 100);
+            allTotalprice = allTotalprice - totalDiscountAmount + totalTax + totalVat;
+
+            $("#finalTotal").html('BDT ' + allTotalprice);
+            $("#viewTotalAmount").html('BDT ' + allTotalprice);
+            $("#cartFoot").empty();
+            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> '+ finalTotal + '</td></tr><tr><td colspan="3"> Discount (%) </td><td> '+ selectedDiscount +' % </td></tr><tr><td colspan="3"> VAT(%) </td><td> '+ selectedVat +' %</td></tr><tr><td colspan="3"> TAX(%) </td><td> '+ selectedTax +' % </td></tr><tr><td colspan="3"><b> Total '+ selectedCurrency +' </b> </td><td id="allTotalPrice"> ' + allTotalprice +'</td></tr>');
 
         }
 
@@ -2019,7 +2039,9 @@
             obj.total_amount = totalAmountFinal;
             obj.tax = 0;
             obj.service_charge = 0;
-            if($('#name').val().length && $('#phone').val()){
+           // var agreeed = $('#checkAgree').val(::checked);
+          //  console.log('agreeed ',agreeed);
+            if($('#name').val().length && $('#phone').val() && $("#checkAgree").prop('checked') == true){
                 $("#sslczPayBtn").show();
             }
             else{
