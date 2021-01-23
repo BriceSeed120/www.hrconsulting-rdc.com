@@ -1952,13 +1952,13 @@
             for(i = 0; i <selectedBDT.length ; i++){
                 finalTotal = finalTotal + parseInt(selectedBDT[i]);
             }
-            totalAmountFinal = finalTotal;
+            
             var allTotalprice = finalTotal;
             var totalDiscountAmount = Math.ceil((selectedDiscount * finalTotal) / 100);
             var totalTax = Math.ceil((selectedTax * finalTotal) / 100);
             var totalVat = Math.ceil((selectedTax * finalTotal) / 100);
             allTotalprice = allTotalprice - totalDiscountAmount + totalTax + totalVat;
-
+            totalAmountFinal = allTotalprice;
             $("#finalTotal").html('BDT ' + allTotalprice);
             $("#viewTotalAmount").html('BDT ' + allTotalprice);
             $("#cartFoot").empty();
@@ -1989,13 +1989,12 @@
             $("#finalTotal").html('BDT ' + finalTotal);
             $("#viewTotalAmount").html('BDT ' + finalTotal);
 
-            totalAmountFinal = finalTotal;
             var allTotalprice = finalTotal;
             var totalDiscountAmount = Math.ceil((selectedDiscount * finalTotal) / 100);
             var totalTax = Math.ceil((selectedTax * finalTotal) / 100);
             var totalVat = Math.ceil((selectedTax * finalTotal) / 100);
             allTotalprice = allTotalprice - totalDiscountAmount + totalTax + totalVat;
-
+            totalAmountFinal = allTotalprice;
             $("#finalTotal").html('BDT ' + allTotalprice);
             $("#viewTotalAmount").html('BDT ' + allTotalprice);
             $("#cartFoot").empty();
@@ -2044,13 +2043,16 @@
             obj.room = selectedRoom.join();
             obj.adult = selectedAdult.join();
             obj.child = selectedChild.join();
-            obj.discount = 0;
+            obj.discount = selectedDiscount;
             obj.startdate = $("#selectedStartDate").val();
             obj.endDate = $("#selectedEndDate").val();
+            obj.quantity = selectedRoomQuantity;
             obj.quantity = '';
             obj.total_amount = totalAmountFinal;
             obj.tax = 0;
             obj.service_charge = 0;
+             obj.roomName = selectedRoomName;
+             obj.bdtPrice = selectedBDT;
             if($('#name').val().length && (validatePhone('phone'))  && isEmail() && $("#checkAgree").prop('checked') == true){
                 $("#sslczPayBtn").show();
             }

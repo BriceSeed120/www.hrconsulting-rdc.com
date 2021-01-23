@@ -36,6 +36,7 @@ class FrontController extends Controller
 
     public function index()
     {
+
         $banners =  DB::table('banners')->get();
         $roomssuites = DB::table('roomssuits')->get();
         $facilities = DB::table('facilities')->get();

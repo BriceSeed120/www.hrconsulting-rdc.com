@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Library\SslCommerz\SslCommerzNotification;
+use Illuminate\Support\Facades\Mail;
 
 class SslCommerzPaymentController extends Controller
 {
@@ -133,6 +134,11 @@ class SslCommerzPaymentController extends Controller
         $post_data['value_c'] = "ref003";
         $post_data['value_d'] = "ref004";
 
+ /* send email * SMS to customer */
+
+
+ /* End mail */
+
 
         #Before  going to initiate the payment order status need to update as Pending.
         $update_product = DB::table('orders')
@@ -164,7 +170,7 @@ class SslCommerzPaymentController extends Controller
             ]);
         $sslc = new SslCommerzNotification();
         # initiate(Transaction Data , false: Redirect to SSLCOMMERZ gateway/ true: Show all the Payement gateway here )
-        $payment_options = $sslc->makePayment($post_data, 'checkout', 'json');
+        $payment_options = $sslc->makePayment($post_data, 'checkout', 'json'); 
 
         if (!is_array($payment_options)) {
             print_r($payment_options);
@@ -185,7 +191,21 @@ class SslCommerzPaymentController extends Controller
         #Check order status in order tabel against the transaction id or order id.
         $order_detials = DB::table('orders')
             ->where('transaction_id', $tran_id)
-            ->select('transaction_id', 'status', 'currency', 'amount')->first();
+            ->select('*')->first();
+
+            $roomIds = explode(',', $order_detials->room);
+            $rooms = DB::table('roomssuits')->whereIn('id',$roomIds)->select('name','id')->get();
+
+            $subject = "Payment receive confimatio";
+            $to = $order_detials->email;
+    
+            Mail::send('email.orderNotification', ['rooms' => $rooms, 'title' =>'Mommoinn order confirmation', 'branch_name' => '', 'tran_id' => $tran_id, 'start_date' => $order_detials->startdate, 'end_date' => $order_detials->endDate, 'total_amount' => $order_detials->amount], function ($message) use ($subject, $to){
+                $message->from('momonooinn@gmail.com', 'Order confirmation notification');
+                $message->to($to);
+                $message->subject('Payment receive confimation for booking momoinn.com');
+             });
+    
+            
 
         if ($order_detials->status == 'Pending') {
             $validation = $sslc->orderValidate($tran_id, $amount, $currency, $request->all());
