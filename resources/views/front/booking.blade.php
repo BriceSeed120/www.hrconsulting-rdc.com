@@ -1512,8 +1512,8 @@
 
             <div class="container input-wrapper">
                 <div class="row" id="form1">
-                    <div class="col-2"></div>
-                    <div class="col-8">
+                    <div class="col-md-2 onlyDesktop"></div>
+                    <div class="col-md-8 col-12 width100">
                         <div class="room-title"> Guest & Rooms </div>
                         <div class="propperty_wrapper">
                             <div class="guest-room">
@@ -1533,7 +1533,7 @@
                             </div>
                         </div>
                         <div class="col-8 add-a-room add_property_button">
-                            + Add a room
+                            + Add more
                         </div>
 
 
@@ -1558,9 +1558,6 @@
 
                 <div class="date-calender" id="form2">
                     <div class="calender-title"> Select Date (Start Date - End Date)</div>
-                    {{-- <div class="input-picker">
-                        <input type="text" name="daterangepicker" placeholder="select date " value="" />
-                    </div> --}}
                     <div class="startdate-endate">
                         <input type="text"  placeholder="Start date" id="selectedStartDate" value="2021-02-01" />
                         <input type="text"  placeholder="End date" id="selectedEndDate" value="2021-02-02" />
