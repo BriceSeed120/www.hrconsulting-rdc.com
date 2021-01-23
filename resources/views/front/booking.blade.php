@@ -1847,7 +1847,7 @@
             if(getDiscountCode){
                 $.ajax({
                 type:'POST',
-                url:'/checkcoupon',
+                url: "{{ route('checkcoupon') }}",
                 data: {code: getDiscountCode},
                 success:function(data) {                    
                     if(data.amount){
