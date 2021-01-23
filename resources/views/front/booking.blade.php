@@ -1544,14 +1544,11 @@
                             <div class="coupon" id="couponInputBox">
                                 <select name="discount-option" id="discountOption">
                                     <option value=""> Discount Code </option>
-                                    <option value=""> Discount Code </option>
-                                    <option value=""> Discount Code </option>
-                                    <option value=""> Discount Code </option>
                                 </select>
                                 <input type="text" name="" id="discountCode" />
                                 <div class="coupon-button">
                                     <div onclick="couponBoxOpen()" class="cancel"> Cancel </div>
-                                    <div class="add-btn"> Add </div>
+                                    <div class="add-btn" onclick="setCoupon()"> Add </div>
                                 </div>
                             </div>
                         </div>
@@ -1690,11 +1687,13 @@
 
                             <div class="pay-input-common">
                                 <input type="email" id="email" name="email" placeholder="Email address"  />
-                                <span>  </span>
+                                <span> * </span>
+                                <div id="emailStatus"></div>
                             </div>
                             <div class="pay-input-common">
                                 <input type="text" id="phone" name="phone" placeholder="Phone number" required />
                                 <span> * </span>
+                                <div id="phoneStatus"></div>
                             </div>
                             <div class="pay-input-common">
                                 <input type="text" id="address" name="address" placeholder="Address" required />
@@ -1731,13 +1730,6 @@
                                         style="color:#f6d83e">
                                         privacy policy </a></p>
                             </div>
-                            {{-- <div class="book-now-button" id="sslczPayBtn"
-                                token="sdfsd sdfs" postdata=""
-                                order="If you already have the transaction generated for current order"
-                                endpoint="{{ url('/pay-via-ajax') }}">
-                                Book Now
-                            </div> --}}
-
                             <button class="btn btn-primary btn-lg btn-block book-now-button" id="sslczPayBtn"
                                 token="" postdata=""
                                 order="order"
@@ -1768,9 +1760,9 @@
         var selectedRoomName = [];
         var selectedBDT = [];
         var selectedUSD = [];
-        var selectedDiscount = 20;
-        var selectedTax = 5;
-        var selectedVat = 5;
+        var selectedDiscount = 0;
+        var selectedTax = 0;
+        var selectedVat = 0;
         var selectedCurrency = '(BDT)';
         var totalAmountFinal = 0;
 
@@ -1826,6 +1818,7 @@
                 if ($("#maxActiveFormNumber").val() >= id) {
                     formPage(id);
                 }
+
             });
         }
 
@@ -1850,7 +1843,26 @@
                 $("#couponInputBox").show();
                 isOpenCouponBox = 1;
             }
+        }
 
+        function setCoupon() {
+            var getDiscountCode = $("#discountCode").val();
+            if(getDiscountCode){
+                $.ajax({
+                type:'POST',
+                url:'/checkcoupon',
+                data: {code: getDiscountCode},
+                success:function(data) {                    
+                    if(data.amount){
+                        selectedDiscount = parseInt(data.amount);
+                    }
+                    else{
+                        alert( getDiscountCode + " coupon code is not valid");
+                    }
+                    $("#couponInputBox").hide();
+                }
+                });
+            }
         }
 
         function updateRoom(isOnlyArrow) {
@@ -2039,9 +2051,7 @@
             obj.total_amount = totalAmountFinal;
             obj.tax = 0;
             obj.service_charge = 0;
-           // var agreeed = $('#checkAgree').val(::checked);
-          //  console.log('agreeed ',agreeed);
-            if($('#name').val().length && $('#phone').val() && $("#checkAgree").prop('checked') == true){
+            if($('#name').val().length && (validatePhone('phone'))  && isEmail() && $("#checkAgree").prop('checked') == true){
                 $("#sslczPayBtn").show();
             }
             else{
@@ -2050,9 +2060,48 @@
             $('#sslczPayBtn').prop('postdata', obj); 
         });
 
+
+        $('#email').keyup(function(e) {
+            if (isEmail()) {
+                $('#emailStatus').html('Valid');
+                $('#emailStatus').css('color', 'green');
+            }
+            else {
+                $('#emailStatus').html('Invalid');
+                $('#emailStatus').css('color', 'red');
+            }
+        });
+        function isEmail() {
+        var email =$("#email").val();
+        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        return regex.test(email);
+        }
+
+
+        $('#phone').keyup(function(e) {
+            if (validatePhone('phone')) {
+                $('#phoneStatus').html('Valid');
+                $('#phoneStatus').css('color', 'green');
+            }
+            else {
+                $('#phoneStatus').html('Invalid');
+                $('#phoneStatus').css('color', 'red');
+            }
+        });
+
+
+
+function validatePhone(txtPhone) {
+    var a = document.getElementById(txtPhone).value;
+    var filter = /^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/;
+    if (filter.test(a)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
     });
-
-
 
     (function(window, document) {
         var loader = function() {

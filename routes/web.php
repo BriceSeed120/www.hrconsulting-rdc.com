@@ -17,6 +17,7 @@ Route::get('/page/{id}/{category}', [FrontController::class, 'page'])->name('fro
 Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 Route::post('/contactstore', [FrontController::class, 'contactstore'])->name('contactstore');
 Route::get('/booking', [FrontController::class, 'booking'])->name('booking');
+Route::post('/checkcoupon', [FrontController::class, 'checkcoupon'])->name('checkcoupon');
 
 
 

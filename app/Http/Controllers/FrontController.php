@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Contact;
 use App\Models\Articles;
+use App\Models\Coupon;
 
 class FrontController extends Controller
 {
@@ -70,6 +71,20 @@ class FrontController extends Controller
         $Contact = Contact::create($validatedData);
         return redirect()->route('contact')->with('success', 'Contact message sent successfully.');
             
+    }
+
+    public function checkcoupon (Request $request){
+        $date = date('Y-m-d');
+        $data = Coupon::where('code', $request->code)->select('amount')
+        ->whereDate('offer_start', '<=', $date)
+        ->whereDate('offer_end', '>=', $date)
+        ->first();
+        $amount = 0;
+        if($data){
+            $amount = $data->amount;
+        }
+        return response()->json(array('amount'=> $amount), 200);
+        
     }
     /**
      * Show the form for creating a new resource.
