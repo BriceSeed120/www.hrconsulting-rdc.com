@@ -103,7 +103,22 @@
                             <th width="25%"> Order Date </th>
                             <td> {{ $orders->created_at }}</td>
                         </tr>
-
+                        <tr>
+                            <th width="25%"> Manual Transaction ID </th>
+                            <td> {{ $orders->manual_transaction_id }}</td>
+                        </tr>
+                        <tr>
+                            <th width="25%"> Manual Comment </th>
+                            <td> {{ $orders->manual_comment }}</td>
+                        </tr>
+                        <tr>
+                            <th width="25%"> Manual Amount  </th>
+                            <td> {{ $orders->manual_amount }}</td>
+                        </tr>
+                        <tr>
+                            <th width="25%"> Last Updated  </th>
+                            <td> {{ $orders->updated_at }}</td>
+                        </tr>
                     @else
                         <h4>Order does not exists!. </h4>
                     @endif

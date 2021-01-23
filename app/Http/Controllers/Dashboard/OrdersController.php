@@ -16,8 +16,27 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        $orders = Order::where("orders.status","Processing")->paginate(15);
-        return view('dashboard.orders.index', compact('orders'))->withTitle('Completed orders');
+        $orders = Order::where("orders.status","Processing")
+        ->orWhere("orders.status","Completed")
+        ->paginate(15);
+        $isSuccess = true;
+        return view('dashboard.orders.index', compact('orders','isSuccess'))->withTitle('Completed orders');
+    }
+
+    public function customOrder(Request $request){
+        $validatedData = $request->validate([
+            'manual_transaction_id' => 'required',
+            'manual_comment' => 'required',
+            'manual_amount' => 'required'
+            ], [
+                'name.required' => 'Name is required',
+                'manual_comment.required' => 'manual_comment is required',
+                'amount.required' => 'amount is required'
+            ]);
+            $validatedData['updated_at'] =  date('Y-m-d');
+            $validatedData['status'] =  'Completed';
+            $affectedRows = Order::where("id", $request->orderId)->update($validatedData);
+        return response()->json(array('success'=> 'Order update successfully'), 200);
     }
 
     public function failed()
@@ -37,8 +56,9 @@ class OrdersController extends Controller
     public function create()
     {
         // Pending order list due to route issue
-        $orders = Order::where("orders.status","Pending")->paginate(15);      
-        return view('dashboard.orders.index', compact('orders'))->withTitle('Pending orders');
+        $orders = Order::where("orders.status","Pending")->paginate(15);   
+        $isSuccess = false;   
+        return view('dashboard.orders.index', compact('orders','isSuccess'))->withTitle('Pending orders');
     }
 
     /**
@@ -75,8 +95,9 @@ class OrdersController extends Controller
     public function edit($id = 1)
     {
         //failed order
+        $isSuccess = false;   
         $orders = Order::where("orders.status","Failed")->paginate(15);
-        return view('dashboard.orders.index', compact('orders'))->withTitle('Failed orders');
+        return view('dashboard.orders.index', compact('orders','isSuccess'))->withTitle('Failed orders');
     }
 
     /**
