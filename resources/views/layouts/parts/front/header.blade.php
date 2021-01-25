@@ -54,23 +54,15 @@
                     </a>
                 </div>
             </div>
-            <div class="col-12 col-md-4 d-none d-sm-block">
-
-                {{-- <ul class="social-ul  ">
-
-                    <li><a href="tel:" data-rel="external"><i  class="fa fa-phone"></i></a></li>
-
-                    <li><a href="mailto:" data-rel="external"><i class="fa fa-envelope"></i></a></li>
-
-                    <li><a href="" target="_blank"><i class="fa fa-facebook"></i></a></li>
-
-                    <li><a href="" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-
-                    <li><a href="" target="_blank"><i class="fa fa-youtube"></i></a></li>
-
-                    <li><a href=""><i class="fa fa-twitter"></i></a></li>
-
-                </ul> --}}
+            <div class="col-12 col-md-4 d-none d-sm-block top-menu">
+                <ul class="">
+                <?php $count = 0; ?>
+                @foreach ($globalTopMenu as $menu)
+                    <?php if($count == 4) break; ?>
+                    <li><a href="{{ route("frontpage", [$menu->id, $menu->category]) }}">{{ $menu->name}}</a></li>
+                    <?php $count++; ?>
+                @endforeach
+                </ul>
 
             </div>
 

@@ -18,6 +18,7 @@
     }
 
 
+
     /*! CSS Used from: https://www.momoinn.com/css/bootstrap.css */
     @media print {
 
@@ -1432,7 +1433,9 @@
             font-size: 3.5rem;
         }
     }
-
+    .top-menu ul li a{
+       color: #b4a43e !important;
+   }
 </style>
 
 @extends('layouts.front')

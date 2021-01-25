@@ -31,6 +31,12 @@ class FrontController extends Controller
         elseif($category == 4){
             $contentData = DB::table('meetingsevents')->get();
         }
+        elseif($category == 5){
+            $contentData = DB::table('offers')->get();
+        }
+        elseif($category == 6){
+            $contentData = DB::table('recreations')->get();
+        }
        return view('front.page', compact('pageInfo','contentData'));
     }
 

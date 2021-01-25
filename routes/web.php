@@ -51,6 +51,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], functio
         'facilities' => \App\Http\Controllers\Dashboard\FacilitiesController::class,
         'meetings_events' => \App\Http\Controllers\Dashboard\MeetingseventsController::class,
         'roomssuits' => RoomsSuitsController::class,
+        'offers' => \App\Http\Controllers\Dashboard\OffersController::class,
+        'recreations' => \App\Http\Controllers\Dashboard\RecreationsController::class,
     ]);
 
     Route::group(['prefix' => 'administration'], function() {

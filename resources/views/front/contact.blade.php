@@ -1410,6 +1410,9 @@
         src: url(https://fonts.gstatic.com/s/playfairdisplay/v21/nuFiD-vYSZviVYUb_rj3ij__anPXDTjYgFE_.woff2) format('woff2');
         unicode-range: U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
     }
+    .top-menu ul li a{
+       color: #b4a43e !important;
+   }
 </style>
 <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 @extends('layouts.front')

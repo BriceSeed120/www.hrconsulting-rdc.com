@@ -28,6 +28,7 @@ class CreateMenusTable extends Migration
             $table->string('attachment')->nullable();
             $table->string('thumbnail')->nullable();
             $table->string('category')->default(0);
+            $table->string('is_top_menu')->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

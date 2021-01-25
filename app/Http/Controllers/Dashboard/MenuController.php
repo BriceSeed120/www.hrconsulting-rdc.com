@@ -59,6 +59,7 @@ class MenuController extends Controller
         $validatedData['meta_keywords'] =  $request->meta_keywords;
         $validatedData['menu_order'] =  $request->menu_order;
         $validatedData['meta_description'] =  $request->meta_description;
+        $validatedData['is_top_menu'] =  $request->is_top_menu;
         $validatedData['category'] =  $request->category;
         if($request->has('banner')) {
             $filename = time() . '.' . $request->banner->getClientOriginalExtension();
@@ -110,6 +111,8 @@ class MenuController extends Controller
             $validatedData['menu_order'] =  $request->menu_order;
             $validatedData['meta_description'] =  $request->meta_description;
             $validatedData['category'] =  $request->category;
+            $validatedData['meta_description'] =  $request->meta_description;
+            $validatedData['is_top_menu'] =  $request->is_top_menu;
             if($request->has('banner')) {
                 $filename = time() . '.' . $request->banner->getClientOriginalExtension();
                 $destinationPath = public_path('uploads/banner');

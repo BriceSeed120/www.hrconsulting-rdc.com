@@ -75,6 +75,14 @@
                             ?>
                             </select>
                         </div>
+
+                        <div class="form-group mb-4">
+                            <label for="title">Is Top Menu</label>
+                           <select name="is_top_menu" class="form-control">
+                                <option value="0" > No </option>
+                                <option value="1" <?php if( $menu->is_top_menu == 1 ) echo "selected";?>> Yes </option>
+                           </select>
+                        </div>
                     </div>
 
                     <div class="col-12">

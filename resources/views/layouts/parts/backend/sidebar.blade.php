@@ -45,6 +45,28 @@
                 </a>
             </li>
         </ul>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span>Top Menu</span>
+            <a class="link-secondary" href="#" aria-label="Add a new report">
+                <span data-feather="plus-circle"></span>
+            </a>
+        </h6>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('offers.index') }}">
+                    <span data-feather="shopping-cart"></span>
+                   Offer
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('recreations.index') }}">
+                    <span data-feather="shopping-cart"></span>
+                   Recreations
+                </a>
+            </li>
+        </ul>
+
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
             <span>Booking Order</span>
             <a class="link-secondary" href="#" aria-label="Add a new report">

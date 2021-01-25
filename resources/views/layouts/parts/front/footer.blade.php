@@ -25,6 +25,22 @@
 <div class="footer inner">
     <div class="container">
         <div class="row">
+            <div class="col-md-4 footer-pos" style="margin:auto">
+                <ul class="social-ul" style="margin:auto">
+                    <li><a href="tel:" data-rel="external"><i  class="fa fa-phone"></i></a></li>
+
+                    <li><a href="mailto:" data-rel="external"><i class="fa fa-envelope"></i></a></li>
+
+                    <li><a href="" target="_blank"><i class="fa fa-facebook"></i></a></li>
+
+                    <li><a href="" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+
+                    <li><a href="" target="_blank"><i class="fa fa-youtube"></i></a></li>
+
+                    <li><a href=""><i class="fa fa-twitter"></i></a></li>
+
+                </ul>
+            </div>  
             <div class="col-md-12">
                 <!-- <div class="footer-logo">
                     <img src="images/logo-footer.jpg')}}">
@@ -48,35 +64,24 @@
                     </button>
                     </li>     
                 </ul>
-                <div class="row">
-                    <div class="col-md-8">
-                        <ul class="address">
-                            <li><p>Nawdapara, Rangpur Road, Bogura, Bangladesh.</p></li>
-                            <li><p>sales@momoinn.com, reservation@momoinn.com</p></li>
-                            <li><p>+88 0516 6402 +88 017 55 66 99 00</p></li>
-                        </ul>
-                        <p class="copyright">©2020. Momo Inn.&nbsp;&nbsp;All right reserved.&nbsp;&nbsp;&nbsp;<span>Site by <a href="{{url('/')}}" target="_blank"> Momo Inn</a></span>
-                        </p>
-                    </div>
-                    <div class="col-md-4 footer-pos">
-                        <ul class="social-ul">
-                            <li><a href="tel:" data-rel="external"><i  class="fa fa-phone"></i></a></li>
-        
-                            <li><a href="mailto:" data-rel="external"><i class="fa fa-envelope"></i></a></li>
-        
-                            <li><a href="" target="_blank"><i class="fa fa-facebook"></i></a></li>
-        
-                            <li><a href="" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-        
-                            <li><a href="" target="_blank"><i class="fa fa-youtube"></i></a></li>
-        
-                            <li><a href=""><i class="fa fa-twitter"></i></a></li>
-        
-                        </ul>
-                    </div>                  
-
-                </div>
+               
             </div>
+
+
+            <div class="col-md-12">
+                <ul class="address">
+                    <li><p>Nawdapara, Rangpur Road, Bogura, Bangladesh.</p></li>
+                    <li><p>sales@momoinn.com, reservation@momoinn.com</p></li>
+                    <li><p>+88 0516 6402 +88 017 55 66 99 00</p></li>
+                </ul>
+                <p class="copyright" style="text-align: center" >©2020. Momo Inn.&nbsp;&nbsp;All right reserved.&nbsp;&nbsp;&nbsp;<span>Site by <a href="{{url('/')}}" target="_blank"> Momo Inn</a></span>
+                </p>
+            </div>
+ 
+
+        
+               
+
         </div>
     </div>
 </div>
@@ -459,29 +464,8 @@
 
 
 
-{{-- <script src="{{ asset('assets/plugins/moment/moment.min.js') }}"></script>
-<script src="{{ asset('assets/plugins/daterangepicker/daterangepicker.js') }}"></script>
-<link rel="stylesheet" type="text/css" href="{{ asset('assets/plugins/daterangepicker/daterangepicker.css') }}" /> --}}
-
 <link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
 <script src="{{ asset('assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
-{{-- <script>
-$( document ).ready(function() {
-    $('input[name="daterangepicker"]').daterangepicker({
-    opens: 'left'
-  }, function(start, end, label) {
-    var today = new Date();
-    var myToday = new Date(today.getFullYear(), today.getMonth(), today.getDate(), 0, 0, 0);
-    
-    if( start >= new Date(myToday) && end > new Date()){
-        $("#viewSelectedDate").html(start.format('YYYY-MM-DD') + " <br/> to </br/>" + end.format('YYYY-MM-DD'));
-        $("#selectedStartDate").val(start.format('YYYY-MM-DD'));
-	    $("#selectedEndDate").val(end.format('YYYY-MM-DD'));
-    }
-
-  });
-});
-</script> --}}
 
 <script>
 jQuery(function($) {
