@@ -1535,7 +1535,6 @@ ul#link1>li a {
        padding-top: 25px;
        margin:0;
        display: flex;
-
        width: 100%;
    }
    .top-menu ul li{
@@ -1548,6 +1547,9 @@ ul#link1>li a {
 
 
   @media only screen and (min-width: 320px) and (max-width: 767px){
+    .top-menu ul{
+        padding-top: 0px;
+    }
     .container {
         width: 100%;
     }
@@ -1569,7 +1571,7 @@ ul#link1>li a {
     .booking-page .booking-menu {
         height: auto;
         background: #1d3649 !important;
-        margin-top: 150px;
+        margin-top: 220px;
         display: flex;
         flex-direction: column;
         justify-content: center;

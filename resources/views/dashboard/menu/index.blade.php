@@ -1,4 +1,11 @@
 @extends('layouts.backend')
+<style>
+    .top-menu-bg{
+      color: green !important;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+</style>
 @section('content')
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -20,6 +27,7 @@
                     <th>Banner Image</th>
                     <th>Menu Order</th>
                     <th>Meta title</th>
+                    <th>Top Menu</th>
                     <th>Meta Description</th>
                     <th><i class="fa fa-wrench fa-2x"></i></th>
                 </tr>
@@ -32,6 +40,7 @@
                         <td><img src="{{ asset($menu->thumbnail) }}"  /></td>
                         <td>{{ $menu->menu_order }}</td>
                         <td>{{ $menu->meta_title }}</td>
+                        <td class={{  $menu->is_top_menu ? "top-menu-bg" :""}}>{{ $menu->is_top_menu ? "Yes" :"No" }}</td>
                         <td>{{ $menu->meta_description }}</td>
                         <td></td>
                         <td>

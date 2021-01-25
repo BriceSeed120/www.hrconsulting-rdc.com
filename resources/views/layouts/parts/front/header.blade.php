@@ -54,7 +54,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-12 col-md-4 d-none d-sm-block top-menu">
+            <div class="col-12 col-md-4  d-sm-block top-menu">
                 <ul class="">
                 <?php $count = 0; ?>
                 @foreach ($globalTopMenu as $menu)
