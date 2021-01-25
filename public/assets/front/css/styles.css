@@ -1546,6 +1546,43 @@ ul#link1>li a {
    }
 
 
+   .weather{
+       height: 150px;
+       background: #f0f0f0;
+       width: 100%;
+       display: flex;
+       justify-content: center;     
+       align-items: center;
+   }
+
+   .day-weather{
+       width: 13.245%;
+       padding: 20px 15px;
+       border-right: 1px dashed #ccc;
+   }
+   .day-weather:last-child{
+    width: 13.245%;
+    padding: 20px 15px;
+    border-right: 0px dashed #ccc;
+    }
+   .day-name{
+       text-align: center;
+       font-size: 16px;
+       font-weight: bold;
+   }
+   .sun{
+       height: 40px;
+       width: 40px;
+       border: 2px dotted #aaa;
+       border-radius: 100%;
+       margin:10px auto;
+   }
+   .day-weather .temp{
+    display: flex;
+    justify-content: space-between;     
+    align-items: center;
+   }
+
   @media only screen and (min-width: 320px) and (max-width: 767px){
     .top-menu ul{
         padding-top: 0px;
@@ -1696,4 +1733,23 @@ ul#link1>li a {
     padding-right: 0px;
     padding-left: 0px;
 }
+
+.weather{
+    height: auto;
+    background: #f0f0f0;
+    width: 100%;
+    display: flex;
+    justify-content: center;     
+    align-items: center;
+    flex-direction: column;
+}
+
+.day-weather{
+    width: 100%;
+    padding: 20px 15px;
+    border-right: 0px dashed #ccc;
+    border-bottom: 1px dashed #ccc;
+}
   }
+
+

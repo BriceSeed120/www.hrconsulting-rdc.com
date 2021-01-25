@@ -106,7 +106,7 @@
                         <th>Customer Name</th>
                         <th> Phone</th>
                         <th> Email</th>
-                        <th> Address</th>
+                        <th> Transction ID</th>
                         <th>Booking Date</th>
                         <th>Status</th>
                         <th>Order Date</th>
@@ -120,7 +120,7 @@
                             <td>{{ $customer->name }}</td>
                             <td>{{ $customer->phone }}</td>
                             <td>{{ $customer->email }}</td>
-                            <td>{{ $customer->address }}</td>
+                            <td>{{ $customer->transaction_id }}</td>
                             <td>{{ $customer->startdate }} - {{ $customer->endDate }}</td>
                             <td id="status{{ $customer->id }}">{{ $customer->status }} </td>
                             <td>{{ $customer->created_at }} </td>

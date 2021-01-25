@@ -51,7 +51,25 @@ class FrontController extends Controller
         $welcomeArticle = Articles::where("type",1)->first();
         $roomArticle = Articles::where("type",2)->first();
         $mixArticle = Articles::where("type",3)->first();
-        return view('front.index', compact('welcomeArticle','roomArticle','mixArticle','banners','roomssuites','facilities','restaurants','meetingsevents'));
+
+        $apiKey = "ef2bfc0702405631f6988da7d4ae7bcf";
+        $cityId = "1337233";
+        $days = 7;
+        $lat = 24.85;
+        $lon = 89.366669;
+        $googleApiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" .$lat ."&lon=". $lon ."&appid=". $apiKey."&units=metric";
+        $ch = curl_init();        
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_URL, $googleApiUrl);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_VERBOSE, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $response = curl_exec($ch);        
+        curl_close($ch);
+        $weatherData = json_decode($response);
+        $currentTime = time();
+        return view('front.index', compact('welcomeArticle','roomArticle','mixArticle','banners','roomssuites','facilities','restaurants','meetingsevents','weatherData'));
     }
 
     public function contact(){

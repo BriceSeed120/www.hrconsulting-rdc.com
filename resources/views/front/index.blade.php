@@ -2,6 +2,23 @@
 
 @section('content')
     @include('layouts.parts.front.banner')
+   
+@if($weatherData && $weatherData->daily)
+<div class="weather">
+    @foreach($weatherData->daily as $key => $data)
+    <?php if($key == 7) break; ?>
+    <div class="day-weather">
+        <div class="day-name"> {{date("l",  date($data->dt))}} </div>
+        <div class="sun"> </div>
+        <div class="temp">
+            <div class="min-temp"> {{ $data->temp->min }}°C </div>
+            <div class="max-temp"> {{ $data->temp->max}}°C </div>
+        </div>      
+    </div>
+    @endforeach
+</div>
+@endif
+
     <div class="container">
         <div class="intro">
             <div class="row">
