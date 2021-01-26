@@ -41,6 +41,11 @@ class FrontController extends Controller
        return view('front.page', compact('pageInfo','contentData'));
     }
 
+public function bookingSuccess(){
+    $contentData = '';
+    return view('front.success', compact('contentData'));
+}
+
     public function index()
     {
 
