@@ -54,9 +54,10 @@ class BannerController extends Controller
                 $filename = time() . '.' . $request->banner->getClientOriginalExtension();
                 $destinationPath = public_path('uploads/banner');
                 $img = Image::make($request->banner->getRealPath());
-                $img->resize(460, 340, function ($constraint) {
-                    $constraint->aspectRatio();
-                })->save($destinationPath . '/' . $filename);
+                // $img->resize(460, 340, function ($constraint) {
+                //     $constraint->aspectRatio();
+                // })->save($destinationPath . '/' . $filename);
+                $img->save($destinationPath . '/' . $filename);
 
                 $img->resize(60, 40)->save($destinationPath . '/thumbnail/' . $filename);
 
@@ -111,12 +112,12 @@ class BannerController extends Controller
                 $filename = time() . '.' . $request->banner->getClientOriginalExtension();
                 $destinationPath = public_path('uploads/banner/');
                 $img = Image::make($request->banner->getRealPath());
-                $img->resize(460, 340, function ($constraint) {
-                    $constraint->aspectRatio();
-                })->save($destinationPath . '/' . $filename);
+                // $img->resize(460, 340, function ($constraint) {
+                //     $constraint->aspectRatio();
+                // })->save($destinationPath . '/' . $filename);
 
+                $img->save($destinationPath . '/' . $filename);
                 $img->resize(60, 40)->save($destinationPath . '/thumbnail/' . $filename);
-
                 $request->merge([
                     'attachment' => '/uploads/banner/' . $filename,
                     'thumbnail' => '/uploads/banner/thumbnail/' . $filename

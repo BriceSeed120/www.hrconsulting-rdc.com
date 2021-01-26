@@ -37,7 +37,7 @@
                         </div>
                         <div class="form-group">
                             <br/> </br>
-                           <img height="180" src="{{ asset($banner->attachment)}}" alt="Not found"/>
+                           <img height="180" width="320" src="{{ asset($banner->attachment)}}" alt="Not found"/>
                         </div>
                     </div>
                 </div>
