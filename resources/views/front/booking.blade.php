@@ -1535,14 +1535,14 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-8 add-a-room add_property_button">
+                        {{-- <div class="col-8 add-a-room add_property_button">
                             + Add more
-                        </div>
+                        </div> --}}
 
 
                         <div class="discount-section">
                             <div class="app-code" onclick="couponBoxOpen()">
-                                <div class="app-text"> App </div> <span class="arrow-2 down-2"></span>
+                                <div class="app-text"> <span id="successCoupon"> App </span> </div> <span class="arrow-2 down-2"></span>
                             </div>
                             <div class="coupon" id="couponInputBox">
                                 <select name="discount-option" id="discountOption">
@@ -1555,7 +1555,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="submit-coupon" onClick="updateRoom(false)"> Update guests & rooms </div>
+                        <div class="submit-coupon" onClick="updateRoom(false)"> Next  </div>
                     </div>
                 </div>
 
@@ -1761,8 +1761,8 @@
         var selectedBDT = [];
         var selectedUSD = [];
         var selectedDiscount = 0;
-        var selectedTax = 0;
-        var selectedVat = 0;
+        var selectedTax = "{{ $taxs->tax }}";
+        var selectedVat = "{{ $taxs->vat }}";
         var selectedCurrency = '(BDT)';
         var totalAmountFinal = 0;
 
@@ -1855,9 +1855,12 @@
                 success:function(data) {                    
                     if(data.amount){
                         selectedDiscount = parseInt(data.amount);
+                        $("#successCoupon").html("<font color='green'>Coupon success added </font>");
                     }
                     else{
                         alert( getDiscountCode + " coupon code is not valid");
+                        $("#successCoupon").html("App");
+                        selectedDiscount = 0;
                     }
                     $("#couponInputBox").hide();
                 }

@@ -120,6 +120,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{ route('taxs.index') }}">
+                    <span data-feather="tag"></span>
+                    Manage Vat & Tax
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('contactlist') }}">
                     <span data-feather="file-text"></span>
                     Contact List 

@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Contact;
 use App\Models\Articles;
 use App\Models\Coupon;
+use App\Models\Taxs;
 
 class FrontController extends Controller
 {
@@ -77,8 +78,9 @@ class FrontController extends Controller
         return view('front.contact')->withTitle("Contact US");
     }
     public function booking(){
-		$roomssuites = DB::table('roomssuits')->get();
-        return view('front.booking',compact('roomssuites'))->withTitle("Booking");
+        $roomssuites = DB::table('roomssuits')->get();
+        $taxs = Taxs::first();
+        return view('front.booking',compact('roomssuites','taxs'))->withTitle("Booking");
     }
     public function contactstore (Request $request){
         $validatedData = $request->validate([
