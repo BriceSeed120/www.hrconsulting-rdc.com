@@ -54,7 +54,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-12 col-md-4  d-sm-block top-menu">
+            <div class="col-12 col-md-4  d-sm-block top-menu" id="topMenu">
                 <ul class="">
                 <?php $count = 0; ?>
                 @foreach ($globalTopMenu as $menu)
@@ -73,13 +73,20 @@
 </div>
 <style>
 .page-logo-center{   
-    padding-top: 35px;
+    padding-top: 30px;
     padding-bottom: 60px;
     position: absolute;
     z-index: 9 !important;
     width: 124px;
-    top: 20px;
+    top: 0px;
     left: calc(50% - 62px);
+}
+
+@media only screen and (max-width: 767px){
+    .page-logo-center{
+        top: -15px;
+        left: calc(50% - 62px);
+}
 }
 </style>
 <div class="page-logo-center" id="page-center-logo">

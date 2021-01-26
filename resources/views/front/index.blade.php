@@ -9,7 +9,7 @@
     <?php if($key == 7) break; ?>
     <div class="day-weather">
         <div class="day-name"> {{date("l",  date($data->dt))}} </div>
-        <div class="sun"> </div>
+        <div class="sun rotating"> </div>
         <div class="temp">
             <div class="min-temp"> {{ $data->temp->min }}°C </div>
             <div class="max-temp"> {{ $data->temp->max}}°C </div>
@@ -173,69 +173,133 @@
                 </div>
             </div> <!-- END Facility Primery -->
 
-            <div class="intro-facility">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="type1">
-                            <a href="#">
-                                @if ($roomssuites && !empty($roomssuites[0]))
-                                    <img style="height: 596px;"
-                                        src="{{ !empty($roomssuites[0]->feature_image) ? asset($roomssuites[0]->feature_image) : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
-                                    <div class="overlay callout animation-element test3 one">
-                                        <h2>{{ $roomssuites[0]->name }}</h2>
-                                        <p>{{ $roomssuites[0]->description }}</p>
-                                    </div>
-                                @endif
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="type1">
-                            <a href="#">
-                                @if ($facilities && !empty($facilities[0]))
-                                    <img style="height: 596px;"
-                                        src="{{ !empty($facilities[0]->feature_image) ? asset($facilities[0]->feature_image) : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
-
-                                    <div class="overlay callout animation-element test3 two">
-                                        <h2>{{ $facilities[0]->name }}</h2>
-                                        <p>{{ $facilities[0]->description }}</p>
-                                    </div>
-                                @endif
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-md-4" id="third">
-                        <div class="type2 gap">
-                            <a href="#">
-                                @if ($restaurants && !empty($restaurants[0]))
-                                    <img style="height: 273px;"
-                                        src="{{ !empty($restaurants[0]->feature_image) ? asset($restaurants[0]->feature_image) : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
-                                    <div class="overlay callout animation-element test3 two">
-                                        <h2>{{ $restaurants[0]->name }}</h2>
-                                        <p>{{ $restaurants[0]->description }}</p>
-                                    </div>
-                                @endif
-                            </a>
-                        </div>
-                        <div class="type2">
-                            <a href="#">
-                                @if ($meetingsevents && !empty($meetingsevents[0]))
-                                    <img style="height: 283px;"
-                                        src="{{ !empty($meetingsevents[0]->feature_image) ? asset($meetingsevents[0]->feature_image) : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}"
-                                        id="dynamic_img">
-                                    <div class="overlay callout animation-element test3 two">
-                                        <h2>{{ $meetingsevents[0]->name }}</h2>
-                                        <p>{{ $meetingsevents[0]->description }}</p>
-                                    </div>
-                                @endif
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div> <!-- END Facility Secondery -->
+           
         </div> <!-- End Intro -->
 
     </div> <!-- End Facility Section -->
+
+    {{-- <div class="container facilities2">
+
+        <div class="intro-facility">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="type1 single-view">
+                        <a  href="{{ route("frontpage", [1,1]) }}">
+                            @if ($roomssuites && !empty($roomssuites[0]))
+                                <img 
+                                    src="{{ !empty($roomssuites[0]->feature_image) ? asset($roomssuites[0]->feature_image) : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
+                                <div class="overlay callout animation-element test3 one">
+                                    <h2>{{ $roomssuites[0]->name }}</h2>
+                                    <p>{{ $roomssuites[0]->description }} </p>
+                                </div>
+                            @endif
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="type2">
+                        <a href="#">
+                            @if ($facilities && !empty($facilities[0]))
+                                <img style="height: 596px;"
+                                    src="{{ !empty($facilities[0]->feature_image) ? asset($facilities[0]->feature_image) : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
+
+                                <div class="overlay callout animation-element test3 two">
+                                    <h2>{{ $facilities[0]->name }}</h2>
+                                    <p>{{ $facilities[0]->description }}</p>
+                                </div>
+                            @endif
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4" id="third">
+                    <div class="type2 gap">
+                        <a href="#">
+                            @if ($restaurants && !empty($restaurants[0]))
+                                <img style="height: 273px;"
+                                    src="{{ !empty($restaurants[0]->feature_image) ? asset($restaurants[0]->feature_image) : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
+                                <div class="overlay callout animation-element test3 two">
+                                    <h2>{{ $restaurants[0]->name }}</h2>
+                                    <p>{{ $restaurants[0]->description }}</p>
+                                </div>
+                            @endif
+                        </a>
+                    </div>
+                    <div class="type2">
+                        <a href="#">
+                            @if ($meetingsevents && !empty($meetingsevents[0]))
+                                <img style="height: 283px;"
+                                    src="{{ !empty($meetingsevents[0]->feature_image) ? asset($meetingsevents[0]->feature_image) : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}"
+                                    id="dynamic_img">
+                                <div class="overlay callout animation-element test3 two">
+                                    <h2>{{ $meetingsevents[0]->name }}</h2>
+                                    <p>{{ $meetingsevents[0]->description }}</p>
+                                </div>
+                            @endif
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- END Facility Secondery -->
+    </div>
+ --}}
+
+
+
+<div class="container">
+    <div class="viewsample">
+        <div class="single-view">
+            <a  href="{{ route("frontpage", [1,1]) }}">
+                @if ($roomssuites && !empty($roomssuites[0]))
+                    <img 
+                        src="{{ !empty($roomssuites[0]->feature_image) ? asset($roomssuites[0]->feature_image) : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
+                        <div class="text-pos callout animation-element test3 one">
+                        <h2>{{ $roomssuites[0]->name }}</h2>
+                        <p>{{ $roomssuites[0]->description }} </p>
+                    </div>
+                @endif
+            </a>        
+        </div>
+        <div class="single-view">
+            <a  href="{{ route("frontpage", [4,2]) }}">
+                @if ($facilities && !empty($facilities[0]))
+                    <img 
+                        src="{{ !empty($facilities[0]->feature_image) ? asset($facilities[0]->feature_image) : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
+                        <div class="text-pos callout animation-element test3 one">
+                        <h2>{{ $facilities[0]->name }}</h2>
+                        <p>{{ $facilities[0]->description }} </p>
+                    </div>
+                @endif
+            </a>        
+        </div>
+        <div class="rightview">
+            <div class="double-view">
+                <a  href="{{ route("frontpage", [2,3]) }}">
+                    @if ($restaurants && !empty($restaurants[0]))
+                        <img 
+                            src="{{ !empty($facilities[0]->feature_image) ? asset($restaurants[0]->feature_image) : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
+                            <div class="text-pos callout animation-element test3 one">
+                            <h2>{{ $restaurants[0]->name }}</h2>
+                            <p>{{ $restaurants[0]->description }} </p>
+                        </div>
+                    @endif
+                </a>        
+            </div>
+            <div class="double-view">
+                <a  href="{{ route("frontpage", [3,4]) }}">
+                    @if ($meetingsevents && !empty($meetingsevents[0]))
+                        <img 
+                            src="{{ !empty($meetingsevents[0]->feature_image) ? asset($meetingsevents[0]->feature_image) : asset('uploads/default/room-meeting-facilities-restaurants.jpg') }}" />
+                            <div class="text-pos callout animation-element test3 one">
+                            <h2>{{ $meetingsevents[0]->name }}</h2>
+                            <p>{{ $meetingsevents[0]->description }} </p>
+                        </div>
+                    @endif
+                </a>        
+            </div>
+        </div>
+    </div>
+</div>
+
 
     <div class="container">
         <div class="offer" style="padding-bottom:5px;">

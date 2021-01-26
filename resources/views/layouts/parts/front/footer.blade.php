@@ -380,12 +380,17 @@
             $(".book-now").addClass('sticky');
             $("#menuToggle").addClass('sticky-menu-button');
             $("#logo-sticky").css('visibility', 'visible');
+           // $("#logo-sticky").css('visibility', 'visible');
+            $("#logo-sticky").show();
+            $("#topMenu").addClass("paddingTop");
         } else {
             $(".menu").removeClass('sticky-menu');
             $(".logotoppage").removeClass('showpl');
             $(".book-now").removeClass('sticky');
             $("#menuToggle").removeClass('sticky-menu-button');
-            $("#logo-sticky").css('visibility', 'hidden');
+           // $("#logo-sticky").css('visibility', 'hidden');
+            $("#topMenu").removeClass("paddingTop");
+            $("#logo-sticky").hide();
             // $('.menu').css('display', 'none');
         }
 

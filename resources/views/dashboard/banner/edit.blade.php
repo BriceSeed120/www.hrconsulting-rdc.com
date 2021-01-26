@@ -27,13 +27,17 @@
                         </div>
                         <hr>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary btn-lg">Create</button>
+                            <button type="submit" class="btn btn-primary btn-lg">Update</button>
                         </div>
                     </div>
                     <div class="col-5">
                         <div class="form-group">
                             <label for="title">Upload Banner</label>
                             <input type="file" name="banner" class="form-control form-control-file" value="{{ old('attachment') }}">
+                        </div>
+                        <div class="form-group">
+                            <br/> </br>
+                           <img height="180" src="{{ asset($banner->attachment)}}" alt="Not found"/>
                         </div>
                     </div>
                 </div>
