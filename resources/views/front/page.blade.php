@@ -745,7 +745,7 @@
 @section('content')
     <div class="page-banner-top">
         @if ($pageInfo->attachment)
-          <img src="{{ asset('/uploads/default/banner.jpg') }}" />
+          <img src="{{ asset($pageInfo->attachment) }}" />
         @else
             <img src="{{ asset('/uploads/default/banner.jpg') }}" />
         @endif
@@ -765,8 +765,8 @@
                                 <div class="col-sm-12 col-md-6">
                                     <div class="image-holder hoverflash">
                                         <img src="{{ asset($item->feature_image) }}" />
-                                        <h2 class="price">Room Rate :<span> {{ $item->rate_in_usd }} </span>/ BDT
-                                            <span>{{ $item->rate_in_bdt }}</span></h2>
+                                        <h2 class="price">Room Rate :<span> ${{ $item->rate_in_usd }} </span>/ 
+                                            <span>{{ $item->rate_in_bdt }}৳</span></h2>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 text-holder-right">
@@ -797,12 +797,12 @@
                                                     <img src="{{ asset('/assets/images/camera.png') }}" />Photo Gallery</a>
                                                 @endif
                                             </li>
-                                        <li class="vt"><a href="vtours/super-deluxe/index.html?iframe=true"
+                                        {{-- <li class="vt"><a href="vtours/super-deluxe/index.html?iframe=true"
                                                 class="magnific-vt ph-gallery"
                                                 data-xs-href="vtours-xs/index.html?panorama=images/super-deluxe.jpg&amp;iframe=true"
                                                 data-rel="vtours">
                                                 <img src="{{ asset('/assets/images/360video.png') }}" />Virtual Tour</a>
-                                        </li>
+                                        </li> --}}
                                         <!-- gallery image -->
 
                                         <!-- gallery image ended-->
@@ -828,8 +828,8 @@
                                 <div class="col-sm-12 col-md-6" id="mobile-ver">
                                     <div class="image-holder hoverflash">
                                         <img src="{{ asset($item->feature_image) }}" />
-                                        <h2 class="price">Room Rate :<span> {{ $item->rate_in_usd }} </span>/ BDT
-                                            <span>{{ $item->rate_in_bdt }}</span></h2>
+                                        <h2 class="price">Room Rate :<span> ${{ $item->rate_in_usd }} </span>/ 
+                                            <span>{{ $item->rate_in_bdt }}৳</span></h2>
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 text-holder-left">
@@ -861,11 +861,11 @@
                                             @endif
                                            
                                             </li>
-                                        <li class="vt"><a href="vtours/deluxe-couple/index.html?iframe=true"
+                                        {{-- <li class="vt"><a href="vtours/deluxe-couple/index.html?iframe=true"
                                                 class="magnific-vt ph-gallery"
                                                 data-xs-href="vtours-xs/index.html?panorama=images/deluxe-couple.jpg&amp;iframe=true"
                                                 data-rel="vtours"> <img
-                                                    src="{{ asset('/assets/images/360video.png') }}" />Virtual Tour</a></li>
+                                                    src="{{ asset('/assets/images/360video.png') }}" />Virtual Tour</a></li> --}}
                                     </ul>
                                     <div id="gallery-{{$key}}" class="hidden">                                            
                                         @if ($item->gallery)
@@ -879,8 +879,8 @@
                                 <div class="col-sm-12 col-md-6" id="desktop-ver">
                                     <div class="image-holder hoverflash">
                                         <img src="{{ asset($item->feature_image) }}" />
-                                        <h2 class="price">Room Rate :<span> {{ $item->rate_in_usd }} </span>/ BDT
-                                            <span>{{ $item->rate_in_bdt }}</span></h2>
+                                        <h2 class="price">Room Rate :<span> ${{ $item->rate_in_usd }} </span>/
+                                            <span>{{ $item->rate_in_bdt }}৳</span></h2>
                                     </div>
                                 </div>
                             </div>
@@ -892,7 +892,7 @@
 
         </div>
     </div>
-
+<div style="height: 40px"></div>
 
 @endsection
 

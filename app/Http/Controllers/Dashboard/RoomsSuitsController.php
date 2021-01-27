@@ -56,9 +56,10 @@ class RoomsSuitsController extends Controller
             $filename = time() . '.' . $request->feature_image->getClientOriginalExtension();
             $destinationPath = public_path('uploads/feature_images');
             $img = Image::make($request->feature_image->getRealPath());
-            $img->resize(460, 340, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save($destinationPath . '/' . $filename);
+            // $img->resize(460, 340, function ($constraint) {
+            //     $constraint->aspectRatio();
+            // })->save($destinationPath . '/' . $filename);
+            $img->save($destinationPath . '/' . $filename);
             $validatedData['feature_image'] = '/uploads/feature_images/' . $filename;
             $validatedData['user_id'] = Auth::user()->id;
         }
@@ -134,9 +135,10 @@ class RoomsSuitsController extends Controller
             $filename = time() . '.' . $request->feature_image->getClientOriginalExtension();
             $destinationPath = public_path('uploads/feature_images');
             $img = Image::make($request->feature_image->getRealPath());
-            $img->resize(460, 340, function ($constraint) {
-                $constraint->aspectRatio();
-            })->save($destinationPath . '/' . $filename);
+            // $img->resize(460, 340, function ($constraint) {
+            //     $constraint->aspectRatio();
+            // })->save($destinationPath . '/' . $filename);
+            $img->save($destinationPath . '/' . $filename);
             $validatedData['feature_image'] = '/uploads/feature_images/' . $filename;
             $validatedData['user_id'] = Auth::user()->id;
         }

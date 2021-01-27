@@ -1222,21 +1222,7 @@
         border-bottom: 1px solid transparent;
     }
 
-    .common .button button.readmore:after {
-        position: relative;
-        content: ' ';
-        bottom: 35px;
-        right: -110px;
-        display: block;
-        width: 50px;
-        height: 50px;
-        -webkit-transform: skew(-10deg);
-        -moz-transform: skew(20deg);
-        -o-transform: skew(20deg);
-        background: #cf9437;
-        z-index: -1;
-        transition: .8s;
-    }
+
 
     .common .button button.readmore:hover {
         border-bottom: 1px solid #cf9437;
@@ -1473,9 +1459,8 @@
                                     <div class="col-md-12">
                                         <div class="common">
                                             <div class="button">
-                                                <!-- <a href="#" class="readmore">View All Facilities</a> -->
-                                                <button type="submit" class="readmore" name="submit" value="submit">Book
-                                                    Now</button>
+                                                <button type="submit" class="readmore" name="submit" value="submit">Submit Message
+                                                    </button>
                                             </div>
                                         </div>
                                     </div>
@@ -1511,12 +1496,12 @@
             </div>
         </div>
     </div>
-
+    <div style="height: 80px"> </div>
     <iframe
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.933006622539!2d89.35510101554176!3d24.900266684035174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fc5580e6d1053d%3A0x79830ecb3e34f2f4!2sHotel+Momo+Inn!5e0!3m2!1sen!2sbd!4v1505298061134"
         width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 
-
+<div style="height: 80px"> </div>
 
 @endsection
 

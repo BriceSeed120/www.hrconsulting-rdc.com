@@ -1773,7 +1773,7 @@ ul#link1>li a {
     .flexslider .slides img {
         width: 100%;
         display: block;
-        height: 220px;
+        height: 220px !important;
     }
     .roomlist-mobile-slider .item img{
         height: 220px;
@@ -1791,7 +1791,7 @@ ul#link1>li a {
 
     .viewsample .single-view,    .viewsample .double-view{
         width: 100%;
-        height: 320px;
+        height: 280px;
         transition: all 0.8s ease-in-out;
         position: relative;
         margin-right: 0px;
@@ -1800,46 +1800,76 @@ ul#link1>li a {
 
     .viewsample .single-view img , .viewsample .double-view img {
         transition: all 0.8s ease-in-out;
-        height: 320px;
+        height: 280px;
         width: 100%;
         background-color: rgba(#000, 0.3);
 
     }
-/* 
-    .viewsample .double-view {
-        margin-top: 10px;
-        width: 100%;
-        height: 175px;
-        transition: all 0.8s ease-in-out;
-        position: relative;
-        margin-right: 0px;
-        margin-bottom: 10px;
-    } */
+    .single-view .text-pos , .double-view .text-pos {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        top: 80px;
+        width: 260px;
+    }
 
+    .footer ul.footer-ul {
+        text-align: center !important;
+    }
+    .footer ul.address {
+        margin-left: 7px;
+        text-align: center !important;
+    }
     .top-menu {
         display: none;
     }
-
-    .top-menu ul {
-        padding-top: 30px;
+    .page-banner-top .page-name-title {
+        font-size: 35px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50% , -50%);
+        color: white;
+        font-family: 'Playfair Display', serif;
+        z-index: 1;
         width: 100%;
-        margin-left: 0px;
-        border: 1px solid red;
+        text-align: center;
     }
-
-    .top-menu ul li a {
-        color: #fff;
-        left: 120px;
-        text-transform: uppercase;
-        font-weight: 300;
-        font-size: 14px;
-        letter-spacing: 1px;
-    }
-
     .container {
         width: 100%;
     }
-
+    .page-banner-top {
+        width: 100%;
+        height: 200px;
+        padding: 0px;
+        margin: 0px;
+        background: white;
+        position: relative;
+        margin-top: 110px;
+        margin-bottom: 30px;
+    }
+    .image-holder img {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+    }
+    .page-banner-top img {
+        width: 100%;
+        height: 200px;
+        padding: 0px;
+        margin: 0px;
+        object-fit: cover;
+    }
+    .room-title {
+        padding-left: 10px;
+    }
+    .app-text{
+        padding-left: 5px;
+    }
+    .remove {
+        width: 15px;
+        cursor: pointer;
+    }
     .onlyDesktop {
         display: none !important;
     }
@@ -1863,11 +1893,14 @@ ul#link1>li a {
     .booking-page .booking-menu {
         height: auto;
         background: #1d3649 !important;
-        margin-top: 220px;
+        margin-top: 120px;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+    }
+    .contact-pg .left {
+        padding: 0px;
     }
 
     .booking-page .booking-menu .menu-item {

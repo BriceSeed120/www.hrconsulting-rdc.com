@@ -143,7 +143,9 @@
         .slick-current {
             opacity: 1;
         }
-
+        .flexslider .slides img {
+            height: 100vh;
+        }
     </style>
 
     <section class="regular slider room-list onlyDesktop">
