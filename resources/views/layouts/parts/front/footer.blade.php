@@ -460,6 +460,19 @@
       slidesToShow: 3,
       slidesToScroll: 3
     });
+    $(".weather-slider").slick({
+      dots: true,
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll:1
+    });
+    
+    $(".roomlist-mobile-slider").slick({
+      dots: true,
+      infinite: true,
+      slidesToShow: 1,
+      slidesToScroll:1
+    });
     $(".lazy").slick({
       lazyLoad: 'ondemand', // ondemand progressive anticipated
       infinite: true

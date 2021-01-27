@@ -117,12 +117,18 @@
 
         <ul class="callout animation-element test2 two in-view"> 
             <li style="width: 100%"><a href="/">Home</a></li>        
-           <?php $count = 0; ?>
+           {{-- <?php $count = 0; ?>
             @foreach ($globalMenu as $menu)
                 <?php if($count == 4) break; ?>
                 <li style="width: 100%"><a href="{{ route("frontpage", [$menu->id, $menu->category]) }}">{{ $menu->name}}</a></li>
                 <?php $count++; ?>
-            @endforeach
+            @endforeach --}}
+
+            @for($i = 0; $i < 4; $i++)
+            @if(!empty($globalMenu[$i]))
+             <li style="width: 100%"><a  href="{{ route("frontpage", [$globalMenu[$i]->id, $globalMenu[$i]->category]) }}">{{ $globalMenu[$i]->name}}</a></li>
+            @endif           
+        @endfor
 
         </ul>
         <ul class="callout animation-element test2 four in-view">
