@@ -138,7 +138,7 @@
                             <td id="status{{ $customer->id }}">{{ $customer->status }} </td>
                             <td>{{ $customer->created_at }} </td>
                             <td> 
-                                @if(!$isSuccess)
+                                @if(($customer->status == "Pending") || ($customer->status == "Failed"))
                                 <a style="float: left; width: 130px" class="mr-4 btn btn-warning"
                                 onclick="customOrder({{$customer->id}})">Custom Order</a>
                                 @endif
