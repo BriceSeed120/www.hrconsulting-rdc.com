@@ -76,7 +76,7 @@
 
 
         <div class="custom-modal-popup" id="manualPopup">
-            <div class="manual-order"> Manual Order Form </div>
+            <div class="manual-order"> Manual Order Process Form </div>
             <p> You can take payment via offline/manual process like bKash, rocket, online banking etc. After you got 
                 recieve payment then entry here!.
 
@@ -97,7 +97,20 @@
                 Update Order
             </div>
         </div>
-
+        <form method="get" action="{{ route('orders.index') }}"> 
+        <div class="row" style="">
+                
+                 <div class="col-md-4">
+                    <input type="text" value="{{ $keyword }}" name="keyword" class="form-control" placeholder="Transaction ID / Phone / Email" />
+                </div>
+                <div class="col-md-3">
+                    <input type="submit" value="Search Order" class="mr-2 btn btn-primary"/>
+                </div>
+           
+    </div>
+</form>
+     
+            
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>

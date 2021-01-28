@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
+
 
 class OrdersController extends Controller
 {
@@ -14,13 +16,23 @@ class OrdersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $orders = Order::where("orders.status","Processing")
-        ->orWhere("orders.status","Completed")
-        ->paginate(15);
+        $keyword = $request->input('keyword');
+        if($keyword){
+            $orders = Order::where("orders.phone",$keyword)
+            ->orWhere("orders.transaction_id",$keyword)
+            ->orWhere("orders.email",$keyword)
+            ->paginate(15);
+        }
+        else{
+            $orders = Order::where("orders.status","Processing")
+            ->orWhere("orders.status","Completed")
+            ->paginate(15);
+        }
+       
         $isSuccess = true;
-        return view('dashboard.orders.index', compact('orders','isSuccess'))->withTitle('Completed orders');
+        return view('dashboard.orders.index', compact('orders','isSuccess','keyword'))->withTitle('Completed orders');
     }
 
     public function customOrder(Request $request){
@@ -55,10 +67,11 @@ class OrdersController extends Controller
      */
     public function create()
     {
+        $keyword = "";
         // Pending order list due to route issue
         $orders = Order::where("orders.status","Pending")->paginate(15);   
         $isSuccess = false;   
-        return view('dashboard.orders.index', compact('orders','isSuccess'))->withTitle('Pending orders');
+        return view('dashboard.orders.index', compact('orders','isSuccess','keyword'))->withTitle('Pending orders');
     }
 
     /**
@@ -95,9 +108,10 @@ class OrdersController extends Controller
     public function edit($id = 1)
     {
         //failed order
+        $keyword = "";
         $isSuccess = false;   
         $orders = Order::where("orders.status","Failed")->paginate(15);
-        return view('dashboard.orders.index', compact('orders','isSuccess'))->withTitle('Failed orders');
+        return view('dashboard.orders.index', compact('orders','isSuccess','keyword'))->withTitle('Failed orders');
     }
 
     /**
