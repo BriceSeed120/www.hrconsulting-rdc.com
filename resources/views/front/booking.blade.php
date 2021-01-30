@@ -1190,7 +1190,7 @@
         font-family: 'Playfair Display', serif;
         position: relative;
         color: #fff;
-        padding: 100px 0px;
+        padding: 50px 0px;
         z-index: 11;
         font-style: italic;
         font-size: 50px;

@@ -24,8 +24,6 @@ class BannerUpdatedRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'bail|required|string|max:191',
-            'description' => 'bail|nullable|string|',
             'banner' => 'bail|nullable|mimes:jpeg,png,jpg,gif,svg'
         ];
     }

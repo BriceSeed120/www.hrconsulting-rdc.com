@@ -743,6 +743,8 @@
 </style>
 @extends('layouts.front')
 @section('content')
+
+
     <div class="page-banner-top">
         @if ($pageInfo->attachment)
           <img src="{{ asset($pageInfo->attachment) }}" />
@@ -753,6 +755,8 @@
         <div class="page-name-title"> {{ $pageInfo->name }} </div>
         <div class="banner-overlay"> </div>
     </div>
+
+    @if(strtolower($pageInfo->name) != "recreation")
     <div class="container room-pg">
         <div class="page-body">
             <!-- Room Start -->
@@ -892,6 +896,34 @@
 
         </div>
     </div>
+    @else 
+    <div class="recreation-page">
+        @if ($contentData)
+        @foreach ($contentData as $key => $item)
+        <div class="view-column">
+            <img src="{{ asset($item->feature_image) }}" />
+            <div class="rec-title"> {{ $item->name }}  </div>
+            <div class="hover-area">
+                <div class="hover-title">  {{ $item->name }} </div>
+                <div class="hover-description">  {{ $item->description }} </div>
+                @if ($item->gallery)
+                <a class="hover-galary ph-gallery" href="#gallery-{{$key}}"> Gallary </a>
+                @endif
+            </div>
+            <div id="gallery-{{$key}}" class="hidden">                                            
+                @if ($item->gallery)
+                <?php $list = explode(',', $item->gallery); ?>
+                @for ($i = 0; $i < sizeof($list); $i++)
+                    <a href="{{ asset($list[$i]) }}"></a>        
+                @endfor
+            @endif
+            </div>
+        </div>
+        @endforeach
+        @endif
+        <div class="clearfix"></div>
+    </div>
+    @endif
 <div style="height: 40px"></div>
 
 @endsection
