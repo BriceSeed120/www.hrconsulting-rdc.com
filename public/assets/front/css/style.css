@@ -199,7 +199,7 @@ filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 .meta h1 {
     font-family: 'Playfair Display', serif;
     width: 100%;
-    font-size: 50px;
+    font-size: 35px;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -336,7 +336,7 @@ a.discover-more { font-size: 20px; font-weight: 700; color: #000; }
 a.discover-more img { display: inline-block; width: 50px; padding-left: 20px; }
 
 
-.intro { display: block; position: relative; padding: 100px 0px;  padding-left: 10%; padding-right: 10%; }
+.intro { display: block; position: relative; padding: 50px 0px;  padding-left: 10%; padding-right: 10%; }
 .intro .text { /*padding-left: 100px;*/ padding-left: 0% width: 100%; }
 .intro .text h1.tagline { position: relative; font-size: 16px; letter-spacing: 1px; }
 /*.intro .text h1:after { content: ''; position: absolute; left: -100px; top: 10px; width: 80px; height: 1px; background-color: #000; }*/
@@ -456,7 +456,7 @@ a.discover-more img { display: inline-block; width: 50px; padding-left: 20px; }
 
 
 
-.intro-2 { display: block; position: relative; padding: 100px 0px; }
+.intro-2 { display: block; position: relative; padding: 50px 0px; }
 .intro-2 h1.tagline { position: relative; text-align: left; font-weight: 400; font-size: 18px; letter-spacing: 1px; word-spacing: 2px; padding-bottom: 30px; }
 .intro-2 h2:after { content: ''; position: absolute; left: 0px; top: 30px; width: 80px; height: 1px; background-color: #000; }
 .intro-2 h2 { font-family: 'Playfair Display', serif;  position: relative; font-size: 45px; padding-left: 150px; line-height: 55px; letter-spacing: 1px; font-weight: 700; color: #baa256; }
@@ -480,7 +480,7 @@ a.discover-more img { display: inline-block; width: 50px; padding-left: 20px; }
 .room-list .holder h4:after { position: absolute; content: ''; left: 0px; top: 15px; width: 50px; height: 1px; background-color: #000; }
 .room-list .holder p { color: #000; font-size: 16px; text-align: left; width: 70%; padding-left: 80px; 
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;  
   overflow: hidden;
 }
@@ -511,7 +511,7 @@ a.discover-more img { display: inline-block; width: 50px; padding-left: 20px; }
 .facility .item .overlay .service-total-slide { position: absolute; right: 70px; top: 310px; color: #fff; color: #A5983F;}*/
 
 
-.facility { background-color: #F7F7F7; padding: 50px 0px 100px 0px; margin-top: 50px; }
+.facility { background-color: #F7F7F7; padding: 0px 0px 0px 0px; margin-top: 0px; }
 .facility .intro { padding: 50px 0px; padding-bottom: 100px; }
 .facility .intro .intro-facility{ margin: 0px auto; padding: 5% 6% 0 6%; width: 100%; position: relative;}
 .facility .introbot { padding-bottom: 0px; }
@@ -854,7 +854,7 @@ ul.social-ul.inner li a { color: #B3A341; }
 .common .rooms-headline h1 { position: relative; font-weight: 500; font-size: 65px; letter-spacing: 1px; word-spacing: 2px; padding-bottom: 5px; padding-left: 65px; color: #fff; text-shadow: 1px 1px 3px #000; }
 .common .rooms-headline h1:after { content: ''; position: absolute; left: -55px; top: 15px; width: 95px; height: 0.02em; background-color: #fff; box-shadow: 1px 1px 1px #00000069; }
 
-.roomtag { display: block; position: relative; padding: 100px 0px;  padding-left: 15%; padding-right: 15%; }
+.roomtag { display: block; position: relative; padding: 50px 0px;  padding-left: 15%; padding-right: 15%; }
 .roomtag .roomtxt { /*padding-left: 100px;*/ padding-left: 15%; width: 90%; }
 .roomtag .roomtxt h1 { font-family: 'Playfair Display', serif; font-size: 40px; letter-spacing: 2px; font-weight: 400; color: #000; line-height: 40px; }
 .roomtag .roomtxt h2.tagline { position: relative; font-size: 16px; letter-spacing: 1px; }
@@ -1361,7 +1361,7 @@ ul.social-ul.inner li a { color: #B3A341; }
 
 .page-content-description{
   background: white;
-  padding: 100px 0px;
+  padding: 50px 0px;
 }
 
 .logo-sticky{

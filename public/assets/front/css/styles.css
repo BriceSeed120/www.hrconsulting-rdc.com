@@ -1635,7 +1635,6 @@ ul#link1>li a {
 
 .viewsample {
     display: flex;
-    align-items: center;
     position: relative;
 }
 
@@ -1662,18 +1661,19 @@ ul#link1>li a {
 }
 
 .single-view .text-pos {
-    position: absolute;
-    left: 20px;
-    right: 20px;
-    top: 120px;
-    width: 260px;
+    position: relative;
+    padding-top: 20px;
 }
-
+.single-view .text-pos h2 {
+    color: black;
+    font-size: 24px;
+}
 .single-view .text-pos p {
     display: -webkit-box;
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    color: black;
 }
 
 .single-view,
@@ -1691,7 +1691,7 @@ ul#link1>li a {
 /* double view right */
 .viewsample .double-view {
     width: 100%;
-    height: 175px;
+    height: 250px;
     transition: all 0.8s ease-in-out;
     position: relative;
     margin-right: 0px;
@@ -1713,29 +1713,28 @@ ul#link1>li a {
 }
 
 .double-view .text-pos {
-    position: absolute;
-    left: 20px;
-    right: 20px;
-    top: 50px;
-    width: 260px;
+    position: relative;
 }
 
 .double-view .text-pos p {
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    color: black;
 }
 
 .double-view,
 .double-view a,
 .double-view a:hover {
-    color: white;
+    color: black;
 }
 
 .viewsample .double-view h2 {
     font-size: 24px;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    color: black;
 }
 
 @-moz-keyframes spin {
@@ -1784,14 +1783,13 @@ ul#link1>li a {
 
     .viewsample {
         display: flex;
-        align-items: center;
         position: relative;
         flex-direction: column;
     }
 
     .viewsample .single-view,    .viewsample .double-view{
         width: 100%;
-        height: 280px;
+        height: 400px;
         transition: all 0.8s ease-in-out;
         position: relative;
         margin-right: 0px;
@@ -1803,14 +1801,21 @@ ul#link1>li a {
         height: 280px;
         width: 100%;
         background-color: rgba(#000, 0.3);
-
     }
+
+
+
+    .single-view .text-pos p, .double-view .text-pos p{
+        position: relative;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        color: black;
+    }
+
     .single-view .text-pos , .double-view .text-pos {
-        position: absolute;
-        left: 20px;
-        right: 20px;
-        top: 80px;
-        width: 260px;
+        position: relative;
     }
 
     .footer ul.footer-ul {

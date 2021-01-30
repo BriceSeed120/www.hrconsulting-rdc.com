@@ -67,10 +67,10 @@
                 <img src="{{ asset('assets/front/img/rt004.jpg') }}">
             </div>
             <div class="overlay">
-                <a id="play-video" class="video-play-button popup-xs popup-vt" href="#vtours/swimming-pool-mixed/index.html"
-                    data-xs-href="vtours-xs/index.html?panorama=images/swimming-pool-mixed.jpg&amp;iframe=true">
+                <a id="play-video" class="video-play-button popup-xs popup-vt" href="https://www.youtube.com/watch?v=bc7I1WS_0-g&t=144s"
+                    data-xs-href="https://www.youtube.com/watch?v=bc7I1WS_0-g&t=144s">
                     <span></span>
-                </a>
+                </a>                
             </div>
             <div class="video-text">
                 <!-- <h4>Experience the MOMOINNHotel</h4> -->
@@ -114,7 +114,7 @@
 
         .slider {
             width: 85%;
-            margin: 100px auto;
+            margin: 0px auto;
         }
 
         .slick-slide {
@@ -274,13 +274,7 @@
 
 
     <div class="container">
-        <div class="offer" style="padding-bottom:5px;">
-            <div class="row">
-            </div>
-        </div>
-
-
-        <div class="offer">
+        <div class="offer1" style="padding-bottom:25px;">
             <div class="row">
             </div>
         </div>
