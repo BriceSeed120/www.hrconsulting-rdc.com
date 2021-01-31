@@ -1460,14 +1460,10 @@
     @endif
 
 
-    <div class="custom-modal-popup" id="viewRoomSelectModal">
-        
+    <div class="custom-modal-popup" id="viewRoomSelectModal">        
         <div class="view-room"> Your selected room </div>
         <div class="select-room-show-list" id="viewRoomData">
-
         </div>
-
-
         <div class="close-modal" onclick="closeModal()">Add more room </div>
         <div class="pay-goto-now" onclick="nextPaymentProcess()">
             Confirm Book

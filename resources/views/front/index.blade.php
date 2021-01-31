@@ -67,15 +67,37 @@
                 <img src="{{ asset('assets/front/img/rt004.jpg') }}">
             </div>
             <div class="overlay">
-                <a id="play-video" class="video-play-button popup-xs popup-vt" href="https://www.youtube.com/watch?v=bc7I1WS_0-g&t=144s"
+                {{-- <a id="play-video" class="video-play-button popup-xs popup-vt" href="https://www.youtube.com/watch?v=bc7I1WS_0-g&t=144s"
                     data-xs-href="https://www.youtube.com/watch?v=bc7I1WS_0-g&t=144s">
                     <span></span>
-                </a>                
+                </a>                 --}}
+
+                <a class="video-play-button popup-xs popup-vt" onclick="openYoutubeModal()">
+                <span></span>
+            </a> 
+
+         
             </div>
             <div class="video-text">
                 <!-- <h4>Experience the MOMOINNHotel</h4> -->
             </div>
 
+            <div class="youtube-popup" id="youtubeModal">
+                <iframe id="youtubeVideo" width="100%" height="100%" src="https://www.youtube.com/embed/Jh8jD4lu4iM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div class="youtube-close-modal" onclick="closeYoutubeModal()"> X </div>
+            </div>
+            <script type="text/javascript">
+                function closeYoutubeModal() {
+                    $("#youtubeModal").hide();
+                    var video = $("#youtubeVideo").attr("src");
+                    $("#youtubeVideo").attr("src","");
+                    $("#youtubeVideo").attr("src",video);
+                }
+                function openYoutubeModal() {
+                    $("#youtubeModal").show();
+                }
+
+              </script>
         </div>
     </div>
 

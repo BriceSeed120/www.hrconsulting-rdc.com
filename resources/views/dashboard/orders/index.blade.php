@@ -202,6 +202,7 @@
                     if(data.success){
                         $("#manualPopup").hide();
                         $("#status"+orderId).html("<font color='green'> Completed </font>");
+                        location.href="{{ route('orders.index') }}";
                     }
                    
                 }

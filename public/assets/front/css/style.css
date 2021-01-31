@@ -1477,6 +1477,7 @@ ul.social-ul.inner li a { color: #B3A341; }
   cursor: pointer;
 }
 
+
 @media only screen and (min-width: 320px) and (max-width: 767px){
   .recreation-page .view-column{
     width: 100%;
