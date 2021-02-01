@@ -67,6 +67,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], functio
            'orders' => \App\Http\Controllers\Dashboard\OrdersController::class,
            'articles' => \App\Http\Controllers\Dashboard\ArticlesController::class,
            'taxs' => \App\Http\Controllers\Dashboard\TaxsController::class,
+           'dinings' =>  \App\Http\Controllers\Dashboard\DiningsController::class,
        ]);
        Route::get('/contactlist', [\App\Http\Controllers\Dashboard\CustomerController::class, 'contactlist'])->name('contactlist');
        Route::post('/customOrder', [\App\Http\Controllers\Dashboard\OrdersController::class, 'customOrder'])->name('customOrder');

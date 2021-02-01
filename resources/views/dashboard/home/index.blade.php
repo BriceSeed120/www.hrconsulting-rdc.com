@@ -81,7 +81,7 @@
 
     <div style="height: 80px"> </div>
 <div class="row">
-    <p align='center' class='primary-bg' style="color: white; font-size: 18px; padding: 10px 50px;"> Last 10 contact @livewireStyles </p>     
+    <p align='center' class='primary-bg' style="color: white; font-size: 18px; padding: 10px 50px;"> Last 10 contact list </p>     
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>

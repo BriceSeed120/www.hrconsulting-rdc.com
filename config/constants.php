@@ -6,8 +6,9 @@ return [
         "2" =>"Facilities",
         "3" => "Restaurants",
         "4" =>"Meetings & Events",
+        "7" => "Dinings",
         "5" => "Top Menu Offers",
-        "6" => "Top Menu Recreation"
+        "6" => "Top Menu Recreation"        
     ]
 ];
 ?>

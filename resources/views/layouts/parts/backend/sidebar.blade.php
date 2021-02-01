@@ -33,6 +33,12 @@
                 </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{{ route('dinings.index') }}">
+                    <span data-feather="layers"></span>
+                    Dinings
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('coupons.index') }}">
                     <span data-feather="gift"></span>
                     Coupons
