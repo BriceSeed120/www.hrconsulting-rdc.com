@@ -1,5 +1,8 @@
 @extends('layouts.backend')
 @section('content')
+<head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
 <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Dashboard</h1>
@@ -34,6 +37,79 @@
             <div class="title-number">User : <span> {{ $totalCompleted }} </span></div>    
         </div>
     </div>
+
+<div class="row">
+    <div class="col-md-6"> 
+        <script type="text/javascript">
+        var dailySuccess = {{ $totalCompletedDaily}};
+        var dailyFailed = {{ $totalFailedDaily}};
+        var dailyPending = {{ $totalPendingDaily}};
+            google.charts.load("current", {packages:["corechart"]});
+            google.charts.setOnLoadCallback(drawChart);
+            function drawChart() {
+              var data = google.visualization.arrayToDataTable([
+                ["Element", "Density", { role: "style" } ],
+                ["Success", dailySuccess, "color:#335DFF"],
+                ["Failed", dailyFailed, "color:#FF5E33"],
+                ["Pending",dailyPending, "color: #FFD933"]
+              ]);
+        
+              var view = new google.visualization.DataView(data);
+              view.setColumns([0, 1,
+                               { calc: "stringify",
+                                 sourceColumn: 1,
+                                 type: "string",
+                                 role: "annotation" },
+                               2]);
+        
+              var options = {
+                title: "Daily order success, failed, pending",
+                width: 600,
+                height: 400,
+                bar: {groupWidth: "95%"},
+                legend: { position: "none" },
+              };
+              var chart = new google.visualization.BarChart(document.getElementById("barchart_values"));
+              chart.draw(view, options);
+          }
+          </script>
+        <div id="barchart_values" style="width: 900px; height: 300px;"></div>
+    </div>
+    <div class="col-md-6">
+        <html>
+            <head>
+            
+              <script type="text/javascript">
+              var totalPendingMonthly = {{ $totalPendingMonthly}};
+              var totalFailedMonthly = {{ $totalFailedMonthly}};
+              var totalCompletedMonthly = {{ $totalCompletedMonthly}};
+                google.charts.load("current", {packages:["corechart"]});
+                google.charts.setOnLoadCallback(drawChart);
+                function drawChart() {
+                  var data = google.visualization.arrayToDataTable([
+                    ['Task', 'Hours per Day'],
+                    ['Work',     totalCompletedMonthly],
+                    ['Eat',      totalFailedMonthly],
+                    ['Commute',  totalPendingMonthly]    
+                  ]);
+          
+                  var options = {
+                    title: 'My Daily Activities',
+                    is3D: true,
+                  };
+          
+                  var chart = new google.visualization.PieChart(document.getElementById('piechart_3d'));
+                  chart.draw(data, options);
+                }
+              </script>
+            </head>
+            <body>
+              <div id="piechart_3d" style="height: 350px;"></div>
+            </body>
+          </html>
+              
+    </div>
+</div>
 
     {{-- <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> --}}
 <div style="height: 80px"> </div>

@@ -31,14 +31,47 @@ class MenuController extends Controller
         $totalCompletedAmount = Order::where("orders.status","Processing")
         ->orWhere("orders.status","Completed")
         ->sum('amount');
-
         $orders = Order::orderBy('id', 'desc')
         ->take(10)
         ->get();
-
         $contacts = Contact::orderBy('id','desc')->take(10)
         ->get();
-        return view('dashboard.home.index', compact('totalCompleted','totalCompletedAmount','orders','contacts'));
+
+        // $today = date("Y-m-d");
+        $today = date("2021-01-23");
+        $totalCompletedDaily = Order::where("orders.status","Completed")
+        ->where("orders.status","Processing")
+        ->whereBetween('created_at', [$today.' 00:00:00',$today.' 23:59:59'])
+        ->count();
+
+        $totalFailedDaily = Order::where("orders.status","Failed")
+        ->whereBetween('created_at', [$today.' 00:00:00',$today.' 23:59:59'])
+        ->count();
+
+        $totalPendingDaily = Order::where("orders.status","Pending")
+        ->whereBetween('created_at', [$today.' 00:00:00',$today.' 23:59:59'])
+        ->count();
+
+
+        $from = date("Y-m-d");
+        $to =  date('Y-m-d', strtotime('-30 days'));
+        
+
+        $totalCompletedMonthly = Order::where("orders.status","Completed")
+        ->where("orders.status","Processing")
+        ->whereBetween('created_at', [$from.' 00:00:00',$to.' 23:59:59'])
+        ->count();
+
+        $totalFailedMonthly = Order::where("orders.status","Failed")
+        ->whereBetween('created_at', [$from.' 00:00:00',$to.' 23:59:59'])
+        ->count();
+
+        $totalPendingMonthly = Order::where("orders.status","Pending")
+        ->whereBetween('created_at', [$from.' 00:00:00',$to.' 23:59:59'])
+        ->count();
+
+        return view('dashboard.home.index', compact('totalCompleted','totalCompletedAmount','orders','contacts',
+        'totalCompletedDaily','totalFailedDaily','totalPendingDaily','totalCompletedMonthly','totalFailedMonthly','totalPendingMonthly'));
     }
     /**
      * Show the form for creating a new resource.

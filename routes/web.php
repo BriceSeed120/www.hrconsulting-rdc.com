@@ -38,9 +38,6 @@ Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], function() {
-    // Route::get('/', function () {
-    //     return view('dashboard.home.index');
-    // })->name('dashboard');
 
     Route::get('/', [\App\Http\Controllers\Dashboard\MenuController::class, 'dashboard'])->name('dashboard');
 
