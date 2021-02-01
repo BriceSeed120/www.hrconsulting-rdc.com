@@ -1684,11 +1684,14 @@ ul#link1>li a {
 }
 
 .viewsample .single-view {
-    width: 45%;
+    width: 35%;
     height: 360px;
     transition: all 0.8s ease-in-out;
     position: relative;
     margin-right: 30px;
+}
+.viewsample .rightview{
+    width: 30%;
 }
 
 .viewsample .single-view img {

@@ -38,9 +38,11 @@ Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
 
 
 Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], function() {
-    Route::get('/', function () {
-        return view('dashboard.home.index');
-    })->name('dashboard');
+    // Route::get('/', function () {
+    //     return view('dashboard.home.index');
+    // })->name('dashboard');
+
+    Route::get('/', [\App\Http\Controllers\Dashboard\MenuController::class, 'dashboard'])->name('dashboard');
 
     Route::resources([
         'banners' => BannerController::class,
@@ -68,8 +70,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], functio
        ]);
        Route::get('/contactlist', [\App\Http\Controllers\Dashboard\CustomerController::class, 'contactlist'])->name('contactlist');
        Route::post('/customOrder', [\App\Http\Controllers\Dashboard\OrdersController::class, 'customOrder'])->name('customOrder');
-    //    Route::get('/tax', [\App\Http\Controllers\Dashboard\TaxsController::class, 'index'])->name('tax');
-    //    Route::get('/ad', [\App\Http\Controllers\Dashboard\ArticlesController::class, 'addtax'])->name('addtax');
+    //   Route::get('/dashboard', [\App\Http\Controllers\Dashboard\MenuController::class, 'dashboard'])->name('dashboard');
+   
     });
     
 });

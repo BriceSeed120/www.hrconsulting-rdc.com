@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Intervention\Image\Facades\Image;
-
+use App\Models\Order;
+use App\Models\Contact;
 
 class MenuController extends Controller
 {
@@ -23,6 +24,22 @@ class MenuController extends Controller
        return view('dashboard.menu.index', compact('menus'))->withTitle('Menus');
     }
 
+    public function dashboard(){
+        $totalCompleted = Order::where("orders.status","Processing")
+        ->orWhere("orders.status","Completed")
+        ->count();
+        $totalCompletedAmount = Order::where("orders.status","Processing")
+        ->orWhere("orders.status","Completed")
+        ->sum('amount');
+
+        $orders = Order::orderBy('id', 'desc')
+        ->take(10)
+        ->get();
+
+        $contacts = Contact::orderBy('id','desc')->take(10)
+        ->get();
+        return view('dashboard.home.index', compact('totalCompleted','totalCompletedAmount','orders','contacts'));
+    }
     /**
      * Show the form for creating a new resource.
      *

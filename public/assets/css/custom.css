@@ -22,3 +22,60 @@
   }
 
 
+
+  .report-order{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .report-order .order-box{
+    height: 100px;
+    width: 210px;
+    vertical-align: center;
+    
+  }
+  .primary-bg{
+    background-color: #0056B3;
+  }
+  .warning-bg{
+    background-color: #B38705;
+  }
+  .warning-bg{
+    background-color: #B38705;
+  }
+  .info-bg{
+    background-color: #107281;
+  }
+  .success-bg{    
+    background-color: #1C7530;
+  }
+  .text-title{
+    color: white;
+    font-size: 16px;
+    text-align: center;
+    padding-top: 10px;
+  }
+  .title-number{
+    color: white;
+    font-size: 16px;
+    text-align: center;
+  }
+  .title-amount{
+    color: white;
+    font-size: 16px;
+    text-align: center;
+  }
+  .padding30{
+    padding-top: 20px;
+  }
+
+  .title-number span{
+    color: white;
+    font-size: 12px;
+    background: none;
+    padding: 2px 14px;
+    border-radius: 10px;
+    font-weight: bold;
+    
+  }
