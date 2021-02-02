@@ -87,14 +87,14 @@
                 google.charts.setOnLoadCallback(drawChart);
                 function drawChart() {
                   var data = google.visualization.arrayToDataTable([
-                    ['Task', 'Hours per Day'],
-                    ['Work',     totalCompletedMonthly],
-                    ['Eat',      totalFailedMonthly],
-                    ['Commute',  totalPendingMonthly]    
+                    ['Task', 'Monthly order success, failed, pending'],
+                    ['Success',     34],
+                    ['Failed',      25],
+                    ['Pending',  14]    
                   ]);
           
                   var options = {
-                    title: 'My Daily Activities',
+                    title: 'Monthly order success, failed, pending',
                     is3D: true,
                   };
           

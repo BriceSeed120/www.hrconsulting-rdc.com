@@ -757,6 +757,39 @@
     </div>
 
     @if(strtolower($pageInfo->name) != "recreation")
+        @if(strtolower($pageInfo->name) == "dining" || strtolower($pageInfo->name) == "dinings")
+            <div class="dining-page">
+                <div class="container">
+                    <div class="dining-head">
+                        Dining
+                    </div>
+                   <div class="dining-content">
+                    Embark on a diverse culinary journey with our critically acclaimed restaurants, bars and gourmet marketplaces in Dhaka. Choose from various authentic local and regional flavours from our highly awarded partners.
+                   </div>
+                    @if ($contentData)
+                    <div class="row">
+                        @foreach ($contentData as $key => $item)
+                            <div class="col-md-6">
+                                <div class="dining-page-block">
+                                    <img src="{{ asset($item->feature_image) }}" />
+                                    <div class="dining-name">{{ $item->name }} </div>
+                                    <div class="dining-description">
+                                        {{ $item->description }}
+                                    </div>
+                                    <a href="{{ route('booking')}}">
+                                        <div class="dining-book">
+                                            Book Now
+                                        </div>
+                                    </a>   
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    @endif
+                </div>
+            </div>
+
+        @else
     <div class="container room-pg">
         <div class="page-body">
             <!-- Room Start -->
@@ -896,6 +929,7 @@
 
         </div>
     </div>
+    @endif
     @else 
     <div class="recreation-page">
         @if ($contentData)
