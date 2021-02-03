@@ -1807,6 +1807,9 @@ overflow: hidden;
 
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .viewsample .rightview{
+        width: 100%;
+    }
     .only-desktop{
         display: none;
     }

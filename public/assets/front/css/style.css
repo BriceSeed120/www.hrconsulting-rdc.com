@@ -1368,6 +1368,9 @@ ul.social-ul.inner li a { color: #B3A341; }
   align-items: center;
   margin-top: 5px;
 }
+.logo-sticky img{
+  height: 72px;
+}
 .page-logo{
   width: 100%;
   height: 120px;
