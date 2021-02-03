@@ -155,11 +155,11 @@
 
         .slick-slide {
             transition: all ease-in-out .3s;
-            opacity: .2;
+            opacity: 1;
         }
 
         .slick-active {
-            opacity: .5;
+            opacity: 1;
         }
 
         .slick-current {
@@ -168,6 +168,10 @@
         .flexslider .slides img {
             height: 100vh;
         }
+
+        .room-list .slick-prev, .slick-next{
+            top: 35% !important;
+        }
     </style>
 
     <section class="regular slider room-list onlyDesktop">
@@ -175,7 +179,7 @@
             <div class="owl-item active" style="width: 532px; margin-right: 10px;">
                 <div class="item">
                     <a href="javascript:void(0)">
-                        <img src="{{ asset($slider->feature_image) }}" height="320" />
+                        <img src="{{ asset($slider->feature_image) }}" height="250" />
                         <div class="holder">
                             <h4 class="tagline callout animation-element test2">
                                 {{ $slider->name }}

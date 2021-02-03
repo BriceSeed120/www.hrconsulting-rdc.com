@@ -45,7 +45,7 @@
 	.roomtag .roomtxt {padding-left: 0px;}
 	.roomtag .roomtxt h3 { font-size: 45px; line-height: 55px; }
 	.common .room-amenities .prime-features .istruments h4::after {left: 5px;width: 45px;}
-	.room-list .holder h4 {font-size: 16px; padding-bottom: 15px;}
+	.room-list .holder h4 {font-size: 18px; padding-bottom: 15px;}
 	.room-list .holder h4::after {top: 17px;}
 	.pageslider .flex-direction-nav .flex-next {left: 100%;}
 	.pageslider .flex-direction-nav .flex-prev {left: -7%;}

@@ -476,7 +476,7 @@ a.discover-more img { display: inline-block; width: 50px; padding-left: 20px; }
 .room-list .owl-carousel .item img { transition-duration: .5s; }
 .room-list .owl-carousel .item img:hover { transform: scale(0.97); transition-duration: .5s; }
 .room-list .holder { position: relative; bottom: unset; padding-top: 20px; padding-bottom: 30px; width: 100%; text-align: center; z-index: 9; }
-.room-list .holder h4 { font-family: 'Playfair Display', serif; position: relative; color: #000; font-size: 35px; padding-left: 65px; padding-bottom: 30px; text-align: left; letter-spacing: 2px; word-spacing: 3px; line-height: 1.2; }
+.room-list .holder h4 { font-family: 'Playfair Display', serif; position: relative; color: #000; font-size: 18px; font-weight: bold; padding-left: 65px; padding-bottom: 30px; text-align: left; letter-spacing: 2px; word-spacing: 3px; line-height: 1.2; }
 .room-list .holder h4:after { position: absolute; content: ''; left: 0px; top: 15px; width: 50px; height: 1px; background-color: #000; }
 .room-list .holder p { color: #000; font-size: 16px; text-align: left; width: 70%; padding-left: 65px; 
 overflow: hidden;
