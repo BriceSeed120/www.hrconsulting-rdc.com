@@ -42,10 +42,12 @@ class TaxsController extends Controller
     {
         $validatedData = $request->validate([
             'tax' => 'required',
-            'vat' => 'required',
+            'tax' => 'required',
+            'services_charge' => 'required',
         ], [
             'tax.required' => 'Tax filed is required',
-            'vat.required' => 'Vat filed is required'
+            'vat.required' => 'Vat filed is required',
+            'services_charge.required' => 'Vat filed is required'
         ]);
         $roomssuits = Taxs::create($validatedData);
         return redirect()->route('taxs.index')->with('success', 'Tax & vat created successfully.');
@@ -86,9 +88,11 @@ class TaxsController extends Controller
         $validatedData = $request->validate([
             'tax' => 'required',
             'vat' => 'required',
+            'services_charge' => 'required',
         ], [
             'tax.required' => 'Tax filed is required',
-            'vat.required' => 'Vat filed is required'
+            'vat.required' => 'Vat filed is required',
+            'services_charge.required' => 'Vat filed is required'
         ]);
         $taxs = Taxs::where("id", $id)->update($validatedData);
         return redirect()->route('taxs.index')->with('success', 'Tax & vat update successfully.');

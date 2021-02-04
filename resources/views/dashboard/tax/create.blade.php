@@ -27,6 +27,11 @@
                             <input type="number" required name="vat" class="form-control" placeholder="10"
                                 value="{{ old('vat') }}">
                         </div>
+                        <div class="form-group mb-4">
+                            <label for="title">Services Charge(%) *</label>
+                            <input type="number" required name="services_charge" class="form-control" placeholder="10"
+                                value="{{ old('services_charge') }}">
+                        </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary btn-lg">Create</button>
                         </div>

@@ -1474,7 +1474,8 @@
                         <h2>Momo Inn</h2>
                         <ul class="address">
                             <li class="heading">Address</li>
-                            <li class="details">Nawdapara, Rangpur Road, Bogura - 5800, Bangladesh</li>
+                            <li class="details">
+                                Priyo Prangon Tower (3rd Floor), <br/> H # 19, R # 17, Kamal Ataturk Avenue, Banani, Dhaka 1213</li>
                         </ul>
                         <ul class="address">
                             <li class="heading">Phone</li>

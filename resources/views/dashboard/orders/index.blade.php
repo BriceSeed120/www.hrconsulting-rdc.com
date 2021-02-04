@@ -120,10 +120,11 @@
                         <th> Phone</th>
                         <th> Email</th>
                         <th> Transction ID</th>
+                        <th> Payment Type</th>
                         <th>Booking Date</th>
                         <th>Status</th>
                         <th>Order Date</th>
-                        <th>View</th>
+                        <th><i data-feather="tool"></i></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -134,6 +135,7 @@
                             <td>{{ $customer->phone }}</td>
                             <td>{{ $customer->email }}</td>
                             <td>{{ $customer->transaction_id }}</td>
+                            <td>{{ $customer->payment_type }}</td>
                             <td>{{ $customer->startdate }} - {{ $customer->endDate }}</td>
                             <td id="status{{ $customer->id }}">{{ $customer->status }} </td>
                             <td>{{ $customer->created_at }} </td>
@@ -142,9 +144,9 @@
                                 <a style="float: left; width: 130px" class="mr-4 btn btn-warning"
                                 onclick="customOrder({{$customer->id}})">Custom Order</a>
                                 @endif
-                               </td>
+                               <br/></br>
 
-                            <td> <a href="{{ route('orders.show', $customer->id) }}" style="float: left"
+                            <a href="{{ route('orders.show', $customer->id) }}" style="float: left; width: 130px"
                                     class="mr-2 btn btn-primary">View</a></td>
                         </tr>
                     @endforeach

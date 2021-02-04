@@ -23,7 +23,8 @@
                 <tr>
                     <th>#</th>
                     <th>Tax(%)</th>
-                    <th>Vat(%)</th>                    
+                    <th>Vat(%)</th> 
+                    <th>Services Charge(%)</th>                 
                     <th><i data-feather="tool"></i></th>
                 </tr>
             </thead>
@@ -34,6 +35,7 @@
                         <td>{{ $k + 1 }}</td>
                       <td> {{ $tax->tax}}</td>
                       <td> {{ $tax->vat}}</td>
+                      <td> {{ $tax->services_charge}}</td>
                     <td>  <a class="btn btn-secondary" style="float: left"
                         href="{{ route('taxs.edit', $tax->id) }}">Edit</a> </td>
                     </tr>

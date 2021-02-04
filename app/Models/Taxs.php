@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Taxs extends Model
 {
     use HasFactory;
-    protected $fillable = ['tax','vat'];
+    protected $fillable = ['tax','vat','services_charge'];
 }

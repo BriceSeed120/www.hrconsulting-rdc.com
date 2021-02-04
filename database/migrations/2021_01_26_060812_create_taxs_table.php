@@ -17,6 +17,7 @@ class CreateTaxsTable extends Migration
             $table->id();
             $table->string('tax')->default(0);
             $table->string('vat')->default(0);
+            $table->string('services_charge')->default(0);
             $table->timestamps();
         });
     }

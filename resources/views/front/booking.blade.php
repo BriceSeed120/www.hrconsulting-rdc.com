@@ -1520,14 +1520,14 @@
                                 <select name="adult" id="selectedAdult1" class="common-select">
                                     <option value="1"> 1 Adult</option>
                                     <option value="2"> 2 Adults</option>
-                                    <option value="3"> 3 Adults</option>
-                                    <option value="4"> 4 Adults</option>
+                                    <option value="3"> 3 Adults</option>                                    
                                 </select>
                                 <select name="child" id="selectedChild1" class="common-select">
                                     <option value="0"> 0 Children
                                     </option>
                                     <option value="1"> 1 Child</option>
                                     <option value="2"> 2 Child</option>
+                                    <option value="3"> 3 Child</option>
                                 </select>
                             </div>
                         </div>
@@ -1677,6 +1677,12 @@
                             <a href="#" style="color:#f6d83e"> Been here before ? click here </a>
 
                             <div class="pay-input-common top-guest-gap">
+                                <select name="payment-type" id="payment_type">
+                                    <option value="SSL"> Online Payment</option>
+                                    <option value="COD"> Cash On Delivery</option>
+                                </select>
+                            </div>
+                            <div class="pay-input-common ">
                                 <input type="text" id="name" name="name" placeholder="Full name" required />
                                 <span> * </span>
                             </div>
@@ -1759,6 +1765,7 @@
         var selectedDiscount = 0;
         var selectedTax = "{{ $taxs->tax }}";
         var selectedVat = "{{ $taxs->vat }}";
+        var selectedServicesCharg = "{{ $taxs->services_charge }}";
         var selectedCurrency = '(BDT)';
         var totalAmountFinal = 0;
 
@@ -1950,18 +1957,23 @@
             var finalTotal = 0;
             for(i = 0; i <selectedBDT.length ; i++){
                 finalTotal = finalTotal + parseInt(selectedBDT[i]);
-            }
-            
-            var allTotalprice = finalTotal;
+            }           
+            var subtotalprice = finalTotal;
             var totalDiscountAmount = Math.ceil((selectedDiscount * finalTotal) / 100);
+            finalTotal = finalTotal - totalDiscountAmount;
+            var totalCharge = Math.ceil((selectedServicesCharg * finalTotal) / 100);
+            finalTotal = finalTotal + totalCharge ;
             var totalTax = Math.ceil((selectedTax * finalTotal) / 100);
-            var totalVat = Math.ceil((selectedTax * finalTotal) / 100);
-            allTotalprice = allTotalprice - totalDiscountAmount + totalTax + totalVat;
-            totalAmountFinal = allTotalprice;
-            $("#finalTotal").html('BDT ' + allTotalprice);
-            $("#viewTotalAmount").html('BDT ' + allTotalprice);
+            var totalVat = Math.ceil((selectedTax * finalTotal) / 100);    
+            finalTotal = finalTotal  + totalTax + totalVat;
+            totalAmountFinal = finalTotal;
+            $("#finalTotal").html('BDT ' + finalTotal);
+            $("#viewTotalAmount").html('BDT ' + finalTotal);
             $("#cartFoot").empty();
-            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> '+ finalTotal + '</td></tr><tr><td colspan="3"> Discount (%) </td><td> '+ selectedDiscount +' % </td></tr><tr><td colspan="3"> VAT(%) </td><td> '+ selectedVat +' %</td></tr><tr><td colspan="3"> TAX(%) </td><td> '+ selectedTax +' % </td></tr><tr><td colspan="3"><b> Total '+ selectedCurrency +'</b> </td><td id="allTotalPrice"> ' + allTotalprice +'</td></tr>');
+            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> '+ subtotalprice + '</td></tr><tr><td colspan="3"> Discount (%) </td><td> '+ selectedDiscount +' % </td></tr>'+'<tr><td colspan="3"> Services Charge (%) </td><td> '+ selectedServicesCharg +' % </td></tr>'+'<tr><td colspan="3"> VAT(%) </td><td> '+ selectedVat +' %</td></tr><tr><td colspan="3"> TAX(%) </td><td> '+ selectedTax +' % </td></tr><tr><td colspan="3"><b> Total '+ selectedCurrency +'</b> </td><td id="allTotalPrice"> ' + finalTotal +'</td></tr>');
+
+            $("#finalTotal").html('BDT ' + finalTotal);
+            $("#viewTotalAmount").html('BDT ' + finalTotal);
             }
             else{
                 alert("Select at least one room");
@@ -1984,20 +1996,23 @@
             var finalTotal = 0;
             for(i = 0; i <selectedBDT.length ; i++){
                 finalTotal = finalTotal + parseInt(selectedBDT[i]) * parseInt(selectedRoomQuantity[i]);
-            }
-            $("#finalTotal").html('BDT ' + finalTotal);
-            $("#viewTotalAmount").html('BDT ' + finalTotal);
-
-            var allTotalprice = finalTotal;
+            }           
+            var subtotalprice = finalTotal;
             var totalDiscountAmount = Math.ceil((selectedDiscount * finalTotal) / 100);
+            finalTotal = finalTotal - totalDiscountAmount;
+            var totalCharge = Math.ceil((selectedServicesCharg * finalTotal) / 100);
+            finalTotal = finalTotal + totalCharge ;
             var totalTax = Math.ceil((selectedTax * finalTotal) / 100);
             var totalVat = Math.ceil((selectedTax * finalTotal) / 100);
-            allTotalprice = allTotalprice - totalDiscountAmount + totalTax + totalVat;
-            totalAmountFinal = allTotalprice;
-            $("#finalTotal").html('BDT ' + allTotalprice);
-            $("#viewTotalAmount").html('BDT ' + allTotalprice);
+            finalTotal = finalTotal  + totalTax + totalVat;
+            totalAmountFinal = finalTotal;
+            $("#finalTotal").html('BDT ' + finalTotal);
+            $("#viewTotalAmount").html('BDT ' + finalTotal);
             $("#cartFoot").empty();
-            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> '+ finalTotal + '</td></tr><tr><td colspan="3"> Discount (%) </td><td> '+ selectedDiscount +' % </td></tr><tr><td colspan="3"> VAT(%) </td><td> '+ selectedVat +' %</td></tr><tr><td colspan="3"> TAX(%) </td><td> '+ selectedTax +' % </td></tr><tr><td colspan="3"><b> Total '+ selectedCurrency +' </b> </td><td id="allTotalPrice"> ' + allTotalprice +'</td></tr>');
+            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> '+ subtotalprice + '</td></tr><tr><td colspan="3"> Discount (%) </td><td> '+ selectedDiscount +' % </td></tr>'+'<tr><td colspan="3"> Services Charge (%) </td><td> '+ selectedServicesCharg +' % </td></tr>'+'<tr><td colspan="3"> VAT(%) </td><td> '+ selectedVat +' %</td></tr><tr><td colspan="3"> TAX(%) </td><td> '+ selectedTax +' % </td></tr><tr><td colspan="3"><b> Total '+ selectedCurrency +'</b> </td><td id="allTotalPrice"> ' + finalTotal +'</td></tr>');
+
+            $("#finalTotal").html('BDT ' + finalTotal);
+            $("#viewTotalAmount").html('BDT ' + finalTotal);
 
         }
 
@@ -2045,6 +2060,7 @@
             obj.discount = selectedDiscount;
             obj.startdate = $("#selectedStartDate").val();
             obj.endDate = $("#selectedEndDate").val();
+            obj.payment_type = $("#payment_type").val();
             obj.quantity = selectedRoomQuantity;
             obj.quantity = '';
             obj.total_amount = totalAmountFinal;
@@ -2052,13 +2068,26 @@
             obj.service_charge = 0;
              obj.roomName = selectedRoomName;
              obj.bdtPrice = selectedBDT;
-            if($('#name').val().length && (validatePhone('phone'))  && isEmail() && $("#checkAgree").prop('checked') == true){
+             var isPhoneValid = false;
+             if(/^(?:\+88|88)?(01[3-9]\d{8})$/.test($('#phone').val())){
+                isPhoneValid = true;
+             }
+            if($('#name').val().length  && isEmail() && $("#checkAgree").prop('checked') == true && isPhoneValid){
                 $("#sslczPayBtn").show();
+                if($("#payment_type").val() == "COD"){
+                    setTimeout(function(){ 
+                    alert("Successfully booked the room. You selected cash on delivery process. ");
+                    location.href = "{{route('booking')}}";
+                 }, 2000);
+                }
+
             }
             else{
              $("#sslczPayBtn").hide();
             }
-            $('#sslczPayBtn').prop('postdata', obj); 
+            $('#sslczPayBtn').prop('postdata', obj);
+
+
         });
 
 
@@ -2080,7 +2109,11 @@
 
 
         $('#phone').keyup(function(e) {
-            if (validatePhone('phone')) {
+            var isPhoneValid = false;
+             if(/^(?:\+88|88)?(01[3-9]\d{8})$/.test($('#phone').val())){
+                isPhoneValid = true;
+             }
+            if (isPhoneValid) {
                 $('#phoneStatus').html('Valid');
                 $('#phoneStatus').css('color', 'green');
             }

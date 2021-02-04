@@ -743,7 +743,15 @@
 </style>
 @extends('layouts.front')
 @section('content')
-
+<script type="text/javascript">
+    function readMore(id) {
+      let div = document.getElementById("full-description"+id);
+      let divMore = document.getElementById("more"+id);
+      div.style.height="auto";
+      div.style.display="block";
+      divMore.style.display="none";
+    }
+</script>
 
     <div class="page-banner-top">
         @if ($pageInfo->attachment)
@@ -773,14 +781,12 @@
                                 <div class="dining-page-block">
                                     <img src="{{ asset($item->feature_image) }}" />
                                     <div class="dining-name">{{ $item->name }} </div>
-                                    <div class="dining-description">
+                                    <div class="dining-description" id="full-description{{$key}}">
                                         {{ $item->description }}
-                                    </div>
-                                    <a href="{{ route('booking')}}">
-                                        <div class="dining-book">
-                                            Book Now
-                                        </div>
-                                    </a>   
+                                    </div>                                    
+                                        <div class="dining-book" id="more{{$key}}" onclick="readMore({{ $key}})">
+                                            More details
+                                        </div>                                    
                                 </div>
                             </div>
                         @endforeach
@@ -959,6 +965,7 @@
     </div>
     @endif
 <div style="height: 40px"></div>
+
 
 @endsection
 
