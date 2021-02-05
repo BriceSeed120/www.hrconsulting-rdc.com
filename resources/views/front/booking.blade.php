@@ -1433,34 +1433,36 @@
             font-size: 3.5rem;
         }
     }
-    .top-menu ul li a{
-       color: #b4a43e !important;
-   }
+
+    .top-menu ul li a {
+        color: #b4a43e !important;
+    }
+
 </style>
 
 @extends('layouts.front')
 @section('content')
 
-    @if(session()->has('success'))
+    @if (session()->has('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ session()->get('success') }}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+                <span aria-hidden="true">&times;</span>
             </button>
         </div>
     @endif
 
-    @if(session()->has('failed'))
+    @if (session()->has('failed'))
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             {{ session()->get('failed') }}
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+                <span aria-hidden="true">&times;</span>
             </button>
         </div>
     @endif
 
 
-    <div class="custom-modal-popup" id="viewRoomSelectModal">        
+    <div class="custom-modal-popup" id="viewRoomSelectModal">
         <div class="view-room"> Your selected room </div>
         <div class="select-room-show-list" id="viewRoomData">
         </div>
@@ -1470,18 +1472,18 @@
         </div>
     </div>
 
-    <div class="custom-modal-popup-order" id="viewOrderSuccess">        
-        <div class="view-room">  Order Successful! </div>
+    <div class="custom-modal-popup-order" id="viewOrderSuccess">
+        <div class="view-room"> Order Successful! </div>
         <div class="select-order">
             <div class="order-info">
                 <div class="label"> Customer Name </div>
                 <div class="dot"> : </div>
-                <div class="value" id="showName">  </div>
+                <div class="value" id="showName"> </div>
             </div>
             <div class="order-info">
                 <div class="label"> Customer Phone </div>
                 <div class="dot"> : </div>
-                <div class="value" id="showPhone" >  </div>
+                <div class="value" id="showPhone"> </div>
             </div>
             <div class="order-info">
                 <div class="label"> Customer Email </div>
@@ -1491,7 +1493,7 @@
             <div class="order-info">
                 <div class="label"> Payment Type</div>
                 <div class="dot"> : </div>
-                <div class="value" id="showPayment">  </div>
+                <div class="value" id="showPayment"> </div>
             </div>
             <div class="order-info">
                 <div class="label"> Stay Date </div>
@@ -1559,7 +1561,7 @@
                                 <select name="adult" id="selectedAdult1" class="common-select">
                                     <option value="1"> 1 Adult</option>
                                     <option value="2"> 2 Adults</option>
-                                    <option value="3"> 3 Adults</option>                                    
+                                    <option value="3"> 3 Adults</option>
                                 </select>
                                 <select name="child" id="selectedChild1" class="common-select">
                                     <option value="0"> 0 Children
@@ -1577,7 +1579,8 @@
 
                         <div class="discount-section">
                             <div class="app-code" onclick="couponBoxOpen()">
-                                <div class="app-text"> <span id="successCoupon"> App </span> </div> <span class="arrow-2 down-2"></span>
+                                <div class="app-text"> <span id="successCoupon"> App </span> </div> <span
+                                    class="arrow-2 down-2"></span>
                             </div>
                             <div class="coupon" id="couponInputBox">
                                 <select name="discount-option" id="discountOption">
@@ -1590,15 +1593,15 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="submit-coupon" onClick="updateRoom(false)"> Next  </div>
+                        <div class="submit-coupon" onClick="updateRoom(false)"> Next </div>
                     </div>
                 </div>
 
                 <div class="date-calender" id="form2">
                     <div class="calender-title"> Select Date (Start Date - End Date)</div>
                     <div class="startdate-endate">
-                        <input type="text"  placeholder="Start date" id="selectedStartDate"  />
-                        <input type="text"  placeholder="End date" id="selectedEndDate"/>
+                        <input type="text" placeholder="Start date" id="selectedStartDate" />
+                        <input type="text" placeholder="End date" id="selectedEndDate" />
                     </div>
                     <div class="submit-coupon" onClick="nextFormRoom()"> Next </div>
                 </div>
@@ -1618,9 +1621,10 @@
                                     </div>
                                     <div class="room-item">
                                         <div class="people">
-                                            <div class="icon-user"> <strong> Property : </strong> <span> {{ $room->property_list}} </span> </div>
+                                            <div class="icon-user"> <strong> Property : </strong> <span>
+                                                    {{ $room->property_list }} </span> </div>
                                         </div>
-                          
+
                                     </div>
 
                                     <div class="room-info">
@@ -1675,26 +1679,26 @@
                                 </br />
                             </div>
 
-                            <div class="room-title-cart"> 
+                            <div class="room-title-cart">
                                 <table class="table table-border table-hovered">
                                     <thead>
-                                    <tr>
-                                        <th> Particulars </th>
-                                        <th> No#Room </th>
-                                        <th> Unit Price</th>
-                                        <th> Total Price</th>
-                                    </tr>
+                                        <tr>
+                                            <th> Particulars </th>
+                                            <th> No#Room </th>
+                                            <th> Unit Price</th>
+                                            <th> Total Price</th>
+                                        </tr>
                                     </thead>
                                     <tbody id="cartBody">
-                                       
+
                                     </tbody>
                                     <tfoot id="cartFoot">
-                                      
+
                                     </tfoot>
                                 </table>
                             </div>
-                            
-                            <div id="roomAndPrice">  </div>
+
+                            <div id="roomAndPrice"> </div>
 
                             <div class="border-room-top"> </div>
                             <div class="special-request">
@@ -1717,6 +1721,7 @@
 
                             <div class="pay-input-common top-guest-gap">
                                 <select name="payment-type" id="payment_type">
+                                    <option value=""> Select Payment Type</option>
                                     <option value="SSL"> Online Payment</option>
                                     <option value="COD"> Cash On Delivery</option>
                                 </select>
@@ -1727,7 +1732,7 @@
                             </div>
 
                             <div class="pay-input-common">
-                                <input type="email" id="email" name="email" placeholder="Email address"  />
+                                <input type="email" id="email" name="email" placeholder="Email address" />
                                 <span> * </span>
                                 <div id="emailStatus"></div>
                             </div>
@@ -1771,13 +1776,12 @@
                                         style="color:#f6d83e">
                                         privacy policy </a></p>
                             </div>
-                            <div class="btn btn-primary btn-lg btn-block book-now-button" id="bookNowSubmitBtn" onclick="codBook()">
+                            <div class="btn btn-primary btn-lg btn-block book-now-button" id="bookNowSubmitBtn"
+                                onclick="codBook()">
                                 Book Now
                             </div>
-                            <button class="btn btn-primary btn-lg btn-block book-now-button" id="sslczPayBtn"
-                                token="" postdata=""
-                                order="order"
-                                endpoint="{{ url('/pay-via-ajax') }}" type="submit"> Pay Now
+                            <button class="btn btn-primary btn-lg btn-block book-now-button" id="sslczPayBtn" token=""
+                                postdata="" order="order" endpoint="{{ url('/pay-via-ajax') }}" type="submit"> Pay Now
                             </button>
 
                         </div>
@@ -1795,7 +1799,6 @@
 
 
     <script type="text/javascript">
-   
         var numberOfRoom = 1;
         var isOpenCouponBox = 0;
         var selectedAdult = [];
@@ -1863,9 +1866,19 @@
                 $("#arrow" + id).show();
                 $("#currentmenu").val(id);
                 if ($("#maxActiveFormNumber").val() >= id) {
-                    formPage(id);
+                    if(id == 4){
+                        var startDate = $("#selectedStartDate").val();
+                        var endDate = $("#selectedEndDate").val();
+                        const date1 = new Date(startDate);
+                        const date2 = new Date(endDate);
+                        if(startDate && endDate && date2 > date1){
+                            formPage(id);
+                        }
+                    }
+                    else{
+                        formPage(id);
+                    }                   
                 }
-
             });
         }
 
@@ -1894,38 +1907,39 @@
 
         function setCoupon() {
             var getDiscountCode = $("#discountCode").val();
-            if(getDiscountCode){
+            if (getDiscountCode) {
                 $.ajax({
-                type:'POST',
-                url: "{{ route('checkcoupon') }}",
-                data: {code: getDiscountCode},
-                success:function(data) {                    
-                    if(data.amount){
-                        selectedDiscount = parseInt(data.amount);
-                        $("#successCoupon").html("<font color='green'>Coupon success added </font>");
+                    type: 'POST',
+                    url: "{{ route('checkcoupon') }}",
+                    data: {
+                        code: getDiscountCode
+                    },
+                    success: function(data) {
+                        if (data.amount) {
+                            selectedDiscount = parseInt(data.amount);
+                            $("#successCoupon").html("<font color='green'>Coupon success added </font>");
+                        } else {
+                            alert(getDiscountCode + " coupon code is not valid");
+                            $("#successCoupon").html("App");
+                            selectedDiscount = 0;
+                        }
+                        $("#couponInputBox").hide();
                     }
-                    else{
-                        alert( getDiscountCode + " coupon code is not valid");
-                        $("#successCoupon").html("App");
-                        selectedDiscount = 0;
-                    }
-                    $("#couponInputBox").hide();
-                }
                 });
             }
         }
 
         function updateRoom(isOnlyArrow) {
             var viewAdultChild = "";
-            var adults = $('[name=adult]').map(function() { 
-                    return parseInt(this.value);
+            var adults = $('[name=adult]').map(function() {
+                return parseInt(this.value);
             }).get();
-            var childs = $('[name=child]').map(function() { 
-                    return parseInt(this.value);
+            var childs = $('[name=child]').map(function() {
+                return parseInt(this.value);
             }).get();
-            for(i = 0; i < adults.length; i++){
+            for (i = 0; i < adults.length; i++) {
                 var isLastChild = " , ";
-                if( parseInt(i + 1)  == adults.length){
+                if (parseInt(i + 1) == adults.length) {
                     isLastChild = "";
                 }
                 viewAdultChild = viewAdultChild + adults[i] + "/" + childs[i] + isLastChild;
@@ -1936,13 +1950,13 @@
             var discountOption = $("#discountOption").val();
             var discountCode = $("#discountCode").val();
             if (viewAdultChild.length) {
-                if(!isOnlyArrow){
+                if (!isOnlyArrow) {
                     formPage(2);
                     selectArrowMenu(2);
-                   
-                }                
+
+                }
             }
-            
+
         }
 
 
@@ -1951,7 +1965,7 @@
             var endDate = $("#selectedEndDate").val();
             const date1 = new Date(startDate);
             const date2 = new Date(endDate);
-            if (startDate && endDate &&  date2 > date1) {
+            if (startDate && endDate && date2 > date1) {
                 //$("#viewSelectedDate").html(startDate + " &nbsp; to " + endDate);
                 formPage(3);
                 selectArrowMenu(3);
@@ -1968,7 +1982,7 @@
                 selectedBDT.push(bdt ? parseInt(bdt) : 0);
                 selectedUSD.push(usd ? usd : 0);
                 var indexPos = selectedRoom.findIndex(id => id == room_id);
-               $("#bookButton" + indexPos).addClass("already-booked");
+                $("#bookButton" + indexPos).addClass("already-booked");
             } else {
                 var indexPos = selectedRoom.findIndex(id => id == room_id);
                 $("#bookButton" + indexPos).removeClass("already-booked");
@@ -1982,8 +1996,8 @@
                 $("#viewRoomData").append("<div class='room-name-price'><span>" + (parseInt(i + 1)) + "</span> <b> " +
                     selectedRoomName[i] + " </B> &nbsp;  " + selectedBDT[i] + " ৳  </div>");
 
-                    var indexPos = selectedRoom.findIndex(id => id == room_id);
-                    $("#bookButton" + indexPos).addClass("already-booked");
+                var indexPos = selectedRoom.findIndex(id => id == room_id);
+                $("#bookButton" + indexPos).addClass("already-booked");
 
             }
 
@@ -1991,47 +2005,56 @@
         }
 
         function nextPaymentProcess() {
-            if(selectedRoom.length){
-            formPage(4);
-            selectArrowMenu(4);
-            $("#viewRoomSelectModal").hide();
-            $("#cartBody").empty();
-            for(i = 0; i < selectedRoom.length ; i++){
-                $("#cartBody").append('<tr><td>'+ selectedRoomName[i] +' </td><td><div class="room-name"><select name="roomQuantity" onchange="selectQuantity()"><option value="1"> 1 </option><option value="2"> 2 </option><option value="3"> 3 </option><option value="4"> 4 </option><option value="5"> 5 </option></select></div> </td><td>' +  selectedBDT[i] +' </td><td id="quantityTotalPrice'+i+'">' + selectedBDT[i] + '</td></tr>')
+            if (selectedRoom.length) {
+                formPage(4);
+                selectArrowMenu(4);
+                $("#viewRoomSelectModal").hide();
+                $("#cartBody").empty();
+                for (i = 0; i < selectedRoom.length; i++) {
+                    $("#cartBody").append('<tr><td>' + selectedRoomName[i] +
+                        ' </td><td><div class="room-name"><select name="roomQuantity" onchange="selectQuantity()"><option value="1"> 1 </option><option value="2"> 2 </option><option value="3"> 3 </option><option value="4"> 4 </option><option value="5"> 5 </option></select></div> </td><td>' +
+                        selectedBDT[i] + ' </td><td id="quantityTotalPrice' + i + '">' + selectedBDT[i] + '</td></tr>')
 
-            }
-            var finalTotal = 0;
-            for(i = 0; i <selectedBDT.length ; i++){
-                finalTotal = finalTotal + parseInt(selectedBDT[i]);
-            }          
-            var subtotalprice = finalTotal;
-            const date1 = new Date($("#selectedStartDate").val());
-            const date2 = new Date($("#selectedEndDate").val());
-            const diffTime = Math.abs(date2 - date1);
-            var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
-            if(diffDays == 0){
-                diffDays = 1;
-            }
-            var numberOfDayWithTotal = diffDays * finalTotal;
-            finalTotal = diffDays * finalTotal;
-            var totalDiscountAmount = Math.ceil((selectedDiscount * finalTotal) / 100);
-            finalTotal = finalTotal - totalDiscountAmount;
-            var processAmount = finalTotal;
-            var totalCharge = Math.ceil((selectedServicesCharg * finalTotal) / 100);
-            processAmount = parseInt(finalTotal) + parseInt(totalCharge) ;
-            var totalTax = Math.ceil((selectedTax * processAmount) / 100);
-            var totalVat = Math.ceil((selectedVat * processAmount) / 100);    
-            processAmount = processAmount  + totalTax + totalVat;
-            totalAmountFinal = processAmount;
-            $("#finalTotal").html('BDT ' + finalTotal);
-            $("#viewTotalAmount").html('BDT ' + finalTotal);
-            $("#cartFoot").empty();
-            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> '+ subtotalprice + '</td></tr>' + '<tr><td colspan="3" > No. of day stay * Subtotal  <br/>' + diffDays + ' * ' + subtotalprice  +' </td><td id="subtotalpriceWithDay"> '+ + numberOfDayWithTotal + '</td></tr>'+'<tr><td colspan="3"> Discount ('+ selectedDiscount + '%) </td><td> '+ totalDiscountAmount +'  </td></tr>'+'<tr><td colspan="3"> Services Charge ('+selectedServicesCharg +'%) </td><td> '+ totalCharge +' </td></tr>'+'<tr><td colspan="3"> VAT('+selectedVat+'%) </td><td> '+ totalVat +'</td></tr><tr><td colspan="3"> TAX('+selectedTax+'%) </td><td> '+ totalTax +' </td></tr><tr><td colspan="3"><b> Total '+ selectedCurrency +'</b> </td><td id="allTotalPrice"> ' + processAmount +'</td></tr>');
+                }
+                var finalTotal = 0;
+                for (i = 0; i < selectedBDT.length; i++) {
+                    finalTotal = finalTotal + parseInt(selectedBDT[i]);
+                }
+                var subtotalprice = finalTotal;
+                const date1 = new Date($("#selectedStartDate").val());
+                const date2 = new Date($("#selectedEndDate").val());
+                const diffTime = Math.abs(date2 - date1);
+                var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                if (diffDays == 0) {
+                    diffDays = 1;
+                }
+                var numberOfDayWithTotal = diffDays * finalTotal;
+                finalTotal = diffDays * finalTotal;
+                var totalDiscountAmount = Math.ceil((selectedDiscount * finalTotal) / 100);
+                finalTotal = finalTotal - totalDiscountAmount;
+                var processAmount = finalTotal;
+                var totalCharge = Math.ceil((selectedServicesCharg * finalTotal) / 100);
+                processAmount = parseInt(finalTotal) + parseInt(totalCharge);
+                var totalTax = Math.ceil((selectedTax * processAmount) / 100);
+                var totalVat = Math.ceil((selectedVat * processAmount) / 100);
+                processAmount = processAmount + totalTax + totalVat;
+                totalAmountFinal = processAmount;
+                $("#finalTotal").html('BDT ' + finalTotal);
+                $("#viewTotalAmount").html('BDT ' + finalTotal);
+                $("#cartFoot").empty();
+                $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> ' + subtotalprice +
+                    '</td></tr>' + '<tr><td colspan="3" > No. of day stay * Subtotal  <br/>' + diffDays + ' * ' +
+                    subtotalprice + ' </td><td id="subtotalpriceWithDay"> ' + +numberOfDayWithTotal + '</td></tr>' +
+                    '<tr><td colspan="3"> Discount (' + selectedDiscount + '%) </td><td> ' + totalDiscountAmount +
+                    '  </td></tr>' + '<tr><td colspan="3"> Services Charge (' + selectedServicesCharg +
+                    '%) </td><td> ' + totalCharge + ' </td></tr>' + '<tr><td colspan="3"> VAT(' + selectedVat +
+                    '%) </td><td> ' + totalVat + '</td></tr><tr><td colspan="3"> TAX(' + selectedTax + '%) </td><td> ' +
+                    totalTax + ' </td></tr><tr><td colspan="3"><b> Total ' + selectedCurrency +
+                    '</b> </td><td id="allTotalPrice"> ' + processAmount + '</td></tr>');
 
-            $("#finalTotal").html('BDT ' + finalTotal);
-            $("#viewTotalAmount").html('BDT ' + finalTotal);
-            }
-            else{
+                $("#finalTotal").html('BDT ' + processAmount);
+                $("#viewTotalAmount").html('BDT ' + processAmount);
+            } else {
                 alert("Select at least one room");
             }
         }
@@ -2041,24 +2064,25 @@
         }
 
 
-        function selectQuantity(){
-            var roomQuantity = $('[name=roomQuantity]').map(function() { 
-                    return parseInt(this.value);
+        function selectQuantity() {
+            var roomQuantity = $('[name=roomQuantity]').map(function() {
+                return parseInt(this.value);
             }).get();
             selectedRoomQuantity = roomQuantity;
-            for(quantity = 0; quantity < roomQuantity.length ; quantity++){
-                $("#quantityTotalPrice"+quantity).html(parseInt(selectedBDT[quantity]) * parseInt(roomQuantity[quantity]));
+            for (quantity = 0; quantity < roomQuantity.length; quantity++) {
+                $("#quantityTotalPrice" + quantity).html(parseInt(selectedBDT[quantity]) * parseInt(roomQuantity[
+                quantity]));
             }
             var finalTotal = 0;
-            for(i = 0; i <selectedBDT.length ; i++){
+            for (i = 0; i < selectedBDT.length; i++) {
                 finalTotal = finalTotal + parseInt(selectedBDT[i]) * parseInt(selectedRoomQuantity[i]);
-            }           
+            }
             var subtotalprice = finalTotal;
             const date1 = new Date($("#selectedStartDate").val());
             const date2 = new Date($("#selectedEndDate").val());
             const diffTime = Math.abs(date2 - date1);
-            var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
-            if(diffDays == 0){
+            var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            if (diffDays == 0) {
                 diffDays = 1;
             }
             var numberOfDayWithTotal = diffDays * finalTotal;
@@ -2067,71 +2091,105 @@
             finalTotal = finalTotal - totalDiscountAmount;
             var processAmount = finalTotal;
             var totalCharge = Math.ceil((selectedServicesCharg * finalTotal) / 100);
-            processAmount = parseInt(finalTotal) + parseInt(totalCharge) ;
+            processAmount = parseInt(finalTotal) + parseInt(totalCharge);
             var totalTax = Math.ceil((selectedTax * processAmount) / 100);
-            var totalVat = Math.ceil((selectedVat * processAmount) / 100);    
-            processAmount = processAmount  + totalTax + totalVat;
+            var totalVat = Math.ceil((selectedVat * processAmount) / 100);
+            processAmount = processAmount + totalTax + totalVat;
             totalAmountFinal = processAmount;
-            $("#finalTotal").html('BDT ' + finalTotal);
-            $("#viewTotalAmount").html('BDT ' + finalTotal);
+            $("#finalTotal").html('BDT ' + processAmount);
+            $("#viewTotalAmount").html('BDT ' + processAmount);
             $("#cartFoot").empty();
-            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> '+ subtotalprice + '</td></tr>' + '<tr><td colspan="3" > No. of day stay * Subtotal  <br/>' + diffDays + ' * ' + subtotalprice  +' </td><td id="subtotalpriceWithDay"> '+ + numberOfDayWithTotal + '</td></tr>'+'<tr><td colspan="3"> Discount ('+ selectedDiscount + '%) </td><td> '+ totalDiscountAmount +'  </td></tr>'+'<tr><td colspan="3"> Services Charge ('+selectedServicesCharg +'%) </td><td> '+ totalCharge +' </td></tr>'+'<tr><td colspan="3"> VAT('+selectedVat+'%) </td><td> '+ totalVat +'</td></tr><tr><td colspan="3"> TAX('+selectedTax+'%) </td><td> '+ totalTax +' </td></tr><tr><td colspan="3"><b> Total '+ selectedCurrency +'</b> </td><td id="allTotalPrice"> ' + processAmount +'</td></tr>');
+            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> ' + subtotalprice +
+                '</td></tr>' + '<tr><td colspan="3" > No. of day stay * Subtotal  <br/>' + diffDays + ' * ' +
+                subtotalprice + ' </td><td id="subtotalpriceWithDay"> ' + +numberOfDayWithTotal + '</td></tr>' +
+                '<tr><td colspan="3"> Discount (' + selectedDiscount + '%) </td><td> ' + totalDiscountAmount +
+                '  </td></tr>' + '<tr><td colspan="3"> Services Charge (' + selectedServicesCharg + '%) </td><td> ' +
+                totalCharge + ' </td></tr>' + '<tr><td colspan="3"> VAT(' + selectedVat + '%) </td><td> ' + totalVat +
+                '</td></tr><tr><td colspan="3"> TAX(' + selectedTax + '%) </td><td> ' + totalTax +
+                ' </td></tr><tr><td colspan="3"><b> Total ' + selectedCurrency + '</b> </td><td id="allTotalPrice"> ' +
+                processAmount + '</td></tr>');
 
             $("#finalTotal").html('BDT ' + finalTotal);
             $("#viewTotalAmount").html('BDT ' + finalTotal);
 
         }
-        function reloadPage(){
-            location.href="{{ route('booking') }}";
+
+        function reloadPage() {
+            location.href = "{{ route('booking') }}";
         }
 
-        function codBook(){
-            $(document).ready(function() {
-            var obj = {};
-            obj.name = $('#name').val();
-            obj.phone = $('#phone').val();
-            obj.email = $('#email').val();
-            obj.address = $('#address').val();
-            obj.city = $('#city').val();
-            obj.arrival_time = $('#arrivalTime').val();
-            obj.additional_comment = $('#additionalComment').val();
-            obj.postal_code = $('#postalCode').val();
-            obj.room = selectedRoom.join();
-            obj.adult = selectedAdult.join();
-            obj.child = selectedChild.join();
-            obj.discount = selectedDiscount;
-            obj.startdate = $("#selectedStartDate").val();
-            obj.endDate = $("#selectedEndDate").val();
-            obj.payment_type = $("#payment_type").val();
-            obj.quantity = selectedRoomQuantity;
-            obj.quantity = '';
-            obj.total_amount = totalAmountFinal;
-            obj.tax = 0;
-            obj.service_charge = 0;
-             obj.roomName = selectedRoomName;
-             obj.bdtPrice = selectedBDT;
-             var isPhoneValid = false;
-             if(/^(?:\+88|88)?(01[3-9]\d{8})$/.test($('#phone').val())){
-                isPhoneValid = true;
-             }
-             $.ajax({
-                type:'POST',
-                url: "{{ url('/pay-via-ajax') }}",
-                data: {order:"", cart_json:JSON.stringify(obj)},
-                success:function(data) {
-                    $("#bookNowSubmitBtn").hide();
-                   $("#viewOrderSuccess").show();
-                   $("#showName").html($('#name').val());
-                   $("#showPhone").html($('#phone').val());
-                   $("#showEmail").html($('#email').val());
-                   $("#showPayment").html('Cash On Delivery');
-                   $("#showStayDate").html( $("#selectedStartDate").val() + " to " + $("#selectedEndDate").val());
-                   $("#showTotalAmount").html(totalAmountFinal + ' BDT');
-                }
+        function isEmail() {
+            var email = $("#email").val();
+            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            return regex.test(email);
+        }
 
-            });
-        });
-}
+        function codBook() {
+            $("#bookNowSubmitBtn").hide();
+            if (!event.detail || event.detail == 1) {
+                $(document).ready(function() {
+                    var obj = {};
+                    obj.name = $('#name').val();
+                    obj.phone = $('#phone').val();
+                    obj.email = $('#email').val();
+                    obj.address = $('#address').val();
+                    obj.city = $('#city').val();
+                    obj.arrival_time = $('#arrivalTime').val();
+                    obj.additional_comment = $('#additionalComment').val();
+                    obj.postal_code = $('#postalCode').val();
+                    obj.room = selectedRoom.join();
+                    obj.adult = selectedAdult.join();
+                    obj.child = selectedChild.join();
+                    obj.discount = selectedDiscount;
+                    obj.startdate = $("#selectedStartDate").val();
+                    obj.endDate = $("#selectedEndDate").val();
+                    obj.payment_type = $("#payment_type").val();
+                    obj.quantity = selectedRoomQuantity;
+                    obj.quantity = '';
+                    obj.total_amount = totalAmountFinal;
+                    obj.tax = 0;
+                    obj.service_charge = 0;
+                    obj.roomName = selectedRoomName;
+                    obj.bdtPrice = selectedBDT;
+                    var isPhoneValid = false;
+                    if (/^(?:\+88|88)?(01[3-9]\d{8})$/.test($('#phone').val())) {
+                        isPhoneValid = true;
+                    }
+                    var paymentType = $("#payment_type").val();
+                    var startDate = $("#selectedStartDate").val();
+                    var endDate = $("#selectedEndDate").val();
+                    const date1 = new Date(startDate);
+                    const date2 = new Date(endDate);
+
+                    if ($('#name').val().length && isEmail() && $("#checkAgree").prop('checked') == true &&
+                        isPhoneValid && paymentType && date2 > date1) {
+                        $.ajax({
+                            type: 'POST',
+                            url: "{{ url('/pay-via-ajax') }}",
+                            data: {
+                                order: "",
+                                cart_json: JSON.stringify(obj)
+                            },
+                            success: function(data) {
+                                $("#bookNowSubmitBtn").hide();
+                                $("#viewOrderSuccess").show();
+                                $("#showName").html($('#name').val());
+                                $("#showPhone").html($('#phone').val());
+                                $("#showEmail").html($('#email').val());
+                                $("#showPayment").html('Cash On Delivery');
+                                $("#showStayDate").html($("#selectedStartDate").val() + " to " + $(
+                                    "#selectedEndDate").val());
+                                $("#showTotalAmount").html(totalAmountFinal + ' BDT');
+                            }
+
+                        });
+                    }else{
+                        alert("Please put all valid data")
+                    }
+
+                });
+            }
+        }
 
     </script>
 
@@ -2183,29 +2241,39 @@
             obj.total_amount = totalAmountFinal;
             obj.tax = 0;
             obj.service_charge = 0;
-             obj.roomName = selectedRoomName;
-             obj.bdtPrice = selectedBDT;
-             var isPhoneValid = false;
-             if(/^(?:\+88|88)?(01[3-9]\d{8})$/.test($('#phone').val())){
+            obj.roomName = selectedRoomName;
+            obj.bdtPrice = selectedBDT;
+            var isPhoneValid = false;
+            if (/^(?:\+88|88)?(01[3-9]\d{8})$/.test($('#phone').val())) {
                 isPhoneValid = true;
-             }
-            if($('#name').val().length  && isEmail() && $("#checkAgree").prop('checked') == true && isPhoneValid){
-                if($("#payment_type").val() == "COD"){
+            }
+            var paymentType = $("#payment_type").val();
+            var startDate = $("#selectedStartDate").val();
+            var endDate = $("#selectedEndDate").val();
+            const date1 = new Date(startDate);
+            const date2 = new Date(endDate);
+            if ($('#name').val().length && isEmail() && $("#checkAgree").prop('checked') == true &&
+                isPhoneValid && paymentType && date2 > date1) {
+                if (paymentType == "COD") {
                     $("#bookNowSubmitBtn").show();
                     $("#sslczPayBtn").hide();
-                }
-                else{
+                } else {
                     $("#sslczPayBtn").show();
                     $("#bookNowSubmitBtn").hide();
                 }
-            }
-            else{
-             $("#sslczPayBtn").hide();
+            } else {
+                $("#sslczPayBtn").hide();
             }
 
             $('#sslczPayBtn').prop('postdata', obj);
 
-
+            if (paymentType) {
+                $('#payment_type').css('border', 'none');
+            } else {
+                if ($('#name').val().length && isEmail() && isPhoneValid) {
+                    $('#payment_type').css('border', '1px solid red');
+                }
+            }
         });
 
 
@@ -2213,46 +2281,54 @@
             if (isEmail()) {
                 $('#emailStatus').html('Valid');
                 $('#emailStatus').css('color', 'green');
-            }
-            else {
+            } else {
                 $('#emailStatus').html('Invalid');
                 $('#emailStatus').css('color', 'red');
             }
         });
+
         function isEmail() {
-        var email =$("#email").val();
-        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-        return regex.test(email);
+            var email = $("#email").val();
+            var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            return regex.test(email);
         }
 
 
         $('#phone').keyup(function(e) {
             var isPhoneValid = false;
-             if(/^(?:\+88|88)?(01[3-9]\d{8})$/.test($('#phone').val())){
+            if (/^(?:\+88|88)?(01[3-9]\d{8})$/.test($('#phone').val())) {
                 isPhoneValid = true;
-             }
+            }
             if (isPhoneValid) {
                 $('#phoneStatus').html('Valid');
                 $('#phoneStatus').css('color', 'green');
-            }
-            else {
+            } else {
                 $('#phoneStatus').html('Invalid');
                 $('#phoneStatus').css('color', 'red');
             }
         });
 
+        $('#payment_type').change(function(e) {
+            var isSetpayment = $("#payment_type").val();
+            if (isSetpayment) {
+                $('#payment_type').css('border', 'none');
+            } else {
+                $('#payment_type').css('border', '1px solid red');
+            }
+        });
 
 
-function validatePhone(txtPhone) {
-    var a = document.getElementById(txtPhone).value;
-    var filter = /^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/;
-    if (filter.test(a)) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
+
+        function validatePhone(txtPhone) {
+            var a = document.getElementById(txtPhone).value;
+            var filter =
+                /^((\+[1-9]{1,4}[ \-]*)|(\([0-9]{2,3}\)[ \-]*)|([0-9]{2,4})[ \-]*)*?[0-9]{3,4}?[ \-]*[0-9]{3,4}?$/;
+            if (filter.test(a)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     });
 
     (function(window, document) {
