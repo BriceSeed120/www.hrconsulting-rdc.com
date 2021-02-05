@@ -494,19 +494,38 @@ jQuery(function($) {
                 startDate: "-0d",
                 endDate: "+360d"
             }).on('changeDate', function (ev) {
+            var startDate = $("#selectedStartDate").val();
+            var endDate = $("#selectedEndDate").val();
+            const date1 = new Date(startDate);
+            const date2 = new Date(endDate);
+            if (date2 > date1) {
                 $(this).datepicker('hide');
                 $("#viewSelectedDate").html($("#selectedStartDate").val() + " <br/> to </br/>" + $("#selectedEndDate").val());
                 selectQuantity();
+
+            }
+
             });
             $('#selectedEndDate').datepicker({
                 format: 'yyyy-mm-dd',
                 todayHighlight:'TRUE',
                 autoclose: true,
-                startDate: "-0d",
+                startDate: '+1d',
                 endDate: "+360d"
             }).on('changeDate', function (ev) {
                 $("#viewSelectedDate").html($("#selectedStartDate").val() + " <br/> to </br/>" + $("#selectedEndDate").val());
                 selectQuantity();
+
+            var startDate = $("#selectedStartDate").val();
+            var endDate = $("#selectedEndDate").val();
+            const date1 = new Date(startDate);
+            const date2 = new Date(endDate);
+            if (date2 > date1) {
+                $(this).datepicker('hide');
+                $("#viewSelectedDate").html($("#selectedStartDate").val() + " <br/> to </br/>" + $("#selectedEndDate").val());
+                selectQuantity();
+
+            }
             });
         });
 </script>

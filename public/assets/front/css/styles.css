@@ -1109,6 +1109,7 @@ ul#link1>li a {
     border: 5px solid #f6d83e;
     height: 420px;
     margin-bottom: 30px;
+    padding: 10px;
 }
 
 .room-list-view .selected-room-list .list-part {
@@ -1182,6 +1183,7 @@ ul#link1>li a {
     justify-content: flex-end;
     float: right;
     cursor: pointer;
+    margin-top: -20px;
 }
 
 .book-part .price-button {
@@ -2064,6 +2066,7 @@ overflow: hidden;
         border: 5px solid #f6d83e;
         height: auto;
         margin-bottom: 150px;
+        padding: 10px;
     }
 
     .room-list-view .selected-room-list .list-part {

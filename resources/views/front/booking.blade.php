@@ -1806,9 +1806,9 @@
         var selectedBDT = [];
         var selectedUSD = [];
         var selectedDiscount = 0;
-        var selectedTax = "{{ $taxs->tax }}";
-        var selectedVat = "{{ $taxs->vat }}";
-        var selectedServicesCharg = "{{ $taxs->services_charge }}";
+        var selectedTax = parseInt("{{ $taxs->tax }}");
+        var selectedVat = parseInt("{{ $taxs->vat }}");
+        var selectedServicesCharg = parseInt("{{ $taxs->services_charge }}");
         var selectedCurrency = '(BDT)';
         var totalAmountFinal = 0;
 
@@ -1949,7 +1949,9 @@
         function nextFormRoom() {
             var startDate = $("#selectedStartDate").val();
             var endDate = $("#selectedEndDate").val();
-            if (startDate && endDate) {
+            const date1 = new Date(startDate);
+            const date2 = new Date(endDate);
+            if (startDate && endDate &&  date2 > date1) {
                 //$("#viewSelectedDate").html(startDate + " &nbsp; to " + endDate);
                 formPage(3);
                 selectArrowMenu(3);
@@ -2012,19 +2014,19 @@
             }
             var numberOfDayWithTotal = diffDays * finalTotal;
             finalTotal = diffDays * finalTotal;
-
             var totalDiscountAmount = Math.ceil((selectedDiscount * finalTotal) / 100);
             finalTotal = finalTotal - totalDiscountAmount;
+            var processAmount = finalTotal;
             var totalCharge = Math.ceil((selectedServicesCharg * finalTotal) / 100);
-            finalTotal = finalTotal + totalCharge ;
-            var totalTax = Math.ceil((selectedTax * finalTotal) / 100);
-            var totalVat = Math.ceil((selectedTax * finalTotal) / 100);    
-            finalTotal = finalTotal  + totalTax + totalVat;
-            totalAmountFinal = finalTotal;
+            processAmount = parseInt(finalTotal) + parseInt(totalCharge) ;
+            var totalTax = Math.ceil((selectedTax * processAmount) / 100);
+            var totalVat = Math.ceil((selectedVat * processAmount) / 100);    
+            processAmount = processAmount  + totalTax + totalVat;
+            totalAmountFinal = processAmount;
             $("#finalTotal").html('BDT ' + finalTotal);
             $("#viewTotalAmount").html('BDT ' + finalTotal);
             $("#cartFoot").empty();
-            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> '+ subtotalprice + '</td></tr>' + '<tr><td colspan="3" > No. of day stay * Subtotal  <br/>' + diffDays + ' * ' + subtotalprice  +' </td><td id="subtotalpriceWithDay"> '+ + numberOfDayWithTotal + '</td></tr>'+'<tr><td colspan="3"> Discount ('+ selectedDiscount + '%) </td><td> '+ totalDiscountAmount +'  </td></tr>'+'<tr><td colspan="3"> Services Charge ('+selectedServicesCharg +'%) </td><td> '+ totalCharge +' </td></tr>'+'<tr><td colspan="3"> VAT('+selectedVat+'%) </td><td> '+ totalVat +'</td></tr><tr><td colspan="3"> TAX('+selectedTax+'%) </td><td> '+ totalTax +' </td></tr><tr><td colspan="3"><b> Total '+ selectedCurrency +'</b> </td><td id="allTotalPrice"> ' + finalTotal +'</td></tr>');
+            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> '+ subtotalprice + '</td></tr>' + '<tr><td colspan="3" > No. of day stay * Subtotal  <br/>' + diffDays + ' * ' + subtotalprice  +' </td><td id="subtotalpriceWithDay"> '+ + numberOfDayWithTotal + '</td></tr>'+'<tr><td colspan="3"> Discount ('+ selectedDiscount + '%) </td><td> '+ totalDiscountAmount +'  </td></tr>'+'<tr><td colspan="3"> Services Charge ('+selectedServicesCharg +'%) </td><td> '+ totalCharge +' </td></tr>'+'<tr><td colspan="3"> VAT('+selectedVat+'%) </td><td> '+ totalVat +'</td></tr><tr><td colspan="3"> TAX('+selectedTax+'%) </td><td> '+ totalTax +' </td></tr><tr><td colspan="3"><b> Total '+ selectedCurrency +'</b> </td><td id="allTotalPrice"> ' + processAmount +'</td></tr>');
 
             $("#finalTotal").html('BDT ' + finalTotal);
             $("#viewTotalAmount").html('BDT ' + finalTotal);
@@ -2061,19 +2063,19 @@
             }
             var numberOfDayWithTotal = diffDays * finalTotal;
             finalTotal = diffDays * finalTotal;
-
             var totalDiscountAmount = Math.ceil((selectedDiscount * finalTotal) / 100);
             finalTotal = finalTotal - totalDiscountAmount;
+            var processAmount = finalTotal;
             var totalCharge = Math.ceil((selectedServicesCharg * finalTotal) / 100);
-            finalTotal = finalTotal + totalCharge ;
-            var totalTax = Math.ceil((selectedTax * finalTotal) / 100);
-            var totalVat = Math.ceil((selectedTax * finalTotal) / 100);    
-            finalTotal = finalTotal  + totalTax + totalVat;
-            totalAmountFinal = finalTotal;
+            processAmount = parseInt(finalTotal) + parseInt(totalCharge) ;
+            var totalTax = Math.ceil((selectedTax * processAmount) / 100);
+            var totalVat = Math.ceil((selectedVat * processAmount) / 100);    
+            processAmount = processAmount  + totalTax + totalVat;
+            totalAmountFinal = processAmount;
             $("#finalTotal").html('BDT ' + finalTotal);
             $("#viewTotalAmount").html('BDT ' + finalTotal);
             $("#cartFoot").empty();
-            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> '+ subtotalprice + '</td></tr>' + '<tr><td colspan="3" > No. of day stay * Subtotal  <br/>' + diffDays + ' * ' + subtotalprice  +' </td><td id="subtotalpriceWithDay"> '+ + numberOfDayWithTotal + '</td></tr>'+'<tr><td colspan="3"> Discount ('+ selectedDiscount + '%) </td><td> '+ totalDiscountAmount +'  </td></tr>'+'<tr><td colspan="3"> Services Charge ('+selectedServicesCharg +'%) </td><td> '+ totalCharge +' </td></tr>'+'<tr><td colspan="3"> VAT('+selectedVat+'%) </td><td> '+ totalVat +'</td></tr><tr><td colspan="3"> TAX('+selectedTax+'%) </td><td> '+ totalTax +' </td></tr><tr><td colspan="3"><b> Total '+ selectedCurrency +'</b> </td><td id="allTotalPrice"> ' + finalTotal +'</td></tr>');
+            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> '+ subtotalprice + '</td></tr>' + '<tr><td colspan="3" > No. of day stay * Subtotal  <br/>' + diffDays + ' * ' + subtotalprice  +' </td><td id="subtotalpriceWithDay"> '+ + numberOfDayWithTotal + '</td></tr>'+'<tr><td colspan="3"> Discount ('+ selectedDiscount + '%) </td><td> '+ totalDiscountAmount +'  </td></tr>'+'<tr><td colspan="3"> Services Charge ('+selectedServicesCharg +'%) </td><td> '+ totalCharge +' </td></tr>'+'<tr><td colspan="3"> VAT('+selectedVat+'%) </td><td> '+ totalVat +'</td></tr><tr><td colspan="3"> TAX('+selectedTax+'%) </td><td> '+ totalTax +' </td></tr><tr><td colspan="3"><b> Total '+ selectedCurrency +'</b> </td><td id="allTotalPrice"> ' + processAmount +'</td></tr>');
 
             $("#finalTotal").html('BDT ' + finalTotal);
             $("#viewTotalAmount").html('BDT ' + finalTotal);
