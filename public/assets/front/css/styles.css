@@ -1337,7 +1337,7 @@ ul#link1>li a {
 
 .book-now-button {
     background-color: #f6d83e;
-    height: 60px;
+    height: 45px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -1345,6 +1345,7 @@ ul#link1>li a {
     text-transform: uppercase;
     color: white;
     margin: 30px auto;
+    font-size: 18px;
 }
 
 .payment-card-image {
@@ -1805,6 +1806,70 @@ overflow: hidden;
 }
 
 
+.custom-modal-popup-order{
+    display: none;
+    width: 430px;
+    height: 360px;
+    padding: 20px;
+    margin: auto;
+    z-index: 9999999;
+    background: white;
+    box-shadow: 14px 14px 10px #000;
+    border-radius: 20px;
+    position: fixed;
+    top: 90px;
+    left: 50%;
+    transform: translate(-50%, 10px);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+}
+
+.custom-modal-popup-order .close-modal-order{
+    position: absolute;
+    left: 30px;
+    background: #f6d83e;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 15px;
+    border-radius: 28px;
+    bottom: 30px;
+}
+.custom-modal-popup-order .select-order {
+    border: 1px solid #ccc;
+    padding: 10px 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 220px;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+    padding: 10px;
+}
+.select-order::-webkit-scrollbar {
+    display: none;
+}
+.select-order .order-info{
+    display: flex;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 5px;
+}
+.select-order .order-info .label{
+    font-weight: bold;
+    width: 130px;
+}
+.select-order .order-info .dot{
+    width: 20px;
+}
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
     .viewsample .rightview{

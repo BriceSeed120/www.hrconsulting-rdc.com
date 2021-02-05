@@ -35,8 +35,8 @@
                     </div>
                     <div class="col-5">
                         <div class="form-group mb-4">
-                            <label for="title">Amount</label>
-                            <input type="text" name="amount" class="form-control" placeholder="Discount amount" value="{{ old('amount') }}">
+                            <label for="title">Amount %</label>
+                            <input type="number" name="amount" class="form-control" placeholder="Discount amount" value="{{ old('amount') }}">
                         </div>
                         <div class="form-group mb-4">
                             <label for="title">Start date</label>

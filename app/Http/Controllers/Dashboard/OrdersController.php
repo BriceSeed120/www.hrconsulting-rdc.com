@@ -15,6 +15,7 @@ class OrdersController extends Controller
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     *  Menu::orderBy('menu_order','asc')->get();
      */
     public function index(Request $request)
     {
@@ -23,11 +24,13 @@ class OrdersController extends Controller
             $orders = Order::where("orders.phone",$keyword)
             ->orWhere("orders.transaction_id",$keyword)
             ->orWhere("orders.email",$keyword)
+            ->orderBy('id','desc')
             ->paginate(15);
         }
         else{
             $orders = Order::where("orders.status","Processing")
             ->orWhere("orders.status","Completed")
+            ->orderBy('id','desc')
             ->paginate(15);
         }
        
@@ -69,7 +72,8 @@ class OrdersController extends Controller
     {
         $keyword = "";
         // Pending order list due to route issue
-        $orders = Order::where("orders.status","Pending")->paginate(15);   
+        $orders = Order::where("orders.status","Pending")
+        ->orderBy('id','desc')->paginate(15);   
         $isSuccess = false;   
         return view('dashboard.orders.index', compact('orders','isSuccess','keyword'))->withTitle('Pending orders');
     }
@@ -110,7 +114,8 @@ class OrdersController extends Controller
         //failed order
         $keyword = "";
         $isSuccess = false;   
-        $orders = Order::where("orders.status","Failed")->paginate(15);
+        $orders = Order::where("orders.status","Failed")
+        ->orderBy('id','desc')->paginate(15);
         return view('dashboard.orders.index', compact('orders','isSuccess','keyword'))->withTitle('Failed orders');
     }
 

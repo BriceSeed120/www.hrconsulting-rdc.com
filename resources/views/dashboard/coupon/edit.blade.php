@@ -37,16 +37,16 @@
                     </div>
                     <div class="col-5">
                         <div class="form-group mb-4">
-                            <label for="title">Amount</label>
-                            <input type="text" name="amount" class="form-control" placeholder="Discount amount" value="{{ old('amount', $coupon->amount) }}">
+                            <label for="title">Amount %</label>
+                            <input type="number" name="amount" class="form-control" placeholder="Discount amount" value="{{ old('amount', $coupon->amount) }}">
                         </div>
                         <div class="form-group mb-4">
                             <label for="title">Start date</label>
-                            <input type="text" name="start_date" class="form-control" placeholder="Start date" value="{{ old('start_date', date('d/m/Y', strtotime($coupon->offer_start))) }}">
+                            <input type="text" name="start_date" class="form-control datepicker" placeholder="Start date" value="{{ old('start_date', date('d/m/Y', strtotime($coupon->offer_start))) }}">
                         </div>
                         <div class="form-group mb-4">
                             <label for="title">End date</label>
-                            <input type="text" name="end_date" class="form-control" placeholder="End date" value="{{ old('end_date', date('d/m/Y', strtotime($coupon->offer_end))) }}">
+                            <input type="text" name="end_date" class="form-control datepicker" placeholder="End date" value="{{ old('end_date', date('d/m/Y', strtotime($coupon->offer_end))) }}">
                         </div>
                     </div>
                 </div>
@@ -55,10 +55,27 @@
     </main>
 @endsection
 
-@section('head')
 
+@section('head')
+    <link rel="stylesheet" href="{{ asset('assets/plugins/daterangepicker/daterangepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
 @endsection
 
 @section('foot')
-
+    <script src="{{ asset('assets/plugins/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/daterangepicker/daterangepicker.js') }}"></script>
+    <script src="{{ asset('assets/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+    <script>
+        jQuery(function($) {
+            $('.datepicker').datepicker({
+                format: 'dd/mm/yyyy',
+                todayHighlight:'TRUE',
+                autoclose: true,
+                startDate: "-0d",
+                endDate: "+360d"
+            }).on('changeDate', function (ev) {
+                $(this).datepicker('hide');
+            });
+        });
+    </script>
 @endsection

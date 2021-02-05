@@ -1470,6 +1470,45 @@
         </div>
     </div>
 
+    <div class="custom-modal-popup-order" id="viewOrderSuccess">        
+        <div class="view-room">  Order Successful! </div>
+        <div class="select-order">
+            <div class="order-info">
+                <div class="label"> Customer Name </div>
+                <div class="dot"> : </div>
+                <div class="value" id="showName">  </div>
+            </div>
+            <div class="order-info">
+                <div class="label"> Customer Phone </div>
+                <div class="dot"> : </div>
+                <div class="value" id="showPhone" >  </div>
+            </div>
+            <div class="order-info">
+                <div class="label"> Customer Email </div>
+                <div class="dot"> : </div>
+                <div class="value" id="showEmail"></div>
+            </div>
+            <div class="order-info">
+                <div class="label"> Payment Type</div>
+                <div class="dot"> : </div>
+                <div class="value" id="showPayment">  </div>
+            </div>
+            <div class="order-info">
+                <div class="label"> Stay Date </div>
+                <div class="dot"> : </div>
+                <div class="value" id="showStayDate"> </div>
+            </div>
+            <div class="order-info">
+                <div class="label"> Order Amount </div>
+                <div class="dot"> : </div>
+                <div class="value" id="showTotalAmount"> . </div>
+            </div>
+        </div>
+        <div class="pay-goto-now" onclick="reloadPage()">
+            Finish
+        </div>
+    </div>
+
     <div class="booking-page">
 
         <form method="POST">
@@ -1756,6 +1795,7 @@
 
 
     <script type="text/javascript">
+   
         var numberOfRoom = 1;
         var isOpenCouponBox = 0;
         var selectedAdult = [];
@@ -1899,6 +1939,7 @@
                 if(!isOnlyArrow){
                     formPage(2);
                     selectArrowMenu(2);
+                   
                 }                
             }
             
@@ -1912,6 +1953,7 @@
                 //$("#viewSelectedDate").html(startDate + " &nbsp; to " + endDate);
                 formPage(3);
                 selectArrowMenu(3);
+                selectQuantity();
             }
 
         }
@@ -1953,8 +1995,6 @@
             $("#viewRoomSelectModal").hide();
             $("#cartBody").empty();
             for(i = 0; i < selectedRoom.length ; i++){
-                // $("#roomAndPrice").append('<div class="customer-selected-room"><div class="room-name"> ' + selectedRoomName[i] +'</div><div class="room-name"><select name="roomQuantity" onchange="selectQuantity()"><option value="1"> 1 </option><option value="2"> 2 </option><option value="3"> 3 </option><option value="4"> 4 </option><option value="5"> 5 </option></select></div><div class="room-price">  x &nbsp; '+ selectedBDT[i] +' ৳</div></div>');
-
                 $("#cartBody").append('<tr><td>'+ selectedRoomName[i] +' </td><td><div class="room-name"><select name="roomQuantity" onchange="selectQuantity()"><option value="1"> 1 </option><option value="2"> 2 </option><option value="3"> 3 </option><option value="4"> 4 </option><option value="5"> 5 </option></select></div> </td><td>' +  selectedBDT[i] +' </td><td id="quantityTotalPrice'+i+'">' + selectedBDT[i] + '</td></tr>')
 
             }
@@ -1984,7 +2024,7 @@
             $("#finalTotal").html('BDT ' + finalTotal);
             $("#viewTotalAmount").html('BDT ' + finalTotal);
             $("#cartFoot").empty();
-            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> '+ subtotalprice + '</td></tr>' + '<tr><td colspan="3" > No. of day * Subtotal  <br/>' + diffDays + ' * ' + subtotalprice  +' </td><td id="subtotalpriceWithDay"> '+ + numberOfDayWithTotal + '</td></tr>'+'<tr><td colspan="3"> Discount (%) </td><td> '+ selectedDiscount +' % </td></tr>'+'<tr><td colspan="3"> Services Charge (%) </td><td> '+ selectedServicesCharg +' % </td></tr>'+'<tr><td colspan="3"> VAT(%) </td><td> '+ selectedVat +' %</td></tr><tr><td colspan="3"> TAX(%) </td><td> '+ selectedTax +' % </td></tr><tr><td colspan="3"><b> Total '+ selectedCurrency +'</b> </td><td id="allTotalPrice"> ' + finalTotal +'</td></tr>');
+            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> '+ subtotalprice + '</td></tr>' + '<tr><td colspan="3" > No. of day stay * Subtotal  <br/>' + diffDays + ' * ' + subtotalprice  +' </td><td id="subtotalpriceWithDay"> '+ + numberOfDayWithTotal + '</td></tr>'+'<tr><td colspan="3"> Discount ('+ selectedDiscount + '%) </td><td> '+ totalDiscountAmount +'  </td></tr>'+'<tr><td colspan="3"> Services Charge ('+selectedServicesCharg +'%) </td><td> '+ totalCharge +' </td></tr>'+'<tr><td colspan="3"> VAT('+selectedVat+'%) </td><td> '+ totalVat +'</td></tr><tr><td colspan="3"> TAX('+selectedTax+'%) </td><td> '+ totalTax +' </td></tr><tr><td colspan="3"><b> Total '+ selectedCurrency +'</b> </td><td id="allTotalPrice"> ' + finalTotal +'</td></tr>');
 
             $("#finalTotal").html('BDT ' + finalTotal);
             $("#viewTotalAmount").html('BDT ' + finalTotal);
@@ -2033,11 +2073,14 @@
             $("#finalTotal").html('BDT ' + finalTotal);
             $("#viewTotalAmount").html('BDT ' + finalTotal);
             $("#cartFoot").empty();
-            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> '+ subtotalprice + '</td></tr>' + '<tr><td colspan="3" > No. of day * Subtotal  <br/>' + diffDays + ' * ' + subtotalprice  +' </td><td id="subtotalpriceWithDay"> '+ + numberOfDayWithTotal + '</td></tr>'+'<tr><td colspan="3"> Discount (%) </td><td> '+ selectedDiscount +' % </td></tr>'+'<tr><td colspan="3"> Services Charge (%) </td><td> '+ selectedServicesCharg +' % </td></tr>'+'<tr><td colspan="3"> VAT(%) </td><td> '+ selectedVat +' %</td></tr><tr><td colspan="3"> TAX(%) </td><td> '+ selectedTax +' % </td></tr><tr><td colspan="3"><b> Total '+ selectedCurrency +'</b> </td><td id="allTotalPrice"> ' + finalTotal +'</td></tr>');
+            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> '+ subtotalprice + '</td></tr>' + '<tr><td colspan="3" > No. of day stay * Subtotal  <br/>' + diffDays + ' * ' + subtotalprice  +' </td><td id="subtotalpriceWithDay"> '+ + numberOfDayWithTotal + '</td></tr>'+'<tr><td colspan="3"> Discount ('+ selectedDiscount + '%) </td><td> '+ totalDiscountAmount +'  </td></tr>'+'<tr><td colspan="3"> Services Charge ('+selectedServicesCharg +'%) </td><td> '+ totalCharge +' </td></tr>'+'<tr><td colspan="3"> VAT('+selectedVat+'%) </td><td> '+ totalVat +'</td></tr><tr><td colspan="3"> TAX('+selectedTax+'%) </td><td> '+ totalTax +' </td></tr><tr><td colspan="3"><b> Total '+ selectedCurrency +'</b> </td><td id="allTotalPrice"> ' + finalTotal +'</td></tr>');
 
             $("#finalTotal").html('BDT ' + finalTotal);
             $("#viewTotalAmount").html('BDT ' + finalTotal);
 
+        }
+        function reloadPage(){
+            location.href="{{ route('booking') }}";
         }
 
         function codBook(){
@@ -2073,9 +2116,15 @@
                 type:'POST',
                 url: "{{ url('/pay-via-ajax') }}",
                 data: {order:"", cart_json:JSON.stringify(obj)},
-                success:function(data) {                    
-                   alert("You have successfully booked the room by Cash on delivery process");
-                   location.href="{{ route('booking')}}";
+                success:function(data) {
+                    $("#bookNowSubmitBtn").hide();
+                   $("#viewOrderSuccess").show();
+                   $("#showName").html($('#name').val());
+                   $("#showPhone").html($('#phone').val());
+                   $("#showEmail").html($('#email').val());
+                   $("#showPayment").html('Cash On Delivery');
+                   $("#showStayDate").html( $("#selectedStartDate").val() + " to " + $("#selectedEndDate").val());
+                   $("#showTotalAmount").html(totalAmountFinal + ' BDT');
                 }
 
             });
