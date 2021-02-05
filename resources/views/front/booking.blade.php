@@ -1558,8 +1558,8 @@
                 <div class="date-calender" id="form2">
                     <div class="calender-title"> Select Date (Start Date - End Date)</div>
                     <div class="startdate-endate">
-                        <input type="text"  placeholder="Start date" id="selectedStartDate" value="2021-02-01" />
-                        <input type="text"  placeholder="End date" id="selectedEndDate" value="2021-02-02" />
+                        <input type="text"  placeholder="Start date" id="selectedStartDate"  />
+                        <input type="text"  placeholder="End date" id="selectedEndDate"/>
                     </div>
                     <div class="submit-coupon" onClick="nextFormRoom()"> Next </div>
                 </div>
@@ -1732,6 +1732,9 @@
                                         style="color:#f6d83e">
                                         privacy policy </a></p>
                             </div>
+                            <div class="btn btn-primary btn-lg btn-block book-now-button" id="bookNowSubmitBtn" onclick="codBook()">
+                                Book Now
+                            </div>
                             <button class="btn btn-primary btn-lg btn-block book-now-button" id="sslczPayBtn"
                                 token="" postdata=""
                                 order="order"
@@ -1808,6 +1811,7 @@
             })
 
             $("#sslczPayBtn").hide();
+            $("#bookNowSubmitBtn").hide();
         });
 
         function selectArrowMenu(id) {
@@ -1957,8 +1961,18 @@
             var finalTotal = 0;
             for(i = 0; i <selectedBDT.length ; i++){
                 finalTotal = finalTotal + parseInt(selectedBDT[i]);
-            }           
+            }          
             var subtotalprice = finalTotal;
+            const date1 = new Date($("#selectedStartDate").val());
+            const date2 = new Date($("#selectedEndDate").val());
+            const diffTime = Math.abs(date2 - date1);
+            var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+            if(diffDays == 0){
+                diffDays = 1;
+            }
+            var numberOfDayWithTotal = diffDays * finalTotal;
+            finalTotal = diffDays * finalTotal;
+
             var totalDiscountAmount = Math.ceil((selectedDiscount * finalTotal) / 100);
             finalTotal = finalTotal - totalDiscountAmount;
             var totalCharge = Math.ceil((selectedServicesCharg * finalTotal) / 100);
@@ -1970,7 +1984,7 @@
             $("#finalTotal").html('BDT ' + finalTotal);
             $("#viewTotalAmount").html('BDT ' + finalTotal);
             $("#cartFoot").empty();
-            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> '+ subtotalprice + '</td></tr><tr><td colspan="3"> Discount (%) </td><td> '+ selectedDiscount +' % </td></tr>'+'<tr><td colspan="3"> Services Charge (%) </td><td> '+ selectedServicesCharg +' % </td></tr>'+'<tr><td colspan="3"> VAT(%) </td><td> '+ selectedVat +' %</td></tr><tr><td colspan="3"> TAX(%) </td><td> '+ selectedTax +' % </td></tr><tr><td colspan="3"><b> Total '+ selectedCurrency +'</b> </td><td id="allTotalPrice"> ' + finalTotal +'</td></tr>');
+            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> '+ subtotalprice + '</td></tr>' + '<tr><td colspan="3" > No. of day * Subtotal  <br/>' + diffDays + ' * ' + subtotalprice  +' </td><td id="subtotalpriceWithDay"> '+ + numberOfDayWithTotal + '</td></tr>'+'<tr><td colspan="3"> Discount (%) </td><td> '+ selectedDiscount +' % </td></tr>'+'<tr><td colspan="3"> Services Charge (%) </td><td> '+ selectedServicesCharg +' % </td></tr>'+'<tr><td colspan="3"> VAT(%) </td><td> '+ selectedVat +' %</td></tr><tr><td colspan="3"> TAX(%) </td><td> '+ selectedTax +' % </td></tr><tr><td colspan="3"><b> Total '+ selectedCurrency +'</b> </td><td id="allTotalPrice"> ' + finalTotal +'</td></tr>');
 
             $("#finalTotal").html('BDT ' + finalTotal);
             $("#viewTotalAmount").html('BDT ' + finalTotal);
@@ -1998,23 +2012,75 @@
                 finalTotal = finalTotal + parseInt(selectedBDT[i]) * parseInt(selectedRoomQuantity[i]);
             }           
             var subtotalprice = finalTotal;
+            const date1 = new Date($("#selectedStartDate").val());
+            const date2 = new Date($("#selectedEndDate").val());
+            const diffTime = Math.abs(date2 - date1);
+            var diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+            if(diffDays == 0){
+                diffDays = 1;
+            }
+            var numberOfDayWithTotal = diffDays * finalTotal;
+            finalTotal = diffDays * finalTotal;
+
             var totalDiscountAmount = Math.ceil((selectedDiscount * finalTotal) / 100);
             finalTotal = finalTotal - totalDiscountAmount;
             var totalCharge = Math.ceil((selectedServicesCharg * finalTotal) / 100);
             finalTotal = finalTotal + totalCharge ;
             var totalTax = Math.ceil((selectedTax * finalTotal) / 100);
-            var totalVat = Math.ceil((selectedTax * finalTotal) / 100);
+            var totalVat = Math.ceil((selectedTax * finalTotal) / 100);    
             finalTotal = finalTotal  + totalTax + totalVat;
             totalAmountFinal = finalTotal;
             $("#finalTotal").html('BDT ' + finalTotal);
             $("#viewTotalAmount").html('BDT ' + finalTotal);
             $("#cartFoot").empty();
-            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> '+ subtotalprice + '</td></tr><tr><td colspan="3"> Discount (%) </td><td> '+ selectedDiscount +' % </td></tr>'+'<tr><td colspan="3"> Services Charge (%) </td><td> '+ selectedServicesCharg +' % </td></tr>'+'<tr><td colspan="3"> VAT(%) </td><td> '+ selectedVat +' %</td></tr><tr><td colspan="3"> TAX(%) </td><td> '+ selectedTax +' % </td></tr><tr><td colspan="3"><b> Total '+ selectedCurrency +'</b> </td><td id="allTotalPrice"> ' + finalTotal +'</td></tr>');
+            $("#cartFoot").html('<tr><td colspan="3" > Subtotal </td><td id="subtotalprice"> '+ subtotalprice + '</td></tr>' + '<tr><td colspan="3" > No. of day * Subtotal  <br/>' + diffDays + ' * ' + subtotalprice  +' </td><td id="subtotalpriceWithDay"> '+ + numberOfDayWithTotal + '</td></tr>'+'<tr><td colspan="3"> Discount (%) </td><td> '+ selectedDiscount +' % </td></tr>'+'<tr><td colspan="3"> Services Charge (%) </td><td> '+ selectedServicesCharg +' % </td></tr>'+'<tr><td colspan="3"> VAT(%) </td><td> '+ selectedVat +' %</td></tr><tr><td colspan="3"> TAX(%) </td><td> '+ selectedTax +' % </td></tr><tr><td colspan="3"><b> Total '+ selectedCurrency +'</b> </td><td id="allTotalPrice"> ' + finalTotal +'</td></tr>');
 
             $("#finalTotal").html('BDT ' + finalTotal);
             $("#viewTotalAmount").html('BDT ' + finalTotal);
 
         }
+
+        function codBook(){
+            $(document).ready(function() {
+            var obj = {};
+            obj.name = $('#name').val();
+            obj.phone = $('#phone').val();
+            obj.email = $('#email').val();
+            obj.address = $('#address').val();
+            obj.city = $('#city').val();
+            obj.arrival_time = $('#arrivalTime').val();
+            obj.additional_comment = $('#additionalComment').val();
+            obj.postal_code = $('#postalCode').val();
+            obj.room = selectedRoom.join();
+            obj.adult = selectedAdult.join();
+            obj.child = selectedChild.join();
+            obj.discount = selectedDiscount;
+            obj.startdate = $("#selectedStartDate").val();
+            obj.endDate = $("#selectedEndDate").val();
+            obj.payment_type = $("#payment_type").val();
+            obj.quantity = selectedRoomQuantity;
+            obj.quantity = '';
+            obj.total_amount = totalAmountFinal;
+            obj.tax = 0;
+            obj.service_charge = 0;
+             obj.roomName = selectedRoomName;
+             obj.bdtPrice = selectedBDT;
+             var isPhoneValid = false;
+             if(/^(?:\+88|88)?(01[3-9]\d{8})$/.test($('#phone').val())){
+                isPhoneValid = true;
+             }
+             $.ajax({
+                type:'POST',
+                url: "{{ url('/pay-via-ajax') }}",
+                data: {order:"", cart_json:JSON.stringify(obj)},
+                success:function(data) {                    
+                   alert("You have successfully booked the room by Cash on delivery process");
+                   location.href="{{ route('booking')}}";
+                }
+
+            });
+        });
+}
 
     </script>
 
@@ -2073,18 +2139,19 @@
                 isPhoneValid = true;
              }
             if($('#name').val().length  && isEmail() && $("#checkAgree").prop('checked') == true && isPhoneValid){
-                $("#sslczPayBtn").show();
                 if($("#payment_type").val() == "COD"){
-                    setTimeout(function(){ 
-                    alert("Successfully booked the room. You selected cash on delivery process. ");
-                    location.href = "{{route('booking')}}";
-                 }, 2000);
+                    $("#bookNowSubmitBtn").show();
+                    $("#sslczPayBtn").hide();
                 }
-
+                else{
+                    $("#sslczPayBtn").show();
+                    $("#bookNowSubmitBtn").hide();
+                }
             }
             else{
              $("#sslczPayBtn").hide();
             }
+
             $('#sslczPayBtn').prop('postdata', obj);
 
 

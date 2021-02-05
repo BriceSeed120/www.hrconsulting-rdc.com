@@ -165,30 +165,17 @@
 
                 </p>
 
-                <p>
-
-                    <span>Corporate Office:</span><br>
-
-                    Nawdapara, Rangpur Road,<br>
-
-                    Bogura, Bangladesh.<br>
-
-                    <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;+88 0516 6402<br>
-                    <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;+88 017 55 66 99 00 <br>
-
-                    <i class="fa fa-fax" aria-hidden="true"></i>&nbsp;&nbsp;+88 0516 6402
-
-                </p>
+    
 
                 <p>
 
                     <span>Dhaka Office:</span><br>
+                    Priyo Prangon Tower (3rd Floor),<br>
+                    H # 19, R # 17, Kamal Ataturk Avenue, Banani, Dhaka 1213<br>
 
                     553, A S Tower, 7th Floor, Probortok Circle<br>
 
-                    Mirpur-10, Dhaka, Bangladesh.<br>
-
-                    <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;+88 0516 6402
+                    <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;+880 51 62504, +880 51 62505
 
                 </p>
 

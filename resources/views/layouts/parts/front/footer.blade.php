@@ -496,6 +496,7 @@ jQuery(function($) {
             }).on('changeDate', function (ev) {
                 $(this).datepicker('hide');
                 $("#viewSelectedDate").html($("#selectedStartDate").val() + " <br/> to </br/>" + $("#selectedEndDate").val());
+                selectQuantity();
             });
             $('#selectedEndDate').datepicker({
                 format: 'yyyy-mm-dd',
@@ -505,6 +506,7 @@ jQuery(function($) {
                 endDate: "+360d"
             }).on('changeDate', function (ev) {
                 $("#viewSelectedDate").html($("#selectedStartDate").val() + " <br/> to </br/>" + $("#selectedEndDate").val());
+                selectQuantity();
             });
         });
 </script>
