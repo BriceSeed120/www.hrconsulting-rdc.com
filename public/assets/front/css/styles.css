@@ -879,7 +879,7 @@ ul#link1>li a {
 }
 
 .booking-page {
-    min-height: 500px;
+    min-height: 200px;
 }
 
 .booking-page .booking-menu {
@@ -984,7 +984,7 @@ ul#link1>li a {
 }
 
 .input-wrapper {
-    padding: 60px 0px;
+    padding: 20px 0px;
 }
 
 .right-side {
@@ -1154,9 +1154,9 @@ ul#link1>li a {
 }
 
 .room-description .room-info {
-    padding: 30px 0px 20px 0px;
+    padding: 0px 0px 20px 0px;
     display: -webkit-box;
-    -webkit-line-clamp: 7;
+    -webkit-line-clamp: 10;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -1178,7 +1178,7 @@ ul#link1>li a {
     justify-content: space-between;
 }
 .sales-price-section .room-item{
-    padding-top: 48px;
+    padding-top: 20px;
 }
 
 .sales-top-sec{
@@ -1233,7 +1233,7 @@ padding-left: 30px;
     width: 100%;
     height: auto;
     background: #f2f2f2;
-    padding: 40px 0px;
+    padding: 20px 0px;
 }
 
 
@@ -1315,7 +1315,6 @@ padding-left: 30px;
 }
 
 .pay-input-common span {
-    color: red;
     position: absolute;
     right: -10px;
     top: 0px;
@@ -1373,13 +1372,13 @@ padding-left: 30px;
 }
 
 .date-calender {
-    min-height: 400px;
+    min-height: auto;
     margin: auto;
 }
 
 .date-calender .calender-title {
     font-size: 25px;
-    padding: 60px 0px;
+    padding: 20px 0px;
     text-align: center;
 }
 

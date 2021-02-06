@@ -1622,9 +1622,6 @@
                                     <div class="room-info">
                                         {{ $room->description }}
                                     </div>
-                                    <div class="room-link">
-                                        <a href="#"> View room details & enhancement</a>
-                                    </div>
                                 </div>
 
                                 <div class="sales-price-section room-pg">
@@ -1642,10 +1639,6 @@
                                     </div>
                                 </div>
                                     <div class="room-item">
-                                        {{-- <div class="people">
-                                            <div class="icon-user"> <strong> Property : </strong> <span>
-                                                    {{ $room->property_list }} </span> </div>
-                                        </div> --}}
                                         <ul class="amenities">
                                             @if ($room->property_list)
                                                 <?php $list = explode(',', $room->property_list); ?>
