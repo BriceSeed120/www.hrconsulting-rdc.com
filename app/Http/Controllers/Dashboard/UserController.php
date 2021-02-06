@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -28,8 +29,7 @@ class UserController extends Controller
      */
     public function create( Request $request )
     {
-        $roles = Role::whereNotIn('name', ['customer', 'reseller'])->pluck('name', 'id');
-        return view('dashboard.user.create', compact('roles'))->withTitle('Add new user');
+        return view('dashboard.user.create')->withTitle('Add new user');
     }
 
     /**
@@ -40,74 +40,23 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $data = ['status'=> false, 'label' => 'error', 'content' => 'Cannot create user'];
-        //form validation rules
-        $validator = Validator::make($request->all(), [
-            'branch_id' => 'bail|required|numeric|exists:branches,id',
-            'name' => 'bail|required|string|max:191',
+        $validatedData = $request->validate([
+            'name' => 'required',
             'email' => 'bail|required|unique:users,email',
-            'mobile' => 'bail|required|regex:/^(01){1}[3456789]{1}(\d){8}$/|unique:users,mobile',
+            'mobile' => 'required',            
             'password' => 'bail|required|same:password_confirm|min:8|max:32',
             'password_confirm' => 'required',
-            'role' => 'bail|required|integer',
-            'designation_id' => 'bail|required|integer'
+        ], [
+            'name.required' => 'Name filed is required',
+            'email.required' => 'Email filed is required',
+            'mobile.required' => 'Mobile filed is required',
+            'password_confirm.required' => 'Password filed is required',
         ]);
-
-        //validation fails
-        if ( $validator->fails() ) {
-            $data['content'] = $validator->errors()->first();
-        } else {
-
-            $designation = Designation::findOrFail( $request->designation_id );
-            //Saving data
-            DB::beginTransaction();
-            try{
-                $user = new User();
-                $user->branch_id = $request->branch_id;
-                $user->name = $request->name;
-                $user->fathers_name = $request->fathers_name;
-                $user->mothers_name = $request->mothers_name;
-                $user->email = $request->email;
-                $user->gender = $request->gender;
-                $user->mobile = $request->mobile;
-                $user->password = Hash::make( $request->password );
-                $user->email_verified_at = now();
-                $user->status = 1;
-
-                if( $user->save() ) {
-                    $role = Role::where('id', $request->role)->first();
-                    $user->assignRole($role); //Assigning role to user
-
-                    //create employee
-                    $employee = new Employee;
-                    $employee->user_id = $user->id;
-                    $employee->designation_id = $request->designation_id;
-                    $employee->date_of_birth = ( $request->date_of_birth ) ? date('Y-m-d', strtotime( $request->date_of_birth ) ) : date('Y-m-d');
-                    $employee->department_id = $designation->department_id;
-                    $employee->designation_id = $request->designation_id;
-                    $employee->joining_date = ( $request->joining_date ) ? date('Y-m-d', strtotime( $request->joining_date ) ) : date('Y-m-d');
-                    $employee->save();
-
-                    DB::commit();
-                    $data['status'] = true;
-                    $data['label'] = 'success';
-                    $data['content'] = 'User has been successfully created';
-                }
-            } catch( \Exception $e ) {
-                DB::rollback();
-                Log::debug($e->getMessage());
-            }
+        if( $request->password ) {
+            $validatedData['password'] = Hash::make( $request->password );
         }
-
-        if( $data['status'] == true ) {
-            return redirect()->route('dashboard.user.index')->with([
-                'message' => $data
-            ]);
-        } else {
-            return redirect()->back()->with([
-                'message' => $data
-            ])->withInput($request->all());
-        }
+        User::create($validatedData);
+        return redirect()->route('users.index')->with('success', 'User created successfully.');
     }
 
     /**
@@ -140,10 +89,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit( User $user )
+    public function edit( $id )
     {
-        $roles = Role::whereNotIn('name', ['customer', 'reseller'])->pluck('name', 'id');
-        return view('dashboard.user.edit', compact('user', 'roles'))->withTitle('Edit user');
+        $user = User::findOrFail($id);
+        return view('dashboard.user.edit', compact('user'))->withTitle('Edit user');
     }
 
     /**
@@ -155,85 +104,22 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data = ['status'=> false, 'label' => 'error', 'content' => 'Cannot update user'];
-        //form validation rules
-        $validator = Validator::make($request->all(), [
-            'branch_id' => 'bail|required|integer|exists:branches,id',
-            'name' => 'bail|required|string|max:191',
-            'email' => 'bail|required|unique:users,email,' . $id,
-            'mobile' => 'bail|required|regex:/^(01){1}[3456789]{1}(\d){8}$/|unique:users,mobile,' . $id,
-            'password' => 'bail|nullable|same:password_confirm|min:8|max:32',
-            'role' => 'bail|required|integer|exists:roles,id'
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'mobile' => 'required',
+        ], [
+            'name.required' => 'Name filed is required',
+            'email.required' => 'Email filed is required',
+            'mobile.required' => 'Mobile filed is required',
+            'password_confirm.required' => 'Password filed is required',
         ]);
+        if( $request->password &&  ($request->password_confirm == $request->password )) {
 
-        //validation fails
-        if ( $validator->fails() ) {
-            $data['content'] = $validator->errors()->first();
-        } else {
-
-            $designation = Designation::findOrFail( $request->designation_id );
-            //Saving data
-            DB::beginTransaction(); //Start transaction!
-
-            try{
-                //saving logic here
-                $user = User::findOrFail( $id );
-                $user->branch_id = $request->branch_id;
-                $user->name = $request->name;
-                $user->fathers_name = $request->fathers_name;
-                $user->mothers_name = $request->mothers_name;
-                $user->gender = $request->gender;
-                $user->email = $request->email;
-                $user->email_verified_at = now();
-                $user->status = 1;
-                if( $request->password ) {
-                    $user->password = Hash::make( $request->password );
-                }
-
-                if( $user->save() ) {
-                    //remove previous role
-                    if( $user->hasanyrole(Role::all() ) ) {
-                        foreach( $user->roles as $role ) {
-                            $user->removeRole( $role );
-                        }
-                    }
-
-                    //assign role
-                    $role = Role::where('id', $request->role)->first();
-                    $user->assignRole($role);
-
-                    //save employee info
-                    $employee = Employee::firstOrNew(['user_id' => $user->id]);
-                    $employee->user_id = $user->id;
-                    $employee->department_id = $designation->department_id;
-                    $employee->designation_id = $request->designation_id;
-                    $employee->joining_date = ( $request->joining_date ) ? date('Y-m-d', strtotime( $request->joining_date ) ) : $employee->designation_id;
-                    $employee->date_of_birth = ( $request->date_of_birth ) ? date('Y-m-d', strtotime( $request->date_of_birth ) ) : $employee->date_of_birth;
-
-                    $employee->save();
-
-                    DB::commit();
-                    $data['status'] = true;
-                    $data['label'] = 'success';
-                    $data['content'] = 'User has been successfully updated';
-                }
-            }
-            catch(\Exception $e)
-            {
-                DB::rollback();
-                Log::debug($e->getMessage());
-            }
+            $validatedData['password'] = Hash::make( $request->password );
         }
-
-        if( $data['status'] == true ) {
-            return redirect()->route('dashboard.user.index')->with([
-                'message' => $data
-            ]);
-        } else {
-            return redirect()->back()->with([
-                'message' => $data
-            ])->withInput($request->all())->withErrors($validator->errors());
-        }
+        $user = User::where("id", $id)->update($validatedData);
+        return redirect()->route('users.index')->with('success', 'User created successfully.');
     }
 
     public function action( Request $request )
@@ -288,25 +174,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy( User $user )
-    {
-        if( Auth::user()->can('user-delete') ) {
-            $user->delete();
-
-            return redirect()->back()->with([
-                'message' => [
-                    'label' => 'success',
-                    'content' => 'User has been successfully deleted.'
-                ]
-            ]);
-        } else {
-            return redirect()->back()->with([
-                'message' => [
-                    'label' => 'danger',
-                    'content' => 'You have no permission to delete user.'
-                ]
-            ]);
-        }
+    public function destroy( $id )
+    { 
+        $user = User::findOrFail($id);
+        $user->delete();
+        return back()->with('success', 'User deleted successfully.');
     }
 
     /**
@@ -345,3 +217,4 @@ class UserController extends Controller
         return view('dashboard.user.import')->withTitle('Import users')->withCount(0);
     }
 }
+

@@ -4,9 +4,9 @@
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">{{ $title }}</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
-                <a href="{{ route('banners.create') }}" type="button" class="btn btn-sm btn-outline-secondary">
+                <a href="{{ route('users.create') }}" type="button" class="btn btn-sm btn-outline-secondary">
                     <span data-feather="plus"></span>
-                    Add new banner
+                    Add new user
                 </a>
             </div>
         </div>
@@ -33,7 +33,7 @@
                         <td></td>
                         <td>
                             <a href="{{ route('users.edit', $user->id) }}" style="float: left" class="mr-2 btn btn-secondary">Edit</a>
-                            <form class="form-inline ml-2" method="POST" style="float: left;" action="{{ route('users.destroy', $user->id) }}">
+                            <form  onclick="return deleteRoom();"  class="form-inline ml-2" method="POST" style="float: left;" action="{{ route('users.destroy', $user->id) }}">
                                 @method('delete')
                                 @csrf
                                 <button type="submit" class="btn form-inline btn-danger">Delete</button>
@@ -43,7 +43,7 @@
                 @endforeach
                 @if(!$users->count())
                     <tr>
-                        <td colspan="5">No banner added</td>
+                        <td colspan="5">No user added</td>
                     </tr>
                 @endif
                 </tbody>
@@ -60,3 +60,10 @@
 @section('foot')
 
 @endsection
+<script>
+    function deleteRoom() {
+        if (!confirm("Are You Sure to delete this"))
+            event.preventDefault();
+    }
+
+</script>
