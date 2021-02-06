@@ -1114,7 +1114,8 @@ ul#link1>li a {
 
 .room-list-view .selected-room-list .list-part {
     width: 100%;
-    display: flex;
+    display: flex;    
+    font-size: 14px;
 }
 
 .room-list-view .selected-room-list .list-part .photo-view {
@@ -1145,6 +1146,7 @@ ul#link1>li a {
 .room-description .room-item {
     display: flex;
     align-items: center;
+    padding-top: 12px;
 }
 
 .room-description .room-item div {
@@ -1154,7 +1156,7 @@ ul#link1>li a {
 .room-description .room-info {
     padding: 30px 0px 20px 0px;
     display: -webkit-box;
-    -webkit-line-clamp: 6;
+    -webkit-line-clamp: 7;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
@@ -1171,12 +1173,21 @@ ul#link1>li a {
 
 .list-part .sales-price-section {
     padding: 10px 10px 0px 0px;
-    display: flex;
     border-bottom: 1px dashed #ccc;
     height: 60px;
     justify-content: space-between;
 }
+.sales-price-section .room-item{
+    padding-top: 48px;
+}
 
+.sales-top-sec{
+    display: flex;
+    justify-content: space-between;
+}
+.sales-top-sec .price-section{
+padding-left: 30px;
+}
 .book-part {
     width: 300px;
     display: flex;
@@ -1414,16 +1425,15 @@ ul#link1>li a {
 
 .close-modal {
     position: absolute;
-    left: 30px;
+    left: 20px;
     background: #f6d83e;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    padding: 5px 15px;
+    padding: 10px 15px;
     border-radius: 28px;
-    bottom: 30px;
 }
 
 
@@ -1874,6 +1884,13 @@ overflow: hidden;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .custom-modal-popup-order{
+        width: calc(100% - 20px);
+        padding-bottom: 52px;
+    }
+    .sales-price-section .room-item {
+        padding-top: 20px;
+    }
     .viewsample .rightview{
         width: 100%;
     }
@@ -2064,9 +2081,10 @@ overflow: hidden;
 
     .room-list-view .selected-room-list {
         border: 5px solid #f6d83e;
-        height: auto;
+        height: auto !important;
         margin-bottom: 150px;
         padding: 10px;
+        padding-bottom: 70px;
     }
 
     .room-list-view .selected-room-list .list-part {
@@ -2093,6 +2111,8 @@ overflow: hidden;
 
     .room-list-view .selected-room-list .list-part .sales-price-section {
         width: 100%;
+        height: auto;
+
     }
 
     .book-part {
@@ -2101,8 +2121,7 @@ overflow: hidden;
         justify-content: flex-end;
         float: right;
         cursor: pointer;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        margin-top: 9px;
     }
 
     .custom-modal-popup {

@@ -1619,14 +1619,6 @@
                                     <div class="room-title">
                                         {{ $room->name }}
                                     </div>
-                                    <div class="room-item">
-                                        <div class="people">
-                                            <div class="icon-user"> <strong> Property : </strong> <span>
-                                                    {{ $room->property_list }} </span> </div>
-                                        </div>
-
-                                    </div>
-
                                     <div class="room-info">
                                         {{ $room->description }}
                                     </div>
@@ -1635,10 +1627,11 @@
                                     </div>
                                 </div>
 
-                                <div class="sales-price-section">
+                                <div class="sales-price-section room-pg">
+                                    <div class="sales-top-sec">
                                     <div class="sales-section">
-                                        <div class="sales-name"> <input type="radio" selected value="online" /> Sales:
-                                            Online
+                                        <div class="sales-name"> <input type="radio" selected value="online" /> <u>Sales : </u>
+                                          <br/>  Online
                                             special
                                             </br>
                                         </div>
@@ -1647,6 +1640,22 @@
                                         <div class="discount-price"> {{ $room->rate_in_usd }} USD</div>
                                         <div class="current-price"> BDT {{ $room->rate_in_bdt }} </div>
                                     </div>
+                                </div>
+                                    <div class="room-item">
+                                        {{-- <div class="people">
+                                            <div class="icon-user"> <strong> Property : </strong> <span>
+                                                    {{ $room->property_list }} </span> </div>
+                                        </div> --}}
+                                        <ul class="amenities">
+                                            @if ($room->property_list)
+                                                <?php $list = explode(',', $room->property_list); ?>
+                                                @for ($i = 0; $i < sizeof($list); $i++)
+                                                    <li><span>✓</span> {{ $list[$i] }} </li>
+                                                @endfor
+                                            @endif
+                                        </ul>
+                                    </div>
+
                                 </div>
                             </div>
                             <div class="book-part">
