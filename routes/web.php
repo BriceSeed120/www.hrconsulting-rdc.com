@@ -68,6 +68,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], functio
        ]);
        Route::get('/contactlist', [\App\Http\Controllers\Dashboard\CustomerController::class, 'contactlist'])->name('contactlist');
        Route::post('/customOrder', [\App\Http\Controllers\Dashboard\OrdersController::class, 'customOrder'])->name('customOrder');
+       Route::post('/processing', [\App\Http\Controllers\Dashboard\OrdersController::class, 'processing'])->name('processing');
     //   Route::get('/dashboard', [\App\Http\Controllers\Dashboard\MenuController::class, 'dashboard'])->name('dashboard');
    
     });

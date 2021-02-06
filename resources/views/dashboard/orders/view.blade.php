@@ -5,7 +5,7 @@
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">View Order</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
-                <a href="{{ route('orders.index') }}" type="button" class="btn btn-sm btn-outline-secondary">
+                <a href="{{ route('orders.edit',2) }}" type="button" class="btn btn-sm btn-outline-secondary">
                     <span data-feather="arrow-left"></span>
                     Back
                 </a>

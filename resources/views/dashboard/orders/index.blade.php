@@ -67,51 +67,62 @@
             margin-bottom: 30px;
         }
 
+        .order table {}
+
+        .order table th {
+            font-size: 14px;
+            padding: 3px;
+        }
+
+        .order table td {
+            font-size: 14px;
+            padding: 5px;
+        }
+
     </style>
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div
             class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
             <h1 class="h2">{{ $title }}</h1>
         </div>
-
+        <input type="hidden" id="selectAmount" value=""/>
 
         <div class="custom-modal-popup" id="manualPopup">
             <div class="manual-order"> Manual Order Process Form </div>
-            <p> You can take payment via offline/manual process like bKash, rocket, online banking etc. After you got 
+            <p> You can take payment via offline/manual process like bKash, rocket, online banking etc. After you got
                 recieve payment then entry here!.
 
             </p>
             <div class="update-room">
                 <input type="text" id="orderId" hidden>
-                <input type="text" id="transaction_id" class="form-control" placeholder="Transactional id"value="">
+                <input type="text" id="transaction_id" class="form-control" placeholder="Transactional id" value="">
 
-                <input type="text" id="manual_comment" class="form-control" placeholder="Comment"
-                    value="">
+                <input type="text" id="manual_comment" class="form-control" placeholder="Comment" value="">
 
-                <input type="number" min="100" id="amount" class="form-control" placeholder="Receive Amount"
-                    value="">
+                <input type="number" min="100" id="amount" class="form-control" placeholder="Receive Amount" value="">
             </div>
             <div class="close-modal" onclick="closeModal()">Close </div>
-           
+
             <div class="pay-goto-now" onclick="updateOrder()">
                 Update Order
             </div>
         </div>
-        <form method="get" action="{{ route('orders.index') }}"> 
-        <div class="row" style="">
-                
-                 <div class="col-md-4">
-                    <input type="text" value="{{ $keyword }}" name="keyword" class="form-control" placeholder="Transaction ID / Phone / Email" />
+        <form method="get" action="{{ route('orders.index') }}">
+            <div class="row" style="">
+
+                <div class="col-md-4">
+                    <input type="text" value="{{ $keyword }}" name="keyword" class="form-control"
+                        placeholder="Transaction ID / Phone / Email" />
                 </div>
                 <div class="col-md-3">
-                    <input type="submit" value="Search Order" class="mr-2 btn btn-primary"/>
+                    <input type="submit" value="Search Order" class="mr-2 btn btn-primary" />
                 </div>
-           
-    </div>
-</form>
-     
-            
-        <div class="table-responsive">
+
+            </div>
+        </form>
+
+
+        <div class="table-responsive order">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -120,6 +131,7 @@
                         <th> Phone</th>
                         <th> Email</th>
                         <th> Transction ID</th>
+                        <th> Amount</th>
                         <th> Payment Type</th>
                         <th>Booking Date</th>
                         <th>Status</th>
@@ -135,24 +147,33 @@
                             <td>{{ $customer->phone }}</td>
                             <td>{{ $customer->email }}</td>
                             <td>{{ $customer->transaction_id }}</td>
+                            <td>{{ $customer->amount }}</td>
                             <td>{{ $customer->payment_type }}</td>
                             <td>{{ $customer->startdate }} - {{ $customer->endDate }}</td>
                             <td id="status{{ $customer->id }}">{{ $customer->status }} </td>
                             <td>{{ $customer->created_at }} </td>
-                            <td> 
-                                @if(($customer->status == "Pending") || ($customer->status == "Failed"))
-                                <a style="float: left; width: 130px" class="mr-4 btn btn-warning"
-                                onclick="customOrder({{$customer->id}})">Custom Order</a>
+                            <td>
+                                @if ($customer->status == 'Pending' || $customer->status == 'Failed')
+                                    <a style="float: left; width: 100px; padding: 5px 0px; font-size:13px"
+                                        class="mr-4 btn btn-warning" onclick="customOrder({{ $customer->id}} ,{{ $customer->amount}})">Custom
+                                        Order</a>
                                 @endif
-                               <br/></br>
 
-                            <a href="{{ route('orders.show', $customer->id) }}" style="float: left; width: 130px"
-                                    class="mr-2 btn btn-primary">View</a></td>
+                                @if ($customer->status == 'Processing')
+                                    <a style="float: left; width: 100px; padding: 5px 0px; font-size:13px"
+                                        class="mr-4 btn btn-danger"
+                                        onclick="processConfirmation({{ $customer->id }})">Process</a>
+                                @endif
+                                <br /></br>
+
+                                <a href="{{ route('orders.show', $customer->id) }}"
+                                    style="float: left; width: 100px;font-size:13px" class="mr-2 btn btn-primary">View</a>
+                            </td>
                         </tr>
                     @endforeach
                     @if (!$orders->count())
                         <tr>
-                            <td colspan="5">No banner added</td>
+                            <td colspan="5">No order found</td>
                         </tr>
                     @endif
                 </tbody>
@@ -168,12 +189,40 @@
 
 @section('foot')
     <script type="text/javascript">
-        function customOrder(orderId) {
+        function customOrder(orderId, amount) {
             if (!confirm("Are you sure you want to process manual order ? ")) {
 
             } else {
-                $("#orderId").val(orderId);
+                $("#orderId").val(orderId);               
                 $("#manualPopup").show();
+                $("#selectAmount").val(amount);
+            }
+        }
+
+        function processConfirmation(id) {
+            if (!confirm("Are you sure you want to process manual order ? ")) {
+
+            } else {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+                $.ajax({
+                    type: 'POST',
+                    url: "{{ route('processing') }}",
+                    data: {
+                        status: 'Completed',
+                        orderId: id
+                    },
+                    success: function(data) {
+                        if (data.success) {
+                            location.href = "{{ route('orders.edit',2) }}";
+                        } else {
+                            alert("Something went wrong. Please try again");
+                        }
+                    }
+                });
             }
         }
 
@@ -186,54 +235,52 @@
             var transaction_id = $("#transaction_id").val();
             var manual_comment = $("#manual_comment").val();
             var amount = $("#amount").val();
+            var selectAmount = $("#selectAmount").val();
             var orderId = $("#orderId").val();
-            if(transaction_id && manual_comment && amount){
-                $("#transaction_id").css('border','1px solid #ccc');
-                $("#manual_comment").css('border','1px solid #ccc');
-                $("#amount").css('border','1px solid #ccc');
+            console.log(parseInt(amount) , parseInt(selectAmount));
+            if (transaction_id && manual_comment && amount &&  parseInt(amount) >= parseInt(selectAmount)) {
+                $("#transaction_id").css('border', '1px solid #ccc');
+                $("#manual_comment").css('border', '1px solid #ccc');
+                $("#amount").css('border', '1px solid #ccc');
                 $.ajax({
-                type: 'POST',
-                url: "{{ route('customOrder') }}",
-                data: {
-                    orderId: orderId,
-                    manual_transaction_id: transaction_id,
-                    manual_comment:manual_comment,
-                    manual_amount:amount
-                },
-                success: function(data) {
-                    if(data.success){
-                        $("#manualPopup").hide();
-                        $("#status"+orderId).html("<font color='green'> Completed </font>");
-                        location.href="{{ route('orders.index') }}";
+                    type: 'POST',
+                    url: "{{ route('customOrder') }}",
+                    data: {
+                        orderId: orderId,
+                        manual_transaction_id: transaction_id,
+                        manual_comment: manual_comment,
+                        manual_amount: amount
+                    },
+                    success: function(data) {
+                        if (data.success) {
+                            $("#manualPopup").hide();
+                            $("#status" + orderId).html("<font color='green'> Completed </font>");
+                            location.href = "{{ route('orders.edit',2) }}";
+                        }
+
                     }
-                   
+                });
+            } else {
+                if (transaction_id) {
+                    $("#transaction_id").css('border', '1px solid #ccc');
+                } else {
+                    $("#transaction_id").css('border', '1px solid red');
                 }
-            });
-            }
-            else{
-                if(transaction_id){
-                    $("#transaction_id").css('border','1px solid #ccc');
+                if (manual_comment) {
+                    $("#manual_comment").css('border', '1px solid #ccc');
+                } else {
+                    $("#manual_comment").css('border', '1px solid red');
                 }
-                else{
-                    $("#transaction_id").css('border','1px solid red');
-                }
-                if(manual_comment){
-                    $("#manual_comment").css('border','1px solid #ccc');
-                }
-                else{
-                    $("#manual_comment").css('border','1px solid red');
-                }
-                if(amount){
-                    $("#amount").css('border','1px solid #ccc');
-                }
-                else{
-                    $("#amount").css('border','1px solid red');
+                if (amount && parseInt(amount) >= parseInt(selectAmount)) {
+                    $("#amount").css('border', '1px solid #ccc');
+                } else {
+                    $("#amount").css('border', '1px solid red');
                 }
             }
 
         }
 
-         function closeModal(){
+        function closeModal() {
             $("#manualPopup").hide();
         }
 

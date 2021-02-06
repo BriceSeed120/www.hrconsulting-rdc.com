@@ -29,13 +29,12 @@ class OrdersController extends Controller
         }
         else{
             $orders = Order::where("orders.status","Processing")
-            ->orWhere("orders.status","Completed")
             ->orderBy('id','desc')
             ->paginate(15);
         }
        
         $isSuccess = true;
-        return view('dashboard.orders.index', compact('orders','isSuccess','keyword'))->withTitle('Completed orders');
+        return view('dashboard.orders.index', compact('orders','isSuccess','keyword'))->withTitle('Processing orders');
     }
 
     public function customOrder(Request $request){
@@ -49,9 +48,23 @@ class OrdersController extends Controller
                 'amount.required' => 'amount is required'
             ]);
             $validatedData['updated_at'] =  date('Y-m-d');
-            $validatedData['status'] =  'Completed';
+            $validatedData['status'] =  'Processing';
             $affectedRows = Order::where("id", $request->orderId)->update($validatedData);
         return response()->json(array('success'=> 'Order update successfully'), 200);
+    }
+    public function processing(Request $request){
+        $validatedData = $request->validate([
+            'status' => 'required'
+            ], [
+                'status.required' => 'id is required',
+            ]);
+            $validatedData['updated_at'] =  date('Y-m-d');
+            $affectedRows = Order::where("id", $request->orderId)->update($validatedData);
+        return response()->json(array('success'=> 'Order update successfully'), 200);
+    }
+    public function completed()
+    {
+       die('ok');
     }
 
     public function failed()
@@ -86,7 +99,7 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -109,14 +122,21 @@ class OrdersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id = 1)
+    public function edit($id)
     {
-        //failed order
+        //failed order  id = 1 
+        //Completed order  id = 2 
         $keyword = "";
-        $isSuccess = false;   
-        $orders = Order::where("orders.status","Failed")
+        $isSuccess = false;
+        $status = "Failed";
+        $title = "Failed orders";
+        if($id == 2){
+            $status = "Completed";
+            $title = "Completed Order";
+        }
+        $orders = Order::where("orders.status",$status)
         ->orderBy('id','desc')->paginate(15);
-        return view('dashboard.orders.index', compact('orders','isSuccess','keyword'))->withTitle('Failed orders');
+        return view('dashboard.orders.index', compact('orders','isSuccess','keyword'))->withTitle($title);
     }
 
     /**
@@ -137,8 +157,7 @@ class OrdersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy()
     {
-        //
     }
 }

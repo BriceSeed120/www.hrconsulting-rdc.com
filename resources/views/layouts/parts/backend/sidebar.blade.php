@@ -81,9 +81,15 @@
         </h6>
         <ul class="nav flex-column">
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('orders.index') }}">
+                <a class="nav-link" href="{{ route('orders.edit',2) }}">
                     <span data-feather="shopping-cart"></span>
                     Completed Order
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('orders.index') }}">
+                    <span data-feather="shopping-cart"></span>
+                    Processing Order
                 </a>
             </li>
             <li class="nav-item">
