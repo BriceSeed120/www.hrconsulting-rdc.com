@@ -122,10 +122,12 @@ class RoomsSuitsController extends Controller
             'name' => 'required',
             'description' => 'required',
             'rate_in_bdt' => 'required',
+            'rate_in_usd' => 'required'
         ], [
             'name.required' => 'Name filed is required',
             'description.required' => 'Description filed is required',
             'rate_in_bdt.required' => 'Rate in BDT filed is required',
+            'rate_in_usd.required' => 'Rate in USD filed is required',
         ]);
         $validatedData['user_id'] = Auth::user()->id;
         $validatedData['property_label'] =  $request->property_label;

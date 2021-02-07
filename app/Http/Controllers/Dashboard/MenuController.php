@@ -25,11 +25,9 @@ class MenuController extends Controller
     }
 
     public function dashboard(){
-        $totalCompleted = Order::where("orders.status","Processing")
-        ->orWhere("orders.status","Completed")
+        $totalCompleted = Order::where("orders.status","Completed")
         ->count();
-        $totalCompletedAmount = Order::where("orders.status","Processing")
-        ->orWhere("orders.status","Completed")
+        $totalCompletedAmount = Order::where("orders.status","Completed")
         ->sum('amount');
         $orders = Order::orderBy('id', 'desc')
         ->take(10)
@@ -40,7 +38,6 @@ class MenuController extends Controller
         // $today = date("Y-m-d");
         $today = date("2021-01-23");
         $totalCompletedDaily = Order::where("orders.status","Completed")
-        ->where("orders.status","Processing")
         ->whereBetween('created_at', [$today.' 00:00:00',$today.' 23:59:59'])
         ->count();
 
@@ -58,7 +55,6 @@ class MenuController extends Controller
         
 
         $totalCompletedMonthly = Order::where("orders.status","Completed")
-        ->where("orders.status","Processing")
         ->whereBetween('created_at', [$from.' 00:00:00',$to.' 23:59:59'])
         ->count();
 

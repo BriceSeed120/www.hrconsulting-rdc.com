@@ -1633,7 +1633,7 @@
                                             </br>
                                         </div>
                                     </div>
-                                    <div class="price-section">
+                                    <div class="price-section">                                        
                                         <div class="discount-price"> {{ $room->rate_in_usd }} USD</div>
                                         <div class="current-price"> BDT {{ $room->rate_in_bdt }} </div>
                                     </div>
@@ -2186,7 +2186,7 @@
 
                         });
                     }else{
-                        alert("Please put all valid data")
+                        alert("Please put all valid data");
                     }
 
                 });

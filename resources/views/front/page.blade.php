@@ -808,8 +808,16 @@
                                 <div class="col-sm-12 col-md-6">
                                     <div class="image-holder hoverflash">
                                         <img src="{{ asset($item->feature_image) }}" />
-                                        <h2 class="price">Room Rate :<span> ${{ $item->rate_in_usd }} </span>/ 
+                                        @if($item->rate_in_usd > 0 && $item->rate_in_bdt > 0)
+                                        <h2 class="price">Room Rate : 
+                                            @if($item->rate_in_usd > 0)
+                                            <span> ${{ $item->rate_in_usd }} </span>/
+                                            @endif
+                                       
+                                        @if($item->rate_in_bdt > 0)
                                             <span>{{ $item->rate_in_bdt }}৳</span></h2>
+                                        @endif
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 text-holder-right">
@@ -871,8 +879,16 @@
                                 <div class="col-sm-12 col-md-6" id="mobile-ver">
                                     <div class="image-holder hoverflash">
                                         <img src="{{ asset($item->feature_image) }}" />
-                                        <h2 class="price">Room Rate :<span> ${{ $item->rate_in_usd }} </span>/ 
-                                            <span>{{ $item->rate_in_bdt }}৳</span></h2>
+                                            @if($item->rate_in_usd > 0 && $item->rate_in_bdt > 0)
+                                            <h2 class="price">Room Rate : 
+                                                @if($item->rate_in_usd > 0)
+                                                <span> ${{ $item->rate_in_usd }} </span>/
+                                                @endif
+                                           
+                                            @if($item->rate_in_bdt > 0)
+                                                <span>{{ $item->rate_in_bdt }}৳</span></h2>
+                                            @endif
+                                            @endif
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 text-holder-left">
@@ -922,8 +938,16 @@
                                 <div class="col-sm-12 col-md-6" id="desktop-ver">
                                     <div class="image-holder hoverflash">
                                         <img src="{{ asset($item->feature_image) }}" />
-                                        <h2 class="price">Room Rate :<span> ${{ $item->rate_in_usd }} </span>/
+                                        @if($item->rate_in_usd > 0 && $item->rate_in_bdt > 0)
+                                        <h2 class="price">Room Rate : 
+                                            @if($item->rate_in_usd > 0)
+                                            <span> ${{ $item->rate_in_usd }} </span>/
+                                            @endif
+                                       
+                                        @if($item->rate_in_bdt > 0)
                                             <span>{{ $item->rate_in_bdt }}৳</span></h2>
+                                        @endif
+                                        @endif
                                     </div>
                                 </div>
                             </div>

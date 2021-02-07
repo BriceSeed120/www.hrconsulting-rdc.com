@@ -41,12 +41,10 @@ class OffersController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required',
-            'description' => 'required',
-            'rate_in_bdt' => 'required',
+            'description' => 'required'
         ], [
             'name.required' => 'Name filed is required',
-            'description.required' => 'Description filed is required',
-            'rate_in_bdt.required' => 'Rate in BDT filed is required',
+            'description.required' => 'Description filed is required'
         ]);
         $validatedData['user_id'] = Auth::user()->id;
         $validatedData['property_label'] =  $request->property_label;
@@ -121,11 +119,9 @@ class OffersController extends Controller
         $validatedData = $request->validate([
             'name' => 'required',
             'description' => 'required',
-            'rate_in_bdt' => 'required',
         ], [
             'name.required' => 'Name filed is required',
-            'description.required' => 'Description filed is required',
-            'rate_in_bdt.required' => 'Rate in BDT filed is required',
+            'description.required' => 'Description filed is required'
         ]);
         $validatedData['user_id'] = Auth::user()->id;
         $validatedData['property_label'] =  $request->property_label;
