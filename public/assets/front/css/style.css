@@ -349,7 +349,7 @@ a.discover-more img { display: inline-block; width: 50px; padding-left: 20px; }
 .facility .holder-facility { padding-left: 10%; padding-right: 10%; }
 .facility .holder-facility h2 { font-size: 50px; }
 
-.video-holder { position: relative; height: 100%; height: 500px; }
+.video-holder { position: relative; height: 100%; height: 320px; }
 .video-holder img { height: 100%; width: 100%; }
 .video-holder:after {
     position: absolute;

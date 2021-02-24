@@ -35,10 +35,39 @@
 </section>
 @endif
 
-    <div class="container">
-        <div class="intro">
+    <div class="container1">
+        <div class="new-video-area">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-12">
+                    <div class="video-holder">
+                        <img src="{{ asset('assets/front/img/rt004.jpg') }}">
+                    </div>
+                    <div class="overlay">
+                        <a class="video-play-button popup-xs popup-vt" onclick="openYoutubeModal()">
+                        <span></span>
+                    </a>         
+                    </div>
+                    <div class="video-text">
+                    </div>
+        
+                    <div class="youtube-popup" id="youtubeModal">
+                        <iframe id="youtubeVideo" width="100%" height="100%" src="https://www.youtube.com/embed/Jh8jD4lu4iM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="youtube-close-modal" onclick="closeYoutubeModal()"> X </div>
+                    </div>
+                    <script type="text/javascript">
+                        function closeYoutubeModal() {
+                            $("#youtubeModal").hide();
+                            var video = $("#youtubeVideo").attr("src");
+                            $("#youtubeVideo").attr("src","");
+                            $("#youtubeVideo").attr("src",video);
+                        }
+                        function openYoutubeModal() {
+                            $("#youtubeModal").show();
+                        }
+        
+                      </script>
+                </div>
+                <div class="col-md-3">
                     <div class="text">
                         <h1 class="tagline tagline callout animation-element test2"># Grant Welcome</h1>
                         <h2 class="tagline callout animation-element test2">
@@ -48,8 +77,8 @@
                         </h2>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <p class="general tagline callout animation-element test2">
+                <div class="col-md-3">
+                    <p class="general tagline callout animation-element test2 des-top">
                         @if($welcomeArticle)
                         {{ $welcomeArticle->description}} 
                         @endif
@@ -61,72 +90,9 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-12">
-            <div class="video-holder">
-                <img src="{{ asset('assets/front/img/rt004.jpg') }}">
-            </div>
-            <div class="overlay">
-                {{-- <a id="play-video" class="video-play-button popup-xs popup-vt" href="https://www.youtube.com/watch?v=bc7I1WS_0-g&t=144s"
-                    data-xs-href="https://www.youtube.com/watch?v=bc7I1WS_0-g&t=144s">
-                    <span></span>
-                </a>                 --}}
 
-                <a class="video-play-button popup-xs popup-vt" onclick="openYoutubeModal()">
-                <span></span>
-            </a> 
-
-         
-            </div>
-            <div class="video-text">
-                <!-- <h4>Experience the MOMOINNHotel</h4> -->
-            </div>
-
-            <div class="youtube-popup" id="youtubeModal">
-                <iframe id="youtubeVideo" width="100%" height="100%" src="https://www.youtube.com/embed/Jh8jD4lu4iM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <div class="youtube-close-modal" onclick="closeYoutubeModal()"> X </div>
-            </div>
-            <script type="text/javascript">
-                function closeYoutubeModal() {
-                    $("#youtubeModal").hide();
-                    var video = $("#youtubeVideo").attr("src");
-                    $("#youtubeVideo").attr("src","");
-                    $("#youtubeVideo").attr("src",video);
-                }
-                function openYoutubeModal() {
-                    $("#youtubeModal").show();
-                }
-
-              </script>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="intro">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="text">
-                        <h2 class="tagline callout animation-element test2">
-                             @if($roomArticle)
-                            {{ $roomArticle->title}} 
-                            @endif
-                        </h2>
-                    </div>
-                </div>
-                <div class="offset-md-1 col-md-5">
-                    <p class="general tagline callout animation-element test2">
-                        @if($roomArticle)
-                        {{ $roomArticle->description}} 
-                        @endif
-                        </p>
-                    {{-- <button class="btn-1">
-                        <span class="btn-1"><a href="#rooms-suites.php" class="btn-1">Discover More</a></span>
-                    </button> --}}
-                </div>
-            </div>
-        </div>
-    </div>
-
+    <div class="all-offer">
+        
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/front/css/slick.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/front/css/slick-theme.css') }}">
     <style type="text/css">
@@ -172,8 +138,66 @@
         .room-list .slick-prev, .slick-next{
             top: 35% !important;
         }
+        .offer-slider.slider {
+        width: 100% !important;
+        margin: 0px auto;
+        }
+        .all-offer-title{
+            font-size: 20px;
+            padding: 30px 0px 15px 20px;
+        }
     </style>
+    <div class="all-offer-title"> All Offer </div>
+    <section class="offer-slider slider room-list onlyDesktop">
+        @foreach ($offers as $slider)
+            <div class="owl-item active" style="width: 532px; margin-right: 10px;">
+                <div class="item">
+                    <a href="{{ route('frontpage', [5, 5]) }}">
+                        <img src="{{ asset($slider->feature_image) }}" height="150" />
+                    </a>
+                </div>
+            </div>
+        @endforeach
+    </section>
 
+    <section class="roomlist-mobile-slider slider room-list only-mobile">
+        @foreach ($roomssuites as $slider)
+            <div class="owl-item active" style="width: 532px; margin-right: 10px;">
+                <div class="item">
+                    <a href="{{ route('frontpage', [5, 5]) }}">
+                        <img src="{{ asset($slider->feature_image) }}" height="230" />
+                    </a>
+                </div>
+            </div>
+        @endforeach
+    </section>
+    </div>
+
+    <div class="container">
+        <div class="intro">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="text">
+                        <h2 class="tagline callout animation-element test2">
+                             @if($roomArticle)
+                            {{ $roomArticle->title}} 
+                            @endif
+                        </h2>
+                    </div>
+                </div>
+                <div class="offset-md-1 col-md-5">
+                    <p class="general tagline callout animation-element test2">
+                        @if($roomArticle)
+                        {{ $roomArticle->description}} 
+                        @endif
+                        </p>
+                    {{-- <button class="btn-1">
+                        <span class="btn-1"><a href="#rooms-suites.php" class="btn-1">Discover More</a></span>
+                    </button> --}}
+                </div>
+            </div>
+        </div>
+    </div>
     <section class="regular slider room-list onlyDesktop">
         @foreach ($roomssuites as $slider)
             <div class="owl-item active" style="width: 532px; margin-right: 10px;">

@@ -485,6 +485,14 @@
             slidesToShow: 3,
             slidesToScroll: 3
         });
+
+        $(".offer-slider").slick({
+            dots: true,
+            infinite: true,
+            slidesToShow: 5,
+            slidesToScroll: 5
+        });
+
         $(".weather-slider").slick({
             dots: true,
             infinite: true,

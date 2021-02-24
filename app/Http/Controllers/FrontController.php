@@ -54,6 +54,7 @@ public function bookingSuccess(){
 
         $banners =  DB::table('banners')->get();
         $roomssuites = DB::table('roomssuits')->get();
+        $offers = DB::table('offers')->get();
         $facilities = DB::table('facilities')->get();
         $restaurants = DB::table('resturants')->get();
         $meetingsevents = DB::table('meetingsevents')->get();
@@ -78,7 +79,7 @@ public function bookingSuccess(){
         curl_close($ch);
         $weatherData = json_decode($response);
         $currentTime = time();
-        return view('front.index', compact('welcomeArticle','roomArticle','mixArticle','banners','roomssuites','facilities','restaurants','meetingsevents','weatherData'));
+        return view('front.index', compact('welcomeArticle','roomArticle','mixArticle','banners','roomssuites','facilities','restaurants','meetingsevents','weatherData','offers'));
     }
 
     public function contact(){

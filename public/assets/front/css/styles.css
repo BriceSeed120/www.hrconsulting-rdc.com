@@ -1882,7 +1882,49 @@ overflow: hidden;
     width: 20px;
 }
 
+.new-video-area{
+    padding: 0px 50px 0px 0px;
+}
+.new-video-area .text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    color: #000;
+    line-height: 45px;
+}
+
+.new-video-area .text h1.tagline {
+    position: relative;
+    font-size: 16px;
+    letter-spacing: 1px;
+    vertical-align: middle;
+    padding-top: 80px;
+}
+.new-video-area .des-top{
+    padding-top: 80px;
+    max-height: 300px;
+    overflow: hidden;
+}
+
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+    .new-video-area{
+        padding: 0px 0px 0px 0px;
+    }
+    .new-video-area .text h1.tagline {
+        padding-top: 30px;
+    }
+    .new-video-area .text h2 {
+        font-size: 26px;
+        padding: 0px 20px;
+    }
+    .new-video-area .des-top{
+        padding-top: 0px;
+      
+    }
+    .new-video-area .test2 {
+        padding: 0px 20px;
+    }
     .custom-modal-popup-order{
         width: calc(100% - 20px);
         padding-bottom: 52px;
