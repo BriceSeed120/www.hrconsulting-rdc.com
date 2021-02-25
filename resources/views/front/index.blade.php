@@ -35,11 +35,29 @@
 </section>
 @endif
 
-    <div class="container1">
+
         <div class="new-video-area">
             <div class="row">
-                <div class="col-md-6 col-sm-12">
-                    <div class="video-holder">
+                <div class="col-md-4 col-sm-12 padding-text">
+                    <div class="text">
+                        <h1 class="tagline tagline callout animation-element test2"># Grant Welcome</h1>
+                        <h2 class="tagline callout animation-element test2">
+                            @if($welcomeArticle)
+                            {{ $welcomeArticle->title}} 
+                            @endif
+                        </h2>
+                    </div>
+                    <div class="only-mobile" style="height: 10px"></div>
+                    <p class="general tagline callout animation-element test2 des-top">
+                        @if($welcomeArticle)
+                        {{ $welcomeArticle->description}} 
+                        @endif
+                     </p>
+                     <div class="only-mobile" style="height: 20px"></div>
+
+                </div>
+                <div class="col-md-8">
+                     <div class="video-holder">
                         <img src="{{ asset('assets/front/img/rt004.jpg') }}">
                     </div>
                     <div class="overlay">
@@ -63,33 +81,11 @@
                         }
                         function openYoutubeModal() {
                             $("#youtubeModal").show();
-                        }
-        
-                      </script>
-                </div>
-                <div class="col-md-3">
-                    <div class="text">
-                        <h1 class="tagline tagline callout animation-element test2"># Grant Welcome</h1>
-                        <h2 class="tagline callout animation-element test2">
-                            @if($welcomeArticle)
-                            {{ $welcomeArticle->title}} 
-                            @endif
-                        </h2>
-                    </div>
-                </div>
-                <div class="col-md-3">
-                    <p class="general tagline callout animation-element test2 des-top">
-                        @if($welcomeArticle)
-                        {{ $welcomeArticle->description}} 
-                        @endif
-                     </p>
-                    <div class="gap-30"></div>
-                    
+                        }        
+                      </script>                                       
                 </div>
             </div>
         </div>
-    </div>
-
 
     <div class="all-offer">
         
@@ -135,19 +131,16 @@
             height: 100vh;
         }
 
-        .room-list .slick-prev, .slick-next{
-            top: 35% !important;
-        }
+        /* .room-list .slick-prev, .slick-next{
+            top: 50% !important;
+        } */
         .offer-slider.slider {
         width: 100% !important;
         margin: 0px auto;
         }
-        .all-offer-title{
-            font-size: 20px;
-            padding: 30px 0px 15px 20px;
-        }
+
     </style>
-    <div class="all-offer-title"> All Offer </div>
+    <div class="all-offer-title"> All Offers & Promotions </div>
     <section class="offer-slider slider room-list onlyDesktop">
         @foreach ($offers as $slider)
             <div class="owl-item active" style="width: 532px; margin-right: 10px;">

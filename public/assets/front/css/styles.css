@@ -1883,7 +1883,8 @@ overflow: hidden;
 }
 
 .new-video-area{
-    padding: 0px 50px 0px 0px;
+    padding: 30px 20px 0px 0px;
+
 }
 .new-video-area .text h2 {
     font-family: 'Playfair Display', serif;
@@ -1899,12 +1900,29 @@ overflow: hidden;
     font-size: 16px;
     letter-spacing: 1px;
     vertical-align: middle;
-    padding-top: 80px;
+    padding-top: 30px;
+}
+.padding-text{
+    padding-left: 30px;
 }
 .new-video-area .des-top{
-    padding-top: 80px;
+    padding-top: 20px;
     max-height: 300px;
     overflow: hidden;
+}
+.all-offer-title{
+    font-size: 20px;
+    padding: 30px 0px 15px 20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    color: #000;
+    line-height: 45px;
+}
+
+.room-list .slick-prev, .slick-next{
+    top: 35% !important;
 }
 
 @media only screen and (min-width: 320px) and (max-width: 767px) {
@@ -1916,7 +1934,13 @@ overflow: hidden;
     }
     .new-video-area .text h2 {
         font-size: 26px;
-        padding: 0px 20px;
+       /* padding: 0px 20px; */
+        line-height: 33px;
+    }
+    .all-offer-title{
+        font-size: 26px;
+        /* padding: 30px 30px 0px 46px; */
+        line-height: 33px;
     }
     .new-video-area .des-top{
         padding-top: 0px;
@@ -1950,9 +1974,12 @@ overflow: hidden;
         height: 220px;
     }
     .roomlist-mobile-slider .slick-prev, .roomlist-mobile-slider .slick-arrow{
-        top: 110px !important;
+        /* top: 50% !important; */
     }
 
+     .room-list .slick-prev, .slick-next{
+            /* top: 50% !important; */
+    } 
     .viewsample {
         display: flex;
         position: relative;
