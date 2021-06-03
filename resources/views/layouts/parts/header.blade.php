@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="title" content="Momo inn">
-    <meta name="description" content="Momo restaurants and resorts is luxurious and 5 star hotels in bangladesh">
+    <meta name="title" content="Seed120 Software Solution">
+    <meta name="description" content="Seed120 Software Solutions and Services">
     <meta name="author" content="Sumon Ahamed">
     <meta name="generator" content="Bootstrap 5.0">
-    <title>Momo Inn</title>
+    <title>Seed120 Software Administration</title>
 
     <link rel="canonical" href="/">
 

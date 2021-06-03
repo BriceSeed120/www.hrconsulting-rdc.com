@@ -20,6 +20,18 @@
     });
 
 </script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SJRRTFW7D0"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-SJRRTFW7D0');
+</script>
+
+
 <!-- Image Height to fix alignment Ends -->
 
 <div class="footer inner">
@@ -31,9 +43,9 @@
 
                     <li><a href="mailto:" data-rel="external"><i class="fa fa-envelope"></i></a></li>
 
-                    <li><a href="" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://www.facebook.com/Seed120-LTD-112318064277888" target="_blank"><i class="fa fa-facebook"></i></a></li>
 
-                    <li><a href="" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a href="https://www.linkedin.com/company/seed120-ltd" target="_blank"><i class="fa fa-linkedin"></i></a></li>
 
                     <li><a href="" target="_blank"><i class="fa fa-youtube"></i></a></li>
 
@@ -58,10 +70,7 @@
                         </li>
                         <?php $count++; ?>
                     @endforeach
-                    <li><button class="btn-1"><span class="btn-1"><a href="{{ route('booking') }}" class="btn-1">
-                                    Booking</a></span>
-                        </button>
-                    </li>
+                    
                     <li><button class="btn-1"><span class="btn-1"><a href="{{ route('contact') }}" class="btn-1">
                                     Contact Us</a></span>
                         </button>
@@ -74,18 +83,17 @@
             <div class="col-md-12">
                 <ul class="address">
                     <li>
-                        <p>Nawdapara, Rangpur Road, Bogura, Bangladesh.</p>
+                        <p>85 Avenue de l'Indépendance - Bonapriso, Douala, B.P: 3948 - Douala, Cameroon</p>
                     </li>
                     <li>
-                        <p>sales@momoinn.com, reservation@momoinn.com</p>
+                        <p>info@seed120.com, sales@seed120.com</p>
                     </li>
                     <li>
-                        <p>+88 0516 6402 +88 017 55 66 99 00</p>
+                        <p>+237 6 58 58 30 23</p>
                     </li>
                 </ul>
-                <p class="copyright" style="text-align: center">©2020. Momo Inn.&nbsp;&nbsp;All right
-                    reserved.&nbsp;&nbsp;&nbsp;<span>Site by <a href="{{ url('/') }}" target="_blank"> Momo
-                            Inn</a></span>
+                <p class="copyright" style="text-align: center">Seed120 Software Solutions.&nbsp;&nbsp;All right
+                    reserved.&nbsp;&nbsp;&nbsp;<span>Site by <a href="{{ url('/') }}" target="_blank"> Seed120.com</a></span>
                 </p>
             </div>
 

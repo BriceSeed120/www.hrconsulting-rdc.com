@@ -18,7 +18,7 @@
     }
 
 
-    /*! CSS Used from: https://www.momoinn.com/css/bootstrap.css */
+    /*! CSS Used from: https://www.seed120.com/css/bootstrap.css */
     @media print {
 
         *,
@@ -160,7 +160,7 @@
         }
     }
 
-    /*! CSS Used from: https://www.momoinn.com/css/bootstrap-grid.css */
+    /*! CSS Used from: https://www.seed120.com/css/bootstrap-grid.css */
     *,
     *::before,
     *::after {
@@ -221,7 +221,7 @@
         animation-name: fadeInUp;
     }
 
-    /*! CSS Used from: https://www.momoinn.com/css/style.css */
+    /*! CSS Used from: https://www.seed120.com/css/style.css */
     * {
         margin: 0;
         padding: 0;
@@ -398,7 +398,7 @@
         overflow: hidden;
     }
 
-    /*! CSS Used from: https://www.momoinn.com/css/style-responsive.css */
+    /*! CSS Used from: https://www.seed120.com/css/style-responsive.css */
     .image-holder img {
         height: 384px;
         width: 100%;
@@ -1024,7 +1024,7 @@
         opacity: 1;
     }
 
-    /*! CSS Used from: https://www.momoinn.com/css/bootstrap-grid.css */
+    /*! CSS Used from: https://www.seed120.com/css/bootstrap-grid.css */
     *,
     *::before,
     *::after {
@@ -1307,7 +1307,7 @@
         margin-bottom: -5px;
     }
 
-    /*! CSS Used from: https://www.momoinn.com/css/style-responsive.css */
+    /*! CSS Used from: https://www.seed120.com/css/style-responsive.css */
     @media (min-width: 768px) and (max-width: 979px) {
         .common-div .banner-inner h1 {
             font-size: 30px;
@@ -1357,7 +1357,7 @@
         }
     }
 
-    /*! CSS Used from: https://www.momoinn.com/css/magnific-popup.css */
+    /*! CSS Used from: https://www.seed120.com/css/magnific-popup.css */
     button::-moz-focus-inner {
         padding: 0;
         border: 0;
@@ -1406,7 +1406,7 @@
     <div class="page-banner-top">
         <img src="{{ asset('/uploads/default/banner.jpg') }}" />
 
-        <div class="page-name-title"> Contact</div>
+        <div class="page-name-title"> Contact Seed120</div>
         <div class="banner-overlay"> </div>
     </div>
     <div class="container contact-pg">
@@ -1475,20 +1475,30 @@
                         <ul class="address">
                             <li class="heading">Address</li>
                             <li class="details">
-                                Priyo Prangon Tower (3rd Floor), <br/> H # 19, R # 17, Kamal Ataturk Avenue, Banani, Dhaka 1213</li>
+                                <h3>Cameroon Office</h3>
+                             85 Avenue de l'Indépendance - Bonapriso, Douala, B.P: 3948 - Douala, Cameroon. <br/>
+                             Phone: +237 6 98 85 85 85 <br/>
+                             Email: info@seed120.com, sales@seed120.com
+                            </li>
+                            <li class="details">
+                                <h3>Cyprus Office</h3>
+                             62B Leoforos Spyrou Kyprianou, Ayios Petros kai Pavlos,CY-3076 Lemesos, Cyprus. <br/>
+                             Phone: +237 6 98 85 85 85 <br/>
+                             Email: info@seed120.com, sales@seed120.com
+                            </li>
                         </ul>
                         <ul class="address">
                             <li class="heading">Phone</li>
-                            <!-- <li class="details">+880 18 4418 7817</li> -->
-                            <li class="details">+880 51 62504, +880 51 62505</li>
+                            <!-- <li class="details">+880 1717623208</li> -->
+                            <li class="details">+237 6 98 85 85 85, +237 6 58 58 30 23 </li>
                         </ul>
                         <ul class="address">
                             <li class="heading">Hotline (24/7)</li>
-                            <li class="details">+88 017 55 66 99 00</li>
+                            <li class="details">+237 6 58 58 30 23 </li>
                         </ul>
                         <ul class="address">
                             <li class="heading">Fax</li>
-                            <li class="details">+88 0516 6402</li>
+                            <li class="details">+237 6 58 58 30 23 </li>
                         </ul>
                     </div>
                 </div>
@@ -1498,9 +1508,7 @@
         </div>
     </div>
     <div style="height: 80px"> </div>
-    <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.933006622539!2d89.35510101554176!3d24.900266684035174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fc5580e6d1053d%3A0x79830ecb3e34f2f4!2sHotel+Momo+Inn!5e0!3m2!1sen!2sbd!4v1505298061134"
-        width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+    Google MAP Here 
 
 <div style="height: 80px"> </div>
 

@@ -9,7 +9,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>MOMOINN</title>
+    <title>Seed120 Software Solution</title>
     <!-- FontAwesome Style -->
     <link rel="icon" type="image/png" href="#">
     <link rel="stylesheet" href="{{ asset('assets/front/css/bootstrap.css') }}">
@@ -49,7 +49,7 @@
                         </div>
                     </nav>
                     <!-- Menu Ends -->
-                    <div class="book-now"><a href="#">Reservation</a></div>
+                    <div class="book-now"><a href="#">Menu</a></div>
                 </div>
                 <div class="col-12 col-md-4">
                     <div class="logo-sticky" id="logo-sticky" style="visibility: hidden">
@@ -126,7 +126,6 @@
 
             <ul class="callout animation-element test2 two in-view">
                 <li style="width: 100%"><a href="/">Home</a></li>
-                <li style="width: 100%"><a href="{{ route('booking') }}">Booking</a></li>
                 {{-- <?php $count = 0; ?>
             @foreach ($globalMenu as $menu)
                 <?php if ($count == 3) {
@@ -156,12 +155,12 @@
 
                 <p>
 
-                    <span>Momo Inn</span><br>
+                    <span>Cameroon Office</span><br>
 
-                    Nawdapara, Rangpur Road, Bogura, Bangladesh,<br>sales@momoinn.com, reservation@momoinn.com<br>
+                    Rue de Indepandence, B.P, 7890, Bonopriso, Douala, Cameroon,<br>info@seed120.com, sales@seed120.com<br>
 
-                    <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;+88 0516 6402
-                    &nbsp;<i class="fa fa-phone" aria-hidden="true"></i>&nbsp;+88 017 55 66 99 00<br>
+                    <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;+237 6 98 85 85 85
+                    &nbsp;<i class="fa fa-phone" aria-hidden="true"></i>&nbsp;++237 6 98 85 85 85<br>
 
                 </p>
 
@@ -169,13 +168,13 @@
 
                 <p>
 
-                    <span>Dhaka Office:</span><br>
-                    Priyo Prangon Tower (3rd Floor),<br>
-                    H # 19, R # 17, Kamal Ataturk Avenue, Banani, Dhaka 1213<br>
+                    <span>Cyprus Office:</span><br>
+                    62B Leoforos Spyrou Kyprianou<br>
+                    Ayios Petros kai Pavlos,CY-3076 <br>
+                    Ayios Petros kai Pavlos,CY-3076<br>
+                    Lemesos, Cyprus<br>
 
-                    553, A S Tower, 7th Floor, Probortok Circle<br>
-
-                    <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;+880 51 62504, +880 51 62505
+                    <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;+237 6 58 58 30 23
 
                 </p>
 

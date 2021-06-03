@@ -19,7 +19,7 @@
 
 
 
-    /*! CSS Used from: https://www.momoinn.com/css/bootstrap.css */
+    /*! CSS Used from: https://www.seed120.com/css/bootstrap.css */
     @media print {
 
         *,
@@ -161,7 +161,7 @@
         }
     }
 
-    /*! CSS Used from: https://www.momoinn.com/css/bootstrap-grid.css */
+    /*! CSS Used from: https://www.seed120.com/css/bootstrap-grid.css */
     *,
     *::before,
     *::after {
@@ -222,7 +222,7 @@
         animation-name: fadeInUp;
     }
 
-    /*! CSS Used from: https://www.momoinn.com/css/style.css */
+    /*! CSS Used from: https://www.seed120.com/css/style.css */
     * {
         margin: 0;
         padding: 0;
@@ -399,7 +399,7 @@
         overflow: hidden;
     }
 
-    /*! CSS Used from: https://www.momoinn.com/css/style-responsive.css */
+    /*! CSS Used from: https://www.seed120.com/css/style-responsive.css */
     .image-holder img {
         height: 384px;
         width: 100%;
@@ -794,7 +794,7 @@
         unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
 
-    /*! CSS Used from: https://www.momoinn.com/css/bootstrap.css */
+    /*! CSS Used from: https://www.seed120.com/css/bootstrap.css */
     @media print {
 
         *,
@@ -1025,7 +1025,7 @@
         opacity: 1;
     }
 
-    /*! CSS Used from: https://www.momoinn.com/css/bootstrap-grid.css */
+    /*! CSS Used from: https://www.seed120.com/css/bootstrap-grid.css */
     *,
     *::before,
     *::after {
@@ -1123,7 +1123,7 @@
         animation-name: zoomIn;
     }
 
-    /*! CSS Used from: https://www.momoinn.com/css/style.css */
+    /*! CSS Used from: https://www.seed120.com/css/style.css */
     * {
         margin: 0;
         padding: 0;
@@ -1322,7 +1322,7 @@
         margin-bottom: -5px;
     }
 
-    /*! CSS Used from: https://www.momoinn.com/css/style-responsive.css */
+    /*! CSS Used from: https://www.seed120.com/css/style-responsive.css */
     @media (min-width: 768px) and (max-width: 979px) {
         .common-div .banner-inner h1 {
             font-size: 30px;
@@ -1372,7 +1372,7 @@
         }
     }
 
-    /*! CSS Used from: https://www.momoinn.com/css/magnific-popup.css */
+    /*! CSS Used from: https://www.seed120.com/css/magnific-popup.css */
     button::-moz-focus-inner {
         padding: 0;
         border: 0;

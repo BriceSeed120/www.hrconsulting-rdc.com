@@ -3,50 +3,13 @@
 @section('content')
     @include('layouts.parts.front.banner')
    
-@if($weatherData && $weatherData->daily)
- <div class="weather onlyDesktop">
-    @foreach($weatherData->daily as $key => $data)
-    <?php if($key == 7) break; ?>
-    <div class="day-weather">
-        <div class="day-name"> {{date("l",  date($data->dt))}} </div>
-        <div class="sun rotating"> </div>
-        <div class="temp">
-            <div class="min-temp"> {{ $data->temp->min }}°C </div>
-            <div class="max-temp"> {{ $data->temp->max}}°C </div>
-        </div>      
-    </div>
-    @endforeach
-</div> 
-
-<section class="weather-slider slider only-mobile">
-    @foreach($weatherData->daily as $key => $data)
-    <div class="weather">       
-        <?php if($key == 7) break; ?>
-        <div class="day-weather">
-            <div class="day-name"> {{date("l",  date($data->dt))}} </div>
-            <div class="sun rotating"> </div>
-            <div class="temp">
-                <div class="min-temp"> {{ $data->temp->min }}°C </div>
-                <div class="max-temp"> {{ $data->temp->max}}°C </div>
-            </div>      
-        </div>       
-    </div>
-    @endforeach
-</section>
-@endif
-
-
         <div class="new-video-area">
             <div class="row">
                 <div class="col-md-4 col-sm-12 padding-text">
-                    <div class="text">
-                        <h1 class="tagline tagline callout animation-element test2"># Grant Welcome</h1>
-                        <h2 class="tagline callout animation-element test2">
-                            @if($welcomeArticle)
-                            {{ $welcomeArticle->title}} 
-                            @endif
-                        </h2>
-                    </div>
+                   
+                        <div class="all-offer-title">Welcome to Seed120 Software Solutions Limited </div>
+                        
+                    
                     <div class="only-mobile" style="height: 10px"></div>
                     <p class="general tagline callout animation-element test2 des-top">
                         @if($welcomeArticle)
@@ -69,7 +32,7 @@
                     </div>
         
                     <div class="youtube-popup" id="youtubeModal">
-                        <iframe id="youtubeVideo" width="100%" height="100%" src="https://www.youtube.com/embed/Jh8jD4lu4iM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe id="youtubeVideo" width="100%" height="100%" src="https://www.youtube.com/embed/SNoPiYKkbLQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         <div class="youtube-close-modal" onclick="closeYoutubeModal()"> X </div>
                     </div>
                     <script type="text/javascript">
@@ -140,7 +103,7 @@
         }
 
     </style>
-    <div class="all-offer-title"> All Offers & Promotions </div>
+    <div class="all-offer-title"> Technologies we Use </div>
     <section class="offer-slider slider room-list onlyDesktop">
         @foreach ($offers as $slider)
             <div class="owl-item active" style="width: 532px; margin-right: 10px;">

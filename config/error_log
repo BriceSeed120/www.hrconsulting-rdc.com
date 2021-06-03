@@ -1,0 +1,5 @@
+[08-Jan-2021 06:36:11 America/Chicago] PHP Warning:  Version warning: Imagick was compiled against Image Magick version 1654 but version 1650 is loaded. Imagick will run but may behave surprisingly in Unknown on line 0
+[08-Jan-2021 06:36:11 America/Chicago] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home3/wexcelit/momoinn.wexcelit.com/momoinn.com/config/database.php:18
+Stack trace:
+#0 {main}
+  thrown in /home3/wexcelit/momoinn.wexcelit.com/momoinn.com/config/database.php on line 18

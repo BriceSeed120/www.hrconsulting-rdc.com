@@ -1,14 +1,3 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteBase /laravel51/public/
-    RewriteRule ^(.*)$ public/$1 [L]
-	RewriteEngine On
-
-RewriteBase /momoinn/
-
-RewriteCond %{REQUEST_FILENAME} !-f
-
-RewriteCond %{REQUEST_FILENAME} !-d
-
-RewriteRule ^(.*)$ /index.php/$1 [L]
-</IfModule>
+RewriteEngine on
+RewriteCond %{REQUEST_URI} !^public
+RewriteRule ^(.*)$ public/$1 [L]

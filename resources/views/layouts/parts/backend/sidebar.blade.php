@@ -11,37 +11,31 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('roomssuits.index') }}">
                     <span data-feather="box"></span>
-                    Rooms &amp; Suites
+                    Products &amp; Services
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('facilities.index') }}">
                     <span data-feather="award"></span>
-                    Facilities
+                    Our Customers
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('resturants.index') }}">
                     <span data-feather="award"></span>
-                    Restaurants
+                    Our Technology
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('meetings_events.index') }}">
                     <span data-feather="award"></span>
-                    Meetings &amp; Events
+                    Our Management
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('dinings.index') }}">
                     <span data-feather="layers"></span>
-                    Dinings
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('coupons.index') }}">
-                    <span data-feather="gift"></span>
-                    Coupons
+                    Mission & Vission
                 </a>
             </li>
             <li class="nav-item">
@@ -62,7 +56,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('offers.index') }}">
                     <span data-feather="shopping-cart"></span>
-                   Offer
+                   Tools & Technologies
                 </a>
             </li>
             <li class="nav-item">
@@ -73,39 +67,7 @@
             </li>
         </ul>
 
-        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span>Booking Order</span>
-            <a class="link-secondary" href="#" aria-label="Add a new report">
-                <span data-feather="plus-circle"></span>
-            </a>
-        </h6>
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('orders.edit',2) }}">
-                    <span data-feather="shopping-cart"></span>
-                    Completed Order
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('orders.index') }}">
-                    <span data-feather="shopping-cart"></span>
-                    Processing Order
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('orders.create') }}">
-                    <span data-feather="users"></span>
-                    Pending Order
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('orders.edit',1) }}">
-                    <span data-feather="bar-chart-2"></span>
-                    Failed Order
-                </a>
-            </li>
-        </ul>
-
+        
         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
             <span>Administration</span>
             <a class="link-secondary" href="#" aria-label="Add a new report">
@@ -129,12 +91,6 @@
                 <a class="nav-link" href="{{ route('articles.index') }}">
                     <span data-feather="tag"></span>
                     Manage Article
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('taxs.index') }}">
-                    <span data-feather="tag"></span>
-                    Manage Vat & Tax
                 </a>
             </li>
             <li class="nav-item">
