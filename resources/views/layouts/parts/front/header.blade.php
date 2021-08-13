@@ -12,74 +12,73 @@
     <title>Seed120 Software Solution</title>
     <!-- FontAwesome Style -->
     <link rel="icon" type="image/png" href="#">
-    <link rel="stylesheet" href="{{ asset('assets/front/css/bootstrap.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/front/css/bootstrap.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('assets/front/css/font-awesome.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/front/css/flexslider.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/front/css/style.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/front/css/flexslider.css') }}"> --}}
+    {{-- <link rel="stylesheet" href="{{ asset('assets/front/css/style.css') }}"> --}}
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Owl Carousel -->
-    <link rel="stylesheet" href="{{ asset('assets/front/css/owl.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/front/css/owl.css') }}"> --}}
     <!-- magnific Style Sheets -->
-    <link rel="stylesheet" href="{{ asset('assets/front/css/magnific-popup.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/front/css/magnific-popup.css') }}"> --}}
     <!-- Filterable Gallery Style -->
-    <link rel="stylesheet" href="{{ asset('assets/front/css/filterable.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/front/css/filterable.css') }}"> --}}
     <!-- Mobile Responsive Style -->
-    <link rel="stylesheet" href="{{ asset('assets/front/css/style-responsive.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/front/css/styles.css') }}" media="all">
+    {{-- <link rel="stylesheet" href="{{ asset('assets/front/css/style-responsive.css') }}"> --}}
+    {{-- <link rel="stylesheet" href="{{ asset('assets/front/css/styles.css') }}" media="all"> --}}
     {{-- <script src="https://code.jquery.com/jquery-1.9.1.js" integrity="sha256-e9gNBsAcA0DBuRWbm0oZfbiCyhjLrI6bmqAl5o+ZjUA=" crossorigin="anonymous"></script> --}}
     {{-- <script type="text/javascript"
     src="{{ asset('assets/front/js/jquery.js')}}"></script> --}}
     <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-    <script src="{{ asset('assets/front/js/bootstrap.js') }}"></script>
+    {{-- <script src="{{ asset('assets/front/js/bootstrap.js') }}"></script> --}}
     <style>
     </style>
 </head>
 
 <body class="" data-new-gr-c-s-check-loaded="8.867.0">
-    <div class="header">
-        <div class="menu">
-            <div class="row">
-                <div class="col-md-4">
-                    <nav role="navigation">
-                        <div id="menuToggle" class="">
-                            <input type="checkbox">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </nav>
-                    <!-- Menu Ends -->
-                    <div class="book-now"><a href="#">Menu</a></div>
+    <nav class="bg-white shadow dark:bg-gray-800">
+        <div class="container px-6 py-4 mx-auto md:flex md:justify-between md:items-center">
+            <div class="flex items-center justify-between">
+                <div>
+                    <a class="text-2xl font-bold text-gray-800 dark:text-white lg:text-3xl hover:text-gray-700 dark:hover:text-gray-300" href="#"><img src="" alt="" srcset=""></a>
                 </div>
-                <div class="col-12 col-md-4">
-                    <div class="logo-sticky" id="logo-sticky" style="visibility: hidden">
-                        <a href="/">
-                            <img src={{ asset('/assets/images/logo.png') }} alt="" />
+                
+                <!-- Mobile menu button -->
+                <div class="flex md:hidden">
+                    <button type="button" class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400" aria-label="toggle menu">
+                        <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
+                            <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+            <div class="items-center md:flex">
+                <div class="flex flex-col md:flex-row md:mx-6">
+                    <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-green-300 dark:hover:text-indigo-400 md:mx-4 md:my-0" href="#">Home</a>
+                    <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-green-300 dark:hover:text-indigo-400 md:mx-4 md:my-0" href="#">About Us</a>
+                    <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-green-300 dark:hover:text-indigo-400 md:mx-4 md:my-0" href="#">Our Products</a>
+                    <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-green-300 dark:hover:text-indigo-400 md:mx-4 md:my-0" href="#">Our Services</a>
+                    <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-green-300 dark:hover:text-indigo-400 md:mx-4 md:my-0" href="#">Our Team</a>
+                    <a class="my-1 text-sm font-medium text-gray-700 dark:text-gray-200 hover:text-green-300 dark:hover:text-indigo-400 md:mx-4 md:my-0" href="#">Contact Us</a>
+                </div>
+    
+                 <!--
+                    <div class="flex justify-center md:block">
+                        <a class="relative text-gray-700 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-300" href="#">
+                            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3 3H5L5.4 5M7 13H17L21 5H5.4M7 13L5.4 5M7 13L4.70711 15.2929C4.07714 15.9229 4.52331 17 5.41421 17H17M17 17C15.8954 17 15 17.8954 15 19C15 20.1046 15.8954 21 17 21C18.1046 21 19 20.1046 19 19C19 17.8954 18.1046 17 17 17ZM9 19C9 20.1046 8.10457 21 7 21C5.89543 21 5 20.1046 5 19C5 17.8954 5.89543 17 7 17C8.10457 17 9 17.8954 9 19Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+    
+                            <span class="absolute top-0 left-0 p-1 text-xs text-white bg-green-300 rounded-full"></span>
                         </a>
                     </div>
-                </div>
-                <div class="col-12 col-md-4  d-sm-block top-menu" id="topMenu">
-                    <ul class="">
-                        <?php $count = 0; ?>
-                        @foreach ($globalTopMenu as $menu)
-                            <?php if ($count == 4) {
-                            break;
-                            } ?>
-                            <li><a
-                                    href="{{ route('frontpage', [$menu->id, $menu->category]) }}">{{ $menu->name }}</a>
-                            </li>
-                            <?php $count++; ?>
-                        @endforeach
-                    </ul>
-
-                </div>
-
+                -->
             </div>
-
         </div>
-
-    </div>
-    <style>
+    </nav>    
+    {{-- <style>
         .page-logo-center {
             padding-top: 30px;
             padding-bottom: 60px;
@@ -97,92 +96,6 @@
             }
         }
 
-    </style>
-    <div class="page-logo-center" id="page-center-logo">
-        <a href="/">
-            <img src={{ asset('/assets/images/logo.png') }} alt="" />
-        </a>
-    </div>
-
-    <!-- Menu Starts -->
-
-    <ul class="menu-ul">
-
-
-        <div class="menu-button  active" tabindex="-1" style="opacity: 1; pointer-events: auto;">
-
-            <div class="menu-button__bar menu-button__bar--1"></div>
-
-            <div class="menu-button__bar menu-button__bar--2"></div>
-
-            <div class="menu-button__bar menu-button__bar--3"></div>
-
-            <div class="menu-button__bar menu-button__bar--4"><span class="menu_title">Menu</span></div>
-
-        </div>
-
-
-        <div class="menu-list">
-
-            <ul class="callout animation-element test2 two in-view">
-                <li style="width: 100%"><a href="/">Home</a></li>
-                {{-- <?php $count = 0; ?>
-            @foreach ($globalMenu as $menu)
-                <?php if ($count == 3) {
-                    break;
-                } ?>
-                <li style="width: 100%"><a href="{{ route("frontpage", [$menu->id, $menu->category]) }}">{{ $menu->name}}</a></li>
-                <?php $count++; ?>
-            @endforeach --}}
-
-                @for ($i = 0; $i < 3; $i++)
-                    @if (!empty($globalMenu[$i])) <li style="width:
-                    100%"><a
-                    href="{{ route('frontpage', [$globalMenu[$i]->id, $globalMenu[$i]->category]) }}">{{ $globalMenu[$i]->name }}</a></li> @endif
-                @endfor
-
-            </ul>
-            <ul class="callout animation-element test2 four in-view">
-                @for ($i = 3; $i < 7; $i++)
-                    @if (!empty($globalMenu[$i])) <li style="width:
-                    100%"><a
-                    href="{{ route('frontpage', [$globalMenu[$i]->id, $globalMenu[$i]->category]) }}">{{ $globalMenu[$i]->name }}</a></li> @endif
-                @endfor
-
-                <li style="width: 100%"><a href="{{ route('contact') }}">Contact Us</a></li>
-            </ul>
-            <ul class="callout animation-element test2 four menucontact in-view">
-
-                <p>
-
-                    <span>Cameroon Office</span><br>
-
-                    Rue de Indepandence, B.P, 7890, Bonopriso, Douala, Cameroon,<br>info@seed120.com, sales@seed120.com<br>
-
-                    <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;+237 6 98 85 85 85
-                    &nbsp;<i class="fa fa-phone" aria-hidden="true"></i>&nbsp;++237 6 98 85 85 85<br>
-
-                </p>
-
-    
-
-                <p>
-
-                    <span>Cyprus Office:</span><br>
-                    62B Leoforos Spyrou Kyprianou<br>
-                    Ayios Petros kai Pavlos,CY-3076 <br>
-                    Ayios Petros kai Pavlos,CY-3076<br>
-                    Lemesos, Cyprus<br>
-
-                    <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;+237 6 58 58 30 23
-
-                </p>
-
-            </ul>
-
-        </div>
-
-
-    </ul>
-
+    </style> --}}
+  
     <!-- Menu Ends -->

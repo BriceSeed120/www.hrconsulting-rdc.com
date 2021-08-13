@@ -1,4 +1,4 @@
-<?php
+    <?php
 
 use App\Http\Controllers\Dashboard\BannerController;
 use App\Http\Controllers\Dashboard\CouponController;
@@ -10,7 +10,9 @@ use App\Http\Controllers\Dashboard\RoomsSuitsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SslCommerzPaymentController;
 
-Route::get('/', [FrontController::class, 'index'])->name('index');
+
+
+
 Route::get('editor', [CKEditorController::class, 'index']);
 Route::post('ckeditor/upload', [CKEditorController::class, 'upload'])->name('upload');
 Route::get('/page/{id}/{category}', [FrontController::class, 'page'])->name('frontpage');
@@ -19,6 +21,8 @@ Route::post('/contactstore', [FrontController::class, 'contactstore'])->name('co
 Route::get('/booking', [FrontController::class, 'booking'])->name('booking');
 Route::get('/bookingSuccess', [FrontController::class, 'bookingSuccess'])->name('bookingSuccess');
 Route::post('/checkcoupon', [FrontController::class, 'checkcoupon'])->name('checkcoupon');
+
+
 
 
 
@@ -72,7 +76,11 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], functio
     //   Route::get('/dashboard', [\App\Http\Controllers\Dashboard\MenuController::class, 'dashboard'])->name('dashboard');
    
     });
+
+    
     
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/{any?}', [FrontController::class, 'index'])->name('index')->where('any', '.*');
