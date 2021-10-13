@@ -1,33 +1,53 @@
-// import React, { Component } from 'react';
-// import GoogleMapReact from 'google-map-react';
+import React, { Component } from 'react';
+import { Map, GoogleApiWrapper,  Marker } from 'google-maps-react';
 
-// const Map = ({ text }) => <div>{text}</div>;
+const mapStyles = {
+  width: '100%',
+  height: '100%'
+};
 
-// class SimpleMap extends Component {
-//   static defaultProps = {
-//     center: {
-//       lat: 59.95,
-//       lng: 30.33
-//     },
-//     zoom: 11
-//   };
+export class MapContainer extends Component {
+    state = {
+        activeMarker: {},
+        selectedPlace: {}
+      };
+      onMarkerClick = (props, marker, e) =>
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
 
-//   render() {
-//     return (
-//       // Important! Always set the container height explicitly
-//       <div style={{ height: '100vh', width: '100%' }}>
-//         <GoogleMapReact
-//           bootstrapURLKeys={{ key: /* YOUR KEY HERE */ }}
-//           defaultCenter={this.props.center}
-//           defaultZoom={this.props.zoom}
-//         >
-//           <AnyReactComponent
-//             lat={59.955413}
-//             lng={30.337844}
-//             text="My Marker"
-//           />
-//         </GoogleMapReact>
-//       </div>
-//     );
-//   }
-// }
+  onClose = props => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: null
+      });
+    }
+  };
+  render() {
+    return (
+      <Map
+        google={this.props.google}
+        zoom={14}
+        style={mapStyles}
+        initialCenter={
+          {
+            lat: 4.021448334611853,
+            lng: 9.71213298273749
+          }
+        }
+      >
+          <Marker
+          onClick={this.onMarkerClick}
+          name={'Kenyatta International Convention Centre'}
+        />
+      </Map>
+    );
+  }
+}
+
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyAUy2nsLnNuLSf58r7dicpL20i8NpLshBw'
+})(MapContainer);

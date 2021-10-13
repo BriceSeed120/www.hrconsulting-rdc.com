@@ -2,83 +2,57 @@ import React from 'react'
 import Technologies from '../Atoms/Technologies'
 import Clients from '../Atoms/Clients'
 
+
 import HsdLogo from "../../../Images/1x/HsdLogo.png"
-import RecruitmentLogo from "../../../Images/1x/RecruitmentLogo.png"
+// import RecruitmentLogo from "../../../Images/1x/RecruitmentLogo.png"
+import avisLogo from "../../../Images/Client Logo/avis.png"
+import BluewireLogo from "../../../Images/Client Logo/Bluewire.png"
+import eccLogo from "../../../Images/Client Logo/ecc.png"
+import EtikaLogo from "../../../Images/Client Logo/Etika.png"
+import NeshelyLogo from "../../../Images/Client Logo/Neshely.png"
+import MaarebLogo from "../../../Images/Client Logo/Maareb.png"
+import ParadigmLogo from "../../../Images/Client Logo/Paradigm.png"
 
 const ClientAndTech = () =>{
     return(
-        <div>
-            <div id="candtech">
-                <div className="container">
+        <>
+            <section id="clients">
 
 
-                    {/* Technologies Used  */}
+                {/* Technologies Used  */}
 
-                    <Technologies />
+                <Technologies />
 
 
-                    {/* Client sub-section */}
-                    <div id='' className='section'>
-                        
-                        <div className='client-section'>
-                            <h2 className='section-titel tech-title'><center><span>Our</span> Client </center></h2>
-
-                            <div className="row no-gutters clients-wrap clearfix wow fadeInUp">
-
-                                <div className="col-lg-3 col-md-4 col-xs-6">
-                                    <div className="client-logo aos-init aos-animate" data-aos="zoom-in">
-                                        <img src={HsdLogo} className="img-fluid" alt="" />
-                                    </div>
-                                </div>
-
-                                <div className="col-lg-3 col-md-4 col-xs-6">
-                                    <div className="client-logo aos-init aos-animate" data-aos="zoom-in" data-aos-delay="100">
-                                        <img src={RecruitmentLogo} className="img-fluid" alt="" />
-                                    </div>
-                                </div>
-
-                                <div className="col-lg-3 col-md-4 col-xs-6">
-                                    <div className="client-logo aos-init aos-animate" data-aos="zoom-in" data-aos-delay="150">
-                                        <img src={HsdLogo} className="img-fluid" alt="" />
-                                    </div>
-                                </div>
-
-                                <div className="col-lg-3 col-md-4 col-xs-6">
-                                    <div className="client-logo aos-init aos-animate" data-aos="zoom-in" data-aos-delay="200">
-                                        <img src={RecruitmentLogo} className="img-fluid" alt="" />
-                                    </div>
-                                </div>
-
-                                <div className="col-lg-3 col-md-4 col-xs-6">
-                                    <div className="client-logo aos-init aos-animate" data-aos="zoom-in" data-aos-delay="250">
-                                        <img src={HsdLogo} className="img-fluid" alt="" />
-                                    </div>
-                                </div>
-
-                                <div className="col-lg-3 col-md-4 col-xs-6">
-                                    <div className="client-logo aos-init aos-animate" data-aos="zoom-in" data-aos-delay="300">
-                                        <img src={RecruitmentLogo} className="img-fluid" alt="" />
-                                    </div>
-                                </div>
-
-                                <div className="col-lg-3 col-md-4 col-xs-6">
-                                    <div className="client-logo aos-init aos-animate" data-aos="zoom-in" data-aos-delay="350">
-                                        <img src={HsdLogo} className="img-fluid" alt="" />
-                                    </div>
-                                </div>
-
-                                <div className="col-lg-3 col-md-4 col-xs-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="400">
-                                    <div className="client-logo">
-                                        <img src={RecruitmentLogo} className="img-fluid" alt="" />
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
+                {/* Client sub-section */}
+                <div id='' className='section'>
+                    
+                    <div className='client-section'>
+                        <h2 className='section-titel tech-title'><center><span>Our</span> Client </center></h2>
+                        <div className="wrap">
+                    <ul className="clients">
+                        {/* <li><a href=""><img src={RecruitmentLogo} alt="HSD Human Resource" /></a></li> */}
+                        <li><a href=""><img src={HsdLogo} /></a></li>
+                        <li><a href=""><img src={avisLogo} alt="Avis" /></a></li>
+                        <li><a href=""><img src={BluewireLogo} alt="Bluewire" /></a></li>
+                        <li><a href=""><img src={eccLogo} alt="ECC" /></a></li>
+                        <li><a href=""><img src={EtikaLogo} /></a></li>
+                        <li><a href=""><img src={NeshelyLogo} alt="Avis" /></a></li>
+                        <li><a href=""><img src={MaarebLogo} alt="Bluewire" /></a></li>
+                        <li><a href=""><img src={ParadigmLogo} alt="ECC" /></a></li>
+                    </ul>
+                    <ul className="clients">
+                        {/* <li><a href=""><img src={RecruitmentLogo} alt="HSD Human Resource" /></a></li> */}
+                        {/* <li><a href=""><img src={EtikaLogo} /></a></li>
+                        <li><a href=""><img src={NeshelyLogo} alt="Avis" /></a></li>
+                        <li><a href=""><img src={MaarebLogo} alt="Bluewire" /></a></li>
+                        <li><a href=""><img src={ParadigmLogo} alt="ECC" /></a></li> */}
+                    </ul>
                     </div>
                     </div>
-            </div>
-        </div>
+                </div>
+                </section>
+        </>
     )
 }
 

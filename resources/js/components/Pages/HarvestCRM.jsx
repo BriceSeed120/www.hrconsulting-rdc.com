@@ -1,9 +1,11 @@
-import React from 'react'
-
+import React, {Component, useState, useEffect} from "react";
+// import {Modal, Button, Form} from 'react-bootstrap'
+import { Navbar, Container, Nav, NavDropdown, Col, Row, Modal, Button, Form} from 'react-bootstrap'
 import ServicesNavigation from '../Molecules/ServicesNavigation'
+
 import Footer from '../Molecules/Footer'
 
-import { Navbar, Container, Nav, NavDropdown, Col, Row} from 'react-bootstrap'
+// import { Navbar, Container, Nav, NavDropdown, Col, Row} from 'react-bootstrap'
 import logo from '../../../Images/logo.png'
 import { link } from '../../data'
 import Fade from 'react-reveal/Fade';
@@ -12,10 +14,29 @@ import * as Icon from 'react-bootstrap-icons';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import HarvestCRM from '../../../Images/1x/HarvestCRM.png'
+import HarvestCRMImage from '../../../Images/1x/HarvestCRM.png'
 import Customer from '../../../Images/Customer.png'
 
-const HarvestData = () => {
+import emailjs from 'emailjs-com'
+
+const HarvestCRM = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    })
+    // const  [result,showResult] = useState(false)
+        function sendEmail  (e) {
+            e.preventDefault()
+
+            emailjs.sendForm('service_z9rnicp', 'template_e9wrj1b', e.target, 'user_Z2HZjAI82uwKXYfvnhfXF')
+                .then((result) => {
+                    console.log(result.text)
+                }, (error) => {
+                    console.log(error.text)
+                });
+                e.target.reset()
+                showResult(true)
+        }
+    
     return(
         <div>
             <ServicesNavigation />
@@ -23,6 +44,75 @@ const HarvestData = () => {
                 <Container>
                     <Row>
                         <Col lg={6}>
+                            {/* <!-- Modal --> */}
+                            <div className="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div className="modal-dialog" role="document">
+                                <div className="modal-content">
+                                <div className="modal-header">
+                                    <h5 className="modal-title" id="exampleModalLabel">Ask for Demo</h5>
+                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div className="modal-body">
+                                <Form onSubmit={sendEmail} className="mx-auto">
+                                {/* <Form  className="mx-auto"> */}
+                                    <Form.Group controlId="formName">
+                                        <Form.Label>Name :</Form.Label>
+                                        <Form.Control
+                                        type="text"
+                                        name="from_name"
+                                        placeholder="Full Name"
+                                        className=""
+                                        />
+                                    </Form.Group>
+                                    <Form.Group controlId="formEmail">
+                                        <Form.Label>Email :</Form.Label>
+                                        <Form.Control
+                                        type="text"
+                                        name="email"
+                                        placeholder="Email"
+                                        className=""
+                                        />
+                                    </Form.Group>
+                                    <Form.Group controlId="formPhone">
+                                        <Form.Label>Phone :</Form.Label>
+                                        <Form.Control
+                                        type="text"
+                                        name="phone"
+                                        placeholder="Phone"
+                                        className=""
+                                        />
+                                    
+                                    </Form.Group>
+                                    <Form.Group controlId="formBlog">
+                                        <Form.Label>Message</Form.Label>
+                                        <Form.Control
+                                        as="textarea" 
+                                        rows={3} 
+                                        name="message"
+                                        placeholder="Message"
+                                        className=""
+                                        />
+                                    </Form.Group>
+                                    {/* <Button variant="primary" type="submit">
+                                        Submit
+                                    </Button> */}
+                                    {/* <div className="row">
+                                        {
+                                            result ? <Result/> : null 
+                                        } 
+                                    </div> */}
+                                    <div className="modal-footer">
+                                        <button type="submit" className="btn btn-primary">Purchase now</button>
+                                    </div>  
+                                </Form>
+                                </div>
+                                
+                                </div>
+                            </div>
+                            </div>
+                            
                             <Fade >
                                 <h1 className='product-title'>Find your Job</h1>
                                 <h2 className="text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa nihil voluptate porro possimus aperiam reprehenderit vel quo laboriosam qui id ibero natus tempore.</h2>
@@ -30,7 +120,7 @@ const HarvestData = () => {
                                     <div className="text-lg-start">
                                         <a className='btn-get-started btn scrollto d-inline-flex align-items-center justify-content-center align-self-center' type="reset">
                                         <span>Get Started</span>
-                                            <i class="bi bi-arrow-left"></i>
+                                            <i className="bi bi-arrow-left"></i>
                                             <Icon.ArrowRight className="icon ml-3" />
                                         </a>
                                     </div>
@@ -41,7 +131,7 @@ const HarvestData = () => {
                         <Col lg={6}>
                             <Fade>
                                 <div className="hero-img">
-                                    <img className='img-fluid' src={HarvestCRM} />  
+                                    <img className='img-fluid' src={HarvestCRMImage} />  
                                 </div>
                             </Fade>
                         </Col>
@@ -53,8 +143,8 @@ const HarvestData = () => {
                     <div className="row gx-0">
                         <div className="col-lg-6 d-flex flex-column justify-content-center">
                             <div className="conta">
-                                <h3>What is Harvest CRM ?</h3>
-                                <h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h2>
+                                {/* <h3>What is Harvest CRM ?</h3> */}
+                                <h2>WHAT IS HARVEST CRM ?</h2>
                                 <p>
                                     Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor consequatur itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam et est corrupti.
                                 </p>
@@ -80,7 +170,7 @@ const HarvestData = () => {
                     <header className="section-header">
                         <center>
                             <h2>Features</h2>
-                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo reiciendis, ipsa voluptas sapiente delectus quibusdam.</p>
+                            {/* <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quo reiciendis, ipsa voluptas sapiente delectus quibusdam.</p> */}
                         </center>
                     </header>
 
@@ -89,24 +179,29 @@ const HarvestData = () => {
                     <div className="col-lg-4 aos-init aos-animate" >
                         <div className="service-box blue">
                         <Icon.People className="icon iconSerice ml-3" />
-                        <h3>Nesciunt Mete</h3>
-                        <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
+                        {/* <h3>Nesciunt Mete</h3> */}
+                        <p>Allows you to easily manage sales 
+                        and customer relationships online.
+                        </p>
                         </div>
                     </div>
 
                     <div className="col-lg-4 aos-init aos-animate" >
                         <div className="service-box blue">
                         <Icon.Calendar className="icon iconSerice ml-3" />
-                        <h3>Nesciunt Mete</h3>
-                        <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
+                        {/* <h3>Nesciunt Mete</h3> */}
+                        <p>Save time and money
+                        </p>
                         </div>
                     </div>
 
                     <div className="col-lg-4 aos-init aos-animate" >
                         <div className="service-box blue">
                         <Icon.Gear className="icon iconSerice ml-3" />
-                        <h3>Nesciunt Mete</h3>
-                        <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
+                        {/* <h3>Nesciunt Mete</h3> */}
+                        <p>Easy online access on all types 
+                        of media
+                        </p>
                         </div>
                     </div>
 
@@ -119,4 +214,4 @@ const HarvestData = () => {
     )
 }
 
-export default HarvestData
+export default HarvestCRM

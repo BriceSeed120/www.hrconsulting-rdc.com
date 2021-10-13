@@ -7,6 +7,8 @@ import Home from './Pages/Home'
 import HarvestData from './Pages/HarvestData'
 import HarvestAMS from './Pages/HarvestAMS'
 import HarvestCRM from './Pages/HarvestCRM'
+import HarvestPay from './Pages/HarvestPay'
+import HarvestEMIS from './Pages/HarvestEMIS'
 
 import { Scrollbars } from 'react-custom-scrollbars';
 
@@ -26,6 +28,12 @@ class Index extends Component {
                         </Route>
                         <Route path='/products/harvestcrm'>
                             <HarvestCRM/>
+                        </Route>
+                        <Route path='/products/harvestpay'>
+                            <HarvestPay/>
+                        </Route>
+                        <Route path='/products/harvestemis'>
+                            <HarvestEMIS/>
                         </Route>
                     </Switch>
                 </Router>

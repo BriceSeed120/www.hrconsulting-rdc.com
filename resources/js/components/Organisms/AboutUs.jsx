@@ -17,9 +17,10 @@ const AboutUs = (props) =>{
                         <div className="col-xs-12 col-md-6">
                             <div className="about-text">
                                 <h2 className='section-title'>About <span>Us</span></h2>
-                                <p className="wellcome-seed">
-                                Welcome to Seed120 Software Solutions Limited
-                                </p>Seed120 is one of the fastest growing IT Solutions Company operating from Cyprus, Cameroon and Gabon. Since its inception in 2020, Seed120 system has emerged as a provider of pioneer customized IT solutions and today Seed120 takes the pride to have introduced solutions like Harvest Pay (first ever customized Payroll Solution for Cameroon and Gabon, Cyprus, UK)
+                                {/* <p className="wellcome-seed">
+                                Welcome to Seed120 Software Solutions Limited </p> */}
+                                <p>Seed120 Ltd is an international IT Business Solutions and Consultancy firm headquartered in Lemesos, Cyprus. Established in 2020, Seed120 provides global services to its clients through its offices in Cyprus, Cameroon and Gabon. Seed120 has strategic business partnerships with many leading and key players in the technology industry.</p>
+                                <p>We have a strong and enthusiastic development team made up of young engineers who have vast experience in software development, apps development and games development to name but a few. We lay emphasis on Research and Development and we delve for innovation in all our products before launching them in the market.</p>
                             </div>
                         </div>
                     </div>

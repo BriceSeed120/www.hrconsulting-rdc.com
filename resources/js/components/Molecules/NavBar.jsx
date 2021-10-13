@@ -26,9 +26,11 @@ const NavBar = () => {
                                 <Nav.Link  href="#services" className='page-scroll'>Our Services</Nav.Link>
                                 {/* <Nav.Link  href="#products" className='page-scroll'>Products</Nav.Link> */}
                                 <NavDropdown href="#products" className='page-scroll' title="Our Products" id="basic-nav-dropdown">
-                                    <NavDropdown.Item as={Link} to='/products/harvestams'>Harvest AMS</NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to='/products/harvestpay'>Harvest Pay</NavDropdown.Item>
                                     <NavDropdown.Item as={Link} to='/products/harvestdata' key="1">Harvest Data</NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to='/products/harvestams'>Harvest AMS</NavDropdown.Item>
                                     <NavDropdown.Item as={Link} to='/products/harvestcrm'>Harvest CRM</NavDropdown.Item>
+                                    <NavDropdown.Item as={Link} to='/products/harvestemis'>Harvest EMIS</NavDropdown.Item>
                                     {/* <NavDropdown.Divider /> */}
                                     {/* <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item> */}
                                 </NavDropdown>

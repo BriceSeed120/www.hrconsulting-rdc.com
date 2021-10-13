@@ -14,9 +14,9 @@ const Footer = () => {
                                     <img src={whiteLogo} className="image-fluid" width="150" />
                                     <p>Where we make your simple and easy business processes</p>
                                     <div className="social-links mt-3">
-                                        <a className="facebook" href=""><Icon.Facebook className="icon ml-3 social-icon" /></a> 
-                                        <a className="twitter" href=""><Icon.Twitter className="icon ml-3 social-icon" /></a>
-                                        <a className="linkedin" href=""><Icon.Linkedin className="icon ml-3 social-icon" /></a>
+                                        <a className="facebook" target="_blank" href="https://www.facebook.com/seed120ltd"><Icon.Facebook className="icon ml-3 social-icon" /></a> 
+                                        <a className="twitter" target="_blank" href="https://mobile.twitter.com/Seed120L"><Icon.Twitter className="icon ml-3 social-icon" /></a>
+                                        <a className="linkedin" target="_blank" href="https://www.linkedin.com/company/seed120-ltd/"><Icon.Linkedin className="icon ml-3 social-icon" /></a>
                                     </div>
                                 </div>
                                 <div className="col-lg-2 col-6 footer-links">
@@ -32,19 +32,20 @@ const Footer = () => {
                                 <div className="col-lg-2 col-6 footer-links">
                                     <h4>Our Products</h4>
                                     <ul>
+                                        <li><Link to='/products/harvestpayroll' className="a">Havest Payroll</Link></li>
+                                        <li> <Link to='/products/harvestdata' className="a">Harvest Data</Link></li>
                                         <li><Link to='/products/harvestams' className="a">Havest AMS</Link></li>
-                                        <li> <Link to='/products/harvestams' className="a">Harvest Data</Link></li>
-                                        <li> <Link to='/products/harvestams' className="a">Harvest CRM</Link></li>
+                                        <li> <Link to='/products/harvestcrm' className="a">Harvest CRM</Link></li>
+                                        <li> <Link to='/products/harvestemis' className="a">Harvest EMIS</Link></li>
                                     </ul>
                                 </div>
                                 <div className="col-lg-3 col-md-12 footer-contact text-center text-md-start">
                                     <h4>Contact Us</h4>
                                     <p>
-                                    85 Avenue de l'Indépendance - Bonapriso, Douala, B.P: 3948 <br/>
-                                    Douala, Cameroon<br/>
+                                    2367 Avenue Gen. De GAULLE Bonapriso, ancien aéroport. BP 3948, Douala Cameroun<br/>
                                     <br/>
-                                    <strong>Phone:</strong> +237 6 58 58 30 23<br/>
-                                    <strong>Email:</strong>info@seed120.com<br/>
+                                    <strong>Phone:</strong> +237 6 94 80 84 09<br/>
+                                    <strong>Email:</strong><a href="mailto:sales@seed120.com"> sales@seed120.com</a><br/>
                                     </p>
                                 </div>
                             </div>

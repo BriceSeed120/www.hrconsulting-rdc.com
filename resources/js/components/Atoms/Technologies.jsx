@@ -53,22 +53,25 @@ const Technologies = () => {
       }; 
     
     return(
-        <div>
-            <div className="logo-erea">
+        <>
+        <section>
+          <div className="logo-erea">
             <h2 className='tech-title'><center>Technologies <span>We Use</span></center></h2>
-                <Slider className='mt-10' {...settings}>
-                    <div className="sliderr"><img className='img-fluid techimage' src={image1} alt="" /></div>
-                    <div className="sliderr"><img className='img-fluid techimage' src={image2} alt="" /></div>
-                    <div className="sliderr"><img className='img-fluid techimage' src={image3} alt="" /></div>
-                    <div className="sliderr"><img className='img-fluid techimage' src={image4} alt="" /></div>
-                    <div className="sliderr"><img className='img-fluid techimage' src={image5} alt="" /></div>
-                    <div className="sliderr"><img className='img-fluid techimage' src={image6} alt="" /></div>
-                    <div className="sliderr"><img className='img-fluid techimage' src={image7} alt="" /></div>
-                    {/* <div className="slide"><img className='img-fluid' src={image1} alt="" /></div>
-                    <div className="slide"><img className='img-fluid' src={image1} alt="" /></div> */}
-                </Slider>                
-            </div>
-        </div>
+              <Slider className='mt-10 sliderrr' {...settings}>
+                  <div className="sliderr"><img className='img-fluid techimage' src={image1} alt="" /></div>
+                  <div className="sliderr"><img className='img-fluid techimage' src={image2} alt="" /></div>
+                  <div className="sliderr"><img className='img-fluid techimage' src={image3} alt="" /></div>
+                  <div className="sliderr"><img className='img-fluid techimage' src={image4} alt="" /></div>
+                  <div className="sliderr"><img className='img-fluid techimage' src={image5} alt="" /></div>
+                  <div className="sliderr"><img className='img-fluid techimage' src={image6} alt="" /></div>
+                  <div className="sliderr"><img className='img-fluid techimage' src={image7} alt="" /></div>
+                  {/* <div className="slide"><img className='img-fluid' src={image1} alt="" /></div>
+                  <div className="slide"><img className='img-fluid' src={image1} alt="" /></div> */}
+              </Slider>                
+          </div>
+        </section>
+           
+        </>
     )
 }
 

@@ -26,12 +26,13 @@ const Team = () => {
                                 <p className="text-muted member-post">
                                     CEO, Seed120 Ltd.
                                 </p>
-                                <a href="https://twitter.com/"><Icon.Twitter className="icon" color="#09b6b0" /></a>
-                                <a href="https://www.linkedin.com/"><Icon.Linkedin className="icon ml-3" color="#09b6b0" /></a>
+                                {/* <a className='member-links' href="https://twitter.com/"><Icon.Twitter className="icon" color="#09b6b0" /></a> */}
+                                <a className='member-links' href="https://www.linkedin.com/in/hubert-nana-a1b9aa55/" target="_blank"><Icon.Linkedin className="icon ml-3" color="#09b6b0" /></a>
+                                {/* <a className="member-email" href="mailto:hubert.nana@seed120.com">hubert.nana@seed120.com</a> */}
                             </div>
                         </div>  
                         <div className="member-text row ml-2">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi quas iure ut ex, expedita rerum explicabo, dolorum quidem.
+                            <a className="member-email" href="mailto:hubert.nana@seed120.com" target="_blank">hubert.nana@seed120.com</a>
                         </div>
                     </div>
 
@@ -45,13 +46,13 @@ const Team = () => {
                                 <p className="text-muted member-post">
                                     FCO , Seed120 Software Ltd.
                                 </p>
-                                <a href="https://twitter.com/"><Icon.Twitter className="icon" color="#09b6b0" /></a>
-                                <a href="https://www.linkedin.com/"><Icon.Linkedin className="icon ml-3" color="#09b6b0" /></a>
+                                {/* <a href="https://twitter.com/"><Icon.Twitter className="icon" color="#09b6b0" /></a> */}
+                                <a href=" https://www.linkedin.com/in/salouck-bambang-8b16b336/" target="_blank"><Icon.Linkedin className="icon ml-3" color="#09b6b0" /></a>
                             </div>
                         </div>  
                         
                         <div className="member-text row ml-2">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi quas iure ut ex, expedita rerum explicabo, dolorum quidem.
+                        <a className="member-email" href="mailto:salouck.bambang@seed120.com " target="_blank">salouck.bambang@seed120.com </a>
                         </div>
                     </div>
 
@@ -63,14 +64,14 @@ const Team = () => {
                             <div className="col-md-8 mt-2">
                                 <h5 className='mt-6'>Marcial TCHATCHOUA</h5>
                                 <p className="text-muted member-post">
-                                    Chief Information Officer (CIO), Seed120
+                                    Chief Information Officer (CIO), Seed120 Ltd.
                                 </p>
-                                <a href="https://twitter.com/"><Icon.Twitter className="icon" color="#09b6b0" /></a>
-                                <a href="https://www.linkedin.com/"><Icon.Linkedin className="icon ml-3" color="#09b6b0" /></a>
+                                {/* <a href="https://twitter.com/"><Icon.Twitter className="icon" color="#09b6b0" /></a> */}
+                                <a href="https://www.linkedin.com/in/marcial-tchatchoua-8723674/" target="_blank"><Icon.Linkedin className="icon ml-3" color="#09b6b0" /></a>
                             </div>
                         </div>  
                         <div className="member-text row ml-2">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi quas iure ut ex, expedita rerum explicabo, dolorum quidem.
+                        <a className="member-email" href="mailto:marcial.tchatchoua@seed120.com " target="_blank">marcial.tchatchoua@seed120.com </a>
                         </div>
                     </div>
                 </div>
@@ -82,16 +83,16 @@ const Team = () => {
                                 <img src={image3} className="img-fluid rounded-start"/>
                             </div>  
                             <div className="col-md-8 mt-2">
-                                <h5 className='mt-6'>Nur Alam Sumon</h5>
+                                <h5 className='mt-6'>MOHAMMAD Nur Alam </h5>
                                 <p className="text-muted member-post">
-                                    Chief Technology Officer (CTO), Seed120 Software Ltd.
+                                    Chief Technology Officer (CTO), Seed120 Ltd.
                                 </p>
-                                <a href="https://twitter.com/"><Icon.Twitter className="icon" color="#09b6b0" /></a>
-                                <a href="https://www.linkedin.com/"><Icon.Linkedin className="icon ml-3" color="#09b6b0" /></a>
+                                {/* <a href="https://twitter.com/"><Icon.Twitter className="icon" color="#09b6b0" /></a> */}
+                                <a href="https://www.linkedin.com/in/sumon1216/" target="_blank"><Icon.Linkedin className="icon ml-3" color="#09b6b0" /></a>
                             </div>
                         </div>  
                         <div className="member-text row ml-2">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi quas iure ut ex, expedita rerum explicabo, dolorum quidem.
+                        <a className="member-email" href="mailto:na.sumon@seed120.com" target="_blank">na.sumon@seed120.com</a>
                         </div>
                     </div>
 
@@ -104,15 +105,15 @@ const Team = () => {
                                 <h5 className='mt-6'>QUAZI RUHUL ABRAR</h5>
                                 <p className="text-muted member-post">
                                     Business Development Manager(BDM), 
-                                    Seed120 Software Ltd.
+                                    Seed120 Ltd.
                                 </p>
-                                <a href="https://twitter.com/"><Icon.Twitter className="icon" color="#09b6b0" /></a>
-                                <a href="https://www.linkedin.com/"><Icon.Linkedin className="icon ml-3" color="#09b6b0" /></a>
+                                {/* <a href="https://twitter.com/"><Icon.Twitter className="icon" color="#09b6b0" /></a> */}
+                                <a href=" https://www.linkedin.com/in/abrar806/" target="_blank"><Icon.Linkedin className="icon ml-3" color="#09b6b0" /></a>
                             </div>
                         </div>  
                         
                         <div className="member-text row ml-2">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi quas iure ut ex, expedita rerum explicabo, dolorum quidem.
+                        <a className="member-email" href="mailto:abrar.ruhul@seed120.com" target="_blank">abrar.ruhul@seed120.com</a>
                         </div>
                     </div>
 
@@ -124,14 +125,55 @@ const Team = () => {
                             <div className="col-md-8 mt-2">
                                 <h5 className='mt-6'>Reaz Hossain</h5>
                                 <p className="text-muted member-post">
-                                    Software Engineer, Seed120 Software Ltd.
+                                    Software Engineer, Seed120 Ltd.
                                 </p>
-                                <a href="https://twitter.com/"><Icon.Twitter className="icon" color="#09b6b0" /></a>
-                                <a href="https://www.linkedin.com/"><Icon.Linkedin className="icon ml-3" color="#09b6b0" /></a>
+                                {/* <a href="https://twitter.com/"><Icon.Twitter className="icon" color="#09b6b0" /></a> */}
+                                <a href=" https://www.linkedin.com/in/reaz-hossain-42b736144/" target="_blank"><Icon.Linkedin className="icon ml-3" color="#09b6b0" /></a>
                             </div>
                         </div>  
                         <div className="member-text row ml-2">
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi quas iure ut ex, expedita rerum explicabo, dolorum quidem.
+                        <a className="member-email" href="mailto:reaz.hossain@seed120.com " target="_blank">reaz.hossain@seed120.com </a>
+                        </div>
+                    </div>
+                </div>
+                <div className="row top-buffer mx-md-n5">
+                    <div className="col-md-4 member-box">
+                        <div className="row">
+                            <div className="col-md-4">
+                                <img src={image7} className="img-fluid rounded-start"/>
+                            </div>  
+                            <div className="col-md-6 mt-2">
+                                <h5 className='mt-6'>Michelle BIDIAS</h5>
+                                <p className="text-muted member-post">
+                                    Sales Representative, Seed120 Ltd.
+                                </p>
+                                {/* <a className='member-links' href="https://twitter.com/"><Icon.Twitter className="icon" color="#09b6b0" /></a> */}
+                                <a className='member-links' href="https://www.linkedin.com/in/hubert-nana-a1b9aa55/" target="_blank"><Icon.Linkedin className="icon ml-3" color="#09b6b0" /></a>
+                                {/* <a className="member-email" href="mailto:hubert.nana@seed120.com">hubert.nana@seed120.com</a> */}
+                            </div>
+                        </div>  
+                        <div className="member-text row ml-2">
+                            <a className="member-email" href="mailto:michelle.zintchem@seed120.com" target="_blank">michelle.zintchem@seed120.com</a>
+                        </div>
+                    </div>
+
+                    <div className="col-md-4 member-box  ">
+                        <div className="row ">
+                            <div className="col-md-4">
+                                <img src={image6} className="img-fluid rounded-start"/>
+                            </div>  
+                            <div className="col-md-8 mt-2">
+                                <h5 className='mt-6'>Simon Brice MELONG</h5>
+                                <p className="text-muted member-post">
+                                    Web & Graphic Designer, Seed120 Ltd.
+                                </p>
+                                {/* <a href="https://twitter.com/"><Icon.Twitter className="icon" color="#09b6b0" /></a> */}
+                                <a href="https://www.linkedin.com/in/brice-melong-503443175/" target="_blank"><Icon.Linkedin className="icon ml-3" color="#09b6b0" /></a>
+                            </div>
+                        </div>  
+                        
+                        <div className="member-text row ml-2">
+                        <a className="member-email" href="nde.brice@seed120.com" target="_blank">nde.brice@seed120.com</a>
                         </div>
                     </div>
                 </div>

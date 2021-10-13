@@ -6,6 +6,8 @@ import {Animated} from "react-animated-css";
 import SlideImage1 from '../../../Images/SlideImage1.png'
 import SlideImage2 from '../../../Images/SlideImage2.png'
 import SlideImage3 from '../../../Images/SlideImage3.png'
+import SlideImage4 from '../../../Images/mobiledev.png'
+import SlideImage5 from '../../../Images/security.png'
 
 const Caroussel = () => {
     return (
@@ -25,7 +27,7 @@ const Caroussel = () => {
                             <h1 className='carousel-title-seed'>SEED120</h1>
                         </Fade>
                         <Fade bottom>
-                            <p>Where we make your simple easy business processes</p>
+                            <p>We Create Your Future</p>
                         </Fade>
                     </div>
                 </Carousel.Item>
@@ -35,14 +37,72 @@ const Caroussel = () => {
                     src={SlideImage2}
                     alt="Second slide"
                     />
-
                     <div className="carousel-caption">
+
+                    <Fade top>
+                            <h1 className='carousel-title'>High Quality ICT/IT/ITES services &</h1>
+                        </Fade>
+                        <Fade left>
+                            <h1 className='carousel-title-seed'>Solutions</h1>
+                        </Fade>
+                        {/* <Fade bottom>
+                            <p>Offshore Software Development team for high-quality at affordable rate</p>
+                        </Fade> */}
                         <Fade top>
-                            <h1 className='carousel-title'>SECOND TITLE</h1>
+                            <h1 className='carousel-title'> </h1>
                         </Fade>
                         <Fade bottom>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat repellat nulla odit, error suscipit maxime numquam perspiciatis fugit minus vero quo. Minus laborum ullam, animi cumque itaque eaque rerum voluptatum.</p>
+                            <p>Offshore Software Development team for high-quality at affordable rates. </p>
                         </Fade>
+                        
+                    </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img
+                    className="d-block w-100 img-lightning"
+                    src={SlideImage4}
+                    alt="Third slide"
+                    />
+
+                    <div className="carousel-caption">
+                    <Fade top>
+                            <h1 className='carousel-title'>Web,Mobile and Customer Software</h1>
+                        </Fade>
+                        <Fade left>
+                            <h1 className='carousel-title-seed'>Application Development</h1>
+                        </Fade>
+                        <Fade bottom>
+                            <p>We Care Your Ideas Come True with ICT</p>
+                        </Fade>
+
+                        <Fade top>
+                            <h1 className='carousel-title'> </h1>
+                        </Fade>
+                        <Fade bottom>
+                            <p></p>
+                        </Fade>
+                    </div>
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img
+                    className="d-block w-100 img-lightning"
+                    src={SlideImage5}
+                    alt="Third slide"
+                    />
+
+                    <div className="carousel-caption">
+
+                    <Fade top>
+                            <h1 className='carousel-title'>ICT/IT/ITES Securities &</h1>
+                        </Fade>
+                        <Fade left>
+                            <h1 className='carousel-title-seed'>Optimization</h1>
+                        </Fade>
+                        <Fade bottom>
+                            <p>We Care Your Ideas Come True with ICT</p>
+                        </Fade>
+
+                   
                     </div>
                 </Carousel.Item>
                 <Carousel.Item>
@@ -53,14 +113,29 @@ const Caroussel = () => {
                     />
 
                     <div className="carousel-caption">
-                        <Fade top>
-                            <h1 className='carousel-title'>SECOND TITLE</h1>
+
+                    <Fade top>
+                            <h1 className='carousel-title'>Take your E-Education Management System (EMIS) </h1>
+                        </Fade>
+                        <Fade left>
+                            <h1 className='carousel-title-seed'>A Step Ahead</h1>
                         </Fade>
                         <Fade bottom>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat repellat nulla odit, error suscipit maxime numquam perspiciatis fugit minus vero quo. Minus laborum ullam, animi cumque itaque eaque rerum voluptatum.</p>
+                            <p>Take a System to Deliver a Complete Online Education Management Experience
+
+
+</p>
                         </Fade>
+
+                   
                     </div>
                 </Carousel.Item>
+
+                
+
+
+
+
             </Carousel>
         </div>
     )
