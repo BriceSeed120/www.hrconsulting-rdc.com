@@ -14,10 +14,12 @@ const Footer = () => {
                                     <img src={whiteLogo} className="image-fluid" width="150" />
                                     <p>Where we make your simple and easy business processes</p>
                                     <div className="social-links mt-3">
-                                        <a className="facebook" target="_blank" href="https://www.facebook.com/seed120ltd"><Icon.Facebook className="icon ml-3 social-icon" /></a> 
+                                        <a className="facebook" target="_blank" href="https://www.facebook.com/seed120ltd"><Icon.Facebook className="icon social-icon" /></a> 
                                         <a className="twitter" target="_blank" href="https://mobile.twitter.com/Seed120L"><Icon.Twitter className="icon ml-3 social-icon" /></a>
                                         <a className="linkedin" target="_blank" href="https://www.linkedin.com/company/seed120-ltd/"><Icon.Linkedin className="icon ml-3 social-icon" /></a>
                                     </div>
+                                    <p><strong>Phone:</strong> +237 6 94 80 84 09<br/></p>
+                                    <p className='footer-email'><strong>Email:</strong><a className='footer-email' href="mailto:sales@seed120.com"> sales@seed120.com</a><br/></p>
                                 </div>
                                 <div className="col-lg-2 col-6 footer-links">
                                     <h4>Useful Links</h4>
@@ -42,10 +44,11 @@ const Footer = () => {
                                 <div className="col-lg-3 col-md-12 footer-contact text-center text-md-start">
                                     <h4>Contact Us</h4>
                                     <p>
-                                    2367 Avenue Gen. De GAULLE Bonapriso, ancien aéroport. BP 3948, Douala Cameroun<br/>
-                                    <br/>
-                                    <strong>Phone:</strong> +237 6 94 80 84 09<br/>
-                                    <strong>Email:</strong><a href="mailto:sales@seed120.com"> sales@seed120.com</a><br/>
+                                    62B Leoforos Spyrou Kyprianou
+                                    Ayios Petros kai Pavlos,CY-3076
+                                    </p>
+                                    <p>
+                                        2367 Avenue Gen. De GAULLE Bonapriso, ancien aéroport. BP 3948, Douala Cameroun
                                     </p>
                                 </div>
                             </div>

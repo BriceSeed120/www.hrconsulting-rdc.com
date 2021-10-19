@@ -25,9 +25,6 @@ import emailjs from 'emailjs-com'
 
 
 const HarvestPay   = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    })
     const  [result,showResult] = useState(false)
         function sendEmail  (e) {
             e.preventDefault()
@@ -41,6 +38,7 @@ const HarvestPay   = () => {
                 e.target.reset()
                 showResult(true)
         }
+        window.scrollTo(0, 0)
     
     return(
         
@@ -146,10 +144,10 @@ const HarvestPay   = () => {
                         <div className="col-lg-6 d-flex flex-column justify-content-center">
                             <div className="conta">
                                 {/* <h3>What is Harvest Data ?</h3> */}
-                                <h2>What is Harvest Pay ?</h2>
-                                {/* <p>
-                                    Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor consequatur itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam et est corrupti.
-                                </p> */}
+                                <h2>WHAT IS HARVEST PAY ?</h2>
+                                <p>
+                                    First ever customized Payroll Solution for Cameroon & Gabon. "Harvest-Pay" is a tool that helps companies can improve the efficiency of the human resource departments. It provides an option that generates salaries automatically every month. "Harvest-Pay" Software is also equipped an attendance management system which tracks employee attendance leading to payroll and pay slip generation for every employee in the organization. Harvest Pay has the capabilities to generate pay slips both English and French language.
+                                </p>
                             </div>
                         </div>
                         <div className="col-lg-6 d-flex align-items-center aos-init aos-animate" data-aos="zoom-out" >

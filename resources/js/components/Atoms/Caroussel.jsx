@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import {Carousel} from 'react-bootstrap';
-import Fade from 'react-reveal/Fade';
+import {Carousel} from 'react-bootstrap'
+import Fade from 'react-reveal/Fade'
 // import {SlideImage1, SlideImage2, SlideImage3} from '../../../Images'
-import {Animated} from "react-animated-css";
+import {Animated} from "react-animated-css"
 import SlideImage1 from '../../../Images/SlideImage1.png'
 import SlideImage2 from '../../../Images/SlideImage2.png'
 import SlideImage3 from '../../../Images/SlideImage3.png'
@@ -27,7 +27,7 @@ const Caroussel = () => {
                             <h1 className='carousel-title-seed'>SEED120</h1>
                         </Fade>
                         <Fade bottom>
-                            <p>We Create Your Future</p>
+                            <p> In the service of your uture !</p>
                         </Fade>
                     </div>
                 </Carousel.Item>
@@ -40,10 +40,10 @@ const Caroussel = () => {
                     <div className="carousel-caption">
 
                     <Fade top>
-                            <h1 className='carousel-title'>High Quality ICT/IT/ITES services &</h1>
+                            <h1 className='carousel-title'>Software solution, Web portal & Customized software</h1>
                         </Fade>
                         <Fade left>
-                            <h1 className='carousel-title-seed'>Solutions</h1>
+                            <h1 className='carousel-title-seed'>Development</h1>
                         </Fade>
                         {/* <Fade bottom>
                             <p>Offshore Software Development team for high-quality at affordable rate</p>
@@ -52,7 +52,7 @@ const Caroussel = () => {
                             <h1 className='carousel-title'> </h1>
                         </Fade>
                         <Fade bottom>
-                            <p>Offshore Software Development team for high-quality at affordable rates. </p>
+                            <p>Expert software development team for high-quality at affordable rates</p>
                         </Fade>
                         
                     </div>
@@ -66,13 +66,13 @@ const Caroussel = () => {
 
                     <div className="carousel-caption">
                     <Fade top>
-                            <h1 className='carousel-title'>Web,Mobile and Customer Software</h1>
+                            <h1 className='carousel-title'>E-Commerce & Mobile</h1>
                         </Fade>
                         <Fade left>
                             <h1 className='carousel-title-seed'>Application Development</h1>
                         </Fade>
                         <Fade bottom>
-                            <p>We Care Your Ideas Come True with ICT</p>
+                            <p>We care your ideas, come true with Seed120</p>
                         </Fade>
 
                         <Fade top>
@@ -99,7 +99,7 @@ const Caroussel = () => {
                             <h1 className='carousel-title-seed'>Optimization</h1>
                         </Fade>
                         <Fade bottom>
-                            <p>We Care Your Ideas Come True with ICT</p>
+                            <p>We ensure the security of your web media.</p>
                         </Fade>
 
                    
@@ -115,16 +115,13 @@ const Caroussel = () => {
                     <div className="carousel-caption">
 
                     <Fade top>
-                            <h1 className='carousel-title'>Take your E-Education Management System (EMIS) </h1>
+                            <h1 className='carousel-title'>Education & Training </h1>
                         </Fade>
                         <Fade left>
-                            <h1 className='carousel-title-seed'>A Step Ahead</h1>
+                            <h1 className='carousel-title-seed'>Services</h1>
                         </Fade>
                         <Fade bottom>
-                            <p>Take a System to Deliver a Complete Online Education Management Experience
-
-
-</p>
+                            <p>We are involved in training your talents to ensure a sustainable future.</p>
                         </Fade>
 
                    

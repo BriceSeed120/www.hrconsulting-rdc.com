@@ -25,17 +25,14 @@ const Products = () =>{
                 <div className="row">
                     <div className="col-md-4 gy-5">
                         <div className="card p-pard text-center product-card shadow-sm">
-                            {/* <img className="card-img-top" src={payLogo} height="10px" width="10px"  alt="" srcSet="" /> */}
                             <div className="card-body">
-                                {/* <h5 className="card-title">Harvest AMS</h5> */}
                                 <div className="card-text product-text text-center text-muted">
                                     Improve the efficiency of 
                                     Human Resources departments within
                                     of your business by outsourcing 
                                     and automating your payroll system.
                                 </div>
-                                {/* <NavDropdown.Item as={Link} to='/products/harvestams'>Harvest AMS</NavDropdown.Item> */}
-                                <Link to="/products/harvestams">
+                                <Link to="/products/harvestpay">
                                     <button type="button" className="btn btn-product mt-3 rounded-pill">Know More</button>
                                 </Link>
                             </div>
@@ -44,20 +41,21 @@ const Products = () =>{
 
                     <div className="col-md-4 gy-5">
                         <div className="card p-pard text-center product-card shadow-sm">
-                            <img className="card-img-top" src={dataLogo} alt="" srcSet="" />
+                            <img className="card-img-top img-fluid" src={dataLogo} alt="" srcSet="" />
                             <div className="card-body">
-                                {/* <h5 className="card-title">Harvest Data</h5> */} 
                                 <div className="card-text product-text text-center text-muted">
                                 The best recruiting methodologies 
                                 depend not only on databases
                                 and technology, but also on connection 
                                 with people, precise match of skills 
                                 and exact fit of culture.
-                                 {/* The company's online career management services include online job advertisement facility, online CV bank access, online application reception and processing facility, enabling job seekers to solve many of the problems associated with traditional recruiting methods and allows them to save time and cost.       */}
-                                </div>
+                                </div >
+                                <div className="modal-footer">
                                     <Link to="/products/harvestdata">
                                         <button type="button" className="btn btn-product mt-3 rounded-pill">Know More</button>
                                     </Link>
+                                </div>
+                                    
                                 </div>
                         </div>
                     </div>
@@ -98,32 +96,16 @@ const Products = () =>{
 
                     <div className="col-md-4 gy-5">
                         <div className="card p-pard text-center product-card shadow-sm">
-                            {/* <img className="card-img-top" src={crmLogo} alt="" srcSet="" /> */}
                             <div className="card-body">
                                 <div className="card-text product-text text-center text-muted">
                                 Harvest EMIS
                                 </div>
-                                    <Link to="/products/harvestcrm">
+                                    <Link to="/products/harvestemis">
                                         <button type="button" className="btn btn-product mt-3 rounded-pill">Know More</button>
                                     </Link> 
                                 </div>
                         </div> 
                     </div>
-
-                    {/* <div className="col-md-4 gy-5">
-                        <div className="card p-pard text-center product-card shadow-sm">
-                            <img className="card-img-top" src={dataLogo} alt="" srcSet="" />
-                            <div className="card-body"> 
-                                <div className="card-text product-text text-center text-muted">
-                                Best recruitment methodologies do not depend only on databases and technology, but also on connecting with the people, matching the skills accurately and getting the culture fit exactly, every time. The best recruitment must have compassion, sector experience and an intuitive understanding of their role in the recruitment process. 
-                                </div>
-                                    <Link to="/products/harvestdata">
-                                        <button type="button" className="btn btn-product mt-3 rounded-pill">Know More</button>
-                                    </Link>
-                                </div>
-                        </div>
-                    </div> */}
-                    
                 </div>
                 </div>
 

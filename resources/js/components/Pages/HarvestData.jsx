@@ -25,9 +25,7 @@ import emailjs from 'emailjs-com'
 
 
 const HarvestData   = () => {
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    })
+    window.scrollTo(0, 0)
     const  [result,showResult] = useState(false)
         function sendEmail  (e) {
             e.preventDefault()
@@ -96,7 +94,7 @@ const HarvestData   = () => {
                                         <Form.Control
                                         as="textarea" 
                                         rows={3} 
-                                        name="message"
+                                       name="message"
                                         placeholder="Message"
                                         className=""
                                         />
@@ -114,10 +112,10 @@ const HarvestData   = () => {
                             <Fade>
                                 <h1 className='product-title'>Find your Dream Job</h1>
                                 <h2 className="text-muted">The best recruiting methodologies 
-                                depend not only on databases
-                                and technology, but also on connection 
-                                with people, precise match of skills 
-                                and exact fit of culture.
+                                    depend not only on databases
+                                    and technology, but also on connection
+                                    with people, precise match of skills 
+                                    and exact fit of culture.
                                 </h2>
                                 <div className="div">
                                     <div className="text-lg-start">
@@ -145,10 +143,16 @@ const HarvestData   = () => {
                         <div className="col-lg-6 d-flex flex-column justify-content-center">
                             <div className="conta">
                                 {/* <h3>What is Harvest Data ?</h3> */}
-                                <h2>What is Harvest Data ?</h2>
-                                {/* <p>
-                                    Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor consequatur itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam et est corrupti.
-                                </p> */}
+                                <h2>WHAT IS HARVEST DATA ?</h2>
+                                <p>
+                                    This is Seed120 Ltd database management system. It provides online career management services. The company's online career management services include online job advertisement facility, online CV bank access, online application reception and processing facility, enabling job seekers to solve many of the problems associated with traditional recruiting methods and allows them to save time and cost. 
+                                </p>
+                                <p>
+                                Best recruitment methodologies do not depend only on databases and technology, but also on connecting with the people, matching the skills accurately and getting the culture fit exactly, every time. The best recruitment must have compassion, sector experience and an intuitive understanding of their role in the recruitment process. 
+
+                                Harvest Data, through its well managed business processes and the advanced technology implemented offers world exposure to job seekers.
+
+                                </p>
                             </div>
                         </div>
                         <div className="col-lg-6 d-flex align-items-center aos-init aos-animate" data-aos="zoom-out" >

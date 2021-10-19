@@ -19,8 +19,16 @@ const AboutUs = (props) =>{
                                 <h2 className='section-title'>About <span>Us</span></h2>
                                 {/* <p className="wellcome-seed">
                                 Welcome to Seed120 Software Solutions Limited </p> */}
-                                <p>Seed120 Ltd is an international IT Business Solutions and Consultancy firm headquartered in Lemesos, Cyprus. Established in 2020, Seed120 provides global services to its clients through its offices in Cyprus, Cameroon and Gabon. Seed120 has strategic business partnerships with many leading and key players in the technology industry.</p>
-                                <p>We have a strong and enthusiastic development team made up of young engineers who have vast experience in software development, apps development and games development to name but a few. We lay emphasis on Research and Development and we delve for innovation in all our products before launching them in the market.</p>
+                                <p>
+                                    <strong><span className="seedWord">Seed120 Ltd</span></strong> is an international <strong className="seedWord">IT Business Solutions and Consultancy firm</strong> headquartered in<strong><span className="seedGreen"> Lemesos, Cyprus</span></strong>. 
+
+                                    Established in 2020, <strong><span className="seedGreen"> Lemesos, Cyprus</span></strong> provides global services to its clients through its offices in <strong><span>Cyprus, Cameroon</span></strong> and <strong><span>Gabon</span></strong>. 
+
+                                    <span> Seed120 Ltd.</span> has strategic business partnerships with many leading and key players in the <strong><span>technology industry</span></strong>. 
+                                </p>
+                                <p>
+                                    We have a strong and enthusiastic development team made up of young engineers who have vast experience on <strong><span>software development, apps development and games development</span></strong> to name but a few. 
+                                    We lay emphasis on <strong>Research and Development </strong> and we delve for innovation in all our products before launching them in the market.                                 </p>
                             </div>
                         </div>
                     </div>

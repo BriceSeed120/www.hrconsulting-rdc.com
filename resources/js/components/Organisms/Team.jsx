@@ -5,8 +5,8 @@ import image1 from '../../../Images/Team/1x/Hubert.png'
 import image2 from '../../../Images/Team/1x/Salouck.png'
 import image3 from '../../../Images/Team/1x/Sumon.png'
 import image8 from '../../../Images/Team/1x/Marcial.png'
-import image4 from '../../../Images/Team/1x/Abrar.png'
-import image5 from '../../../Images/Team/1x/Reaz.png'
+import image4 from '../../../Images/Team/1x/AbrarO.png'
+import image5 from '../../../Images/Team/1x/ReazO.png'
 import image6 from '../../../Images/Team/1x/Dora.png'
 import image7 from '../../../Images/Team/1x/Brice.png'
 
@@ -24,7 +24,7 @@ const Team = () => {
                             <div className="col-md-6 mt-2">
                                 <h5 className='mt-6'>Hubert NANA</h5>
                                 <p className="text-muted member-post">
-                                    CEO, Seed120 Ltd.
+                                    Chief Executive Officer (CEO), Seed120 Ltd.
                                 </p>
                                 {/* <a className='member-links' href="https://twitter.com/"><Icon.Twitter className="icon" color="#09b6b0" /></a> */}
                                 <a className='member-links' href="https://www.linkedin.com/in/hubert-nana-a1b9aa55/" target="_blank"><Icon.Linkedin className="icon ml-3" color="#09b6b0" /></a>
@@ -44,7 +44,7 @@ const Team = () => {
                             <div className="col-md-8 mt-2">
                                 <h5 className='mt-6'>Salouck BAMBANG</h5>
                                 <p className="text-muted member-post">
-                                    FCO , Seed120 Software Ltd.
+                                Chief Financial Officer (CFO) , Seed120 Software Ltd.
                                 </p>
                                 {/* <a href="https://twitter.com/"><Icon.Twitter className="icon" color="#09b6b0" /></a> */}
                                 <a href=" https://www.linkedin.com/in/salouck-bambang-8b16b336/" target="_blank"><Icon.Linkedin className="icon ml-3" color="#09b6b0" /></a>
@@ -99,7 +99,7 @@ const Team = () => {
                     <div className="col-md-4 member-box  ">
                         <div className="row ">
                             <div className="col-md-4">
-                                <img src={image4} className="img-fluid rounded-start"/>
+                                <img src={image4} className="img-fluid rounded-start" width="120px" height='120px'/>
                             </div>  
                             <div className="col-md-8 mt-2">
                                 <h5 className='mt-6'>QUAZI RUHUL ABRAR</h5>
@@ -120,7 +120,7 @@ const Team = () => {
                     <div className="col-md-4 member-box ">
                         <div className="row ">
                             <div className="col-md-4">
-                                <img src={image5} className="img-fluid rounded-start"/>
+                                <img src={image5} className="img-fluid rounded-start" width="120px" height='120px'/>
                             </div>  
                             <div className="col-md-8 mt-2">
                                 <h5 className='mt-6'>Reaz Hossain</h5>
