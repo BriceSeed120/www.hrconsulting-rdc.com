@@ -12,7 +12,7 @@ const AboutUs = (props) =>{
                     </center> */}
                     <div className="row">
                         <div className="col-xs-12 col-md-6 content-fluid">
-                            <ReactPlayer className='rounded img-fluid max-width: 100%' playing={false} controls={true} url="http://www.youtube.com/watch?v=A2HFusWQIeE"></ReactPlayer>
+                            <ReactPlayer className='rounded img-fluid max-width: 100%' playing={false} controls={true} url="https://www.youtube.com/watch?v=wqgh7QFn-H4"></ReactPlayer>
                         </div>
                         <div className="col-xs-12 col-md-6">
                             <div className="about-text">
