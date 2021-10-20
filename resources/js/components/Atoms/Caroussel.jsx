@@ -27,7 +27,7 @@ const Caroussel = () => {
                             <h1 className='carousel-title-seed'>SEED120</h1>
                         </Fade>
                         <Fade bottom>
-                            <p> In the service of your uture !</p>
+                            <p> In the service of your Future !</p>
                         </Fade>
                     </div>
                 </Carousel.Item>
