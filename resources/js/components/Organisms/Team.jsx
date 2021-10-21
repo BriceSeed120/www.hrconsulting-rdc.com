@@ -83,7 +83,7 @@ const Team = () => {
                                 <img src={image3} className="img-fluid rounded-start"/>
                             </div>  
                             <div className="col-md-8 mt-2">
-                                <h5 className='mt-6'>MMohammad Nur Alam  </h5>
+                                <h5 className='mt-6'>Mohammad Nur Alam  </h5>
                                 <p className="text-muted member-post">
                                     Chief Technology Officer (CTO), <br/>
                                     Seed120 Ltd.
