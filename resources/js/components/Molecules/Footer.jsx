@@ -45,7 +45,7 @@ const Footer = () => {
                                     <h4>Contact Us</h4>
                                     <p>
                                     62B Leoforos Spyrou Kyprianou
-                                    Ayios Petros kai Pavlos,CY-3076
+                                    Ayios Petros kai Pavlos,Lemesos, Cyprus-3076
                                     </p>
                                     <p>
                                         2367 Avenue Gen. De GAULLE Bonapriso, ancien aéroport. BP 3948, Douala Cameroun

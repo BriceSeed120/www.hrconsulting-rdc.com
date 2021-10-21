@@ -112,7 +112,7 @@ const HarvestEMIS  = () => {
                             </div>
                             
                             <Fade>
-                                <h1 className='product-title'>Find your Dream Job</h1>
+                                <h1 className='product-title'>For Your Education Management System (EMIS) A Step Ahead</h1>
                                 <h2 className="text-muted">The best recruiting methodologies 
                                 depend not only on databases
                                 and technology, but also on connection 

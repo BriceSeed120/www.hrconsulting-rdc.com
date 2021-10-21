@@ -24,11 +24,7 @@ const NavBar = () => {
                                 <Nav.Link  as={Link} to='/products/harvestdata' key="2">Harvest Data</Nav.Link>
                                 <Nav.Link  as={Link} to='/products/harvestams' key="3">Harvest AMS</Nav.Link>
                                 <Nav.Link as={Link} to='/products/harvestcrm' key="4">Harvest CRM</Nav.Link>
-                                <Nav.Link as={Link} to='/products/harvestemis' key="5">Harvest IEMS</Nav.Link>
-                                {/* <Nav.Link  href="#products" className='page-scroll'>Products</Nav.Link> */}
-                                {/*  */}
-                                {/* <Nav.Link  href="#team" className='page-scroll'>Our Team</Nav.Link>
-                                <Nav.Link  href="#contact" className='page-scroll'>Contact Us</Nav.Link> */}
+                                <Nav.Link as={Link} to='/products/harvestemis' key="5">Harvest EMIS</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>

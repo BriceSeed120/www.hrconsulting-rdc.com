@@ -316,7 +316,7 @@ const HarvestData   = () => {
                             </div>
                             
                             <Fade>
-                                <h1 className='product-title'>Find your Dream Job</h1>
+                                <h1 className='product-title'>Best CRM software for every Business</h1>
                                 <h2 className="text-muted">The best recruiting methodologies 
                                     depend not only on databases
                                     and technology, but also on connection

@@ -24,7 +24,7 @@ const Caroussel = () => {
                             <h1 className='carousel-title'>WELCOME TO</h1>
                         </Fade>
                         <Fade left>
-                            <h1 className='carousel-title-seed'><title>SEED120</title></h1>
+                            <h1 className='carousel-title-seed' translate="no">SEED120</h1>
                         </Fade>
                         <Fade bottom>
                             <p> In the service of your Future !</p>

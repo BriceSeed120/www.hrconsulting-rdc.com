@@ -110,7 +110,7 @@ const HarvestPay   = () => {
                             </div>
                             
                             <Fade>
-                                <h1 className='product-title'>Manage Esealy Your Payroll</h1>
+                                <h1 className='product-title'>Manage Easily Your Payroll</h1>
                                 <h2 className="text-muted">
                                     Improve the efficiency of 
                                     Human Resources departments within

@@ -20,9 +20,9 @@ const AboutUs = (props) =>{
                                 {/* <p className="wellcome-seed">
                                 Welcome to Seed120 Software Solutions Limited </p> */}
                                 <p>
-                                    <strong><span className="seedWord">Seed120 Ltd</span></strong> is an international <strong className="seedWord">IT Business Solutions and Consultancy firm</strong> headquartered in<strong><span className="seedGreen"> Lemesos, Cyprus</span></strong>. 
+                                    <strong><span className="seedWord">Seed120 Ltd.</span></strong> is an international <strong className="seedWord">IT Business Solutions and Consultancy firm</strong> headquartered in<strong><span className="seedGreen"> Lemesos, Cyprus</span></strong>. 
 
-                                    Established in 2020, <strong><span className="seedGreen"> Lemesos, Cyprus</span></strong> provides global services to its clients through its offices in <strong><span>Cyprus, Cameroon</span></strong> and <strong><span>Gabon</span></strong>. 
+                                    Established in 2020, <strong><span className="seedGreen"> Seed120 Ltd.</span></strong> provides global services to its clients through its offices in <strong><span>Cyprus, Cameroon</span></strong> and <strong><span>Gabon</span></strong>. 
 
                                     <span> Seed120 Ltd.</span> has strategic business partnerships with many leading and key players in the <strong><span>technology industry</span></strong>. 
                                 </p>
