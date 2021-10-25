@@ -7596,9 +7596,88 @@ a.close.disabled {
   font-size: 60px;
 }
 
-@media screen and (min-width: 601px) {
-  div.example {
-    font-size: 80px;
+
+/* @media (min-width: 1024px) {
+  .carousel-title-seed{
+    font-size: 130px;
+  }
+} */
+
+/* @media (max-width: 991px) {
+  .carousel-title-seed{
+    font-size: 27.2px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-title-seed{
+    font-size: 24.4px;
+  }
+} */
+
+
+/* @media (min-width: 601px) {
+  .carousel-title-seed{
+    font-size: 21.6px;
+  }
+} */
+
+/* @media (min-width: 400px) {
+  .carousel-title-seed {
+      font-size: 1.3rem;
+  }
+}
+
+@media (min-width: 600px) {
+  .carousel-title-seed {
+      font-size: 30px;
+  }
+}
+
+@media (min-width: 800px) {
+  .carousel-title-seed {
+      font-size: 40px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .carousel-title-seed {
+      font-size:60px;
+  }
+} */
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+  .carousel-title-seed {
+    font-size: 20px;
+  }
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+  .carousel-title-seed {
+    font-size: 30px;
+  }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+  .carousel-title-seed {
+    font-size: 40px;
+  }
+}
+
+/* // X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+  .carousel-title-seed {
+    font-size:50px;
+  }
+}
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { 
+  .carousel-title-seed {
+    font-size:60px;
   }
 }
 
@@ -7609,9 +7688,9 @@ a.close.disabled {
   }
 }
 
-.seedWord{
+/* .seedWord{
   color: 
-}
+} */
 
 
 .carousel-caption {

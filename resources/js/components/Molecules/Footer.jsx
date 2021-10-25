@@ -1,9 +1,19 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 import whiteLogo from '../../../Images/whiteLogo.png'
 import * as Icon from 'react-bootstrap-icons'
 import { BrowserRouter as Router , Route, Switch, Link } from 'react-router-dom'
+import ReactGA from 'react-ga'
 
-const Footer = () => {
+
+
+function Footer(){
+
+    useEffect(()=>{
+        ReactGA.initialize('G-SJRRTFW7D0')
+
+        ReactGA.pageview('/')
+    }, [])
+
         return(
             <div>
                 <footer id="footer" className="footer">
