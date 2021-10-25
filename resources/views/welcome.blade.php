@@ -28,6 +28,14 @@
     <body class="antialiased">
         <div id="index" class=''></div>
 
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-VTL0V61L34"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-VTL0V61L34');
+        </script>
         <script src="{{ asset('js/app.js') }}"  defer></script>
     </body>
 </html>

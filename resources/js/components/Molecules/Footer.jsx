@@ -9,7 +9,7 @@ import ReactGA from 'react-ga'
 function Footer(){
 
     useEffect(()=>{
-        ReactGA.initialize('G-VTL0V61L34')
+        ReactGA.initialize('G-P90JNRPQ0F')
 
         ReactGA.pageview('/')
     }, [])
