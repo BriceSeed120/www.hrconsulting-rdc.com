@@ -7593,7 +7593,7 @@ a.close.disabled {
 .carousel-title-seed{
   color : #09b6b0;
   font-weight: bold;
-  font-size: 60px;
+  /* font-size: 60px; */
 }
 
 
@@ -7646,15 +7646,16 @@ a.close.disabled {
   }
 } */
 
-/* // Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { 
-  .carousel-title-seed {
-    font-size: 20px;
-  }
-}
+
 
 /* // Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) { 
+  .caroussel-description {
+    font-size: 10px;
+  }
+  .carousel-title {
+    font-size: 20px;
+  }
   .carousel-title-seed {
     font-size: 30px;
   }
@@ -7662,6 +7663,12 @@ a.close.disabled {
 
 /* // Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
+  .caroussel-description {
+    font-size: 12px;
+  }
+  .carousel-title {
+    font-size: 26px;
+  }
   .carousel-title-seed {
     font-size: 40px;
   }
@@ -7669,15 +7676,38 @@ a.close.disabled {
 
 /* // X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
-  .carousel-title-seed {
+  .caroussel-description {
+    font-size:14px;
+  }
+  .carousel-title {
+    font-size:36px;
+  }
+  .carousel-title {
     font-size:50px;
   }
 }
 
-/* // XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) { 
+
+@media (max-width: 576px) { 
+
+  .carousel{
+    margin-top: 50px;
+  }
+  
+  .carousel-control-next-icon {
+    width: 10px;
+  }
+  .caroussel-description {
+    font-size: 8px;
+  }
+  .caroussel-description {
+    font-size: 8px;
+  }
+  .carousel-title {
+    font-size: 10px;
+  }
   .carousel-title-seed {
-    font-size:60px;
+    font-size: 14px;
   }
 }
 
@@ -7803,7 +7833,7 @@ a.close.disabled {
 .service{
   border-radius: 3px;
   
-  display: flex;
+  /* display: flex; */
   justify-content: center;
 }
 

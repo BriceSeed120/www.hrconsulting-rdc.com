@@ -27,7 +27,7 @@ const Caroussel = () => {
                             <h1 className='carousel-title-seed' translate="no">SEED120</h1>
                         </Fade>
                         <Fade bottom>
-                            <p> In the service of your Future !</p>
+                            <p className="caroussel-description"> In the service of your Future !</p>
                         </Fade>
                     </div>
                 </Carousel.Item>
@@ -52,7 +52,7 @@ const Caroussel = () => {
                             <h1 className='carousel-title'> </h1>
                         </Fade>
                         <Fade bottom>
-                            <p>Expert software development team for high-quality at affordable rates</p>
+                            <p className="caroussel-description">Expert software development team for high-quality at affordable rates</p>
                         </Fade>
                         
                     </div>
@@ -72,7 +72,7 @@ const Caroussel = () => {
                             <h1 className='carousel-title-seed'>Application Development</h1>
                         </Fade>
                         <Fade bottom>
-                            <p>We care your ideas, come true with Seed120</p>
+                            <p className="caroussel-description">We care your ideas, come true with Seed120</p>
                         </Fade>
 
                         <Fade top>
@@ -99,7 +99,7 @@ const Caroussel = () => {
                             <h1 className='carousel-title-seed'>Optimization</h1>
                         </Fade>
                         <Fade bottom>
-                            <p>We ensure the security of your web media.</p>
+                            <p className="caroussel-description">We ensure the security of your web media.</p>
                         </Fade>
 
                    
@@ -121,7 +121,7 @@ const Caroussel = () => {
                             <h1 className='carousel-title-seed'>Services</h1>
                         </Fade>
                         <Fade bottom>
-                            <p>We are involved in training your talents to ensure a sustainable future.</p>
+                            <p className="caroussel-description">We are involved in training your talents to ensure a sustainable future.</p>
                         </Fade>
 
                    

@@ -58,7 +58,7 @@ const services = [
                 </p>
                 </center>
                 <div className="row services-row gy-5">
-                    <div className="col-md-4">
+                    <div className="col-lg-4">
                         <div className="service rounded  col-md-offset-2 card">
                             {/* <img src={serviceImage1} alt="" className="service-image" />
                             
@@ -97,7 +97,7 @@ const services = [
                             </div>
                         </div>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-lg-4">
                         <div className="service rounded  card">
                             {/* <img src={serviceImage1} alt="" className="service-image" />
                             
@@ -127,7 +127,7 @@ const services = [
                         </div>
                     </div>
                     
-                    <div className="col-md-4">
+                    <div className="col-lg-4">
                         <div className="service rounded   card">
                             {/* <img src={serviceImage1} alt="" className="service-image" />
                             
@@ -155,7 +155,7 @@ const services = [
                 </div>
 
                 <div className="row services-row gy-5">
-                    {/* <div className="col-md-4">
+                    {/* <div className="col-lg-4">
                         <div className="service rounded card">
                             <div className="card">
                                 <div className="card-image">
@@ -174,7 +174,7 @@ const services = [
                             </div>
                         </div>
                     </div> */}
-                    <div className="col-md-4">
+                    <div className="col-lg-4">
                         <div className="service rounded  card">
                             {/* <img src={serviceImage1} alt="" className="service-image" />
                             
@@ -197,7 +197,7 @@ const services = [
                             </div>
                         </div>
                     </div> 
-                    <div className="col-md-4">
+                    <div className="col-lg-4">
                         <div className="service rounded  card">
                             {/* <img src={serviceImage1} alt="" className="service-image" />
                             
