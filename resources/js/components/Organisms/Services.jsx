@@ -50,7 +50,8 @@ const services = [
  const Services = (props) => {
      return(
          <> 
-            <section id='services' className='container section'>
+            <section id='services' className='section'>
+                <div className="container">
                 <h2 className='mt-10 section-titel'><center><span>Our </span>Services</center></h2>
                 <center>
                 <p className=" text-muted section-title">
@@ -59,7 +60,7 @@ const services = [
                 </center>
                 <div className="row services-row gy-5">
                     <div className="col-lg-4">
-                        <div className="service rounded  col-md-offset-2 card">
+                        <div className="sservice rounded d-flex  col-md-offset-2 card">
                             {/* <img src={serviceImage1} alt="" className="service-image" />
                             
                             <p className='service-title'>ICT/IT/ITES Solution & Services </p>
@@ -98,7 +99,7 @@ const services = [
                         </div>
                     </div>
                     <div className="col-lg-4">
-                        <div className="service rounded  card">
+                        <div className="sservice rounded d-flex  card">
                             {/* <img src={serviceImage1} alt="" className="service-image" />
                             
                             <p className='service-title'>Education/Training</p>
@@ -128,7 +129,7 @@ const services = [
                     </div>
                     
                     <div className="col-lg-4">
-                        <div className="service rounded   card">
+                        <div className="sservice rounded d-flex   card">
                             {/* <img src={serviceImage1} alt="" className="service-image" />
                             
                             <p className='service-title'>Consultancy</p>
@@ -156,7 +157,7 @@ const services = [
 
                 <div className="row services-row gy-5">
                     {/* <div className="col-lg-4">
-                        <div className="service rounded card">
+                        <div className="sservice rounded d-flex card">
                             <div className="card">
                                 <div className="card-image">
                                     <img className="img-responsive" src={serviceImage3} height='130' width="400" />
@@ -175,7 +176,7 @@ const services = [
                         </div>
                     </div> */}
                     <div className="col-lg-4">
-                        <div className="service rounded  card">
+                        <div className="sservice rounded d-flex  card">
                             {/* <img src={serviceImage1} alt="" className="service-image" />
                             
                             <p className='service-title'>Education/Training</p>
@@ -198,7 +199,7 @@ const services = [
                         </div>
                     </div> 
                     <div className="col-lg-4">
-                        <div className="service rounded  card">
+                        <div className="sservice rounded d-flex  card">
                             {/* <img src={serviceImage1} alt="" className="service-image" />
                             
                             <p className='service-title'>Education/Training</p>
@@ -224,7 +225,7 @@ const services = [
                         </div>
                     </div>
                     <div className="col-md-4 ">
-                        <div className="service rounded card">
+                        <div className="sservice rounded d-flex card">
                             {/* <img src={serviceImage1} alt="" className="service-image" />
                             <p className='service-title'>Outsourcing</p>
                             <p className='service-text mt-2 text-muted'>Seed120 Ltd does not only provide industry-specific solutions but also dedicates personnel to organizations with technical skills to manage and process back-office transactions.</p> */}
@@ -248,6 +249,7 @@ const services = [
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </section>
          </>

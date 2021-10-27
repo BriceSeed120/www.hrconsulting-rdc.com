@@ -5189,8 +5189,8 @@ input[type=button].btn-block {
 
 .card-footer {
   padding: 0.75rem 1.25rem;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  /* background-color: rgba(0, 0, 0, 0.03); */
+  /* border-top: 1px solid rgba(0, 0, 0, 0.125); */
 }
 
 .card-footer:last-child {
@@ -5237,7 +5237,8 @@ input[type=button].btn-block {
 } */
 
 .p-pard {
-  height: 330px !important;
+  /* height: 330px !important; */
+  padding: 40px 30px;
 }
 
 
@@ -7093,7 +7094,7 @@ a.close.disabled {
   margin: 0;
   color : #222e3b;
   font-weight: bold;
-  font-size: 60px;  
+  font-size: 50px;  
 }
 
 .hero h2 {
@@ -7247,7 +7248,7 @@ a.close.disabled {
   display: inline-block;
   line-height: 0;
   transition: 0.3s;
-  color:white;
+  color:#09b6b0;
 }
 
 .services .service-box h3 {

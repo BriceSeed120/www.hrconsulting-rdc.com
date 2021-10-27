@@ -17,7 +17,7 @@ import HarvestCRM from '../../../Images/1x/HarvestCRM.png'
 import Customer from '../../../Images/Customer.png'
 
 import HarvestPayImage from '../../../Images/1x/HarvestPayImage.png'
-import Attendance from '../../../Images/data.jpg'
+import Payroll from '../../../Images/Payroll.png'
 
 import emailjs from 'emailjs-com'
 
@@ -112,11 +112,7 @@ const HarvestPay   = () => {
                             <Fade>
                                 <h1 className='product-title'>Manage Easily Your Payroll</h1>
                                 <h2 className="text-muted">
-                                    Improve the efficiency of 
-                                    Human Resources departments within
-                                    of your business by outsourcing 
-                                    and automating your payroll system.
-
+                                    Harvest Payroll system take care of Taxation rules and maintain the tax deduction by own.
                                 </h2>
                                 <div className="div">
                                     <div className="text-lg-start">
@@ -146,12 +142,12 @@ const HarvestPay   = () => {
                                 {/* <h3>What is Harvest Data ?</h3> */}
                                 <h2>WHAT IS HARVEST PAY ?</h2>
                                 <p>
-                                    First ever customized Payroll Solution for Cameroon & Gabon. "Harvest-Pay" is a tool that helps companies can improve the efficiency of the human resource departments. It provides an option that generates salaries automatically every month. "Harvest-Pay" Software is also equipped an attendance management system which tracks employee attendance leading to payroll and pay slip generation for every employee in the organization. Harvest Pay has the capabilities to generate pay slips both English and French language.
+                                    First ever customized Payroll Solution for Cameroon, Gabon, Ivory Coast and DRC. "Harvest-Pay" is a tool that helps companies can improve the efficiency of the human resource departments. It provides an option that generates salaries automatically every month. "Harvest-Pay" Software is also equipped an attendance management system which tracks employee attendance leading to payroll and pay slip generation for every employee in the organization. Harvest Pay has the capabilities to generate pay slips both English and French language.
                                 </p>
                             </div>
                         </div>
                         <div className="col-lg-6 d-flex align-items-center aos-init aos-animate" data-aos="zoom-out" >
-                            <img src={Attendance} className="img-fluid" alt=""/>
+                            <img src={Payroll} className="img-fluid" alt=""/>
                         </div>
                     </div>
                 </div>
@@ -168,35 +164,32 @@ const HarvestPay   = () => {
                     </header>
 
                     <div className="row gy-4">
+                        
 
                     <div className="col-lg-4 aos-init aos-animate" >
                         <div className="service-box blue">
-                        <Icon.People className="icon iconSerice ml-3" />
-                        {/* <h3>Nesciunt Mete</h3> */}
+                        <Icon.GearWideConnected className="icon iconSerice ml-3" />
+                        <h3>Attendance</h3>
                         <p>
-                        Solving problems associated with
-traditional recruiting methods
-
+                            Our payroll software is compatible with all kind of biometric device, we will configure your existing biometric device to run with the software. System automatically calculates the overtime, early out, late coming, public holiday, leave parameters.
                         </p>
                         </div>
                     </div>
 
                     <div className="col-lg-4 aos-init aos-animate" >
                         <div className="service-box blue">
-                        <Icon.Calendar className="icon iconSerice ml-3" />
-                        {/* <h3>Nesciunt Mete</h3> */}
-                        <p>Easy online access on all types 
-                        of media
+                        <Icon.CalculatorFill className="icon iconSerice ml-3" />
+                        <h3>Allowance / Deduction</h3>
+                        <p>We have developed this feature as much configurable (pre-set all the taxable, sociable, pensionable) as possible. Fully configurable, set on which allowance is calculated, in FCFA or percentage, allocation period and to whom to allocate.
                         </p>
                         </div>
                     </div>
 
                     <div className="col-lg-4 aos-init aos-animate" >
                         <div className="service-box blue">
-                        <Icon.Gear className="icon iconSerice ml-3" />
-                        {/* <h3>Nesciunt Mete</h3> */}
-                        <p>More than 250 000 varied CVs
-
+                        <Icon.ReceiptCutoff className="icon iconSerice ml-3" />
+                        <h3>Taxation</h3>
+                        <p>Most tough job for any accountant of industry is to maintain tax account of each employee. Our system will just keep you free from maintaining tax account of the employee. Income tax will be deducted from the employee salary as per respective salary slab of the employee after all deduction and income.
                         </p>
                         </div>
                     </div>

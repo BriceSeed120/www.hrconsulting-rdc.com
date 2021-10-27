@@ -111,12 +111,8 @@ const HarvestData   = () => {
                             
                             <Fade>
                                 <h1 className='product-title'>Manage Your Attendances Easily</h1>
-                                <h2 className="text-muted">The best recruiting methodologies 
-                                    depend not only on databases
-                                    and technology, but also on connection
-                                    with people, precise match of skills 
-                                    and exact fit of culture.
-                                </h2>
+                                <h2 className="text-muted">
+                                A cloud-based time and attendance management system that enables you to track the attendance of employees at work, manage and approve leave requests, and get detailed reports for payroll processing and better workforce management.</h2>
                                 <div className="div">
                                     <div className="text-lg-start">
                                         <a className='btn-get-started btn scrollto d-inline-flex align-items-center justify-content-center align-self-center' data-toggle="modal" data-target="#exampleModal">
@@ -173,32 +169,30 @@ const HarvestData   = () => {
 
                     <div className="col-lg-4 aos-init aos-animate" >
                         <div className="service-box blue">
-                        <Icon.People className="icon iconSerice ml-3" />
-                        {/* <h3>Nesciunt Mete</h3> */}
+                        <Icon.ClockHistory className="icon iconSerice ml-3" />
+                        <h3>Clocking In and Out</h3>
                         <p>
-                        Solving problems associated with
-traditional recruiting methods
-
+                            Let’s start with the most obvious and important feature. Needless to say, the main purpose of a time and attendance module is to allow employees to clock in and out easily and keep a record of their working hours. Options should include magnetic card readers, PIN numbers or even biometric scanners that identifies employees’ fingerprints.
                         </p>
                         </div>
                     </div>
 
                     <div className="col-lg-4 aos-init aos-animate" >
                         <div className="service-box blue">
-                        <Icon.Calendar className="icon iconSerice ml-3" />
-                        {/* <h3>Nesciunt Mete</h3> */}
-                        <p>Easy online access on all types 
-                        of media
+                        <Icon.CashCoin className="icon iconSerice ml-3" />
+                        <h3>Payroll Integration</h3>
+                        <p>
+                            Assuming your payroll process has been automated, your time and attendance module should also be able to integrate seamlessly into your payroll functionality; it can provide accurate attendance data for the payroll cycle that can be used to rapidly and accurately calculate salary and other benefits. This, of course, can only be achieved when you have an integrated solution.
                         </p>
                         </div>
                     </div>
 
                     <div className="col-lg-4 aos-init aos-animate" >
                         <div className="service-box blue">
-                        <Icon.Gear className="icon iconSerice ml-3" />
-                        {/* <h3>Nesciunt Mete</h3> */}
-                        <p>More than 250 000 varied CVs
-
+                        <Icon.Archive className="icon iconSerice ml-3" />
+                        <h3>Reporting</h3>
+                        <p>
+                            Your time and attendance software should be able to provide tailored reports and analytics using the system’s data. Expect your software to give you the information to various attendance-related reports, offering insights into hours worked, shift patterns, and so on with a view to constantly improving productivity.
                         </p>
                         </div>
                     </div>

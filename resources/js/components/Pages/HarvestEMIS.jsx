@@ -16,8 +16,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import HarvestCRM from '../../../Images/1x/HarvestCRM.png'
 import Customer from '../../../Images/Customer.png'
 
-import imageHarvest from '../../../Images/1x/HarvestDataImage.png'
-import Attendance from '../../../Images/data.jpg'
+import imageHarvest from '../../../Images/1x/HarvestEMSImage.png'
+import EMS from '../../../Images/Ems.jpg'
 
 import emailjs from 'emailjs-com'
 
@@ -112,7 +112,7 @@ const HarvestEMIS  = () => {
                             </div>
                             
                             <Fade>
-                                <h1 className='product-title'>For Your Education Management System (EMIS) A Step Ahead</h1>
+                                <h1 className='product-title'>For Your Education Management System (EMS)</h1>
                                 <h2 className="text-muted">The best recruiting methodologies 
                                 depend not only on databases
                                 and technology, but also on connection 
@@ -145,14 +145,14 @@ const HarvestEMIS  = () => {
                         <div className="col-lg-6 d-flex flex-column justify-content-center">
                             <div className="conta">
                                 {/* <h3>What is Harvest Data ?</h3> */}
-                                <h2>What is Harvest Data ?</h2>
-                                {/* <p>
-                                    Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor consequatur itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam et est corrupti.
-                                </p> */}
+                                <h2>What is Harvest EMS ?</h2>
+                                <p>
+                                    Harvest EMS is a system that will provide you a bird’s eye view of the functioning of the entire educational institution. It is a management information system helps to manage the different processes in an educational institution like General Administration, Staff Management, Academics, Student Management, and Accounts etc. The information is made using the latest technologies and help’s to make decision making a lot faster, effective and easier than ever before. Also helps to improve the overall quality of education of the institution.
+                               </p>
                             </div>
                         </div>
                         <div className="col-lg-6 d-flex align-items-center aos-init aos-animate" data-aos="zoom-out" >
-                            <img src={Attendance} className="img-fluid" alt=""/>
+                            <img src={EMS} className="img-fluid" alt=""/>
                         </div>
                     </div>
                 </div>
@@ -172,13 +172,9 @@ const HarvestEMIS  = () => {
 
                     <div className="col-lg-4 aos-init aos-animate" >
                         <div className="service-box blue">
-                        <Icon.People className="icon iconSerice ml-3" />
+                        <Icon.BookmarkCheck className="icon iconSerice ml-3" />
                         {/* <h3>Nesciunt Mete</h3> */}
-                        <p>
-                        Solving problems associated with
-traditional recruiting methods
-
-                        </p>
+                        <p>As this is a School management System there must be students, and also there must have an organized way to admit them. At here, User can admit students with fulfilling this form. After getting into all information user can save them as students of that institutions. It also include Students photo on it. It’s easy to identify. Guardian’s information is available with mobile number and photo. </p>
                         </div>
                     </div>
 
@@ -186,19 +182,15 @@ traditional recruiting methods
                         <div className="service-box blue">
                         <Icon.Calendar className="icon iconSerice ml-3" />
                         {/* <h3>Nesciunt Mete</h3> */}
-                        <p>Easy online access on all types 
-                        of media
-                        </p>
+                        <p>This system shows the student attendance. If the User just want to check any required class’s and section’s students attendance of a desired day, User only have to enter the class name, section name and that date, Ant may b the attendance report of a huge number of students would be shown in a couple of minute. User can save, delete or reset the data’s if needed.                   </p>
                         </div>
                     </div>
 
                     <div className="col-lg-4 aos-init aos-animate" >
                         <div className="service-box blue">
-                        <Icon.Gear className="icon iconSerice ml-3" />
+                        <Icon.Spellcheck className="icon iconSerice ml-3" />
                         {/* <h3>Nesciunt Mete</h3> */}
-                        <p>More than 250 000 varied CVs
-
-                        </p>
+                        <p>Subject Wise Marks Entry is marks entry for individual subjects marks entry. When select particular shift, class, year, group, exam-term and subject then its show all student list in grid view. It’s an easy UI for user who entry the marks. He simply input the marks for particular student and save it. If anybody absent in exam then it should be marks in checkbox. When result is published those student result shows automatically absent in those particular subject.</p>
                         </div>
                     </div>
 

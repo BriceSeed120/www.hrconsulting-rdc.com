@@ -222,8 +222,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import HarvestCRM from '../../../Images/1x/HarvestCRM.png'
 import Customer from '../../../Images/Customer.png'
 
-import imageHarvest from '../../../Images/1x/HarvestDataImage.png'
-import Attendance from '../../../Images/data.jpg'
+import imageHarvest from '../../../Images/1x/HarvestCRMImage.png'
+import crm from '../../../Images/crm.jpg'
 
 import emailjs from 'emailjs-com'
 
@@ -317,11 +317,8 @@ const HarvestData   = () => {
                             
                             <Fade>
                                 <h1 className='product-title'>Best CRM software for every Business</h1>
-                                <h2 className="text-muted">The best recruiting methodologies 
-                                    depend not only on databases
-                                    and technology, but also on connection
-                                    with people, precise match of skills 
-                                    and exact fit of culture.
+                                <h2 className="text-muted">Empower your business with best-in-class sales CRM software. Focus on right deals at right time and close more business in less time with Harvest CRM. Nurture customer relationship by getting 360° view of your customer.
+
                                 </h2>
                                 <div className="div">
                                     <div className="text-lg-start">
@@ -349,14 +346,13 @@ const HarvestData   = () => {
                         <div className="col-lg-6 d-flex flex-column justify-content-center">
                             <div className="conta">
                                 {/* <h3>What is Harvest Data ?</h3> */}
-                                <h2>What is Harvest Data ?</h2>
-                                {/* <p>
-                                    Quisquam vel ut sint cum eos hic dolores aperiam. Sed deserunt et. Inventore et et dolor consequatur itaque ut voluptate sed et. Magnam nam ipsum tenetur suscipit voluptatum nam et est corrupti.
-                                </p> */}
+                                <h2>What is Harvest CRM ?</h2>
+                                <p> No matter whether you are a naive startup in the Indian market or a long-standing enterprise; you need an impactful solution to serve your customers with a high degree of excellence.</p>
+                                <p>Revolutionize your customer experience and grow exponentially by expanding your profit margin with a feature-rich CRM Software. Build strong connections with your customers, increase the velocity of your sales, quickly push the deals through the sales pipeline and surpass your competitors by embracing a CRM tailored exclusively for the business needs.</p>
                             </div>
                         </div>
                         <div className="col-lg-6 d-flex align-items-center aos-init aos-animate" data-aos="zoom-out" >
-                            <img src={Attendance} className="img-fluid" alt=""/>
+                            <img src={crm} className="img-fluid" alt=""/>
                         </div>
                     </div>
                 </div>
@@ -376,32 +372,28 @@ const HarvestData   = () => {
 
                     <div className="col-lg-4 aos-init aos-animate" >
                         <div className="service-box blue">
-                        <Icon.People className="icon iconSerice ml-3" />
-                        {/* <h3>Nesciunt Mete</h3> */}
-                        <p>
-                        Solving problems associated with
-traditional recruiting methods
-
-                        </p>
+                        <Icon.Headset className="icon iconSerice ml-3" />
+                        <h3>Customizable CRM</h3>
+                        <p>Harvest CRM is a flexible sales solution that can be tailored to your unique requirements. Customize Harvest CRM according to your business process.</p>
                         </div>
                     </div>
 
                     <div className="col-lg-4 aos-init aos-animate" >
                         <div className="service-box blue">
-                        <Icon.Calendar className="icon iconSerice ml-3" />
-                        {/* <h3>Nesciunt Mete</h3> */}
-                        <p>Easy online access on all types 
-                        of media
-                        </p>
+                        <Icon.PersonBoundingBox className="icon iconSerice ml-3" />
+                        <h3>Harvest CRM is Easy-to-use</h3>
+                        <p>Harvest CRM has a simple interface and is user-friendly. Sales reps can easily adapt and use the CRM without any complications.</p>
+
                         </div>
                     </div>
 
                     <div className="col-lg-4 aos-init aos-animate" >
                         <div className="service-box blue">
-                        <Icon.Gear className="icon iconSerice ml-3" />
-                        {/* <h3>Nesciunt Mete</h3> */}
-                        <p>More than 250 000 varied CVs
-
+                        <Icon.ClipboardCheck className="icon iconSerice ml-3" />
+                        <h3>Deal Management</h3>
+                        <p>Don’t let your deals rot, quickly nurture and close them with effective deal management from Harvest CRM. Know which deals are moving in the lucrative direction and which need your attention with information-rich insights of your deal pipeline.
+                        </p>
+                        <p>                        View each detail about your deal on a single screen with Harvest CRM. Easily add, sort and prioritize high-value deals. Track their activities and change their stages directly without any hassle.
                         </p>
                         </div>
                     </div>
