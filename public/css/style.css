@@ -214,11 +214,11 @@ hr {
   overflow: visible;
 }
 .map{
-  background-color: black;
+  /* background-color: black; */
   width:100%;
-position:absolute;
-top:0;
-right: 0;
+  /* height:350px; */
+  position:absolute;
+  left: 0;
 }
 h1,
 h2,
@@ -2261,7 +2261,7 @@ pre code {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid #ced4da;
-  border-radius: 0.25rem;
+  border-radius: 0;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -7174,7 +7174,7 @@ a.close.disabled {
 
 .about .content {
   /* background-color: #222e3b; */
-  padding: 100px;
+  /* padding: 100px; */
 }
 
 .about h3 {
@@ -7374,6 +7374,21 @@ a.close.disabled {
 
 .services .service-box:hover .icon {
   background: #fff;
+}
+
+/* * [1] The container */ 
+.img-hover-zoom {
+  overflow: hidden; /* [1.2] Hide the overflowing of child elements */
+}
+
+/* [2] Transition property for smooth transformation of images */
+.img-hover-zoom img {
+  transition: transform .5s ease;
+}
+
+/* [3] Finally, transforming the image when container gets hovered */
+.sservice:hover img {
+  transform: scale(1.5);
 }
 
 /*--------------------------------------------------------------
@@ -7743,7 +7758,7 @@ a.close.disabled {
 
 /* About Section */
 #about {
-	padding: 100px 0;
+	/* padding: 100px 0; */
   background-color: rgba(49, 180, 147, .1);
 }
 #about h3 {
@@ -7795,7 +7810,7 @@ a.close.disabled {
   }
 }
 .section{
-  padding: 100px;
+  padding: 20px;
 }
 .section-title{
   position: relative;
@@ -7825,6 +7840,7 @@ a.close.disabled {
 .services-text {
 	line-height: 24px;
   text-align: left;
+  font-size: 13px;
 }
 
 /* #services .row {
@@ -7883,12 +7899,13 @@ a.close.disabled {
   
 }
 .sliderr{
-  width: 100px !important;
-  height: 100px !important;
+  width: 70px !important;
+  height: 70px !important;
   opacity: 0.4;
   filter: alpha(opacity=40); /* msie */
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
+  left: 50%;
 }
 
 
@@ -7988,7 +8005,7 @@ span{
 .wrap {
   /* padding: 4.8rem; */
   position: relative;
-  width: 90%;
+  /* width: 90%; */
 }
 
 .clients {

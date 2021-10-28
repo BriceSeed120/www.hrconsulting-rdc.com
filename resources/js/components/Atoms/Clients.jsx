@@ -10,6 +10,7 @@ import RecruitmentLogo from "../../../Images/1x/RecruitmentLogo.png"
 // import NeshelyLogo from "../../../Images/ClientLogo/Neshely.png"
 // import MaarebLogo from "../../../Images/ClientLogo/Maareb.png"
 // import ParadigmLogo from "../../../Images/ClientLogo/Paradigm.png"
+import Fade from 'react-reveal/Fade';
 
 const Client = () => {
     return(
@@ -70,12 +71,14 @@ const Client = () => {
                 </div> */}
 
                 <div className="wrap">
-                    <ul className="clients">
-                        <li><a href=""><img src="https://www.kallman.com/sites/default/files/u20/RAF.svg" alt="UAE" /></a></li>
-                        <li><a href=""><img src="https://webslides.tv/static/images/logos/airbnb.svg" alt="Airbnb" /></a></li>
-                        <li><a href=""><img src="https://webslides.tv/static/images/logos/apple.svg" alt="Apple" /></a></li>
-                        <li><a href=""><img src="https://webslides.tv/static/images/logos/microsoft.svg" alt="Microsoft" /></a></li>
-                    </ul>
+                    <Fade bottom>
+                        <ul className="clients">
+                            <li><a href=""><img src="https://www.kallman.com/sites/default/files/u20/RAF.svg" alt="UAE" /></a></li>
+                            <li><a href=""><img src="https://webslides.tv/static/images/logos/airbnb.svg" alt="Airbnb" /></a></li>
+                            <li><a href=""><img src="https://webslides.tv/static/images/logos/apple.svg" alt="Apple" /></a></li>
+                            <li><a href=""><img src="https://webslides.tv/static/images/logos/microsoft.svg" alt="Microsoft" /></a></li>
+                        </ul>
+                    </Fade>
                 </div>
             </div>
         </>

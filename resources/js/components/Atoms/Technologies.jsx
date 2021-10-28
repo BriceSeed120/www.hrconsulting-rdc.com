@@ -86,8 +86,8 @@ class Technologies extends Component {
       return(
         <>
         <section>
-          <div className="container">
-            <h2 className='tech-title'><center>Technologies <span>We Use</span></center></h2>
+          <div className="container section">
+            <h2 className='section-titel'><center>Technologies <span>We Use</span></center></h2>
               {/* <Slider className='mt-10 sliderrr' {...settings}>
                   <div className="sliderr"><img className='img-fluid techimage' src={image1} alt="" /></div>
                   <div className="sliderr"><img className='img-fluid techimage' src={image2} alt="" /></div>
