@@ -17,8 +17,8 @@ const Team = () => {
         <div>
             <section id='team' className='container section'>
                 <h2 className='mt-10 section-titel'><center><span>Our </span>Team</center></h2>
-                <div className="row top-buffer mx-md-n5">
-                    <Fade >
+                <div className="row top-buffer mx-md-n5 d-flex justify-content-center">
+                    <Fade className='d-flex justify-content-center'>
                         <div className="col-md-4 member-box">
                             <div className="row">
                                 <div className="col-md-4">
@@ -85,7 +85,7 @@ const Team = () => {
                     </Fade>
                 </div>
 
-                <div className="row top-buffer mx-md-n5">
+                <div className="row top-buffer mx-md-n5 d-flex justify-content-center">
                     <Fade>
                         <div className="col-md-4 member-box">
                             <div className="row">
@@ -149,7 +149,7 @@ const Team = () => {
                         </div>
                     </Fade>
                 </div>
-                <div className="row top-buffer mx-md-n5">
+                <div className="row top-buffer mx-md-n5 d-flex justify-content-center">
                     <Fade>
                         <div className="col-md-4 member-box">
                             <div className="row">

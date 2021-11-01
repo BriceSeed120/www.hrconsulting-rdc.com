@@ -347,7 +347,7 @@ const HarvestData   = () => {
                             <div className="conta">
                                 {/* <h3>What is Harvest Data ?</h3> */}
                                 <h2>What is Harvest CRM ?</h2>
-                                <p> No matter whether you are a naive startup in the Indian market or a long-standing enterprise; you need an impactful solution to serve your customers with a high degree of excellence.</p>
+                                <p> No matter whether you are a naive startup in the International market or a long-standing enterprise; you need an impactful solution to serve your customers with a high degree of excellence.</p>
                                 <p>Revolutionize your customer experience and grow exponentially by expanding your profit margin with a feature-rich CRM Software. Build strong connections with your customers, increase the velocity of your sales, quickly push the deals through the sales pipeline and surpass your competitors by embracing a CRM tailored exclusively for the business needs.</p>
                             </div>
                         </div>
@@ -391,8 +391,8 @@ const HarvestData   = () => {
                         <div className="service-box blue">
                         <Icon.ClipboardCheck className="icon iconSerice ml-3" />
                         <h3>Deal Management</h3>
-                        <p>Don’t let your deals rot, quickly nurture and close them with effective deal management from Harvest CRM. Know which deals are moving in the lucrative direction and which need your attention with information-rich insights of your deal pipeline.
-                        </p>
+                        {/* <p>Don’t let your deals rot, quickly nurture and close them with effective deal management from Harvest CRM. Know which deals are moving in the lucrative direction and which need your attention with information-rich insights of your deal pipeline.
+                        </p> */}
                         <p>                        View each detail about your deal on a single screen with Harvest CRM. Easily add, sort and prioritize high-value deals. Track their activities and change their stages directly without any hassle.
                         </p>
                         </div>

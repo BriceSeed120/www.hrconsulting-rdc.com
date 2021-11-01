@@ -7100,7 +7100,8 @@ a.close.disabled {
 .hero h2 {
   color: #222e3b;
   margin: 15px 0 0 0;
-  font-weight: lighter ;
+  font-weight: 400 ;
+  line-height: 1.6;
   font-size: 13px;
 }
 
