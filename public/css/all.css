@@ -7872,9 +7872,8 @@ a.close.disabled {
 }
 
 .service-image{
-  margin: 0 auto;
-  width: 40px;
-  margin-top: 15px;
+  max-width: 400px;
+  max-height: 130px;
 }
 
 .service-title{
