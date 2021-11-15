@@ -13,18 +13,18 @@ const ContactUs = () =>{
             <h2 className='mt-10 section-titel'><center><span>Contact </span>Us</center></h2>
                 <div className="container">
                     <div className="row services-row gy-5">
-                        <Fade left>
+                        {/* <Fade left> */}
                             <div className="col-md-6 content-fluid map">
                                 {/* <div className="container-fluid map"> */}
                                 <GoogleApiWrapper className='rounded img-fluid'/>
                                 {/* </div> */}
                             </div>
-                        </Fade>
-                        <Fade right>
+                        {/* </Fade> */}
+                        {/* <Fade right> */}
                             <div className="col-md-6 content-fluid">
                                 <Contact />
                             </div>
-                        </Fade>
+                        {/* </Fade> */}
                     </div>
                 </div>
             </div>

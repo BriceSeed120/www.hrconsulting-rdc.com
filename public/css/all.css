@@ -7908,12 +7908,21 @@ a.close.disabled {
   left: 50%;
 }
 
+.techimage-container{
+  padding: 15px;
+  background-color: white;
+}
+
+.techb{
+  background-color: rgba(49, 180, 147, .1);;
+}
 
 .techimage{
   /* vertical-align: middle !important; */
   /* margin-right: 50%; */
   display: block;
   margin-left: auto;
+  /* height: 50px; */
   margin-right: auto
 }
 
