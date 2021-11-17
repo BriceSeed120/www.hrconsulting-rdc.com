@@ -28,7 +28,7 @@ function Footer(){
                                         <a className="twitter" target="_blank" href="https://mobile.twitter.com/Seed120L"><Icon.Twitter className="icon ml-3 social-icon" /></a>
                                         <a className="linkedin" target="_blank" href="https://www.linkedin.com/company/seed120-ltd/"><Icon.Linkedin className="icon ml-3 social-icon" /></a>
                                     </div>
-                                    <p><strong>Phone:</strong> +237 6 94 80 84 09<br/></p>
+                                    <p><strong>Phone:</strong> +237 6 94 80 85 09<br/></p>
                                     <p className='footer-email'><strong>Email:</strong><a className='footer-email' href="mailto:sales@seed120.com"> sales@seed120.com</a><br/></p>
                                 </div>
                                 <div className="col-lg-2 col-6 footer-links">
