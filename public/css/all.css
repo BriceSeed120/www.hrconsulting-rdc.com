@@ -11291,7 +11291,7 @@ section {
   padding-bottom: 40px;
 }
 .section-header h2 {
-  font-size: 13px;
+  /* font-size: 13px; */
   letter-spacing: 1px;
   font-weight: 700;
   margin: 0;
@@ -11301,10 +11301,10 @@ section {
 .section-header p {
   margin: 10px 0 0 0;
   padding: 0;
-  font-size: 38px;
+  font-size: 20px;
   line-height: 42px;
   font-weight: 700;
-  color: #019267;
+  /* color: #019267; */
 }
 @media (max-width: 768px) {
   .section-header p {
@@ -11430,7 +11430,7 @@ section {
 /**
 * Desktop Navigation 
 */
-.navbar {
+/* .navbar {
   padding: 0;
 }
 .navbar ul {
@@ -11527,7 +11527,7 @@ section {
   .navbar .dropdown .dropdown:hover > ul {
     left: -100%;
   }
-}
+} */
 
 /**
 * Mobile Navigation 
@@ -11643,7 +11643,7 @@ section {
 .hero .btn-get-started {
   margin-top: 30px;
   line-height: 0;
-  padding: 15px 40px;
+  padding: 24px 40px;
   border-radius: 4px;
   transition: 0.5s;
   color: #fff;
@@ -11666,6 +11666,7 @@ section {
 }
 .hero .hero-img {
   text-align: right;
+  max-width: 600px;
 }
 @media (min-width: 1024px) {
   .hero {
@@ -11725,7 +11726,7 @@ section {
 }
 .about .content h3 {
   font-weight: 400;
-  font-size: 32px;
+  font-size: 20px;
   /* color: #364146; */
   /* font-family: "Poppins", sans-serif; */
 }
@@ -11739,7 +11740,7 @@ section {
 .about .content ul .ii {
   font-size: 20px;
   padding-right: 4px;
-  color: #28a745;
+  color: #019267;
 }
 .about .content p:last-child {
   margin-bottom: 0;
@@ -11754,7 +11755,7 @@ section {
 .about h3 {
   font-size: 14px;
   font-weight: 700;
-  color: #FFA670;
+  color: #019267;
   text-transform: uppercase;
 }
 .about h2 {
@@ -11969,13 +11970,13 @@ section {
   border-radius: 5px;
 }
 .services .service-box .icon {
-  font-size: 36px;
-  padding: 40px 20px;
+  max-width: 100px;
+  padding: 20px 20px;
   border-radius: 4px;
   position: relative;
   margin-bottom: 25px;
   display: inline-block;
-  line-height: 0;
+  /* line-height: 0; */
   transition: 0.3s;
 }
 .services .service-box h3 {
@@ -12021,18 +12022,18 @@ section {
 .services .service-box.orange:hover {
   background: #f68c09;
 }
-.services .service-box.green {
+/* .services .service-box.green {
   border-bottom: 3px solid #08da4e;
-}
+} */
 .services .service-box.green .icon {
-  color: #08da4e;
-  background: #cffddf;
+  /* color: #08da4e; */
+  background: #fff;
 }
 .services .service-box.green .read-more {
   color: #08da4e;
 }
 .services .service-box.green:hover {
-  background: #08da4e;
+  background: #019267;
 }
 .services .service-box.red {
   border-bottom: 3px solid #e9222c;

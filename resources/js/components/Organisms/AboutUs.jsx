@@ -97,11 +97,9 @@ const AboutUs = (props) =>{
                         </p>
                         </p>
                         <ul>
-                        <li><FontAwesomeIcon icon={faCheckCircle} className='ii'/>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                        <li><FontAwesomeIcon icon={faCheckCircle} className='ii'/> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                        <li><FontAwesomeIcon icon={faCheckCircle} className='ii'/> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperd</li>
+                        <li><FontAwesomeIcon icon={faCheckCircle} className='ii'/> A s'adapter à l'évolution fulgurante de la fonction Ressources Humaines consécutive à la transformation numérique</li>
+                        <li><FontAwesomeIcon icon={faCheckCircle} className='ii'/> A instaurer la confiance au sein de leurs organisations, le partage de la culture d'entreprise et le sens du service qui représentent les leviers principaux d'une performance durable pour leurs entreprises</li>
                         </ul>
-                        <p> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate tera noden carma palorp mades tera.</p>
                     </div>
                 </div>
             </div>

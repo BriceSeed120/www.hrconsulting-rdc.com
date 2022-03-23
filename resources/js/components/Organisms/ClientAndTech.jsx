@@ -1,60 +1,39 @@
 import React from 'react'
+// import { Swiper, SwiperSlide } from 'swiper'
+// import 'swiper/css';
 import Technologies from '../Atoms/Technologies'
 import Clients from '../Atoms/Clients'
 
 
+
 import HsdLogo from "../../../Images/Client Logo/hsd.png"
 // import RecruitmentLogo from "../../../Images/1x/RecruitmentLogo.png"
-import groupdslogo from "../../../Images/Client Logo/groupds.png"
-import BluewireLogo from "../../../Images/Client Logo/Bluewire.png"
-import eccLogo from "../../../Images/Client Logo/ecc.png"
-import EtikaLogo from "../../../Images/Client Logo/Etika.png"
-import NeshelyLogo from "../../../Images/Client Logo/Neshely.png"
-import MaarebLogo from "../../../Images/Client Logo/Maareb.png"
-import ParadigmLogo from "../../../Images/Client Logo/Paradigm.png"
-import IngazLogo from "../../../Images/Client Logo/ingaz.png"
-import ShoplLogo from "../../../Images/Client Logo/shopl.png"
-
+import ElanRdc from "../../../Images/Client Logo/Elan-rdc.png"
 const ClientAndTech = () =>{
     return(
         <>
-            <section id="clients">
+                <section id="clients" className="clients">
+                    <div className="container" data-aos="fade-up">
 
+                        <header className="section-header">
+                        <h2>Nos clients</h2>
+                        <p>Temporibus omnis officia</p>
+                        </header>
 
-                {/* Technologies Used  */}
-
-                <Technologies />
-
-
-                {/* Client sub-section */}
-                <div id='' className='section'>
-                    
-                    <div className='client-section'>
-                        <h2 className='section-titel tech-title'><center><span>Our</span> Client </center></h2>
-                        <div className="wrap">
-                    <ul className="clients">
-                        {/* <li><a href=""><img src={RecruitmentLogo} alt="HSD Human Resource" /></a></li> */}
-                        <li><a href=""><img src={HsdLogo} /></a></li>
-                        <li><a href=""><img src={groupdslogo} alt="Group DS" /></a></li>
-                        <li><a href=""><img src={BluewireLogo} alt="Bluewire" /></a></li>
-                        <li><a href=""><img src={eccLogo} alt="ECC" /></a></li>
-                        <li><a href=""><img src={EtikaLogo} /></a></li>
-                        <li><a href=""><img src={NeshelyLogo} alt="Avis" /></a></li>
-                        <li><a href=""><img src={MaarebLogo} alt="Bluewire" /></a></li>
-                        <li><a href=""><img src={ParadigmLogo} alt="Paradigm" /></a></li>
-                        {/* <li><a href=""><img src={IngazLogo} alt="Ingaz" /></a></li>
-                        <li><a href=""><img src={ShoplLogo} alt="Shopl." /></a></li> */}
-                    </ul>
-                    <ul className="clients">
-                        {/* <li><a href=""><img src={RecruitmentLogo} alt="HSD Human Resource" /></a></li> */}
-                        {/* <li><a href=""><img src={EtikaLogo} /></a></li>
-                        <li><a href=""><img src={NeshelyLogo} alt="Avis" /></a></li>
-                        <li><a href=""><img src={MaarebLogo} alt="Bluewire" /></a></li>
-                        <li><a href=""><img src={ParadigmLogo} alt="ECC" /></a></li> */}
-                    </ul>
+                        <div className="clients-slider swiper">
+                        <div className="swiper-wrapper align-items-center">
+                            <div className="swiper-slide"><img src={ElanRdc} className="img-fluid" alt="" /></div>
+                            <div className="swiper-slide"><img src={ElanRdc} className="img-fluid" alt="" /></div>
+                            <div className="swiper-slide"><img src={ElanRdc} className="img-fluid" alt="" /></div>
+                            <div className="swiper-slide"><img src={ElanRdc} className="img-fluid" alt="" /></div>
+                            <div className="swiper-slide"><img src={ElanRdc} className="img-fluid" alt="" /></div>
+                            <div className="swiper-slide"><img src={ElanRdc} className="img-fluid" alt="" /></div>
+                            <div className="swiper-slide"><img src={ElanRdc} className="img-fluid" alt="" /></div>
+                            <div className="swiper-slide"><img src={ElanRdc} className="img-fluid" alt="" /></div>
+                        </div>
+                        <div className="swiper-pagination"></div>
+                        </div>
                     </div>
-                    </div>
-                </div>
                 </section>
         </>
     )
