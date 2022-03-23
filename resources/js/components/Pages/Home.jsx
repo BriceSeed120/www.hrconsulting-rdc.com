@@ -24,12 +24,12 @@ class Home extends Component {
             <div>
                 <Header />
                 <AboutUs/>
-                <Services />
+                {/* <Services />
                 <Products />
                 <Team/>
                 <ClientAndTech />
                 <ContactUs/>
-                <Footer/>
+                <Footer/> */}
             </div>
         )
     }   

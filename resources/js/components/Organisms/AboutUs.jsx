@@ -1,51 +1,112 @@
 import React from 'react'
-import {Container, Row, Col} from 'react-bootstrap'
-import ReactPlayer from 'react-player'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBrain, faChartLine, faCheckCircle, faComment, faMicrochip, faMoneyBillWave, faPaintBrush } from '@fortawesome/free-solid-svg-icons'
 
-import Fade from 'react-reveal/Fade';
+import aboutussubject from '../../../Images/aboutussubject.png'
+import Fade from 'react-reveal/Fade'
 
 const AboutUs = (props) =>{
     return (
         <>
-            <div className='section' id='about'>
-                <div className="container seed-section ">
-                    {/* <center>
-                        <h1 className='justify-self-center'>About Us</h1>
-                    </center> */}
-                    <div className="row">
-                        <Fade bottom>
-                            <div className="col-xs-12 col-md-6 content-fluid">
-                                <ReactPlayer className='rounded img-fluid max-width: 100%' playing={false} controls={true} url="https://www.youtube.com/watch?v=wqgh7QFn-H4"></ReactPlayer>
-                            </div>
-                        </Fade>
-                        <Fade bottom>
-                            <div className="col-xs-12 col-md-6">
-                                <div className="about-text">
-                                    <h2 className='section-title'>About <span>Us</span></h2>
-                                    {/* <p className="wellcome-seed">
-                                    Welcome to Seed120 Software Solutions Limited </p> */}
-                                    <p>
-                                        <strong><span className="seedWord">Seed120 Ltd.</span></strong> is an international <strong className="seedWord">IT Business Solutions and Consultancy firm</strong> headquartered in<strong><span className="seedGreen"> Lemesos, Cyprus</span></strong>. 
+            <section id="counts" className="counts">
+                <div className="container aos-init aos-animate" data-aos="fade-up">
 
-                                        Established in 2020, <strong><span className="seedGreen"> Seed120 Ltd.</span></strong> provides global services to its clients through its offices in <strong><span>Cyprus, Cameroon</span></strong> and <strong><span>Gabon</span></strong>. 
+                    <div className="row gy-4">
 
-                                        <span> Seed120 Ltd.</span> has strategic business partnerships with many leading and key players in the <strong><span>technology industry</span></strong>. 
-                                    </p>
-                                    <p>
-                                        We have a strong and enthusiastic development team made up of young engineers who have vast experience on <strong><span>software development, apps development and games development</span></strong> to name but a few. 
-                                        We lay emphasis on <strong>Research and Development </strong> and we delve for innovation in all our products before launching them in the market.                                 </p>
-                                </div>
-                            </div>
-                        </Fade>
+                    <div className="col-lg-4 col-md-6 d-flex">
+                        <div className="count-box">
+                        <FontAwesomeIcon icon={faComment} className='i'/>
+                        <div>
+                            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="0" className="purecounter">Tests psychométriques en ligne destinés au recrutement</span>
+                            {/* <p>Happy Clients</p> */}
+                        </div>
+                        </div>
+                    </div>
+
+                    <div className="col-lg-4 col-md-6 d-flex">
+                        <div className="count-box">
+                        <FontAwesomeIcon icon={faMicrochip} className='i'/>
+                        {/* <i className="bi bi-journal-richtext" style="color: #ee6c20;"></i> */}
+                        <div>
+                            <span className="purecounter">Tests de connaissance en IT</span>
+                            {/* <p>Projects</p> */}
+                        </div>
+                        </div>
+                    </div>
+
+                    <div className="col-lg-4 col-md-6 d-flex">
+                        <div className="count-box">
+                        <FontAwesomeIcon icon={faMoneyBillWave} className='i'/>
+                        <div>
+                            <span className="purecounter">Les solutions numériques liées à la gestion de la paie</span>
+                            {/* <p>Hours Of Support</p> */}
+                        </div>
+                        </div>
+                    </div>
+
+                    <div className="col-lg-4 col-md-6 d-flex">
+                        <div className="count-box">
+                        <FontAwesomeIcon icon={faChartLine} className='i'/>                        <div>
+                        <span className="purecounter">Les bilans des compétences</span>
+                        
+                        </div>
+                        </div>
+                    </div>
+
+                    <div className="col-lg-4 col-md-6 d-flex">
+                        <div className="count-box">
+                        <FontAwesomeIcon icon={faBrain} className='i'/>
+                        <div>
+                            <span className="purecounter">Les évaluations des performances</span>
+                            
+                        </div>
+                        </div>
+                    </div>
+                    <div className="col-lg-4 col-md-6 d-flex">
+                        
+                        <div className="count-box">
+                        <FontAwesomeIcon icon={faPaintBrush} className='i'/>
+                        <div>
+                            <span className="purecounter">La gestion des talents.</span>                            
+                        </div>
+                        </div>
+                    </div>
+
+                    </div>
+
+                </div>
+            </section>
+            <section id="about" className="about">
+                <div className="container"><div className="row">
+                    <div className="col-lg-6 aos-init aos-animate"> 
+                    <img src={aboutussubject} className="img-fluid" alt="" />
+                </div>
+                <div className="col-lg-6 d-flex flex-column justify-contents-center">
+                    <div className="content pt-4 pt-lg-0">
+                        <h3>Notre mission</h3>
+                        <p className="fst-italic"> 
+                        &quot;A l&#39;ère où la transformation numérique s&#39;impose comme norme de survie économique à toute entreprise
+                        évoluant dans un environnement concurrentiel, HR Consulting-Rdc accompagne les professionnels
+                        des Ressources Humaines dans le choix et l&#39;acquisition des outils numériques adaptés à leurs besoins
+                        spécifiques en vue de garantir une gestion optimale de leur capital humain&quot;.
+                        </p>
+                        <h3>Notre vision</h3>
+                        <p className="fst-italic"> 
+                        <p className="fst-italic"> 
+                        &quot;A travers les services que nous proposons, notre ambition est d&#39;aider les professionnels des RessourcesHumaines
+                        </p>
+                        </p>
+                        <ul>
+                        <li><FontAwesomeIcon icon={faCheckCircle} className='ii'/>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                        <li><FontAwesomeIcon icon={faCheckCircle} className='ii'/> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                        <li><FontAwesomeIcon icon={faCheckCircle} className='ii'/> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperd</li>
+                        </ul>
+                        <p> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate tera noden carma palorp mades tera.</p>
                     </div>
                 </div>
-                {/* <Container>
-                    <Row>
-                        <Col sm='6'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo sequi dignissimos officiis, obcaecati ipsum nisi, quas aspernatur nemo omnis ipsa saepe harum neque modi consequatur doloribus eaque odit veniam? Amet. of 2</Col>
-                        <Col sm='6'>2 Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro similique molestias quasi ullam minima vero esse accusamus nisi debitis architecto culpa, ex odit, corrupti dolor commodi perferendis. Deleniti, nostrum debitis?</Col>
-                    </Row>
-                </Container> */}
-            </div >
+            </div>
+            </div>
+            </section>
         </>
     )
 }
