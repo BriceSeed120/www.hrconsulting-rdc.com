@@ -1,14 +1,14 @@
 import React from 'react'
 import * as Icon from 'react-bootstrap-icons';
 import { ArrowRight, Twitter,  } from 'react-bootstrap-icons';
-import image1 from '../../../Images/Team/1x/Hubert.png'
-import image2 from '../../../Images/Team/1x/Salouck.png'
-import image3 from '../../../Images/Team/1x/Sumon.png'
-import image8 from '../../../Images/Team/1x/Marcial.png'
-import image4 from '../../../Images/Team/1x/AbrarO.png'
-import image5 from '../../../Images/Team/1x/ReazO.png'
-import image6 from '../../../Images/Team/1x/Dora.png'
-import image7 from '../../../Images/Team/1x/Brice.png'
+// import image1 from '../../../Images/Team/1x/Hubert.png'
+// import image2 from '../../../Images/Team/1x/Salouck.png'
+// import image3 from '../../../Images/Team/1x/Sumon.png'
+// import image8 from '../../../Images/Team/1x/Marcial.png'
+// import image4 from '../../../Images/Team/1x/AbrarO.png'
+// import image5 from '../../../Images/Team/1x/ReazO.png'
+// import image6 from '../../../Images/Team/1x/Dora.png'
+// import image7 from '../../../Images/Team/1x/Brice.png'
 
 import Fade from 'react-reveal/Fade'
 

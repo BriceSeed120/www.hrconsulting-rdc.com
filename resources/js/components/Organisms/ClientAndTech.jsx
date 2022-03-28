@@ -1,14 +1,9 @@
 import React from 'react'
-// import { Swiper, SwiperSlide } from 'swiper'
-// import 'swiper/css';
-import Technologies from '../Atoms/Technologies'
-import Clients from '../Atoms/Clients'
 
-
-
-import HsdLogo from "../../../Images/Client Logo/hsd.png"
-// import RecruitmentLogo from "../../../Images/1x/RecruitmentLogo.png"
 import ElanRdc from "../../../Images/Client Logo/Elan-rdc.png"
+import Perenco from "../../../Images/Client Logo/perenco.png"
+import Arjaan from "../../../Images/Client Logo/arjaan.png"
+import CongoAirWays from "../../../Images/Client Logo/congoairways.png"
 const ClientAndTech = () =>{
     return(
         <>
@@ -21,16 +16,16 @@ const ClientAndTech = () =>{
                         </header>
 
                         <div className="clients-slider swiper">
-                        <div className="swiper-wrapper align-items-center">
-                            <div className="swiper-slide"><img src={ElanRdc} className="img-fluid" alt="" /></div>
-                            <div className="swiper-slide"><img src={ElanRdc} className="img-fluid" alt="" /></div>
-                            <div className="swiper-slide"><img src={ElanRdc} className="img-fluid" alt="" /></div>
-                            <div className="swiper-slide"><img src={ElanRdc} className="img-fluid" alt="" /></div>
-                            <div className="swiper-slide"><img src={ElanRdc} className="img-fluid" alt="" /></div>
-                            <div className="swiper-slide"><img src={ElanRdc} className="img-fluid" alt="" /></div>
-                            <div className="swiper-slide"><img src={ElanRdc} className="img-fluid" alt="" /></div>
-                            <div className="swiper-slide"><img src={ElanRdc} className="img-fluid" alt="" /></div>
-                        </div>
+                            <div className="row swiper-wrapper gx-5 d-flex justify-content-center align-items-center">
+                                <div className="col-3 swiper-slide justify-content-center"><img src={ElanRdc} className="img-fluid" alt="" /></div>
+                                <div className="col-3 swiper-slide justify-content-center"><img src={Perenco} className="img-fluid" alt="" /></div>
+                                <div className="col-3 swiper-slide justify-content-center"><img src={Arjaan} className="img-fluid" alt="" /></div>
+                                <div className="col-3 swiper-slide justify-content-center"><img src={CongoAirWays} className="img-fluid" alt="" /></div>
+                                {/* <div className="col-2 swiper-slide justify-content-center"><img src={ElanRdc} className="img-fluid" alt="" /></div>
+                                <div className="col-2 swiper-slide justify-content-center"><img src={ElanRdc} className="img-fluid" alt="" /></div>
+                                <div className="col-2 swiper-slide justify-content-center"><img src={ElanRdc} className="img-fluid" alt="" /></div>
+                                <div className="col-2 swiper-slide justify-content-center"><img src={ElanRdc} className="img-fluid" alt="" /></div> */}
+                            </div>
                         <div className="swiper-pagination"></div>
                         </div>
                     </div>

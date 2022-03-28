@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import SmoothScroll from 'smooth-scroll'
 
+import $ from 'jquery'
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Header from  '../Organisms/Header'
@@ -19,6 +21,10 @@ export const scroll = new SmoothScroll('a[href*="#"]', {
 
 class Home extends Component {
 
+    componentDidMount (){
+        console.log($(".hero"))
+    }
+
     render(){
         return (
             <div>
@@ -28,8 +34,8 @@ class Home extends Component {
                 {/* <Products /> */}
                 {/* <Team/> */}
                 <ClientAndTech />
-                {/* <ContactUs/> */}
-                {/* <Footer/>  */}
+                <ContactUs/>
+                <Footer/> 
             </div>
         )
     }   

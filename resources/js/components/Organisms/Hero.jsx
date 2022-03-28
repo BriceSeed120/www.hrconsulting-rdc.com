@@ -13,22 +13,22 @@ class Hero extends Component {
                         <div className="col-lg-6 d-flex flex-column justify-content-center">
                         <h1 data-aos="fade-up" className="aos-init aos-animate">La passion pour vos solutions "RH"</h1>
                         <TypeAnimation
-                        cursor={true}
-                        sequence={[
-                        'Recruitment  ',
-                        1000,
-                        'Online Evaluations of employees',
-                        1000,
-                        'Employee Relations Management',
-                        1000,
-                        'Global HR Management Online Counseling ',
-                        1000,
-                        'HR Specific Task Force',
-                        1000,
-                        ]}
-                        wrapper="h2"
-                        repeat={Infinity}
-                    />
+                            cursor={true}
+                            sequence={[
+                            'Recruitment  ',
+                            1000,
+                            'Online Evaluations of employees',
+                            1000,
+                            'Employee Relations Management',
+                            1000,
+                            'Global HR Management Online Counseling ',
+                            1000,
+                            'HR Specific Task Force',
+                            1000,
+                            ]}
+                            wrapper="h2"
+                            repeat={Infinity}
+                        />
                         {/* <h2>
                         Recruitment (Selection of candidates using "Central Test" online tests) / Online Evaluations of employees / Employee Relations Management / Global HR Management Online Counseling / HR Specific Task Force
                         </h2> */}

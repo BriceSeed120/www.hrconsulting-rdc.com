@@ -2,6 +2,13 @@ import React, { Component } from 'react'
 import $ from 'jquery'
 import logo from "../../../Images/logo.png"
 
+// import "../node_modules/jquery/dist/jquery.min.js";
+// import "../node_modules/bootstrap/dist/js/bootstrap.min.js";
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+
+
 import { Navbar, Container, Nav, NavDropdown} from 'react-bootstrap'
 import { BrowserRouter as Router , Route, Switch, Link } from 'react-router-dom'
 
@@ -15,13 +22,13 @@ const NavBar = () => {
                     <Container>
                         <Navbar.Brand href="#"><img position='relative' width={130} src={logo} /></Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                        <Navbar.Collapse id="basic-navbar-navd" className='justify-content-end'>
+                        <Navbar.Collapse id="basic-navbar-navd" className='justify-content-end nav-left'>
                             <Nav className="me-auto">
                                 <Nav.Link  href="#home">Home</Nav.Link>
                                 <Nav.Link  href="#about" className='page-scroll'>A propos de nous</Nav.Link>
                                 <Nav.Link  href="#services" className='page-scroll'>Nos services</Nav.Link>
                                 <Nav.Link  href="#team" className='page-scroll'>Nos clients</Nav.Link>
-                                <Nav.Link  href="#contact" className='page-scroll'>Nous</Nav.Link>
+                                <Nav.Link  href="#contact" className='page-scroll'>Contactez nous</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </Container>
@@ -63,6 +70,7 @@ const NavBar = () => {
                     <li><a className="getstarted scrollto" href="#about">Get Started</a></li>
                     </ul>
                     <i className="bi bi-list mobile-nav-toggle"></i>
+                    <FontAwesomeIcon icon={faBars} className='mobile-nav-toggle'/>
                 </nav>
 
                 </div>
