@@ -27,7 +27,7 @@ const NavBar = () => {
                                 <Nav.Link  href="#home">Home</Nav.Link>
                                 <Nav.Link  href="#about" className='page-scroll'>A propos de nous</Nav.Link>
                                 <Nav.Link  href="#services" className='page-scroll'>Nos services</Nav.Link>
-                                <Nav.Link  href="#team" className='page-scroll'>Nos clients</Nav.Link>
+                                <Nav.Link  href="#clients" className='page-scroll'>Nos clients</Nav.Link>
                                 <Nav.Link  href="#contact" className='page-scroll'>Contactez nous</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>

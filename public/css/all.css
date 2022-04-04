@@ -4210,7 +4210,7 @@ textarea.form-control-lg {
     position: absolute;
   }
   .navbar-expand-lg .navbar-nav .nav-link {
-    padding-right: 0.5rem;
+    padding-right: 2.5rem;
     padding-left: 0.5rem;
   }
   .navbar-expand-lg .navbar-nav-scroll {
@@ -4412,10 +4412,19 @@ textarea.form-control-lg {
 .navbar-light .navbar-brand {
   color: #FFA670;
 }
+
+/* .getstarted{
+    background: #4154f1;
+    padding: 8px 20px;
+    margin-left: 30px;
+    border-radius: 4px;
+    color: #fff;
+} */
 .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
   color: #FFA670;
 }
 .navbar-light .navbar-nav .nav-link {
+  font-size: 16px;
   color: #019267;
 }
 .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link:focus {
@@ -6724,7 +6733,7 @@ textarea.form-control-lg {
 }
 
 .shadow-sm {
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+  /* box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important; */
 }
 
 .shadow-lg {
@@ -7808,7 +7817,9 @@ textarea.form-control-lg {
 
 .bg-light {
   --bs-bg-opacity: 1;
-  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important;
+  /* background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity)) !important; */
+  background-color: white !important;
+  /* backdrop-filter: blur(10px); */
 }
 
 .bg-dark {
@@ -11432,7 +11443,7 @@ section {
 */
 
 .navbar {
-  /* padding: 0; */
+  padding: 0;
 }
 .navbar ul {
   margin: 0;
@@ -11450,7 +11461,7 @@ section {
   justify-content: space-between;
   padding: 10px 0 10px 30px;
   /* font-family: "Nunito", sans-serif; */
-  /* font-size: 16px; */
+  font-size: 16px;
   font-weight: 400;
   color: #007155;
   white-space: nowrap;
@@ -11469,7 +11480,7 @@ section {
   padding: 8px 20px;
   margin-left: 30px;
   border-radius: 4px;
-  color: #fff;
+  color: #fff !important;
 }
 .navbar .getstarted:hover, .navbar .getstarted:focus:hover {
   color: #fff;
@@ -11630,7 +11641,7 @@ section {
 .hero {
   width: 100%;
   height: 100vh;
-  background: url(../images/herobackgroundImage.png) top center no-repeat;
+  background: url(../images/background.png) top center no-repeat;
   background-size: cover;
 }
 .hero h1 {
@@ -12671,16 +12682,19 @@ section {
 # Contact
 --------------------------------------------------------------*/
 .contact .info-box {
-    color: #444444;
-  background: #fafbff;
-  padding: 30px;
+  color: #444444;
+  /* background: #fafbff; */
+  /* backdrop-filter: blur(10px);
+  padding: 30px; */
 }
-
+.white{
+  color: white !important;
+}
 .contact{
   width: 100%;
   height: 100vh;
-  background: url(../images/bg/ImageContact.png) top center no-repeat;
-  background-size: cover !important;
+  background: url(../images/image.png) top center no-repeat;
+  background-size: cover;
 }
 
 .contact .info-box i {
@@ -12701,7 +12715,7 @@ section {
   margin-bottom: 0;
 }
 .contact .php-email-form {
-  background: #fafbff;
+  /* backdrop-filter: blur(10px); */
   padding: 30px;
   height: 100%;
 }
@@ -12958,7 +12972,7 @@ section {
   margin: 0 10px 10px 0;
 }
 .blog .blog-author .social-links a {
-  color: rgba(1, 41, 112, 0.5);
+  color: #FFA670;
   margin-right: 5px;
 }
 .blog .blog-author p {

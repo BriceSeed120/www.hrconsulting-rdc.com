@@ -1,9 +1,8 @@
-import React, { Component, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import ReactGA from 'react-ga'
 import logo from '../../../Images/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFacebook } from '@fortawesome/free-solid-svg-icons'
-
+import * as Icon from 'react-bootstrap-icons'
 
 
 
@@ -31,10 +30,14 @@ function Footer(){
                         </a>
                         <p>Recruitment (Selection of candidates using "Central Test" online tests) / Online Evaluations of employees / Employee Relations Management / Global HR Management Online Counseling / HR Specific Task Force</p>
                         <div className="social-links mt-3">
-                        <a href="#" className="twitter"><FontAwesomeIcon icon={faFacebook} /></a>
-                        <a href="#" className="facebook"><i className="bi bi-facebook"></i></a>
+                        <a href="#" className="twitter"><FontAwesomeIcon icon="fa-brands fa-facebook-f" /></a>
+                        <FontAwesomeIcon icon={['fab', 'facebook']} />
+                        {/* <a href="#" className="facebook"><i className="bi bi-facebook"></i></a>
                         <a href="#" className="instagram"><i className="bi bi-instagram"></i></a>
-                        <a href="#" className="linkedin"><i className="bi bi-linkedin"></i></a>
+                        <a href="#" className="linkedin"><i className="bi bi-linkedin"></i></a> */}
+                         <a className="facebook" target="_blank" href="https://www.facebook.com/"><Icon.Facebook className="icon social-icon" /></a> 
+                                        <a className="twitter" target="_blank" href="https://mobile.twitter.com/"><Icon.Twitter className="icon ml-3 social-icon" /></a>
+                                        <a className="linkedin" target="_blank" href="https://www.linkedin.com/company/"><Icon.Linkedin className="icon ml-3 social-icon" /></a>
                         </div>
                     </div>
 
@@ -80,10 +83,10 @@ function Footer(){
 
                 <div className="container row">
                     <div className="copyright col-md-6 col-xl-4">
-                        © Copyright <strong><span>HR Consulting RDC</span></strong>. All Rights Reserved
+                        © Copyright <strong><span>HR Consulting RDC {(new Date().getFullYear())}</span></strong>. All Rights Reserved 
                     </div>
                     <div className="copyright col-md-6 col-xl-4">
-                       Designed whit ❤ by <strong><span> <a href="http://seed120.com">Seed120</a></span></strong>
+                       Designed whit ❤ by <strong><span> <a href="http://seed120.com" target="_blank" rel="noopener noreferrer">Seed120</a></span></strong>
                     </div>
                 </div>
                 </footer>

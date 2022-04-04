@@ -20,10 +20,10 @@ class Index extends Component {
                 <Router>
                     <Switch>
                         <Route exact path='/' component={Home} />
-                        <Route path='/products/harvestdata'>
+                        {/* <Route path='/products/harvestdata'>
                             <HarvestData/>
-                        </Route>
-                        <Route path='/products/harvestams'>
+                        </Route> */}
+                        {/* <Route path='/products/harvestams'>
                             <HarvestAMS/>
                         </Route>
                         <Route path='/products/harvestcrm'>
@@ -34,7 +34,7 @@ class Index extends Component {
                         </Route>
                         <Route path='/products/harvestemis'>
                             <HarvestEMIS/>
-                        </Route>
+                        </Route> */}
                     </Switch>
                 </Router>
             </div>
