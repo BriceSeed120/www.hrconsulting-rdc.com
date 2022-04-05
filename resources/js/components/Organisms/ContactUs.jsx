@@ -62,7 +62,7 @@ class ContactUs extends React.Component {
                         </div>
     
                         <div className="col-md-6 ">
-                            <input id="Email" aria-describedby="emailHelp" placeholder="Votre Adrèsse mail" ref="myEmail" />
+                            <input id="Email" className="form-control" aria-describedby="emailHelp" placeholder="Votre Adrèsse mail" ref="myEmail" />
                         </div>
     
                         <div className="col-md-12">

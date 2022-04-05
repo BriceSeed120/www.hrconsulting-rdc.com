@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import SmoothScroll from 'smooth-scroll'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
+
+
 import $ from 'jquery'
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
@@ -36,6 +40,7 @@ class Home extends Component {
                 <ClientAndTech />
                 <ContactUs/>
                 <Footer/> 
+                <a href="#" class="back-to-top d-flex align-items-center justify-content-center active"><FontAwesomeIcon icon={faArrowUp} className='i white'/></a>
             </div>
         )
     }   

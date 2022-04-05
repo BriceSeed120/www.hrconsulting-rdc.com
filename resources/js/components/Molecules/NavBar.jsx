@@ -20,11 +20,11 @@ const NavBar = () => {
             <div>
                 <Navbar bg="light" className='shadow-sm' fixed="top" expand="lg">
                     <Container>
-                        <Navbar.Brand href="#"><img position='relative' width={130} src={logo} /></Navbar.Brand>
+                        <Navbar.Brand href="#"><img position='relative' width={200} src={logo} /></Navbar.Brand>
                         <Navbar.Toggle aria-controls="basic-navbar-nav" />
                         <Navbar.Collapse id="basic-navbar-navd" className='justify-content-end nav-left'>
                             <Nav className="me-auto">
-                                <Nav.Link  href="#home">Home</Nav.Link>
+                                <Nav.Link  href="#top">Home</Nav.Link>
                                 <Nav.Link  href="#about" className='page-scroll'>A propos de nous</Nav.Link>
                                 <Nav.Link  href="#services" className='page-scroll'>Nos services</Nav.Link>
                                 <Nav.Link  href="#clients" className='page-scroll'>Nos clients</Nav.Link>
