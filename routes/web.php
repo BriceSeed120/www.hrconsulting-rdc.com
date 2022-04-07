@@ -84,3 +84,6 @@ Route::group(['prefix' => 'dashboard', 'middleware' => ['web', 'auth']], functio
 require __DIR__.'/auth.php';
 
 Route::get('/{any?}', [FrontController::class, 'index'])->name('index')->where('any', '.*');
+
+//Email Route which we used in angular http service
+Route::post('send/email', [App\Http\Controllers\HomeController::class, 'mail'])->name('email');

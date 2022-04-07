@@ -1,47 +1,47 @@
-import React, { Component, useEffect, useRef } from 'react'
+import React, { Component, useEffect, useRef, useState } from 'react'
+import { Form, Button } from 'react-bootstrap'
 import emailjs from '@emailjs/browser'
-import axios from 'axios';
+import Contact from '../Atoms/Contact';
 
 import Fade from 'react-reveal/Fade';
 
-class ContactUs extends React.Component {
-    // const form = useRef()
+const Result = () =>{
+    return(
+        <p>
+            Your Message has been sent successfully. We will contact you soon
+        </p>
+    )
+}
 
-    // const sendEmail = (e) => {
-    //     e.preventDefault()
+const ContactUs = () => {
+    
+        // const form = useRef(null)
+        
+        // const sendEmail = (e) => {
+        //     e.preventDefault();
+        
+        //     emailjs.sendForm('service_l8chmyn', 'template_dkf512h', e.target, '0c2EesaOibc8opt9k')
+        //         .then((result) => {
+        //             console.log(result.text);
+        //         }, (error) => {
+        //             console.log(error.text);
+        //         })
+        // };
+        
+        const  [result,showResult] = useState(false)
+        const sendEmail = (e) => {
+            e.preventDefault()
 
-    //     emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, 'YOUR_USER_ID')
-    //     .then((result) => {
-    //         console.log(result.text);
-    //     }, (error) => {
-    //         console.log(error.text)
-    //     });
-    // }
-
-    constructor(props)
-        {
-        super(props);
-        this.addFormData = this.addFormData.bind(this);
-    }
-    // Mail Form Submission
-    addFormData(evt)
-        {
-            evt.preventDefault();
-            const fd = new FormData();
-            fd.append('myUsername', this.refs.myUsername.value);
-            fd.append('myEmail', this.refs.myEmail.value);
-            fd.append('textquery', this.refs.textquery.value);
-            
-            axios.post('http://localhost/laravel8/public/api/send/email', fd).then(res=>{        
-                this.myFormRef.reset();
-                //Success Message in Sweetalert modal
-                console.log('Email sent');            
+            emailjs.sendForm('service_l8chmyn', 'template_dkf512h', e.target, '0c2EesaOibc8opt9k')
+                .then((result) => {
+                    console.log(result.text)
+                }, (error) => {
+                    console.log(error.text)
+                });
+                e.target.reset()
+                showResult(true)
             }
-            );
-        }
-    render(){
         return(
-            <>
                 <section id="contact" className="contact">
     
                 <div className="container aos-init aos-animate" data-aos="fade-up">
@@ -54,23 +54,23 @@ class ContactUs extends React.Component {
                 <div className="row gy-4">
     
                     <div className="col-lg-6">
-                    <form className="php-email-form" ref={(el) => this.myFormRef = el}>
+                    {/* <form onSubmit={sendEmail} className="php-email-form">
                         <div className="row gy-4">
     
                         <div className="col-md-6">
-                            <input type="text" className="form-control" placeholder="Votre nom"  id="Username" ref="myUsername" required="" />
+                            <input type="text" className="form-control" id="name" name='name' placeholder="Votre nom" />
                         </div>
     
                         <div className="col-md-6 ">
-                            <input id="Email" className="form-control" aria-describedby="emailHelp" placeholder="Votre Adrèsse mail" ref="myEmail" />
+                            <input id="email" name='email' className="form-control" placeholder="Votre Adrèsse mail" ref="myEmail" />
                         </div>
     
                         <div className="col-md-12">
-                            <input type="text" className="form-control" name="user_phonenumber" placeholder="Numero de téléphone" required="" />
+                            <input type="text" className="form-control" id="phone" name='phone' placeholder="Votre nulero de téléphone" ref="myPhoneNumber" />
                         </div>
     
                         <div className="col-md-12">
-                            <textarea className="form-control" name="message" rows="6" placeholder="Méssage" required=""></textarea>
+                            <textarea className="form-control" id="textquery" name='message' placeholder="Enter Query" ref="textquery" />
                         </div>
     
                         <div className="col-md-12 text-center">
@@ -82,7 +82,59 @@ class ContactUs extends React.Component {
                         </div>
     
                         </div>
-                    </form>
+                    </form> */}
+
+                    <Form onSubmit={sendEmail} className="php-email-form">
+                        <Form.Group controlId="formName">
+                            <Form.Label></Form.Label>
+                            <Form.Control
+                            type="text"
+                            name="from_name"
+                            placeholder="Full Name"
+                            className=""
+                            />
+                        </Form.Group>
+                        <Form.Group controlId="formEmail">
+                            <Form.Label></Form.Label>
+                            <Form.Control
+                            type="text"
+                            name="from_mail"
+                            placeholder="Email"
+                            className=""
+                            />
+                        </Form.Group>
+                        <Form.Group controlId="formPhone">
+                            <Form.Label></Form.Label>
+                            <Form.Control
+                            type="text"
+                            name="from_phone_number"
+                            placeholder="Phone"
+                            className=""
+                            />
+                        
+                        </Form.Group>
+                        <Form.Group controlId="formBlog">
+                            <Form.Label></Form.Label>
+                            <Form.Control
+                            as="textarea" 
+                            rows={3} 
+                            name="message"
+                            placeholder="Message"
+                            className=""
+                            />
+                        </Form.Group>
+                        <br />
+                        <div className="row">
+                            <div className="col">
+                                <button className='btn-block' type="submit" value="Send">Envoyer un méssage</button>
+                            </div>
+                        </div>
+                        <div className="row">
+                            {
+                                result ? <Result/> : null 
+                            } 
+                        </div>
+                    </Form>
     
                     </div>
     
@@ -91,9 +143,7 @@ class ContactUs extends React.Component {
                 </div>
     
                 </section>
-            </>
         )
-    }
     
 }
 

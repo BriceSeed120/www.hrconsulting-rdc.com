@@ -40,7 +40,7 @@ class Home extends Component {
                 <ClientAndTech />
                 <ContactUs/>
                 <Footer/> 
-                <a href="#" class="back-to-top d-flex align-items-center justify-content-center active"><FontAwesomeIcon icon={faArrowUp} className='i white'/></a>
+                <a href="#" className="back-to-top d-flex align-items-center justify-content-center active"><FontAwesomeIcon icon={faArrowUp} className='i white'/></a>
             </div>
         )
     }   
